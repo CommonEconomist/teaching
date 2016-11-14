@@ -1,5 +1,5 @@
 #------------------------------------------------------------------------------
-				# Tutorial 4: Regression analysis
+				# Tutorial 6: Regression analysis
 #------------------------------------------------------------------------------
 
 setwd("~/Dropbox/ucd/data_analysis") # Set working directory
