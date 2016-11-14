@@ -1,5 +1,5 @@
 #------------------------------------------------------------------------------
-				# Tutorial 4: Exploratory data analysis
+				# Tutorial 5: Exploratory data analysis
 #------------------------------------------------------------------------------
 
 setwd("~/Dropbox/ucd/data_analysis") # Set working directory
