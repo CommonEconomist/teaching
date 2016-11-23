@@ -15,7 +15,7 @@ options(scipen=4)
 # (i) generate questions about the data, (ii) search for answers by visualising
 # and transforming the data, and (iii) and refine questions based on what we've
 # see. 
-# In this tutorial we are going to work with some data from the World Bank,
+# In this tutorial we are going to work with some data from the World Bank;
 # the World Development Indicators. 
 # When you load the dataset, most variable names will be pretty 
 # self-explanatory.
@@ -27,9 +27,9 @@ load("WDI.RData")
 
 #------------------------------------------------------------------------------
 #### 1) Socio-economic well-being ####
-# Public discussion often center on the Gross Domestic Product (GDP). 
-# Now the GDP can be a useful yardstick, but as Robert Kennedy said, 
-# it measures everything except that is worthwile. 
+# Public discussion often centers on the Gross Domestic Product (GDP). 
+# Now GDP can be a useful yardstick, but as Robert Kennedy said, 
+# it measures everything except that which is worthwile. 
 # The philiposphical ramifactions of this statement being that there is more 
 # to life than being productive. 
 # GDP as you might know is simply a monetary measure of of all the final goods 
@@ -53,13 +53,14 @@ plot(wdi15$population,wdi15$gdp_constant,log="xy",xlab="Population",ylab="GDP")
 # population and GDP, or productivity. 
 # But does this also mean that a country with a large population such as 
 # India is richer compared to for instance Belgium?
-# Let's first check this with this data:
+# Let's first check this with the data:
 points(wdi15[wdi15$country=="India",]$population,
-       wdi15[wdi15$country=="India",]$gdp_constant,pc=19,col="blue")
+       wdi15[wdi15$country=="India",]$gdp_constant,pch=19,col="blue")
 points(wdi15[wdi15$country=="Belgium",]$population,
-       wdi15[wdi15$country=="Belgium",]$gdp_constant,pc=19,col="red")
+       wdi15[wdi15$country=="Belgium",]$gdp_constant,pch=19,col="red")
 
-# In absolute terms this seems to be the case. 
+# In absolute terms it seems that countries with larger population are indeed
+# more productive. 
 # But you can observe by the position of the dots that Belgium has a rather high
 # GDP for it's population. 
 # Let's see how things changes when we account for population size by using
@@ -67,20 +68,20 @@ points(wdi15[wdi15$country=="Belgium",]$population,
 plot(wdi15$population,wdi15$gdp_pc_constant,log="xy",
      xlab="Population",ylab="GDP per capita")
 points(wdi15[wdi15$country=="India",]$population,
-       wdi15[wdi15$country=="India",]$gdp_pc_constant,pc=19,col="blue")
+       wdi15[wdi15$country=="India",]$gdp_pc_constant,pch=19,col="blue")
 points(wdi15[wdi15$country=="Belgium",]$population,
-       wdi15[wdi15$country=="Belgium",]$gdp_pc_constant,pc=19,col="red")
+       wdi15[wdi15$country=="Belgium",]$gdp_pc_constant,pch=19,col="red")
 
 ## Q1: What would be your conclusions concerning the relation between GDP
 # and population?
-# Which country has the highest GDP per capita and which the lowest?
 
-## Q2: In an important area of research in economics is the relation with
-# urbanisation. 
+## Q2: An important area of research in economics is the relation between 
+# productivity and urbanisation. 
 # Urbanisation often coincides with a shift from an agricultural to 
 # a more industrial society meaning increases in productivity and higher
 # income levels. 
 # Does the data show a relation between urbanisation, income, and income growth?
+# Create some plots to find out. 
 
 # We continue by examing the relation between income and other development
 # indicators such as the infant mortality rate. 
