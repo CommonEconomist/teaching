@@ -16,17 +16,19 @@ par(las=1,bty="n")                   # Plot settings
 #------------------------------------------------------------------------------
 #### 1) Example using simulated data ####
 
-# OLS is a type of linear regression model in which we try to model the 
+# OLS is a linear regression method in which we try to model the 
 # relationship between outcome variable Y and explanatory variable(s) X using
 # a linear predictor function like Y=alpha+beta*X.
-# Here the parameters in the model are estimated using the data. 
-# Let's start with the data generating process by, in this case, randomly
-# generating data such that we know the actual relationship.
-# We will generate Y=2X. 
-set.seed(42);x=runif(1000) # Exogenous variable
-y=2*x                      # Outcome variable
+# We fit model to the data using a straight line to describe a relation, trying
+# to minimise the error between the observed data and fitted values. 
+# Let's check how this works by first examining this with randomly generated
+# data where we actually know the exact data generating process. 
+# In this case we ill generate Y as Y=2*X. 
+set.seed(42);x=runif(1000) # Exogenous variable x
+y=2*x                      # Outcome variable y
 
-# We also create some noise to add a degree of randomness to both variables:
+# For good measure we create some noise to add an extra degree of randomness 
+# to both variables.
 X=x+.1*rnorm(1000,0,1)
 Y=y+.1*rnorm(1000,0,1)
 
@@ -111,9 +113,9 @@ cor(y,x)
  
 
 ## Q3: As we discussed before, when we run a regression we fit a linear model
-# to the data of the form Y=a+b*X+e. 
-# In this model the estimated coefficient b is basically the covariance
-# of X and Y divided by the variance of X. 
+# to the data of the form Y=a+b*X. 
+# In this model the estimated coefficient b is basically the covariance ('cov')
+# of X and Y divided by the variance ('var') of X. 
 # Calculate the coefficient for midparent hight using the variance and 
 # covariance and also calculate the intercept. 
 

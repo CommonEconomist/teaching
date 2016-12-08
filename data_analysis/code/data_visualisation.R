@@ -105,7 +105,7 @@ boxplot(data~index)
 # http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0053967
 # The data consists of estimates of whale size for different species. 
 # Load said file using the following command:
-whales<-read.csv("data/whales.csv",header=TRUE,sep=",",stringsAsFactors=FALSE)
+whales<-read.csv("whales.csv",header=TRUE,sep=",",stringsAsFactors=FALSE)
 
 # Let's check the data we just loaded
 str(whales) 
@@ -143,7 +143,7 @@ boxplot(mass_kg~family,whales,horizontal=TRUE,log="x")
 # For his most famous work he used data on the number of officers in the 
 # Prussian cavalry which were kicked to deaths. 
 # The data spans 20 years and covers 14 corps, corps as in military units. 
-prussia<-read.csv("data/prussian.csv",stringsAsFactors=FALSE)
+prussia<-read.csv("prussian.csv",stringsAsFactors=FALSE)
 
 ## Q8: Examine the fatality data and discuss what type of distribution would
 # best fit the data. 

@@ -20,7 +20,7 @@ par(las=1,bty="n")                    # Settings for plots
 # The data is taken from the IMF and covers the period from January 1980 up 
 # untill September 2016. 
 # Data source: http://www.imf.org/external/np/res/commod/index.aspx
-coffee<-read.csv("coffee.csv",header=TRUE,sep=",")
+coffee<-read.csv("data/coffee.csv",header=TRUE,sep=",")
 summary(coffee)
 
 # There are different libraries for working with time-series data in R, but
@@ -53,7 +53,7 @@ axis(2,tick=FALSE)
 arabica<-window(arabica,start=c(1980,1),end=c(2015,12))
 
 # Time series data often exhibit trends and seasonality. 
-# These are things we have to acocunt for in the analysis. 
+# These are things we have to account for in the analysis. 
 # We can decompose time series by using a moving average to smooth the data, 
 # and separate it into a trend and irregular component. 
 # Let's try this with the coffee data.
