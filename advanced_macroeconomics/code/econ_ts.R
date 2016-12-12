@@ -146,12 +146,12 @@ axis(2,tick=FALSE)
 #------------------------------------------------------------------------------
 #### 9) HP-filter consumption and investment ####
 par(mfrow=c(2,1),mar=c(5,5,1,1))
-plot(window(Cdt,start=c(1946,1)),xlab="",ylab="",axes=FALSE,ylim=c(-.45,.35),
+plot(window(Cdt,start=c(1946,1)),xlab="",ylab="",axes=FALSE,ylim=c(-.15,.35),
      lwd=2)
 axis(2,tick=FALSE)
 text(1950,.075,"Consumption",cex=1.7)
 
-plot(window(Idt,start=c(1946,1)),xlab="",ylab="",axes=FALSE,ylim=c(-.45,.35),
+plot(window(Idt,start=c(1946,1)),xlab="",ylab="",axes=FALSE,ylim=c(-.15,.35),
      lwd=2)
 axis(1,tick=FALSE)
 axis(2,tick=FALSE)
