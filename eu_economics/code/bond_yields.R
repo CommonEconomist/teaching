@@ -1,5 +1,6 @@
 # Bond yields for PIGS economies
 # (Include Germany as reference)
+
 # Load data
 bonds<-read.csv("data_raw/eu_bonds_lt.csv",header=TRUE)
 
