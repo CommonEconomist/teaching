@@ -13,7 +13,7 @@ rice<-ts(imf$Rice,start=c(1980,1),frequency=12)
 
 # Plot raw data
 par(mfrow=c(1,1))
-plot(rice,xlab="",ylab="",main="Rice",axes=FALSE,lwd=2,ylim=c(100,1200))
+plot(rice,xlab="",ylab="",main="",axes=FALSE,lwd=2,ylim=c(100,1200))
 axis(1,tick=FALSE)
 axis(2,tick=FALSE)
 

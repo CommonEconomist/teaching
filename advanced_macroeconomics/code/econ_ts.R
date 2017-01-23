@@ -71,7 +71,7 @@ infl.us.sd5<-rollapply(infl.us,width=5,FUN=sd)
 
 #------------------------------------------------------------------------------
 #### 4) GDP per capita UK 1700-2015 ####
-par(mar=c(4,5,2,1))
+par(mar=c(4,5,2,1),las=1)
 
 plot(gdp.cap.uk,type="l",axes=FALSE,xlab="",ylab="",lwd=2)
 axis(1,tick=FALSE)
@@ -120,7 +120,8 @@ text(1946.5,.03,"HP-filter",cex=1.5)
 
 #------------------------------------------------------------------------------
 #### 8) HP-filtered data US ####
-plot(gdp.us.dt,type="n",xlab="",ylab="",axes=FALSE,ylim=c(-.15,.15))
+plot(window(gdp.us.hp.dt,start=c(1946,1)),type="n",
+     xlab="",ylab="",axes=FALSE,ylim=c(-.15,.1))
 
 # Recessions in US (approximately)
 rect(1929+8/12,-.15,1933+3/12,.15,col="grey90",lwd=0)
