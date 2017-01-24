@@ -35,7 +35,7 @@ mortality<-data.frame(GEO=unique(mort$GEO),
                      deaths.u5=mort[mort$AGE=="Less than 5 years" & 
                                        mort$SEX=="Total" & 
                                        mort$TIME==2014,]$Value,
-                     deaths.middle.ages=mid_life<-mort[
+                     deaths.middle.aged=mid_life<-mort[
                        mort$AGE=="From 45 to 49 years" & 
                          mort$SEX=="Total" & mort$TIME==2014,]$Value +
                          mort[mort$AGE=="From 50 to 54 years" & 
@@ -59,15 +59,31 @@ doc<-read.csv("data_raw/hlth_rs_prsrg_1_Data.csv");str(doc)
 doctors<-data.frame(GEO=unique(doc$GEO),inh.per.doc=doc[doc$TIME==2014,]$Value)
 
 #------------------------------------------------------------------------------
-#### 5) Indicators ####
+#### 5) Country code ####
 require(stringr)
 nuts2<-unique(as.character(mort$GEO))
-country<-(str_extract(nuts2,"[aA-zZ]+"))
+geo<-(str_extract(nuts2,"[aA-zZ]+"))
+ccode<-substring(geo,1,2)
 
 #------------------------------------------------------------------------------
 #### 6) Merge data ####
-df<-data.frame(GEO=unique(mort$GEO),ISO2C=country)
+df<-data.frame(GEO=unique(mort$GEO),CCODE=ccode)
 dat<-merge(df,mortality,all.x=TRUE)
 dat<-merge(dat,population,all.x=TRUE)
 dat<-merge(dat,income,all.x=TRUE)
 dat<-merge(dat,doctors,all.x=TRUE)
+
+#------------------------------------------------------------------------------
+#### 7) Create some categorical variables ####
+# - Dummy variable for former Warschau pact countries
+# - Dummy for areas that qualify for structural funds
+# - Three income categories
+
+
+
+
+
+
+eurostat<-dat
+
+save(eurostat,file="data/Eurostat.RData")
