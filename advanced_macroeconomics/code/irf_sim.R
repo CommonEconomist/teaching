@@ -17,5 +17,5 @@ plot(y1,type="l",lwd=2,ylim=c(-.1,1.7),xlab="",ylab="",axes=FALSE)
 lines(y2,lwd=2,col="steelblue4",lty=2)
 axis(1,tick=FALSE,at=1:20);axis(2,tick=FALSE)
 
-text(2.3,y1[2]-.15,cex=1.5,"Y=.6*Yt-1+.3*Yt-2")
-text(3.3,y2[3]+.05,cex=1.5,"Y=1.5*Yt-1-.6*Yt-2")
+text(2.4,y1[2]-.15,cex=1.5,expression(y==paste(0.6*y[t-1]+0.3*y[t-2])))
+text(3.3,y2[3]+.05,cex=1.5,expression(y==paste(1.5*y[t-1]-0.6*y[t-2])))
