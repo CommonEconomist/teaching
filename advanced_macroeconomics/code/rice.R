@@ -26,7 +26,7 @@ deflator<-ts(ppi$def,start=c(1980,1),frequency=12)
 rice.r<-rice/deflator
 
 # Plot data along with nominal prices
-plot(rice.r,xlab="",ylab="",main="Rice",axes=FALSE,lwd=2,col="steelblue4",
+plot(rice.r,xlab="",ylab="",main="",axes=FALSE,lwd=2,col="steelblue4",
      ylim=c(100,1200))
 lines(rice,lwd=2,lty=2)
 axis(1,tick=FALSE)
@@ -41,7 +41,7 @@ plot(rice.dt)
 # Follow standard practice by using the change in logarithmic prices
 rice.pc=log(rice.r)-log(lag(rice.r,k=-1))
 
-plot(rice.pc,xlab="",ylab="",main="Rice",axes=FALSE,lwd=2,ylim=c(-.3,.45),
+plot(rice.pc,xlab="",ylab="",main="",axes=FALSE,lwd=2,ylim=c(-.3,.45),
      type="h")
 abline(h=0,lty=2)
 axis(1,tick=FALSE);axis(2,tick=FALSE)
