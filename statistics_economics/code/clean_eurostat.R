@@ -115,12 +115,14 @@ euro2012<-data.frame(CCODE=unique(ccode),
                              0,0,0,0))
 dat<-merge(dat,euro2012,all.x=TRUE)
 
+# Above average mortality rate
+dat$mortality.hi<-ifelse(dat$mortality>mean(dat$mortality,na.rm=TRUE),1,0)
 
 #------------------------------------------------------------------------------
 #### 9) Subset and save data ####
 eurostat<-dat[,c("GEO","CCODE","mortality","infant.mortality",
-                 "female.mortality","middle.aged.mortality","eur.pc","pps.pc",
-                 "inh.per.doc","income","structural.funds","eastbloc",
-                 "euro2012")]
+                 "female.mortality","middle.aged.mortality","mortality.hi",
+                 "eur.pc","pps.pc","inh.per.doc","income",
+                 "structural.funds","eastbloc","euro2012")]
 
 save(eurostat,file="data/Eurostat.RData")
