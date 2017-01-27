@@ -8,8 +8,7 @@ s1<-sample(db,100,replace=FALSE)
 s2<-sample(db,100,replace=FALSE)
 t.test(s1,s2)
 
-
-# Avergae temperature: Madrid and Chicago
+# Average temperature: Madrid and Chicago
 set.seed(42)
 t1<-rnorm(50,14.5,7.1)
 t2<-rnorm(50,9.7,10.5)
