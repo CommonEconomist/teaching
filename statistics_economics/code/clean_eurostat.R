@@ -98,7 +98,7 @@ dat$eastbloc<-ifelse(dat$CCODE %in% wp,1,0)
 
 # Structural funds
 # Qualifies when GDP is lower than 75% of EU average
-dat$structural.funds<-ifelse(dat$eur.pc< .75*mean(dat$eur.pc,na.rm=TRUE),1,0)
+dat$structural.fund<-ifelse(dat$eur.pc< .75*mean(dat$eur.pc,na.rm=TRUE),1,0)
 
 # Income groups
 q<-as.numeric(quantile(dat$eur.pc,probs=c(.25,.5,.75),na.rm=TRUE))
@@ -123,6 +123,9 @@ dat$mortality.hi<-ifelse(dat$mortality>mean(dat$mortality,na.rm=TRUE),1,0)
 eurostat<-dat[,c("GEO","CCODE","mortality","infant.mortality",
                  "female.mortality","middle.aged.mortality","mortality.hi",
                  "eur.pc","pps.pc","inh.per.doc","income",
-                 "structural.funds","eastbloc","euro2012")]
+                 "structural.fund","eastbloc","euro2012")]
+# Drop Non-EU countries
+eurostat$noneu<-ifelse(eurostat$CCODE %in% c("AL","CH","NO","TR","IS"),1,0)
+df<-eurostat[eurostat$noneu==0,]
 
-save(eurostat,file="data/Eurostat.RData")
+save(df,file="data/Eurostat.RData")
