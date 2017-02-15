@@ -67,7 +67,7 @@ ccode<-substring(geo,1,2)
 
 #------------------------------------------------------------------------------
 #### 6) Merge data ####
-df<-data.frame(GEO=unique(mort$GEO),CCODE=ccode)
+df<-data.frame(GEO=unique(mort$GEO),ccode=ccode)
 dat<-merge(df,mortality,all.x=TRUE)
 dat<-merge(dat,population,all.x=TRUE)
 dat<-merge(dat,income,all.x=TRUE)
@@ -88,17 +88,25 @@ dat$middle.aged.mortality<-dat$deaths.middle.aged/
 #------------------------------------------------------------------------------
 #### 8) Create some categorical variables ####
 # - Dummy variable for former Warsaw pact countries and Soviet states
-# - Dummy for areas that qualify for structural funds
+# - Dummy for candidate countries
+# - Dummy for EFTA countries 
 # - Income groups (4)
 # - Round reached at Euro 2012
+# - Dummy for areas that qualify for structural funds
 
 # Eastbloc
-wp<-c("BG","CZ","SK","HU","PL","RO","EE","LT","LV")
-dat$eastbloc<-ifelse(dat$CCODE %in% wp,1,0)
+dat$eastbloc<-ifelse(dat$ccode %in% c("BG","CZ","SK","HU","PL",
+                                      "RO","EE","LT","LV"),1,0)
+# Candidate countries (excluding Iceland)
+dat$candidate<-ifelse(dat$ccode %in% c("AL","IS","MK","ME","RS","TR"),1,0)
+
+# EFTA countries
+dat$efta<-ifelse(dat$ccode %in% c("CH","IS","LI","NO"),1,0)
 
 # Structural funds
-# Qualifies when GDP is lower than 75% of EU average
+# Qualifies when GDP is lower than 75% of EU average, and is part of EU
 dat$structural.fund<-ifelse(dat$eur.pc< .75*mean(dat$eur.pc,na.rm=TRUE),1,0)
+dat$structural.fund[dat$candidate==1 | dat$efta==1]<-NA
 
 # Income groups
 q<-as.numeric(quantile(dat$eur.pc,probs=c(.25,.5,.75),na.rm=TRUE))
@@ -109,7 +117,7 @@ dat$q4<-ifelse(dat$eur.pc>q[3],4,0)
 dat$income=dat$q1+dat$q2+dat$q3+dat$q4
 
 # Euro 2012
-euro2012<-data.frame(CCODE=unique(ccode),
+euro2012<-data.frame(ccode=unique(ccode),
                      euro2012=c(0,0,2,1,3,0,1,2,4,2,1,4,0,0,0,0,
                              0,0,1,0,1,3,0,0,0,0,1,2,0,0,0,0,
                              0,0,0,0))
@@ -120,14 +128,13 @@ dat$mortality.hi<-ifelse(dat$mortality>mean(dat$mortality,na.rm=TRUE),1,0)
 
 #------------------------------------------------------------------------------
 #### 9) Subset and save data ####
-eurostat<-dat[,c("GEO","CCODE","mortality","infant.mortality",
+eurostat<-dat[,c("GEO","ccode","mortality","infant.mortality",
                  "female.mortality","middle.aged.mortality","mortality.hi",
                  "eur.pc","pps.pc","inh.per.doc","income",
-                 "structural.fund","eastbloc","euro2012")]
-# Drop Non-EU countries
-eurostat$noneu<-ifelse(eurostat$CCODE %in% c("AL","CH","NO","TR","IS"),1,0)
-df<-eurostat[eurostat$noneu==0,]
-df$noneu<-NULL
-df$CCODE<-factor(df$CCODE)
+                 "structural.fund","eastbloc","candidate","efta","euro2012")]
+
+# Drop regions without observations for mortality rate
+df<-eurostat[!(is.na(eurostat$mortality)),]
+df$ccode<-factor(df$ccode)
 
 save(df,file="data/Eurostat.RData")
