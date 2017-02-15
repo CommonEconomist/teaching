@@ -127,5 +127,7 @@ eurostat<-dat[,c("GEO","CCODE","mortality","infant.mortality",
 # Drop Non-EU countries
 eurostat$noneu<-ifelse(eurostat$CCODE %in% c("AL","CH","NO","TR","IS"),1,0)
 df<-eurostat[eurostat$noneu==0,]
+df$noneu<-NULL
+df$CCODE<-factor(df$CCODE)
 
 save(df,file="data/Eurostat.RData")
