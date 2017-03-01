@@ -1,4 +1,4 @@
-## T-test example
+## t-test example
 
 # Population
 set.seed(42)
@@ -15,8 +15,10 @@ t2<-rnorm(50,9.7,10.5)
 t.test(t1,t2)
 
 # Winning time of the Oxford-Cambridge boat race
-boat_race_90s<-c(17.22,16.59,17.44,17.00,18.09,18.04,16.58,17.38,16.19,16.41)
-boat_race_00s<-c(18.04,19.59,16.54,18.06,18.47,16.42,18.26,17.49,20.53,17.00)
+boat_race_90s<-c(17.22,16.59,17.44,17.00,18.09,
+                 18.04,16.58,17.38,16.19,16.41)
+boat_race_00s<-c(18.04,19.59,16.54,18.06,18.47,
+                 16.42,18.26,17.49,20.53,17.00)
 t.test(boat_race_90s,boat_race_00s,alternative="less")
 
 
