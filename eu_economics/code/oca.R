@@ -48,8 +48,40 @@ axis(2,tick=FALSE)
 #### 3) Public debt ####
 d<-read.csv("data_raw/public_debt.csv",stringsAsFactors=FALSE)
 
+# Aggregate data to create average
 require(plyr)
 d<-ddply(d,.(GEO),summarise,debt=mean(Value,na.rm=TRUE))
 d<-d[-9:-15,]
 
 # Change name for Germany
+d$GEO[d$GEO=="Germany (until 1990 former territory of the FRG)"]<-"Germany"
+require(countrycode)
+d$iso2c<-countrycode(d$GEO,"country.name","iso2c",warn=TRUE)
+d<-na.omit(d[order(d$debt),])
+
+# Plot data
+barplot(d$debt,xaxt="n",yaxt="n",ylab="",border=F,width=c(.35),space=1.8,
+        horiz=TRUE,col="black")
+axis(2,at=(1:29)-.26,labels=d$iso2c, tick=F)
+axis(1,tick=F)
+abline(v=seq(0,130,10),col="white",lwd=3)
+abline(v=0,col="gray",lwd=2)
+abline(v=60,lty=2)
+
+#------------------------------------------------------------------------------
+#### 4) Public opinion on Europe ####
+p<-read.csv("data_raw/eurobarometer.csv")
+p$d<-as.numeric(p$Date)
+p<-p[p$d==2,]
+p$value<-p$Often*100
+p<-p[order(p$value),]
+
+# Plot data
+par(mar=c(4,10,1,1))
+barplot(p$value,xaxt="n",yaxt="n",ylab="",border=F,width=c(.35),space=1.8,
+        horiz=TRUE,col="black")
+axis(2,at=(1:12)-.26,labels=p$Country, tick=F)
+axis(1,tick=F)
+abline(v=seq(0,35,5),col="white",lwd=3)
+abline(v=0,col="gray",lwd=2)
+
