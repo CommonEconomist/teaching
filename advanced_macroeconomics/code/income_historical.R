@@ -4,14 +4,13 @@
 par(bty="n",las=1,cex.axis=1.5,cex.lab=1.5)
 
 # Load data and write to vectors
-maddison<-read.csv("maddison.csv",header=TRUE)
+maddison<-read.csv("data/maddison.csv",header=TRUE)
 maddison<-maddison[maddison$Year>=1700,] # Subset due to missing values
 
 year<-maddison$Year
 nld<-maddison[,2] # Netherlands
 zaf<-maddison[,3] # South Africa (Cape Colony)
 idn<-maddison[,4] # Indonesia (Java)
-
 
 # Plot data
 plot(year,nld,ylim=c(450,26000),xlim=c(1700,2020),type="b",log="y",

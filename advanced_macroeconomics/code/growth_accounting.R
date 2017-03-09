@@ -1,5 +1,4 @@
-# Code to create figures for lecture:
-# "Growth accounting"
+# Figures for lecture on Growth Accounting
 par(bty="n",las=1,cex.axis=1.5,cex.lab=1.5,cex.main=1.7)
 require(WDI)
 
