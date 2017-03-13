@@ -1,24 +1,56 @@
-# Figures for lecture on economic growth in the EU
-
+# Figures for lecture on EU and economic growth
 #------------------------------------------------------------------------------
-#### Characteristics new EU member states ####
 require(WDI)
-
-# Focus on GDP and trade relative to GDP
 gdp_m<-WDIsearch("gdp",field="name",short=FALSE)
-trade_m<-WDIsearch("trade",field="name",short=FALSE)
-wdi<-WDI(c("CZ","BG","EE","HU","LV","LT","MT","PL","RO","SK","SI","DE"),
-         c(gdp_m[89,1],trade_m[108,1]),start=2004,end=2004) 
+wdi<-WDI(c("US","BE","LU","NL","DE","FR","IT","AT","FI","SE",
+          "DK","GB","IE","ES","PT","GR"),
+         c(gdp_m[87,1],gdp_m[94,1],gdp_m[95,1]),start=1961,end=2015) 
+wdi<-wdi[order(wdi$iso2c,wdi$year),]
 
-wdi$GDP<-wdi[,4]/wdi[wdi$country=="Germany",][,4] # GDP relative to Germany
+# Data to time series
+require(plyr)
+us<-ts(wdi[,4][wdi$iso2c=="US"],start=c(1961,1),frequency=1)
+eu15<-ddply(wdi[wdi$iso2c!="US",],.(year),summarise,
+            gdp.g=mean(NY.GDP.MKTP.KD.ZG,na.rm=TRUE),
+            gdp.cap=mean(NY.GDP.PCAP.KD,na.rm=TRUE))
+eu15.g<-ts(eu15$gdp.g,start=c(1961,1),frequency=1)
 
-# Plot data
-par(mar=c(5,5,1,1),pty="s",bty="n",las=1,cex.axis=1.5,cex.lab=1.5)
-plot(wdi[,5],wdi$GDP,ylim=c(0,.25),axes=FALSE,pch=19,
-     xlab="Trade % of GDP", ylab="GDP relative to Germany")
-text(wdi[,5],wdi$GDP+.01,wdi$iso2c,cex=1.3)
+gdp.g.d<-eu15.g-us
+
+## Figure: Growth of EU15 compared to US
+par(mar=c(5,5,1,1),bty="n",las=1,cex.axis=1.5,cex.lab=1.5)
+plot(gdp.g.d,ylim=c(-5,5),xlab="",ylab="GDP growth relative to US",axes=FALSE,
+     type="h",lwd=5)
 axis(1,tick=FALSE)
 axis(2,tick=FALSE,line=-1)
+
+# Function for drawing lines 
+lifeLines<-function(series,col="black",hcol="black",lwd=1,hlwd=2){
+  for (i in 1:length(series[,1])){
+    lines(startYear:endYear,series[i,],col=col,lwd=lwd)
+  }
+}
+
+
+# Reshape data from long to wide
+require(reshape2)
+dat.l<-wdi[,c("country","year","NY.GDP.PCAP.KD")]
+dat.l<-dat.l[order(dat.l$country,dat.l$year),]
+dat.w<-reshape(dat.l,timevar="year",idvar=c("country"),direction="wide")
+rownames(dat.w)<-dat.w$country; m<-round(dat.w[,-1],2)
+startYear<-min(dat.l$year);endYear<-max(dat.l$year)
+
+
+# Figure GDP per capita over time
+par(las=1,tck=0.02,mar=c(4,5,3,5),mgp=c(2.8,0.3,2.8),
+    cex.lab=1.2,cex.axis=1.2,cex.main=0.9)
+plot(0,xlim=c(startYear,endYear),ylim=c(2000,110000),type="n",bty="n",
+     main="",xlab="",ylab="GDP per capita",axes=FALSE,log="y")
+ 
+lifeLines(m,col="grey60")
+lines(startYear:endYear,m[16,],col="black",lwd=2.5)
+axis(1,tick=FALSE); axis(2,tick=FALSE)
+
 
 #------------------------------------------------------------------------------
 # Tracking economic development since EU membership
@@ -159,3 +191,23 @@ abline(h=mean(window(pol,end=c(2004)),na.rm=TRUE),lty=2)
 axis(2,tick=FALSE)
 axis(1,tick=FALSE)
 text(1960,.4,"Poland",cex=1.5)
+
+#------------------------------------------------------------------------------
+#### Characteristics new EU member states ####
+require(WDI)
+
+# Focus on GDP and trade relative to GDP
+gdp_m<-WDIsearch("gdp",field="name",short=FALSE)
+trade_m<-WDIsearch("trade",field="name",short=FALSE)
+wdi<-WDI(c("CZ","BG","EE","HU","LV","LT","MT","PL","RO","SK","SI","DE"),
+         c(gdp_m[89,1],trade_m[108,1]),start=2004,end=2004) 
+
+wdi$GDP<-wdi[,4]/wdi[wdi$country=="Germany",][,4] # GDP relative to Germany
+
+# Plot data
+par(mar=c(5,5,1,1),pty="s",bty="n",las=1,cex.axis=1.5,cex.lab=1.5)
+plot(wdi[,5],wdi$GDP,ylim=c(0,.25),axes=FALSE,pch=19,
+     xlab="Trade % of GDP", ylab="GDP relative to Germany")
+text(wdi[,5],wdi$GDP+.01,wdi$iso2c,cex=1.3)
+axis(1,tick=FALSE)
+axis(2,tick=FALSE,line=-1)
