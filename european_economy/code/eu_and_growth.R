@@ -44,12 +44,13 @@ startYear<-min(dat.l$year);endYear<-max(dat.l$year)
 # Figure GDP per capita over time
 par(las=1,tck=0.02,mar=c(4,5,3,5),mgp=c(2.8,0.3,2.8),
     cex.lab=1.2,cex.axis=1.2,cex.main=0.9)
-plot(0,xlim=c(startYear,endYear),ylim=c(2000,110000),type="n",bty="n",
+plot(0,xlim=c(startYear,endYear),ylim=c(1000,110000),type="n",bty="n",
      main="",xlab="",ylab="GDP per capita",axes=FALSE,log="y")
- 
 lifeLines(m,col="grey60")
 lines(startYear:endYear,m[16,],col="black",lwd=2.5)
-axis(1,tick=FALSE); axis(2,tick=FALSE)
+axis(1,tick=FALSE); axis(2,tick=FALSE,line=-1.75,
+                         at=c(1000,2000,5000,10000,20000,50000,100000),
+                         label=c(1000,2000,5000,10000,20000,50000,100000))
 
 
 #------------------------------------------------------------------------------
@@ -59,7 +60,7 @@ oecd<-read.csv("data_raw/oecd.csv",header=TRUE)
 pwt<-read.csv("data_raw/pwt90.csv",header=TRUE)
 
 # GDP per capita
-pwt$gdpcap<-pwt$rgdpo/pwt$pop
+pwt$gdpcap<-pwt$rgdpe/pwt$pop
 
 # Fix countrycodes
 require(countrycode)
@@ -131,7 +132,7 @@ text(1960,.4,"Spain",cex=1.5)
 # Portugal
 plot(prt,ylim=Y,xlab="",ylab="",axes=FALSE,lwd=2)
 abline(v=1986,lty=2)
-abline(h=mean(window(esp,end=c(1986)),na.rm=TRUE),lty=2)
+abline(h=mean(window(prt,end=c(1986)),na.rm=TRUE),lty=2)
 axis(2,tick=FALSE)
 axis(1,tick=FALSE)
 text(1960,.5,"Portugal",cex=1.5)
