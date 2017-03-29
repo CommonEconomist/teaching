@@ -2,6 +2,7 @@
 setwd("~/Dropbox/github/Teaching/european_economy")
 par(mar=c(5,5,2,2),bty="n",las=1,cex.axis=1.5,cex.lab=1.5,cex.main=1.7)
 
+#------------------------------------------------------------------------------
 #### 1) Budget deficit over time ####
 d<-read.csv("data_raw/eurostat_budget_deficit.csv",header=TRUE)
 d$Deficit<-d$Value*-1
@@ -18,6 +19,7 @@ lines(d$TIME[d$GEO=="Euro area (17 countries)"],
 axis(1,tick=FALSE);axis(2,tick=FALSE)
 abline(h=3,lwd=2,lty=2)
 
+#------------------------------------------------------------------------------
 #### 2) Public debt over time ####
 d<-read.csv("data_raw/eurostat_public_debt.csv",header=TRUE)
 
@@ -32,12 +34,14 @@ lines(d$TIME[d$GEO=="Euro area (17 countries)"],
 axis(1,tick=FALSE);axis(2,tick=FALSE)
 abline(h=60,lwd=2,lty=2)
 
+
+#------------------------------------------------------------------------------
 #### Fiscal compliance ####
 df<-merge(debt,def)
 require(countrycode)
 df$iso3c<-countrycode(df$GEO,"country.name","iso3c",warn=TRUE)
 
-
+# Plot data
 par(pty="s")
 plot(df$deficit,df$debt,xlim=c(-1,9),ylim=c(5,175),type="n",axes=FALSE,
      xlab="Budget deficit (% of GDP)",ylab="Public debt (% of GDP)")
