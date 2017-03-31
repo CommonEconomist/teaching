@@ -1,7 +1,6 @@
-## OCA conditions in the EU
-
+# Figures for lecture on OCA conditions in the EU
 #------------------------------------------------------------------------------
-#### 1) Openness to trade ####
+#### Openness to trade ####
 require(WDI)
 EU<-c("AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR",
       "DE","GR","HU","IE","IT","LV","LT","LU","MT","NL",
@@ -27,9 +26,10 @@ abline(v=seq(0,350,10),col="white",lwd=3)
 abline(v=0,col="gray",lwd=2)
 
 #------------------------------------------------------------------------------
-#### 2) Inflation ####
-u<-read.csv("data_raw/inflation.csv")
+#### Inflation ####
+u<-read.csv("data_raw/eurostat_inflation.csv")
 
+# Data to time-series
 deu<-ts(u[u$GEO=="Germany (until 1990 former territory of the FRG)",]$Value,
         start=c(1996,1),frequency=1)
 ita<-ts(u[u$GEO=="Italy",]$Value,start=c(1996,1),frequency=1)
@@ -45,8 +45,8 @@ axis(1,tick=FALSE)
 axis(2,tick=FALSE)
 
 #------------------------------------------------------------------------------
-#### 3) Public debt ####
-d<-read.csv("data_raw/public_debt.csv",stringsAsFactors=FALSE)
+#### Public debt, quarterly ####
+d<-read.csv("data_raw/eurostat_public_debt_q.csv",stringsAsFactors=FALSE)
 
 # Aggregate data to create average
 require(plyr)
@@ -69,7 +69,7 @@ abline(v=0,col="gray",lwd=2)
 abline(v=60,lty=2)
 
 #------------------------------------------------------------------------------
-#### 4) Public opinion on Europe ####
+#### Public opinion on Europe ####
 p<-read.csv("data_raw/eurobarometer.csv")
 p$d<-as.numeric(p$Date)
 p<-p[p$d==2,]
@@ -84,4 +84,3 @@ axis(2,at=(1:12)-.26,labels=p$Country, tick=F)
 axis(1,tick=F)
 abline(v=seq(0,35,5),col="white",lwd=3)
 abline(v=0,col="gray",lwd=2)
-

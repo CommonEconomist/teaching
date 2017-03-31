@@ -35,6 +35,7 @@ lifeLines(m,col="grey60")
 lines(startYear:endYear,m[9,],col="black",lwd=2.5)       # Euro area
 lines(startYear:endYear,m[27,],col="firebrick3",lwd=2.5) # Spain
 lines(startYear:endYear,m[13,],col="steelblue4",lwd=2.5) # Greece
+
 axis(1,tick=FALSE); axis(2,tick=FALSE)
 
 #------------------------------------------------------------------------------
@@ -63,7 +64,7 @@ axis(1,tick=FALSE); axis(2,tick=FALSE)
 #------------------------------------------------------------------------------
 #### Deficit ####
 d<-read.csv("data_raw/eurostat_budget_deficit.csv",header=TRUE)
-d<-d[bd$TIME>=1999,]
+d<-d[d$TIME>=1999,]
 
 # Process data
 dat.l<-d[,c("GEO","TIME","Value")]
@@ -81,13 +82,13 @@ abline(h=-3,lwd=2);abline(h=0,lwd=2)
 lifeLines(m,col="grey60")
 lines(startYear:endYear,m[9,],col="black",lwd=2.5)       # Euro area
 lines(startYear:endYear,m[14,],col="steelblue4",lwd=2.5) # Greece
-lines(startYear:endYear,m[13,],col="gold",lwd=2.5)      # Germany
+lines(startYear:endYear,m[13,],col="gold",lwd=2.5)       # Germany
 axis(1,tick=FALSE); axis(2,tick=FALSE)
 
 #------------------------------------------------------------------------------
 #### Government debt ####
 d<-read.csv("data_raw/eurostat_public_debt.csv",header=TRUE)
-d<-d[debt$TIME>=1999,]
+d<-d[d$TIME>=1999,]
 
 # Process data
 dat.l<-d[,c("GEO","TIME","Value")]
@@ -105,7 +106,7 @@ abline(h=60,lwd=2)
 lifeLines(m,col="grey60")
 lines(startYear:endYear,m[9,],col="black",lwd=2.5)       # Euro area
 lines(startYear:endYear,m[14,],col="steelblue4",lwd=2.5) # Greece
-lines(startYear:endYear,m[13,],col="gold",lwd=2.5)      # Germany
+lines(startYear:endYear,m[13,],col="gold",lwd=2.5)       # Germany
 axis(1,tick=FALSE); axis(2,tick=FALSE)
 
 #------------------------------------------------------------------------------
@@ -127,6 +128,28 @@ text(x,y,label=years,cex=1.2)
 axis(1,tick=FALSE);axis(2,tick=FALSE)
 
 #------------------------------------------------------------------------------
+#### Exports among member states ####
+d<-read.csv("data_raw/eurostat_exports_eu.csv",stringsAsFactors=FALSE)
+
+# Aggregate data to create average
+require(plyr)
+d<-ddply(d,.(GEO),summarise,exports=mean(Value,na.rm=TRUE))
+d<-na.omit(d[order(d$exports),])
+
+# Change country names
+d$GEO[d$GEO=="Germany (until 1990 former territory of the FRG)"]<-"Germany"
+d$GEO[d$GEO=="Czech Republic"]<-"Czechia"
+
+# Plot data
+par(mar=c(5,10,2,2),pty="m",cex.axis=1.5,cex.lab=1.3)
+barplot(d$exports,xaxt="n",yaxt="n",ylab="",border=F,width=c(.35),space=1.8,
+        horiz=TRUE,col="black")
+axis(2,at=(1:28)-.26,labels=d$GEO, tick=F)
+axis(1,tick=F)
+abline(v=seq(0,20,5),col="white",lwd=3)
+abline(v=0,col="gray",lwd=2)
+
+#------------------------------------------------------------------------------
 #### Government bond yields ####
 # Bond yields for PIGS economies
 # (Include Germany as reference)
@@ -140,11 +163,11 @@ spain<-ts(bonds[bonds$GEO=="Spain",]$Value,start=c(1980,1),frequency=12)
 germany<-ts(bonds[bonds$GEO=="Germany (until 1990 former territory of the FRG)",]$Value,start=c(1980,1),frequency=12)
 
 # Subset to last 10 years
-portugal<-window(portugal,start=c(2006,1),frequency=12)
-ireland<-window(ireland,start=c(2006,1),frequency=12)
-greece<-window(greece,start=c(2006,1),frequency=12)
-spain<-window(spain,start=c(2006,1),frequency=12)
-germany<-window(germany,start=c(2006,1),frequency=12)
+#portugal<-window(portugal,start=c(2006,1),frequency=12)
+#ireland<-window(ireland,start=c(2006,1),frequency=12)
+#greece<-window(greece,start=c(2006,1),frequency=12)
+#spain<-window(spain,start=c(2006,1),frequency=12)
+#germany<-window(germany,start=c(2006,1),frequency=12)
 
 # Plot data
 par(las=1,bty="n",cex.axis=1.5,cex.lab=1.5,mar=c(4,5,1,1))
@@ -157,11 +180,11 @@ lines(germany,lty=2,lwd=2)
 
 axis(1,tick=FALSE);axis(2,tick=FALSE)
 
-text(2012,.5,"Germany",cex=1.2)
-text(2012,4,"Spain",cex=1.2)
-text(2012,10,"Ireland",cex=1.2)
-text(2012,14.2,"Portugal",cex=1.2)
-text(2012,17,"Greece",cex=1.2)
+text(1981,7,"Germany",cex=1.2)
+text(1981,14,"Spain",cex=1.2)
+text(1988,10,"Ireland",cex=1.2)
+text(1986,18,"Portugal",cex=1.2)
+text(1991,24,"Greece",cex=1.2)
 
 #------------------------------------------------------------------------------
 # Continue with looking at the division in Europe in the period since the crisis. Illustrating how economic convergence across country has come undone.
@@ -178,7 +201,6 @@ fra<-d$Value[d$GEO=="France"]; fra=fra/fra[1]*100
 esp<-d$Value[d$GEO=="Spain"]; esp=esp/esp[1]*100
 ita<-d$Value[d$GEO=="Italy"]; ita=ita/ita[1]*100
 gbr<-d$Value[d$GEO=="United Kingdom"]; gbr=gbr/gbr[1]*100
-
 
 # Plot data
 par(mar=c(5,2,2,5))
@@ -235,7 +257,6 @@ esp<-d$Value[d$GEO=="Spain"]; esp=esp/esp[1]*100
 ita<-d$Value[d$GEO=="Italy"]; ita=ita/ita[1]*100
 gbr<-d$Value[d$GEO=="United Kingdom"]; gbr=gbr/gbr[1]*100
 
-
 # Plot data
 par(mar=c(5,2,2,5))
 plot(eur,type="l",ylim=c(60,120),axes=FALSE,xlab="Capital formation (2007=100)",
@@ -243,11 +264,11 @@ plot(eur,type="l",ylim=c(60,120),axes=FALSE,xlab="Capital formation (2007=100)",
 axis(1,tick=FALSE,at=1:10,label=2007:2016);axis(4,tick=FALSE)
 text(10,eur[10]-1.5,"Eurozone")
 
-lines(deu,col="gold",lwd=2); text(10,deu[10]+.5,"Germany")
-lines(esp,col="firebrick3",lwd=2); text(10,esp[10]+.5,"Spain")
-lines(fra,col="steelblue4",lwd=2); text(10,fra[10]+.5,"France")
-lines(ita,col="dodgerblue2",lwd=2); text(10,ita[10]-.5,"Italy")
-lines(gbr,col="magenta",lwd=2); text(10,gbr[10]-.5,"UK")
+lines(deu,col="gold",lwd=2); text(10,deu[10]-1.4,"Germany")
+lines(esp,col="firebrick3",lwd=2); text(10,esp[10]+.8,"Spain")
+lines(fra,col="steelblue4",lwd=2); text(10,fra[10]+1.1,"France")
+lines(ita,col="dodgerblue2",lwd=2); text(10,ita[10]-1.2,"Italy")
+lines(gbr,col="magenta",lwd=2); text(10,gbr[10]-1,"UK")
 
 #------------------------------------------------------------------------------
 #### Exports ####
@@ -281,8 +302,3 @@ lines(ita,col="dodgerblue2",lwd=2); text(17,ita[17]-3,"Italy")
 lines(ire,col="gold",lwd=2); text(17,ire[17]+3,"Ireland")
 lines(gre,col="steelblue4",lwd=2); text(17,gre[17]+3,"Greece")
 lines(esp,col="firebrick3",lwd=2); text(17,esp[17]+3,"Spain")
-
-
-
-
-
