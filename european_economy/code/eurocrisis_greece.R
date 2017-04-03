@@ -25,26 +25,44 @@ axis(2,tick=FALSE,line=-1)
 
 abline(h=grc.adj[87],lty=3)
 
+
+#------------------------------------------------------------------------------
 #### Contraction of economy ####
-grec2<-window(grc.adj,start=c(2007,2),frequency=4)
-test<-grec2/grec2[1]*100
+cont<-window(grc.adj,start=c(2007,2),frequency=4)
+cont<-cont/cont[1]*100
 
+# Plot
+par(mar=c(4,5,1,1))
+plot(cont,axes=FALSE,xlab="",ylab="",lwd=2)
+axis(1,tick=FALSE);axis(2,tick=FALSE)
+
+#------------------------------------------------------------------------------
 #### Public spending and tax revenue ####
-a<-read.csv("data_raw/eurostat_public_spending.csv")
-b<-read.csv("data_raw/eurostat_tax_revenue.csv")
-x<-ts(a$Value[a$GEO=="Greece"],start=c(1999,1),frequency=1)
-y<-ts(b$Value[b$GEO=="Greece"],start=c(1999,1),frequency=1)
+ps<-read.csv("data_raw/eurostat_public_spending.csv")
+tr<-read.csv("data_raw/eurostat_tax_revenue.csv")
+x<-ts(ps$Value[ps$GEO=="Greece"],start=c(1999,1),frequency=1)
+y<-ts(tr$Value[tr$GEO=="Greece"],start=c(1999,1),frequency=1)
 
-
-plot(x,ylim=c(30,70),type="b")
+# Plot
+par(mar=c(4,5,1,5))
+plot(x,ylim=c(30,70),type="b",axes=FALSE,xlab="",ylab="Percentage of GDP",pch=0)
+text(2015,x[17]+2,"Public \n spending")
 lines(y,lty=2,type="b")
+text(2015,y[17]+2,"Tax \n revenue")
 
+axis(1,tick=FALSE,at=seq(1999,2015,2),label=seq(1999,2015,2));axis(2,tick=FALSE)
+
+#------------------------------------------------------------------------------
 #### Labour costs ####
 d<-read.csv("data_raw/oecd_labour_costs.csv")
 
 gre<-ts(d$Value[d$Country=="Greece"],start=c(1999,1),frequency=4)
 eur<-ts(d$Value[d$Country!="Greece"],start=c(1999,1),frequency=4)
 
+# Plot
+plot(gre,ylim=c(60,110),lwd=2,
+     ylab="",xlab="Unit labour costs (2010=100)",axes=FALSE)
+lines(eur,lty=2,lwd=2)
+text(2000,85,"Eurozone");text(2000,70,"Greece")
 
-plot(gre,ylim=c(60,110))
-lines(eur,lty=2)
+axis(1,tick=FALSE,at=seq(1999,2015,2),label=seq(1999,2015,2));axis(2,tick=FALSE)
