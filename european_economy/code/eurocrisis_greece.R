@@ -66,3 +66,21 @@ lines(eur,lty=2,lwd=2)
 text(2000,85,"Eurozone");text(2000,70,"Greece")
 
 axis(1,tick=FALSE,at=seq(1999,2015,2),label=seq(1999,2015,2));axis(2,tick=FALSE)
+
+
+###
+
+
+
+d<-read.csv("data_raw/oecd_potential_gdp.csv")
+d<-d[order(d$Time),]
+
+gdp<-ts(d$Value[d$VARIABLE=="GDP"]/(1*10^9),start=c(1995,1),frequency=1)
+gdptr<-ts(d$Value[d$VARIABLE=="GDPTR"]/(1*10^9),start=c(1995,1),frequency=1)
+
+
+# Plot
+par(mar=c(5,5,1,1))
+plot(gdp,ylim=c(90,250),lwd=2,axes=FALSE,ylab="",xlab="")
+lines(gdptr,lwd=2,lty=2)
+axis(1,tick=FALSE);axis(2,tick=FALSE)
