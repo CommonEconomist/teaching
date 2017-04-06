@@ -1,5 +1,77 @@
-# Figures for lecture on EU and economic growth
+## Figures for lecture on EU and economic growth
+setwd("~/Dropbox/github/Teaching/european_economy")
+
 #------------------------------------------------------------------------------
+#### Relative unit labour costs ####
+source("code/lines.R")
+
+# Load and subset data
+euro<-c("Austria","Belgium","Finland","France",
+        "Germany (until 1990 former territory of the FRG)","Greece","Ireland",
+        "Italy","Luxembourg","Netherlands","Portugal","Spain")
+d<-read.csv("data_raw/eurostat_labour_productivity.csv")
+d<-d[d$NA_ITEM=="Nominal unit labour cost based on persons",]
+d<-d[d$TIME>=1999 & d$GEO %in% euro,]
+d<-d[order(d$GEO,d$TIME),]
+
+# Reshape data from long to wide
+require(reshape2)
+d.l<-d[,c("GEO","TIME","Value")]
+d.w<-reshape(d.l,timevar="TIME",idvar=c("GEO"),direction="wide")
+rownames(d.w)<-d.w$GEO; m<-d.w[,-1]
+startYear<-1999;endYear<-2016
+m=m/m[,1]*100
+
+# Trend line
+l<-c(100)
+for(i in 1:length(startYear:endYear)){
+  l[i+1]=l[i]*1.02
+}
+
+# Plot figure
+par(las=1,tck=0.02,mar=c(4,5,3,5),mgp=c(2.8,0.3,2.8),
+    cex.lab=1.2,cex.axis=1.2,cex.main=0.9)
+
+plot(0,xlim=c(startYear,endYear),ylim=c(95,160),type="n",bty="n",
+     main="",xlab="Nominal Unit Labour Cost Index",ylab="",axes=FALSE)
+lines(startYear:endYear,l[1:18],lwd=2,col="black")
+
+lifeLines(m,col="grey60") # Inflation target
+lines(startYear:endYear,colMeans(m,na.rm=TRUE),col="black",lwd=2,lty=2) # Mean
+lines(startYear:endYear,m[5,],col="gold",lwd=2.5) # Germany
+lines(startYear:endYear,m[12,],col="firebrick3",lwd=2.5) # Spain
+abline(v=2008)
+
+axis(1,tick=FALSE); axis(2,tick=FALSE)
+
+rm(list=ls()) 
+#------------------------------------------------------------------------------
+#### Competitiveness ####
+d<-read.csv("data_raw/oecd_unit_labour_costs.csv")
+
+# Time-series objects
+jpn<-ts(d$Value[d$LOCATION=="JPN"],start=c(1990,1),frequency=4)
+usa<-ts(d$Value[d$LOCATION=="USA"],start=c(1990,1),frequency=4)
+eur<-ts(d$Value[d$LOCATION=="EA19"],start=c(1990,1),frequency=4)
+
+# Plot data
+par(mar=c(5,4,1,1),bty="n",las=1,cex.axis=1.5,cex.lab=1.5)
+plot(eur,ylim=c(65,135),axes=FALSE,xlab="",ylab="",lwd=2)
+lines(jpn,col="firebrick3",lwd=2)
+lines(usa,col="steelblue4",lwd=2)
+axis(1,tick=FALSE);axis(2,tick=FALSE)
+
+text(1990,125,"Japan",cex=1.5)
+text(1990.5,85,"Eurozone",cex=1.5)
+text(1990,75,"USA",cex=1.5)
+text(2010,130,"Unit labour costs",cex=1.7)
+
+rm(list=ls()) 
+
+#------------------------------------------------------------------------------
+#### Performance vs. US ####
+
+# Download World Bank data
 require(WDI)
 gdp_m<-WDIsearch("gdp",field="name",short=FALSE)
 wdi<-WDI(c("US","BE","LU","NL","DE","FR","IT","AT","FI","SE",
@@ -7,7 +79,7 @@ wdi<-WDI(c("US","BE","LU","NL","DE","FR","IT","AT","FI","SE",
          c(gdp_m[87,1],gdp_m[94,1],gdp_m[95,1]),start=1961,end=2015) 
 wdi<-wdi[order(wdi$iso2c,wdi$year),]
 
-# Data to time series
+# Create time-series objects
 require(plyr)
 us<-ts(wdi[,4][wdi$iso2c=="US"],start=c(1961,1),frequency=1)
 eu15<-ddply(wdi[wdi$iso2c!="US",],.(year),summarise,
@@ -17,19 +89,12 @@ eu15.g<-ts(eu15$gdp.g,start=c(1961,1),frequency=1)
 
 gdp.g.d<-eu15.g-us
 
-## Figure: Growth of EU15 compared to US
+## Growth of EU15 compared to US
 par(mar=c(5,5,1,1),bty="n",las=1,cex.axis=1.5,cex.lab=1.5)
 plot(gdp.g.d,ylim=c(-5,5),xlab="",ylab="GDP growth relative to US",axes=FALSE,
      type="h",lwd=5)
 axis(1,tick=FALSE)
 axis(2,tick=FALSE,line=-1)
-
-# Function for drawing lines 
-lifeLines<-function(series,col="black",hcol="black",lwd=1,hlwd=2){
-  for (i in 1:length(series[,1])){
-    lines(startYear:endYear,series[i,],col=col,lwd=lwd)
-  }
-}
 
 
 # Reshape data from long to wide
@@ -40,21 +105,25 @@ dat.w<-reshape(dat.l,timevar="year",idvar=c("country"),direction="wide")
 rownames(dat.w)<-dat.w$country; m<-round(dat.w[,-1],2)
 startYear<-min(dat.l$year);endYear<-max(dat.l$year)
 
+source("code/lines.R")
 
-# Figure GDP per capita over time
+# GDP per capita over time
 par(las=1,tck=0.02,mar=c(4,5,3,5),mgp=c(2.8,0.3,2.8),
     cex.lab=1.2,cex.axis=1.2,cex.main=0.9)
-plot(0,xlim=c(startYear,endYear),ylim=c(1000,110000),type="n",bty="n",
+plot(0,xlim=c(startYear,endYear),ylim=c(4000,110000),type="n",bty="n",
      main="",xlab="",ylab="GDP per capita",axes=FALSE,log="y")
 lifeLines(m,col="grey60")
 lines(startYear:endYear,m[16,],col="black",lwd=2.5)
+lines(startYear:endYear,colMeans(m[-16,],na.rm=TRUE),
+      col="steelblue4",lwd=2.5,lty=2)
+
 axis(1,tick=FALSE); axis(2,tick=FALSE,line=-1.75,
-                         at=c(1000,2000,5000,10000,20000,50000,100000),
-                         label=c(1000,2000,5000,10000,20000,50000,100000))
+                         at=c(5000,10000,20000,50000,100000),
+                         label=c(5000,10000,20000,50000,100000))
 
-
+rm(list=ls()) 
 #------------------------------------------------------------------------------
-# Tracking economic development since EU membership
+#### GDP since EU membership ####
 # Use OECD as baseline
 oecd<-read.csv("data_raw/oecd.csv",header=TRUE)
 pwt<-read.csv("data_raw/pwt90.csv",header=TRUE)
@@ -80,7 +149,6 @@ oecd.av<-ts(oecd.av$gdpcap,start=c(1950,1),frequency=1)
 Y<-c(.25,1.35)
 par(mar=c(4,4,1,1),las=1,bty="n",cex.axis=1.5,cex.lab=1.5,mfrow=c(3,1))
 
-#------------------------------------------------------------------------------
 #### First enlargement in 1973 ####
 dnk<-ts(pwt[pwt$countrycode=="DNK",]$gdpcap,start=c(1950,1),frequency=1)/oecd.av
 irl<-ts(pwt[pwt$countrycode=="IRL",]$gdpcap,start=c(1950,1),frequency=1)/oecd.av
@@ -108,7 +176,6 @@ axis(2,tick=FALSE)
 axis(1,tick=FALSE)
 text(1960,.4,"Great Britain",cex=1.5)
 
-#------------------------------------------------------------------------------
 #### Second enlargement following end of dictatorship in Southern Europe ####
 grc<-ts(pwt[pwt$countrycode=="GRC",]$gdpcap,start=c(1950,1),frequency=1)/oecd.av
 prt<-ts(pwt[pwt$countrycode=="PRT",]$gdpcap,start=c(1950,1),frequency=1)/oecd.av
@@ -120,7 +187,6 @@ abline(v=1981,lty=2)
 abline(h=mean(window(grc,end=c(1981)),na.rm=TRUE),lty=2)
 axis(2,tick=FALSE)
 text(1960,.4,"Greece",cex=1.5)
-
 
 # Spain
 plot(esp,ylim=Y,xlab="",ylab="",axes=FALSE,lwd=2)
@@ -137,7 +203,6 @@ axis(2,tick=FALSE)
 axis(1,tick=FALSE)
 text(1960,.5,"Portugal",cex=1.5)
 
-#------------------------------------------------------------------------------
 #### Third enlargement of former neutral countries ####
 aut<-ts(pwt[pwt$countrycode=="AUT",]$gdpcap,start=c(1950,1),frequency=1)/oecd.av
 fin<-ts(pwt[pwt$countrycode=="FIN",]$gdpcap,start=c(1950,1),frequency=1)/oecd.av
@@ -165,7 +230,6 @@ axis(2,tick=FALSE)
 axis(1,tick=FALSE)
 text(1960,.4,"Sweden",cex=1.5)
 
-#------------------------------------------------------------------------------
 #### Fourth wave including former East bloc countries ####
 cze<-ts(pwt[pwt$countrycode=="CZE",]$gdpcap,start=c(1950,1),frequency=1)/oecd.av
 hun<-ts(pwt[pwt$countrycode=="HUN",]$gdpcap,start=c(1950,1),frequency=1)/oecd.av
@@ -192,10 +256,9 @@ abline(h=mean(window(pol,end=c(2004)),na.rm=TRUE),lty=2)
 axis(2,tick=FALSE)
 axis(1,tick=FALSE)
 text(1960,.4,"Poland",cex=1.5)
-
+rm(list=ls());dev.off()
 #------------------------------------------------------------------------------
 #### Characteristics new EU member states ####
-require(WDI)
 
 # Focus on GDP and trade relative to GDP
 gdp_m<-WDIsearch("gdp",field="name",short=FALSE)
