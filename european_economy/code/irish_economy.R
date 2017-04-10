@@ -1,4 +1,7 @@
 # Macroeconomic indicators Irish economy
+# Add FDI
+
+
 ire<-read.csv("data_raw/ireland.csv",header=TRUE)          # Load data
 par(mar=c(5,5,1,1),las=1,bty="n",cex.lab=1.5,cex.axis=1.5) # Plot settings
 
