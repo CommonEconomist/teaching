@@ -2,73 +2,6 @@
 setwd("~/Dropbox/github/Teaching/european_economy")
 
 #------------------------------------------------------------------------------
-#### Relative unit labour costs ####
-source("code/lines.R")
-
-# Load and subset data
-euro<-c("Austria","Belgium","Finland","France",
-        "Germany (until 1990 former territory of the FRG)","Greece","Ireland",
-        "Italy","Luxembourg","Netherlands","Portugal","Spain")
-d<-read.csv("data_raw/eurostat_labour_productivity.csv")
-d<-d[d$NA_ITEM=="Nominal unit labour cost based on persons",]
-d<-d[d$TIME>=1999 & d$GEO %in% euro,]
-d<-d[order(d$GEO,d$TIME),]
-
-# Reshape data from long to wide
-require(reshape2)
-d.l<-d[,c("GEO","TIME","Value")]
-d.w<-reshape(d.l,timevar="TIME",idvar=c("GEO"),direction="wide")
-rownames(d.w)<-d.w$GEO; m<-d.w[,-1]
-startYear<-1999;endYear<-2016
-m=m/m[,1]*100
-
-# Trend line
-l<-c(100)
-for(i in 1:length(startYear:endYear)){
-  l[i+1]=l[i]*1.02
-}
-
-# Plot figure
-par(las=1,tck=0.02,mar=c(4,5,3,5),mgp=c(2.8,0.3,2.8),
-    cex.lab=1.2,cex.axis=1.2,cex.main=0.9)
-
-plot(0,xlim=c(startYear,endYear),ylim=c(95,160),type="n",bty="n",
-     main="",xlab="Nominal Unit Labour Cost Index",ylab="",axes=FALSE)
-lines(startYear:endYear,l[1:18],lwd=2,col="black")
-
-lifeLines(m,col="grey60") # Inflation target
-lines(startYear:endYear,colMeans(m,na.rm=TRUE),col="black",lwd=2,lty=2) # Mean
-lines(startYear:endYear,m[5,],col="gold",lwd=2.5) # Germany
-lines(startYear:endYear,m[12,],col="firebrick3",lwd=2.5) # Spain
-abline(v=2008)
-
-axis(1,tick=FALSE); axis(2,tick=FALSE)
-
-rm(list=ls()) 
-#------------------------------------------------------------------------------
-#### Competitiveness ####
-d<-read.csv("data_raw/oecd_unit_labour_costs.csv")
-
-# Time-series objects
-jpn<-ts(d$Value[d$LOCATION=="JPN"],start=c(1990,1),frequency=4)
-usa<-ts(d$Value[d$LOCATION=="USA"],start=c(1990,1),frequency=4)
-eur<-ts(d$Value[d$LOCATION=="EA19"],start=c(1990,1),frequency=4)
-
-# Plot data
-par(mar=c(5,4,1,1),bty="n",las=1,cex.axis=1.5,cex.lab=1.5)
-plot(eur,ylim=c(65,135),axes=FALSE,xlab="",ylab="",lwd=2)
-lines(jpn,col="firebrick3",lwd=2)
-lines(usa,col="steelblue4",lwd=2)
-axis(1,tick=FALSE);axis(2,tick=FALSE)
-
-text(1990,125,"Japan",cex=1.5)
-text(1990.5,85,"Eurozone",cex=1.5)
-text(1990,75,"USA",cex=1.5)
-text(2010,130,"Unit labour costs",cex=1.7)
-
-rm(list=ls()) 
-
-#------------------------------------------------------------------------------
 #### Performance vs. US ####
 
 # Download World Bank data
@@ -121,7 +54,95 @@ axis(1,tick=FALSE); axis(2,tick=FALSE,line=-1.75,
                          at=c(5000,10000,20000,50000,100000),
                          label=c(5000,10000,20000,50000,100000))
 
+
+# 1980 vs 2007 & 2015
+df<-wdi[wdi$year==1980 | wdi$year==2007 | wdi$year==2015,]
+x1<-df[,5][df$year==1980 & df$iso2c!="LU"];x1<-x1/x1[15]
+x2<-df[,5][df$year==2007 & df$iso2c!="LU"];x2<-x2/x2[15]
+x3<-df[,5][df$year==2015 & df$iso2c!="LU"];x3<-x3/x3[15]
+lbl<-df$iso2c[df$year==1980 & df$iso2c!="LU"]
+
+# Plot data
+par(mar=c(5,5,1,1),mfrow=c(1,2),pty="s",bty="n",cex.lab=1.5,cex.axis=1.5)
+plot(x1,x2,axes=FALSE,xlim=c(.4,1.3),ylim=c(.4,1.3),type="n",
+     xlab="GDP per capita 1980 (US=1)",ylab="GDP per capita 2007 (US=1)")
+abline(a=0,b=1,lty=2);text(x1,x2,lbl)
+axis(1,tick=FALSE);axis(2,tick=FALSE,line=-.5)
+
+plot(x1,x3,axes=FALSE,xlim=c(.4,1.3),ylim=c(.4,1.3),type="n",
+     xlab="GDP per capita 1980 (US=1)",ylab="GDP per capita 2015 (US=1)")
+abline(a=0,b=1,lty=2);text(x1,x3,lbl)
+axis(1,tick=FALSE);axis(2,tick=FALSE,line=-.5)
+
+
 rm(list=ls()) 
+#------------------------------------------------------------------------------
+#### Relative unit labour costs ####
+source("code/lines.R")
+
+# Load and subset data
+euro<-c("Austria","Belgium","Finland","France",
+        "Germany (until 1990 former territory of the FRG)","Greece","Ireland",
+        "Italy","Luxembourg","Netherlands","Portugal","Spain")
+d<-read.csv("data_raw/eurostat_labour_productivity.csv")
+d<-d[d$NA_ITEM=="Nominal unit labour cost based on persons",]
+d<-d[d$TIME>=1999 & d$GEO %in% euro,]
+d<-d[order(d$GEO,d$TIME),]
+
+# Reshape data from long to wide
+require(reshape2)
+d.l<-d[,c("GEO","TIME","Value")]
+d.w<-reshape(d.l,timevar="TIME",idvar=c("GEO"),direction="wide")
+rownames(d.w)<-d.w$GEO; m<-d.w[,-1]
+startYear<-1999;endYear<-2016
+m=m/m[,1]*100
+
+# Trend line
+l<-c(100)
+for(i in 1:length(startYear:endYear)){
+  l[i+1]=l[i]*1.02
+}
+
+# Plot figure
+par(las=1,tck=0.02,mar=c(4,5,3,5),mgp=c(2.8,0.3,2.8),
+    cex.lab=1.2,cex.axis=1.2,cex.main=0.9)
+
+plot(0,xlim=c(startYear,endYear),ylim=c(95,160),type="n",bty="n",
+     main="",xlab="Nominal Unit Labour Cost Index",ylab="",axes=FALSE)
+lines(startYear:endYear,l[1:18],lwd=2,col="black")
+
+lifeLines(m,col="grey60") # Inflation target
+lines(startYear:endYear,colMeans(m,na.rm=TRUE),col="black",lwd=2,lty=2) # Mean
+lines(startYear:endYear,m[5,],col="gold",lwd=2.5) # Germany
+lines(startYear:endYear,m[12,],col="firebrick3",lwd=2.5) # Spain
+abline(v=2008)
+axis(1,tick=FALSE); axis(2,tick=FALSE)
+
+rm(list=ls()) 
+#------------------------------------------------------------------------------
+#### Competitiveness ####
+d<-read.csv("data_raw/oecd_unit_labour_costs.csv")
+
+# Time-series objects
+jpn<-ts(d$Value[d$LOCATION=="JPN"],start=c(1990,1),frequency=4)
+usa<-ts(d$Value[d$LOCATION=="USA"],start=c(1990,1),frequency=4)
+eur<-ts(d$Value[d$LOCATION=="EA19"],start=c(1990,1),frequency=4)
+
+# Plot data
+par(mar=c(5,4,1,1),bty="n",las=1,cex.axis=1.5,cex.lab=1.5)
+plot(eur,ylim=c(65,135),axes=FALSE,xlab="",ylab="",lwd=2)
+lines(jpn,col="firebrick3",lwd=2)
+lines(usa,col="steelblue4",lwd=2)
+axis(1,tick=FALSE);axis(2,tick=FALSE)
+
+text(1990,125,"Japan",cex=1.5)
+text(1990.5,85,"Eurozone",cex=1.5)
+text(1990,75,"USA",cex=1.5)
+text(2010,130,"Unit labour costs",cex=1.7)
+
+rm(list=ls()) 
+
+
 #------------------------------------------------------------------------------
 #### GDP since EU membership ####
 # Use OECD as baseline
@@ -257,8 +278,9 @@ axis(2,tick=FALSE)
 axis(1,tick=FALSE)
 text(1960,.4,"Poland",cex=1.5)
 rm(list=ls());dev.off()
+
 #------------------------------------------------------------------------------
-#### Characteristics new EU member states ####
+#### Trade new EU member states ####
 
 # Focus on GDP and trade relative to GDP
 gdp_m<-WDIsearch("gdp",field="name",short=FALSE)
@@ -273,5 +295,33 @@ par(mar=c(5,5,1,1),pty="s",bty="n",las=1,cex.axis=1.5,cex.lab=1.5)
 plot(wdi[,5],wdi$GDP,ylim=c(0,.25),axes=FALSE,pch=19,
      xlab="Trade % of GDP", ylab="GDP relative to Germany")
 text(wdi[,5],wdi$GDP+.01,wdi$iso2c,cex=1.3)
-axis(1,tick=FALSE)
-axis(2,tick=FALSE,line=-1)
+axis(1,tick=FALSE);axis(2,tick=FALSE,line=-1)
+
+#------------------------------------------------------------------------------
+#### GDP EC8 over time ####
+source("code/lines.R")
+d<-read.csv("data_raw/eurostat_gdp_per_capita.csv")
+
+# Process data
+require(reshape2)
+dat.l<-d[,c("GEO","TIME","Value")]
+dat.l<-dat.l[order(dat.l$GEO,dat.l$TIME),]
+dat.w<-reshape(dat.l,timevar="TIME",idvar=c("GEO"),direction="wide")
+country<-c("Poland","Czech Republic","Hungary",
+           "Lithuania","Romania","Estonia","Latvia","Slovak Republic",
+           "Slovenia","Bulgaria","Romania")
+
+rownames(dat.w)<-dat.w$GEO;m<-dat.w[,-1]
+startYear<-min(dat.l$TIME);endYear<-max(dat.l$TIME)
+
+
+# Plot data
+par(las=1,tck=0.02,mar=c(4,5,3,5),mgp=c(2.8,0.3,2.8),
+    cex.lab=1.2,cex.axis=1.2,cex.main=1.7)
+
+plot(0,xlim=c(startYear,endYear),ylim=c(30,140),type="n",bty="n",
+     main="GDP per capita (EU-28=100)",xlab="",ylab="",axes=FALSE)
+lifeLines(m,col="grey60")
+lifeLines(m[rownames(m) %in% country,],col="black",lwd=2)
+lines(startYear:endYear,m[22,],col="firebrick3",lwd=2.5) # Portugal
+axis(1,tick=FALSE); axis(2,tick=FALSE)
