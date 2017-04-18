@@ -71,7 +71,6 @@ m=(sigma0/(sigma0+g-lambda))*A-L*e^-((sigma0-lambda)*t)
 d=(sigma/(sigma+g-lambda))*A[21]-m[21]
 m[22:101]=(sigma/(sigma+g-lambda))*A[22:101]+-d*e^-((sigma-lambda)*t[1:80])
 
-
 # Technology levels over time
 plot(A,type="l",axes=FALSE,xlab="",ylab="",ylim=c(0,10),lwd=2)
 lines(m,lwd=2,col="steelblue4")
