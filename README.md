@@ -1,10 +1,13 @@
-This repository contains teaching material for various courses.
+# Teaching material
 
-* Statistics for economics: code and data, Spring 2017, University College Dublin (_in progress_)
-* Advanced macroeconomics: code and data, Spring 2017, University College Dublin (_in progress_)
-* EU economics: code and data, Spring 2017, University College Dublin (_in progress_)  
-* Data analysis: code and data for tutorials, Autumn 2016, University College Dublin
-* International trade: lecture slides along with problem sets, Spring 2014, Royal Holloway College 
+This repository contains teaching material for various courses that I have taught over the years. 
+On request I can provide the tex files used for the lecture notes and slides. 
+
+* Statistics for economics: University College Dublin, Spring 2017 
+* Advanced macroeconomics: University College Dublin, Spring 2017 
+* EU economics: University College Dublin, Spring 2017
+* Data analysis: University College Dublin, Autumn 2016
+* International trade: Royal Holloway College, Spring 2014 
 
 
  
