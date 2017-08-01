@@ -1,10 +1,10 @@
 ## Figures lecture Trade Patterns
-setwd("~/Dropbox/github/Teaching/international_trade/ucd")
+setwd("~/Dropbox/github/teaching/international_trade/ucd")
 
 #### Trade balance USA and China ####
 
 # Prepare data
-oecd<-read.csv("data_raw/MEI_TRD.csv")
+oecd<-read.csv("data_raw/trade_flow_usa_chn.csv")
 usa<-ts(oecd$Value[oecd$LOCATION=="USA"],start=c(1990,1),frequency=12)
 chn<-ts(oecd$Value[oecd$LOCATION=="CHN"],start=c(1990,1),frequency=12)
 
@@ -20,7 +20,7 @@ text(1992,-15,"USA",cex=2)
 
 #### Bilateral trade balance USA-China ####
 # Load data
-d<-read.csv("data_raw/usa_chn_trade.csv")
+d<-read.csv("data_raw/bilateral_trade_usa_chn.csv")
 im<-ts(d$Imports,start=c(1985,1))
 ex<-ts(d$Exports,start=c(1985,1))
 tb<-(ex-im)/1000
@@ -41,8 +41,9 @@ wdi<-WDI(iso2c,trade_m[108,1],start=2015,end=2015)
 wdi<-wdi[order(wdi[,3]),]
 
 # Plot data
-par(las=1)
-barplot(wdi[,3],xaxt="n",yaxt="n",ylab="",border=F,width=c(.35),space=1.8,
+par(las=1,cex.lab=2)
+barplot(wdi[,3],xaxt="n",yaxt="n",ylab="",xlab="Trade relative to GDP",
+        border=F,width=c(.35),space=1.8,
         horiz=TRUE,col="black")
 axis(2,at=(1:34)-.26,labels=wdi$iso2c, tick=F,cex.axis=1.2)
 axis(1,tick=F)
@@ -51,7 +52,7 @@ abline(v=0,col="gray",lwd=2)
 
 #### Terms of trade Australia ####
 # Prepare data
-aus<-read.csv("data_raw/australia.csv")
+aus<-read.csv("data_raw/aus_tot.csv")
 tot<-ts(aus$terms_of_trade,start=c(1901,1))
 
 # Plot data
@@ -93,3 +94,7 @@ points(other,pch=18,col="steelblue4",cex=2)
 lines(na.approx(other),col="steelblue4")
 
 axis(1,tick=FALSE);axis(2,tick=FALSE,line=-1)
+
+## TO DO
+# - Trade composition
+# - Foreign direct investments

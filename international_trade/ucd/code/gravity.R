@@ -1,9 +1,9 @@
 ## Figures lecture Gravity Model (in progress)
-setwd("~/Dropbox/github/Teaching/international_trade/ucd")
+setwd("~/Dropbox/github/teaching/international_trade/ucd")
 
 #### US trade with Europe ####
 # Load data
-d<-read.csv("data_raw/country.csv")
+d<-read.csv("data_raw/trade_partners_us.csv")
 d<-d[d$year==2015,]
 
 # Import/export for Europe as a whole
@@ -30,7 +30,7 @@ trade<-(d$IYR+d$EYR)/eu.trade*100
 iso2c<-d$iso2c
 
 # Plot data
-par(mar=c(5,5,2,2),las=1,bty="n",cex.lab=2,cex.axis=2)
+par(mar=c(5,6,2,2),las=1,bty="n",cex.lab=2,cex.axis=2)
 
 plot(gdp[!(iso2c %in% c("CA","MX"))],
      trade[!(iso2c %in% c("CA","MX"))],type="n",axes=FALSE,
@@ -49,11 +49,13 @@ axis(1,tick=FALSE);axis(2,tick=FALSE,line=-1)
 
 #### Gravity model for Ireland ####
 require(haven)
-d<-read_dta("data_raw/col_regfile09.dta")
+d<-read_dta("data_raw/col_regfile09.dta") # Takes some time to load
 d<-d[d$iso_o=="IRL" & d$year==2006,]
 
-plot(d$distw,d$flow,log="xy",axes=FALSE,xlab="Distance",ylab="Trade flow")
-axis(1,tick=F);axis(2,tick=FALSE,line=-2)
+plot(d$distw,d$flow,log="xy",axes=FALSE,
+     xlab="Distance (in Km)",ylab="Trade flow (in millions)")
+axis(1,tick=F)
+axis(2,tick=FALSE,line=-3,at=c(.001,.1,10,1000),label=c(.001,.1,10,1000))
 
 #### Trade relative to GDP ####
 # Download data
@@ -68,15 +70,20 @@ trade<-ts(d$trade_gdp,start=c(1960,1))
 plot(trade,xlab="",ylab="Trade flow relative to GDP",axes=FALSE,lwd=2)
 axis(1,tick=FALSE);axis(2,tick=FALSE,line=-1)
 
-#### Trade Ireland with distant partners ####
-# Maybe do this with UK
+#### Trade UK with distant partners ####
 # Prepare data
-d<-d[d$iso_d %in% c("CAN","ZAF","IND","KOR","BRA","JPN","IDN","AUS","NZL"),]
+
+
+
+
+
 x<-d$distw
 y<-d$flow/d$gdp_o
 ccode<-d$iso_d
 
 # Plot data
-plot(x,y,log="xy",axes=FALSE,xlab="",ylab="",type="n")
+plot(x,y,log="xy",axes=FALSE,
+     xlab="Distance (km)",ylab="Trade flow (in millions)",type="n")
 text(x,y,ccode,cex=2)
-axis(1,tick=FALSE);axis(2,tick=FALSE,line=-2)
+axis(1,tick=FALSE)
+axis(2,tick=FALSE,line=-2)
