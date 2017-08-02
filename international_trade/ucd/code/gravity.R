@@ -47,15 +47,17 @@ abline(a=0,b=1,lwd=2,lty=2)
 text(gdp,trade,iso2c)
 axis(1,tick=FALSE);axis(2,tick=FALSE,line=-1)
 
-#### Gravity model for Ireland ####
-require(haven)
-d<-read_dta("data_raw/col_regfile09.dta") # Takes some time to load
-d<-d[d$iso_o=="IRL" & d$year==2006,]
+#### Gravity model for UK ####
+df<-read.csv("data_raw/Distance-exports.csv")
 
-plot(d$distw,d$flow,log="xy",axes=FALSE,
-     xlab="Distance (in Km)",ylab="Trade flow (in millions)")
+d<-df[,2]
+x<-df[,3]
+
+plot(d,x,log="xy",axes=FALSE,pch=19,
+     xlab="Distance (in Km)",ylab="Exports (in millions)")
 axis(1,tick=F)
-axis(2,tick=FALSE,line=-3,at=c(.001,.1,10,1000),label=c(.001,.1,10,1000))
+axis(2,tick=FALSE,line=-3,at=c(10,100,1000,10000,100000),
+     lab=c(10,100,1000,10000,100000))
 
 #### Trade relative to GDP ####
 # Download data
@@ -72,18 +74,17 @@ axis(1,tick=FALSE);axis(2,tick=FALSE,line=-1)
 
 #### Trade UK with distant partners ####
 # Prepare data
+df<-read.csv("data_raw/Distance-exports.csv")
+df<-df[df$name %in% c("Canada","South Africa","Australia","New Zealand",
+                      "India","Brazil","Japan","South Korea","Indonesia"),]
 
-
-
-
-
-x<-d$distw
-y<-d$flow/d$gdp_o
-ccode<-d$iso_d
+d<-df[,2]
+x<-df[,3]
 
 # Plot data
-plot(x,y,log="xy",axes=FALSE,
-     xlab="Distance (km)",ylab="Trade flow (in millions)",type="n")
-text(x,y,ccode,cex=2)
+plot(d,x,log="xy",axes=FALSE,xlim=c(5000,20000),
+     xlab="Distance (km)",ylab="Exports (in millions)",type="n")
+
+text(d,x,df$name,cex=1.7)
 axis(1,tick=FALSE)
-axis(2,tick=FALSE,line=-2)
+axis(2,tick=FALSE,line=-2.5)
