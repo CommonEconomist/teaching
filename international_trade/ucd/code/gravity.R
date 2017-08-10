@@ -57,6 +57,7 @@ text(gdp[iso2c=="CA"]+.7,trade[iso2c=="CA"],"Canada",cex=1.2)
 
 
 #### Gravity model for UK ####
+# https://visual.ons.gov.uk/uk-trade-partners/
 df<-read.csv("data_raw/Distance-exports.csv")
 
 # Data to vectors

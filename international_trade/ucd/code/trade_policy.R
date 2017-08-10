@@ -1,9 +1,8 @@
 ## Figures trade policy
+# http://www.oecd.org/tad/agricultural-policies/producerandconsumersupportestimatesdatabase.htm
 setwd("~/Dropbox/github/teaching/international_trade/ucd")
 
-
 #### Tariff rates and revenues ####
-
 # Countrycodes
 require(countrycode)
 data(countrycode_data)
@@ -14,6 +13,8 @@ require(WDI)
 t_m<-WDIsearch("tariff",field="name",short=FALSE) # 11
 t2_m<-WDIsearch("trade",field="name",short=FALSE) # 89
 wdi<-WDI(country=iso2c,c(t_m[11,1],t2_m[89,1]),start=2005,end=2015) 
+
+require(plyr)
 d<-ddply(wdi,.(country),summarise,
          tariff=mean(TM.TAX.MANF.SM.AR.ZS,na.rm=TRUE),
          revenue=mean(GC.TAX.INTT.RV.ZS,na.rm=TRUE))
@@ -31,8 +32,19 @@ abline(a=0,b=1,lty=2,lwd=2)
 axis(1,tick=FALSE,line=-1.5);axis(2,tick=FALSE,line=-1.5)
 text(25,60,"Average for 2005-2015",cex=2)
 
-#### Sugar prices ####
+#### Agricultural support EU ####
+d<-read.csv("data_raw/eu_agri_support.csv")
+p2c<-ts(d$P_to_C,start=c(1986,1))/1000
 
+# Plot data
+par(mar=c(5,5,2,1),las=1,bty="n",cex.axis=2,cex.lab=2)
+plot(p2c,type="b",pch=19,lwd=2,cex=2,xlab="",ylab="",axes=FALSE)
+axis(1,tick=FALSE)
+axis(2,tick=FALSE)
+
+text(1992,-15,"Producer to consumer transfers \n (EUR bn)",cex=2)
+
+#### Sugar prices ####
 # US domestic prices
 m<-read.csv("data_raw/us_sugar.csv")
 m<-as.matrix(m[,-1])

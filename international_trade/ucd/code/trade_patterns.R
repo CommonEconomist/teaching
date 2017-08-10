@@ -120,6 +120,7 @@ text(1910,70,"Trade in goods (% total)",cex=2)
 axis(1,tick=FALSE);axis(2,tick=FALSE,line=-1)
 
 #### Foreign direct investment ####
+# https://data.oecd.org/fdi/fdi-stocks.htm
 fdi<-read.csv("data_raw/oecd_fdi.csv",stringsAsFactors=FALSE)
 
 # Prepare data
