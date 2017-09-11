@@ -91,3 +91,30 @@ trade<-ts(d$trade_gdp,start=c(1960,1)) # To time series
 plot(trade,xlab="",ylab="",axes=FALSE,type="b",cex=2,lwd=2,ylim=c(40,100))
 axis(1,tick=FALSE);axis(2,tick=FALSE,line=-1)
 text(1970,90,"Trade relative to GDP",cex=2)
+
+
+#### Trade Israel ####
+x<-read.csv("data_raw/israel_x.csv");x<-x[,c(3,5)]
+m<-read.csv("data_raw/israel_m.csv");m<-m[,c(3,5)]
+colnames(x)[1]<-colnames(m)[1]<-"iso3c"
+d<-merge(x,m,all.x=TRUE)
+d[is.na(d)]<-0
+
+d$flow<-(d$export_val+d$import_val)
+d$flow.s<-d$flow/sum(d$flow)*100
+
+d<-d[order(-d$flow.s),]
+
+## Plot figure
+par(mar=c(5,5,2,2),bty="n",las=1,cex.lab=2,cex.axis=2,pty="m")
+plot(d$flow.s,xlab="",ylab="",axes=FALSE)
+axis(2,tick=FALSE,line=-1)
+
+# Add labels for countries
+text(2,25,"USA",cex=1.2)
+text(2,6,"China",cex=1.2)
+text(29,3,"Palestine",cex=1.2);segments(13,3,20,3,lwd=2)
+text(37,4,"Jordan",cex=1.2);segments(37,3.5,37,1)
+text(50,4,"Egypt",cex=1.2);segments(50,3.5,50,1)
+
+text(155,25,"Trade flows with Israel in 2015 \n (percentage of total)",cex=1.7)

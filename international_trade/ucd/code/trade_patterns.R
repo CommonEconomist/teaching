@@ -26,7 +26,7 @@ axis(1,tick=FALSE);axis(2,tick=FALSE,line=-1)
 d<-read.csv("data_raw/bilateral_trade_usa_chn.csv")
 im<-ts(d$Imports,start=c(1985,1))
 ex<-ts(d$Exports,start=c(1985,1))
-tb<-(ex-im)/1000
+tb<-ts((ex[-33]-im[-33])/1000,start=c(1985,1))
 
 # Plot figure
 plot(tb,axes=FALSE,xlab="",ylab="",type="b",lwd=2)
@@ -55,6 +55,17 @@ axis(2,at=(1:34)-.5,labels=wdi$country, tick=F,cex.axis=1.2)
 axis(1,tick=F)
 abline(v=seq(0,420,50),col="white",lwd=3)
 abline(v=0,col="gray",lwd=2)
+
+#### Terms of trade example ####
+imf<-read.csv("data_raw/imf_oil_wheat.csv")
+tot<-tot<-ts((imf$crude_oil/imf$wheat)*100,start=c(1980,1),frequency=12)
+
+# Plot data
+par(mar=c(5,5,2,1),cex.lab=2,cex.axis=2,bty="n",las=1)
+plot(tot,xlab="",ylab="",
+     axes=FALSE,lwd=2,type="l")
+axis(1,tick=FALSE);axis(2,tick=FALSE,lin=-1)
+text(1984,50,"Terms of trade:\n oil vs. wheat",cex=2)
 
 #### Terms of trade Australia ####
 
