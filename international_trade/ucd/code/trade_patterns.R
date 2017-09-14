@@ -152,4 +152,4 @@ axis(2,tick=FALSE,cex.axis=2,line=-1.5)
 
 text(43,391,"Inward",cex=1.5)
 text(43,355,"Outward",cex=1.5)
-text(10,390,"Foreign Direct Invesments \n (% GDP)",cex=2)
+text(10,390,"Foreign Direct Investments \n (% GDP)",cex=2)
