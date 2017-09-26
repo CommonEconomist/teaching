@@ -30,7 +30,7 @@ y<-ts(d$Inc_pw_us[d$Country=="Korea, Republic of"],start=c(1961,1))
 par(mar=c(5,5,1,1),las=1,bty="n",cex.lab=2,cex.axis=2,pty="s")
 plot(x,y,xlab="Productivity relative to US",
      xlim=c(.3,.6),ylim=c(.1,.6),
-     ylab="Income per worker relative to US",axes=FALSE,cex=.7)
+     ylab="Income per worker relative to US",axes=FALSE,cex=1)
 axis(1,tick=FALSE);axis(2,tick=FALSE,line=-1)
 
 #### Global productivity and wages ####
