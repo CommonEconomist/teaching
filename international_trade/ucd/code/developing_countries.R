@@ -9,6 +9,24 @@ data(countrycode_data)
 cc<-countrycode_data
 iso2c<-cc$iso2c
 
+#### GDP per capita ####
+require(WDI)
+gdp_m<-WDIsearch("gdp",field="name",short=FALSE) # 50
+wdi<-WDI("all",gdp_m[94,1],start=1990,end=1990)
+
+# Drop country aggregates
+d<-na.omit(wdi[wdi$iso2c %in% iso2c,])
+d$gdp<-d[,3]/d[,3][d$country=="United States"]
+x<-sort(d$gdp,decreasing=TRUE)
+
+# Plot data
+plot(x,axes=FALSE,xlab="",ylab="",cex=2)
+abline(h=1,lty=2,lwd=2)
+axis(1,tick=FALSE)
+axis(2,tick=FALSE)
+
+text(140,1.5,"GDP per capita (1990) \n proportion of USA",cex=2)
+
 #### Natural resource rents vs. GDP per capita ####
 # Download data from World Bank Development Indicators
 require(WDI)
@@ -20,7 +38,7 @@ d<-na.omit(wdi[wdi$iso2c %in% iso2c,])
 
 # Plot data
 plot(d[,4],d[,5],log="x",axes=FALSE,
-     ylab="GDP per capita",xlab="Resource rents (% GDP")
+     xlab="GDP per capita",ylab="Resource rents (% GDP)")
 axis(1,tick=FALSE);axis(2,tick=FALSE,line=-1)
 
 #### Historical price copper and sugar ####
@@ -63,8 +81,8 @@ plot(uga,xlim=c(1990,2019),ylim=c(0,110),lwd=2,xlab="",
      ylab="Coffee price (US cents/lb)",axes=FALSE)
 lines(png,col="steelblue4",lwd=2)
 axis(1,tick=FALSE);axis(2,tick=FALSE,line=-1)
-text(2018,uga[27]-2,"Uganda",cex=1.2)
-text(2018,png[27]-2,"Papua \n New Guinea",cex=1.2)
+text(2017.5,uga[27]-2,"Uganda",cex=1.5)
+text(2017.5,png[27]-2,"Papua \n New Guinea",cex=1.5)
 
 #### Tariff rates ####
 # Get World Bank data
@@ -91,6 +109,7 @@ trf<-ts(d$tariff,start=min(d$year))
 # Plot data
 plot(trf,axes=FALSE,ylab="",xlab="",lwd=2)
 axis(1,tick=FALSE);axis(2,tick=FALSE)
+text(2010,40,"Tariff rates",cex=2)
 
 #### Imports and exports ####
 # Download data from WDI
@@ -243,6 +262,7 @@ d<-ddply(wdi,.(iso2c),summarise,
          trade=mean(NE.TRD.GNFS.ZS,na.rm=TRUE))
 
 # Plot data
+par(mfrow=c(1,1))
 plot(d$gdp_g,d$trade,xlim=c(-5,15),ylim=c(5,420),axes=FALSE,
      xlab="GDP growth",ylab="Trade relative to GDP",log="y")
 axis(1,tick=FALSE);axis(2,tick=FALSE,line=-1)
