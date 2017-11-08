@@ -77,12 +77,12 @@ uga<-ts(d$uganda,start=1990)
 png<-ts(d$p_new_guinea,start=1990)
 
 # Plot
-plot(uga,xlim=c(1990,2019),ylim=c(0,110),lwd=2,xlab="",
+plot(uga,xlim=c(1990,2018.5),ylim=c(0,110),lwd=2,xlab="",
      ylab="Coffee price (US cents/lb)",axes=FALSE)
 lines(png,col="steelblue4",lwd=2)
 axis(1,tick=FALSE);axis(2,tick=FALSE,line=-1)
 text(2017.5,uga[27]-2,"Uganda",cex=1.5)
-text(2017.5,png[27]-2,"Papua \n New Guinea",cex=1.5)
+text(2017.3,png[27]-2,"Papua \n New Guinea",cex=1.5)
 
 #### Tariff rates ####
 # Get World Bank data
@@ -250,6 +250,36 @@ plot(hk,lwd=2,ylim=c(-10,15),
 abline(h=mean(hk,na.rm=TRUE),lty=2)
 axis(2,tick=FALSE)
 axis(1,tick=FALSE)
+
+#### Asian tigers 2 ####
+# Download data from WDI
+gdp_m<-WDIsearch("growth",field="name",short=FALSE) # 28
+wdi<-WDI(c("ID","PH","TH"),gdp_m[28,1],start=1960,end=2016)
+wdi<-wdi[order(wdi$iso2c,-wdi$year),]
+
+# Time-series objects
+id<-ts(wdi[,3][wdi$iso2c=="ID"],start=1960)
+ph<-ts(wdi[,3][wdi$iso2c=="PH"],start=1960)
+th<-ts(wdi[,3][wdi$iso2c=="TH"],start=1960)
+
+# Plot data
+par(mfrow=c(3,1))
+plot(id,lwd=2,ylim=c(-15,15),
+     axes=FALSE,ylab="",xlab="",main="GDP growth Indonesia")
+abline(h=mean(id,na.rm=TRUE),lty=2)
+axis(2,tick=FALSE)
+
+plot(ph,lwd=2,ylim=c(-15,15),
+     axes=FALSE,ylab="",xlab="",main="GDP growth Philippines")
+abline(h=mean(ph,na.rm=TRUE),lty=2)
+axis(2,tick=FALSE)
+
+plot(th,lwd=2,ylim=c(-15,15),
+     axes=FALSE,ylab="",xlab="",main="GDP growth Thailand")
+abline(h=mean(th,na.rm=TRUE),lty=2)
+axis(2,tick=FALSE)
+axis(1,tick=FALSE)
+
 
 #### Openness of trade ####
 gdp_m<-WDIsearch("growth",field="name",short=FALSE) # 27
