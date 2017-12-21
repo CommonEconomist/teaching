@@ -1,6 +1,5 @@
-# Simulation technology levels over time
+## Simulation technology levels over time
 
-#------------------------------------------------------------------------------
 #### 1) Set parameters ####
 t=0:100
 g=.02
@@ -9,7 +8,6 @@ sigma=.04
 e=exp(1)
 
 
-#------------------------------------------------------------------------------
 #### 2) Generate data ####
 
 # Technology levels
@@ -30,7 +28,6 @@ require(data.table)
 G=(D-shift(D,n=1,type="lag"))/shift(D,n=1,type="lag")
 G2=(D2-shift(D2,n=1,type="lag"))/shift(D2,n=1,type="lag")
 
-#------------------------------------------------------------------------------
 ### 3) Create figures ###
 par(las=1,bty="n",cex.axis=1.5,cex.lab=1.5,cex.main=1.7,mfrow=c(1,2))
 
@@ -59,7 +56,6 @@ lines(G2,lwd=2,col="steelblue4",lty=2)
 abline(h=.02,lwd=1.5)
 axis(1,tick=FALSE);axis(2,tick=FALSE)
 
-#------------------------------------------------------------------------------
 #### 4) Growth miracle ####
 # Economy changes from having sigma_j=0.005 to sigma_j=0.04 in period 21
 # Let the economy start at having economy at 30% of technology level leader

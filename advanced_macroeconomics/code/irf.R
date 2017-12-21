@@ -1,5 +1,5 @@
 # Simulate Impulse Response Function for AR(2) model
-par(mar=c(4,5,2,1),las=1,cex.axis=1.5,cex.lab=1.5)
+par(mar=c(4,5,2,1),las=1,cex.axis=2,cex.lab=2)
 
 # Generate response functions
 y1<-c(1,.6*1,rep(NA,18))

@@ -1,7 +1,8 @@
-# Example income over time.
+## Example income over time
 # Data taken from:
 # http://www.ggdc.net/maddison/maddison-project/home.htm
-par(bty="n",las=1,cex.axis=1.5,cex.lab=1.5)
+setwd('~/Dropbox/github/teaching/advanced_macroeconomics')
+par(mar=c(5,5,2,2),bty="n",las=1,cex.axis=2,cex.lab=2)
 
 # Load data and write to vectors
 maddison<-read.csv("data/maddison.csv",header=TRUE)

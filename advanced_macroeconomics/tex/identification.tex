@@ -1,0 +1,170 @@
+\documentclass{beamer}
+\usetheme{}
+\usecolortheme{dolphin}           
+\useinnertheme{circles}
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{enumerate items}[default]
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{booktabs} 
+\usepackage{graphicx}        
+\usepackage{array}
+\usepackage{color}
+\usepackage{svg}
+\makeatletter
+\def\zapcolorreset{\let\reset@color\relax\ignorespaces}
+\def\colorrows#1{\noalign{\aftergroup\zapcolorreset#1}\ignorespaces}
+\makeatother
+\graphicspath{{/home/swl/Dropbox/ucd/advanced_macro/figures/}} 
+\setbeamertemplate{navigation symbols}{}
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=blue,urlcolor=blue} % Colours of various links
+%--------------------------------------
+%%%% DETAILS TITLE PAGE %%%%
+%--------------------------------------
+\title{Advanced macroeconomics \\ Identification}
+\author{School of Economics, University College Dublin}
+\date{Spring 2017}
+\begin{document}
+
+%--------------------------------------
+\begin{frame}
+ \titlepage
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Macroeconometricians do four things
+  \begin{enumerate}
+    \item Describe and summarise macroeconomic data
+    \item Make macroeconomic forecasts
+    \item Quantify what we - don't- know about the macroeconomy
+    \item Advise policymakers - on macroeconomic issues
+  \end{enumerate}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Important empirical questions in macroeconomics include
+  \begin{itemize}
+    \item Why do some countries grow faster than others?
+    \medskip
+    \item What causes business cycle fluctuations?
+    \item How does monetary or fiscal policy affect the economy?    
+  \end{itemize}  
+\medskip
+Often we don't know the answers to these questions and finding out is difficult due to issues related to identification.
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  As an example, consider the FED lowering the interest rates in 2008 as a reaction to the crisis
+  \begin{itemize}
+    \item Lowering interest rates should encourage spending
+  \end{itemize}
+  \medskip
+  Lowering the interest rates is a source of variation in monetary policy which can be used.
+  Estimate effect on economy using OLS
+  \begin{align*}
+    \Delta Y_t = \alpha + \beta \Delta i_t + \epsilon_t
+  \end{align*}
+  Possible estimate: $\beta<0$
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ This would lead us to conclude that the reduction in interest rate correlates/causes decreases in output.
+ \begin{itemize}
+   \item So lowering the interest rate is not good for the economy
+   \item Policy implication: increase interest rate to stimulate economic activity
+ \end{itemize}
+ NB - FED lowers interest rates becase some factors negatively affect the economy
+ \begin{itemize}
+   \item Think falling housing prices and how these affect balance sheets of banks
+ \end{itemize}
+ These other factors confound the effect of the change in monetary policy
+ \begin{itemize}
+   \item i.e. OLS regression does not capture isolated effect of interest rate
+ \end{itemize}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Important in macroeconomics is the role of dynamics: Two important challenges
+  \begin{enumerate}
+    \item Difficult to identify exogenous variation in macroeconomic policy
+    \item Natural experiment that can be identified are rarely those required to answer questions we're interested in. 
+  \end{enumerate}
+  \medskip
+Result is external validity problem. 
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ Some other important issues
+ \begin{enumerate}
+   \item Dynamic nature of monetary and fiscal policy make it high dimensional; can have effect on both short and long run
+   \item Effects of fiscal shocks depends on monetary policy (constrained by zero lower bound) and tax policy response
+   \item Effect of policy depends on the economy
+   \item Degree to which a policy is a surprise affects when and how strongly an economy reacts  
+ \end{enumerate}
+ As a result, macroeconomics tend to be structural in nature; different from empirical work seeking for causal effects.
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ Can distinguish between micro and macro moments
+ \begin{itemize}
+   \item Micro moments are constructed using microeconomic data on behaviour of individuals and firms
+   \item Macro moments use aggregated data to identify equilibrium outcomes; informative about what type of world we live in
+ \end{itemize}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  As well as identified and unidentified moments
+  \begin{itemize}
+    \item Unidentified: simple statistics such as means, variances, and correlations
+    \item Identified: Statistics derived from empirical strategies or causal effect estimates; designed to uncover causal effects (micro)/responses to structural shocks (macro)
+  \end{itemize}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ Finally, in terms of identification this can be at aggregate or cross-sectional level
+ \begin{itemize}
+   \item Most models tend to be aggregate focusing on a single economy, mainly US
+   \item Cross-sectional identification is a fairly recent development
+ \end{itemize}
+ NB - Cross-sectional identification brings other estimation challenges
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Example of aggregate identification for fiscal stimulus
+  \begin{enumerate}
+    \item Evidence coming from wars
+    \item Evidence coming from VARs
+  \end{enumerate}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  
+
+\end{frame}
+
+
+\end{document}
