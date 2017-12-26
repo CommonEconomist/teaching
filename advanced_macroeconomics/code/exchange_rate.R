@@ -1,4 +1,4 @@
-## GDP examples
+## Exchange rate
 setwd('~/Dropbox/github/teaching/advanced_macroeconomics')
 par(mar=c(5,5,2,2),bty='n',las=1,cex.axis=2,cex.lab=2)
 

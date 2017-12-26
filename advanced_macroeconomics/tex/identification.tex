@@ -35,31 +35,19 @@
 
 %--------------------------------------
 \begin{frame}
-  In general macroeconometricians do four things
-  \begin{enumerate}
-    \item Describe and summarise macroeconomic data
-    \item Make macroeconomic forecasts
-    \item Quantify what we - don't- know about the macroeconomy
-    \item Advise policymakers - on macroeconomic issues
-  \end{enumerate}
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame}
- In terms of empirical research, some of the most important questions in macroeconomics are  
+  Some important questions in macroeconomics include
   \begin{itemize}
-    \item Why do some countries grow faster than others?
-    \medskip
-    \item What causes business cycle fluctuations?
-    \item How does monetary or fiscal policy affect the economy?    
-  \end{itemize}    
+     \item Why do some countries grow faster than others?
+     \medskip
+     \item What causes business cycle fluctuations?
+     \item How does monetary or fiscal policy affect the economy?
+   \end{itemize} 
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  Often answers to macroeconomic questions are 
+  The answers to these questions are often 
   \begin{enumerate}
     \item Unknown
     \item Difficult to answer
@@ -86,7 +74,62 @@
 
 %--------------------------------------
 \begin{frame}
-  Let's consider an example looking at the FED interest rates:
+ For a general definition of identification, let $P$ be the true distribution of observed data $X$ which can be modeled by
+ \begin{align}
+   \mathbf{P} = \{P_{\theta}: \theta \in \Theta  \}
+ \end{align}
+ Assuming that 
+ \begin{align}
+   P \in \mathbf{P}
+ \end{align}
+ or that there is a correctly specified model with parameters $\theta \in \Theta$ such that $P \in \mathbf{P}$.
+ Of course we are interested in $\theta$  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Suppose that we know for a fact that $P \in \mathbf{P}$ which entails that $\theta \in \Theta$ for $P_{\theta} \in \mathbf{P}$
+  \begin{itemize}
+    \item Only problem is that we can't distinguish between $\theta \in \Theta$ from $\theta^* \in \Theta$
+  \end{itemize}
+  \medskip
+  So from our knowledge about $P$ alone we can only say that 
+  \begin{align}
+    \theta \in \Theta_0(P)= \{\theta \in \Theta: P_{\theta} = P\}
+  \end{align}  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  $\Theta_0(P)$ is the identified set
+  \begin{itemize}
+    \item $\theta$ is identified if $\Theta_0 (P)$ is a singleton for all $P \in \mathbf{P}$
+  \end{itemize} 
+  \medskip
+  $\mathbf{P}$ should be interpreted as a structural model for the distribution of observed data $X$
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Why should we care about a structural model? As we can calculate interesting statistics from $P$
+  \begin{itemize}
+    \item Predictors, conditional probabilities, etc.    
+  \end{itemize}
+  \medskip
+  These statistics can provide useful insights about the data but not the mechanisms that generate the data.
+  In the identified model the structure of the data $\mathbf{P}$ is given by unknown value $\theta \in \Theta$.
+  \begin{itemize}
+    \item A central question is what we can learn from $\theta$, under certain conditions, from observed distribution $P$
+  \end{itemize}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Let's consider a more practical example looking at the FED interest rates:
   In 2008 the FED lowered the rates in a reaction to the crisis.
   \begin{itemize}
     \item Lowering interest rates should encourage spending; stimulate economic activity
@@ -111,7 +154,7 @@
     \Delta GDP_t = \alpha + \beta \Delta i_t + \epsilon_t
   \end{align*}
   \medskip
-  Estimate using OLS, possible estimate: $\beta > 0$
+  Fit model to data using OLS; possible estimate $\beta > 0$
 \end{frame}
 %--------------------------------------
 
@@ -132,16 +175,12 @@
 
 %--------------------------------------
 \begin{frame}
-  FED does not change interest rates randomly
+  FED does not change interest rates randomly, but change due to some factors affecting the economy
   \begin{itemize}
     \item Interest rates are endogenous    
-  \end{itemize}
-  \medskip
-  Interest rates are lowered because some factors affect economy negatively
-  \begin{itemize}
     \item Around 2008 think falling house prices and their effect on bank balance sheets
   \end{itemize}
-  \medskip
+    \medskip
   These other factors confound effect of change in monetary policy
   \begin{itemize}
     \item i.e. OLS regression does not capture isolated effect of interest rate
@@ -188,7 +227,7 @@
   \medskip
   In terms of econometrics we can distinguish between identified and unidentified moments
   \begin{enumerate}
-    \item Unidentified: simple statistics such as means, variances, and correlations
+    \item Unidentified: Simple statistics such as means, variances, and correlations
     \item Identified: Statistics derived from empirical strategies or causal effect estimates 
   \end{enumerate}
 \end{frame}
@@ -302,30 +341,11 @@
  Nakamura \& Steinsson highlight three prominent pieces of evidence
  \begin{enumerate}
    \item Bad policy by the FED prior to the Great Depression which made things worse
-   \item the Volcker disflation
+   \item The Volcker disflation
    \item Break in volatility of US real exchange rate
  \end{enumerate} 
 \end{frame}
 %--------------------------------------
-
-%--------------------------------------
-\begin{frame}
-  \begin{figure}
-    \includegraphics[scale=.7]{romer.eps}
-  \end{figure}
-  Romer (2016)
-\end{frame}
-%--------------------------------------
-
-
-%--------------------------------------
-\begin{frame}
-  \begin{figure}
-    \includegraphics[scale=.3]{exchange_rate.eps}
-  \end{figure}  
-\end{frame}
-%--------------------------------------
-
 
 %--------------------------------------
 \begin{frame}
@@ -344,15 +364,181 @@
   Four prevalent approaches
   \begin{enumerate}
     \item Large shocks
-    \item Discontinuity-based identification
     \item Narrative record to identify shocks
-    \item 'Controlling' for confounding factors
+    \item Discontinuity-based identification    
+    \item 'Controlling' for confounding factors, i.e. VAR methods
   \end{enumerate}
 \end{frame}
 %--------------------------------------
 
+%--------------------------------------
+\begin{frame}
+  Gold standard of empirical science is the controlled experiment
+  \begin{itemize}
+    \item Hard to implement when one is interested in the effect of monetary policy
+  \end{itemize}
+  \medskip
+  Need to look for 'natural experiments' or large shocks
+  \begin{itemize}
+    \item i.e. situations where policy changes are relatively large to potential confounding factors that cannot be accounted for
+    \item These type of changes are few and far between
+  \end{itemize}
+\end{frame}
+%--------------------------------------
 
+%--------------------------------------
+\begin{frame}
+  Friedman \& Schwartz argue that three policy actions taken by the FED in the interbellum were
+  \begin{enumerate}
+    \item 'of major magnitude'
+    \item 'cannot be regarded as necessary or inevitable economic consequences of contemporary changes in money income and prices'
+  \end{enumerate}
+  \medskip
+  They also argue that '\textit{the results are so consistent and sharp as to leave little doubt about their interpretation.}'
+  The dates of the events are
+  \begin{enumerate}
+    \item January-June 1920
+    \item October 1931
+    \item July 1936 - January 1937
+  \end{enumerate}
+\end{frame}
+%--------------------------------------
 
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.3]{industrial_production.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
 
+%--------------------------------------
+\begin{frame}
+  What where these policy mistakes Friedman \& Schwartz identified?
+  Let's look at the decision made in October 1931
+  \begin{itemize}
+    \item FED raised the discount rate from 1.5\% to 3.5\%
+    \item Response to speculative attack on US dollar following Britain leaving the gold standard
+  \end{itemize}
+  \medskip
+  FED tightened policy at a time that industrial production was decreasing rapidly; this might seem like clear monetary shock.
+  \begin{itemize}
+    \item Subsequent fall in industrial production not much different from preceding period
+    \item Unclear how much of decrease can be attributed to policy shock
+  \end{itemize}
+\end{frame}
+%--------------------------------------
 
+%--------------------------------------
+\begin{frame}
+ Volcker  disflation followed after Volcker was appointed as chairman of the Federal Reserve Board in August 1979
+ \begin{itemize}
+   \item After end of Korean War in 1953 inflation was stable and low, but started to rise in late 1960s
+   \item During 1970s inflation was high and volatile, often in double digits
+ \end{itemize}
+ \medskip
+ Monetary policy was characterised by 'stop-go'
+ \begin{itemize}
+   \item Tight when the public was concerned about inflation, loose when public was concerned about unemployment
+ \end{itemize}
+  In November 1980 Volcker broke with this modus operandi and targeted deliberate disinflation  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.6]{nakamura_steinsson.eps}
+  \end{figure}
+  Nakamura \& Steinsson (2017)
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.7]{romer.eps}
+  \end{figure}
+  Romer (2016)
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  During the 1980s output seemed indeed to respond to monetary policy, but there are other factors
+  \begin{enumerate}
+    \item Oil shocks in 1979/1980
+    \item Credit controls in 1980
+    \item Tax cuts in 1981-82
+  \end{enumerate}
+  \medskip
+  Volcker episode is consistent with non-neutrality of monetary policy, but not concerning idea that policy affects output with long and variable lags.
+  \begin{itemize}
+    \item Indeed output reacted largely synchronised with FED actions
+  \end{itemize}  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Searching for natural experiments can also be done using the narrative record, which is what Romer \& Romer (1989) did.
+  \begin{itemize}
+    \item They use Federal Reserve records to identify natural experiments
+    \item Looking at attempt to exert contractionary influence on the economy to reduce inflation
+  \end{itemize}
+  \medskip
+  Their paper is based on the earlier mentioned work by Friedman \& Schwartz.
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.6]{romer_romer.eps}
+  \end{figure}
+  Romer \& Romer (1989)
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Although interesting, there are some shortcomings with this approach
+  \begin{enumerate}
+    \item Unclear how narrative record is selected; risk of reverse-engineering 
+    \item Few data points; some other factor might be correlated with monetary shock, e.g. oil shocks
+    \item Shock are endogenous because they might be predictable; hard to establish though
+  \end{enumerate}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  There is reduced-form evidence that monetary policy affects relative price based on discontinuity-based identification methods. 
+  Seminal paper here is Mussa (1986) who used abrupt change in monetary policy following the breakdown of the Bretton Woods system of fixed exchange rate.
+  \begin{itemize}
+    \item Breakdown in  February 1973 caused large increase in volatility of US exchange rate        
+  \end{itemize}  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ Switching from a fixed to flexible exchange rate is a strictly monetary action. 
+ \begin{itemize}
+   \item If monetary policy has no real effects, this shouldn't have an impact on real variables such as the real exchange rate
+ \end{itemize}
+  \medskip
+  NB - In discontinuity-based design the identifying assumption made is that other factors affecting the exchange rate do not change discontinuously.
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.3]{exchange_rate.eps}
+  \end{figure}  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
 \end{document}
