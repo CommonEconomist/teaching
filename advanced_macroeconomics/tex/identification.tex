@@ -12,15 +12,13 @@
 \usepackage{graphicx}        
 \usepackage{array}
 \usepackage{color}
-\usepackage{svg}
 \makeatletter
 \def\zapcolorreset{\let\reset@color\relax\ignorespaces}
 \def\colorrows#1{\noalign{\aftergroup\zapcolorreset#1}\ignorespaces}
 \makeatother
 \graphicspath{{/home/swl/Dropbox/ucd/advanced_macro/figures/}} 
 \setbeamertemplate{navigation symbols}{}
-%--------------------------------------
-%%%% DETAILS TITLE PAGE %%%%
+
 %--------------------------------------
 \title{Identification in macroeconomics}
 \author{School of Economics, University College Dublin}
@@ -65,7 +63,7 @@
   \medskip
   Identification means whether or not the unknown parameter value can be deduced from the observed data  
   \begin{itemize}
-    \item Consistent estimators may exist under number of assumptions, i.e. central limit theorem etc.
+    \item Consistent estimators may exist under number of assumptions, e.g. central limit theorem
   \end{itemize}
 \end{frame}
 %--------------------------------------
@@ -75,7 +73,7 @@
   Why do we need an identified model?  
   \begin{itemize}
     \item Necessary condition for the existence of consistent estimators
-    \item i.e. when sample size increases, the estimator will converge, probabilistically, to parameters unknown value
+    \item i.e. when sample size increases, the estimator will converge, probabilistically, to parameter's unknown value
   \end{itemize}  
 \end{frame}
 %--------------------------------------
@@ -92,7 +90,7 @@
    P \in \mathbf{P} = \{P_{\theta}: \theta \in \Theta  \}
  \end{align}
  or that there is a correctly specified model with parameters $\theta \in \Theta$ such that $P \in \mathbf{P}$.
- Of course we are interested in $\theta$  
+ Of course we are interested in $\theta$.  
 \end{frame}
 %--------------------------------------
 
@@ -140,7 +138,7 @@
     \item So $\theta$ is identified if $\Theta_0 (P)$ is a singleton for all $P \in \mathbf{P}$
   \end{itemize} 
   \medskip
-  $\mathbf{P}$ should be interpreted as a structural model for the distribution of observed data $X$
+  $\mathbf{P}$ should be interpreted as a structural model for the distribution of observed data $X$.
 \end{frame}
 %--------------------------------------
 
@@ -168,7 +166,7 @@
  \medskip
  In the identified model the structure of the data $\mathbf{P}$ is given by unknown value $\theta \in \Theta$
  \begin{itemize}
-   \item A central question is what we can learn from $\theta$, under certain conditions, from observed distribution $P$
+   \item A central question is what we can learn from $\theta$, under certain conditions, from observed distribution $P$?
  \end{itemize}
 \end{frame}
 %--------------------------------------
@@ -178,17 +176,17 @@
  So how can a model be identified?
  This can be achieved through
  \begin{enumerate}
-    \item Through variation
-    \item Through 'natural experiments'
+    \item Variation
+    \item 'Natural experiments'
   \end{enumerate}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- Let's consider a practical example: FED interest rates
+ Let's consider a practical example: Fed interest rates
  \begin{itemize}
-   \item In 2008 the FED lowered the rates in a reaction to the financial crisis (later Great Recession)
+   \item In 2008 the Fed lowered the rates in a reaction to the financial crisis (later Great Recession)
    \item Lowering interest rates should encourage spending; stimulate economic activity
  \end{itemize}
  \medskip
@@ -230,13 +228,13 @@
    \item i.e. lowering the interest rate will harm the economy
  \end{itemize}
  \medskip
- Sticking to evidence-based policy, the implication would be to increase the interest rate in order to stimulate economic activity
+ Sticking to evidence-based policy, the implication would be to increase the interest rate in order to stimulate economic activity.
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  Naturally the FED does not change interest rates randomly
+  Naturally the Fed does not change interest rates randomly
   \begin{itemize}
     \item They change due to some factor(s) affecting the economy
     \item Around 2008 think of falling house prices and their effect on bank balance sheets
@@ -244,17 +242,17 @@
   \medskip
   This means that interest rates are endogenous and that other factors confound the effect of change in monetary policy
   \begin{itemize}
-    \item i.e. the regression does not capture the \textbf{isolated} effect of the interest rate
+    \item i.e. the regression does not capture the \textbf{isolated} effect of the interest rate.
   \end{itemize}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  Therefore dynamics play an important role in macroeconomic research and this entails two important challenges  
+  Dynamics therefore play an important role in macroeconomic research and this entails two important challenges  
   \begin{enumerate}
     \item Difficult to identify exogenous variation in macroeconomic policy
-    \item Natural experiment that can be identified are rarely those required to answer questions we're interested in. 
+    \item Natural experiments that can be identified are rarely those required to answer questions we're interested in. 
   \end{enumerate}
   \medskip
   This results into an external validity problem.  
@@ -351,7 +349,7 @@
    \item Best data availability
  \end{enumerate}
  \medskip
- \textbf{NB-} Recall issue of external validity
+ \textbf{NB-} Recall issue of external validity.
 \end{frame}
 %--------------------------------------
 
@@ -411,8 +409,20 @@
   Barro \& Redlick (2011) use for identification changes in US defence spending
   \begin{itemize}
     \item These changes are associated with buildups and aftermaths of wars
-    \item Approach can help distinguish between temporary and permanent chances in defence spending
+    \item Approach can help distinguish between temporary and permanent changes in defence spending
   \end{itemize}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  For instance, concerning defense spending related to WW2 they argue 
+  \begin{enumerate}
+    \item Changes in spending are exogenous to GDP
+    \item Changes in spending are very large in both directions
+    \item Demand effects from US defence spending should be dominant (compared to other countries that experienced GDP decreases)
+    \item US unemployment rate dropped from 9.4\% in 1940 to 1\% in 1944
+  \end{enumerate}
 \end{frame}
 %--------------------------------------
 
@@ -454,7 +464,7 @@
 %--------------------------------------
 \begin{frame}
   \begin{figure}
-    \includegraphics[scale=.5]{barro_redlick4.eps}
+    \includegraphics[scale=.6]{barro_redlick4.eps}
   \end{figure}
   Barro \& Redlick, 2011
 \end{frame}
@@ -468,7 +478,11 @@
    \item 0.6-0.7 over two years
  \end{enumerate}
  \medskip
- Magnitude of tax multiplier is 1.1; balanced budget-multiplier for defence spending is negative.   
+ Magnitude of tax multiplier is $-$1.1
+ \begin{itemize}
+   \item Therefore the balanced budget-multiplier for defence spending is negative
+   \item GDP will decline in response to higher defense spending and increased tax revenues
+ \end{itemize}     
 \end{frame}
 %--------------------------------------
 
@@ -478,7 +492,7 @@
  Nakamura \& Steinsson (2017) highlight three prominent pieces of evidence for non-neutrality
  \medskip
  \begin{enumerate}
-   \item Poor FED policy decisions prior to Great Depression, making things worse
+   \item Poor Fed policy decisions prior to Great Depression, making things worse
    \item The Volcker disflation
    \item Break in volatility of US real exchange rate
  \end{enumerate} 
@@ -515,12 +529,12 @@
  In empirical science the gold standard is of course the controlled experiment
  \medskip  
   \begin{itemize}
-    \item Which for macro has become the holy grail as it is hard. if not impossible, to implement looking at monetary policy
+    \item Which for macro has become the holy grail as it is hard, if not impossible, to implement
   \end{itemize}
   \medskip
   Therefore, a fruitful approach is to look for large shocks or 'natural experiments'
   \begin{itemize}
-    \item i.e. situations where policy changes are relatively large to potential confounding factors that cannot be accounted for
+    \item I.e. situations where policy changes are relatively large to potential confounding factors that cannot be accounted for
     \item These changes are few and far between 
   \end{itemize}
 \end{frame}
@@ -528,13 +542,13 @@
 
 %--------------------------------------
 \begin{frame}
-  Concerning natural experiments, Friedman \& Schwartz (1963) argue that there were three policy actions by the FED during the interbellum that were  
+  Friedman \& Schwartz (1963) is a good example of natural experiments: They argue that there were three policy actions by the Fed during the interbellum that were  
   \begin{enumerate}
     \item 'of major magnitude'
     \item 'cannot be regarded as necessary or inevitable economic consequences of contemporary changes in money income and prices'
   \end{enumerate}
   \medskip
-  They argue that 
+  And
   \begin{quote}
     the results are so consistent and sharp as to leave little doubt about their interpretation
   \end{quote}
@@ -558,19 +572,20 @@
 
 %--------------------------------------
 \begin{frame}
- These policy mistakes that Friedman \& Schwartz identified, what were these exactly?
+ These policy mistakes, what were they exactly?
  Let's look at the decision made in October 1931
  \medskip
   \begin{itemize}
     \item Raise in discount rate from from 1.5\% to 3.5\%
-    \item This was a response to speculative attacks on the US dollar following Britain leaving the gold standard
+    \item Response to potential speculative attacks on the US dollar following UK leaving the gold standard
   \end{itemize}  
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-FED tightened policy at a time that industrial production was decreasing rapidly; this might seem like clear monetary shock.
+Fed tightened policy at a time that industrial production was decreasing rapidly; this might seem like clear monetary shock.
+\medskip  
   \begin{itemize}
     \item Subsequent fall in industrial production, between October 1931- March 1933, not much different from preceding period
     \item Unclear how much of decrease can be attributed to policy shock
@@ -580,10 +595,10 @@ FED tightened policy at a time that industrial production was decreasing rapidly
 
 %--------------------------------------
 \begin{frame}
- During the period July 1937-January 1937 two things happened
+ During the period July 1936-January 1937 two things happened
  \medskip
  \begin{enumerate}
-   \item FED announced doubling the reserve requirements (fully implemented May 1937)
+   \item Fed announced doubling the reserve requirements (fully implemented May 1937)
    \item Treasury engaged in sterilisation of gold inflows
  \end{enumerate}
  \medskip
@@ -599,7 +614,7 @@ FED tightened policy at a time that industrial production was decreasing rapidly
 %--------------------------------------
 \begin{frame}
   \begin{figure}
-    \includegraphics[scale=.3]{inflation.eps}
+    \includegraphics[scale=.29]{inflation.eps}
   \end{figure}
 \end{frame}
 %--------------------------------------
@@ -620,7 +635,7 @@ FED tightened policy at a time that industrial production was decreasing rapidly
  \medskip
  Volcker  disflation followed after Volcker was appointed as chairman of the Federal Reserve Board in August 1979
  \begin{itemize}
-   \item November 1980 Volcker broke with this modus operandi and targeted deliberate disinflation  
+   \item Volcker broke with modus operandi and targeted deliberate disinflation  
  \end{itemize}  
 \end{frame}
 %--------------------------------------
@@ -654,26 +669,10 @@ FED tightened policy at a time that industrial production was decreasing rapidly
   \medskip
   Volcker episode is consistent with non-neutrality of monetary policy, but not concerning idea that policy affects output with long and variable lags.
   \begin{itemize}
-    \item Indeed output reacted largely synchronised with FED actions
+    \item Output reacted largely synchronised with Fed actions
   \end{itemize}  
 \end{frame}
 %--------------------------------------
-
-%--------------------------------------
-\begin{frame}
-  Romer \& Romer (1989) use the narrative record to search for natural experiments
-  \begin{itemize}
-    \item Based on Federal Reserve records, identifying attempts to exert contractionary influence on the economy to reduce inflation
-    \item There are 6 Romer-Romer dates
-  \end{itemize}
-  \medskip
-  Their work is based on the paper by Friedmand \& Schwartz (1963) earlier mentioned
-  \begin{itemize}
-    \item Indeed the title is 'Does monetary policy matter? A new test in the spirit of Friedman and Schwartz'
-  \end{itemize}    
-\end{frame}
-%--------------------------------------
-
 %--------------------------------------
 \begin{frame}
   \begin{figure}
@@ -685,11 +684,27 @@ FED tightened policy at a time that industrial production was decreasing rapidly
 
 %--------------------------------------
 \begin{frame}
+  Romer \& Romer (1989) use the narrative record to search for natural experiments
+  \begin{itemize}
+    \item Based on Fed records, identifying attempts to create recession to reduce inflation
+    \item There are 6 Romer-Romer dates
+    \item Find that shift to anti-inflationary policy led to increase in unemployment
+  \end{itemize}
+  \medskip
+  Their work is based on the paper by Friedmand \& Schwartz (1963) earlier mentioned
+  \begin{itemize}
+    \item Indeed the title is 'Does monetary policy matter? A new test in the spirit of Friedman and Schwartz'
+  \end{itemize}    
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
   There are a number of shortcomings associated with this approach  
   \begin{enumerate}
     \item Unclear how narrative record is selected; risk of reverse-engineering 
     \item Few data points; some other factor might be correlated with monetary shock, e.g. oil shocks
-    \item Shock are endogenous because they might be predictable; hard to establish though
+    \item Shocks are endogenous because they might be predictable; hard to establish though
   \end{enumerate}
 \end{frame}
 %--------------------------------------
