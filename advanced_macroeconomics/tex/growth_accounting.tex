@@ -33,43 +33,93 @@
 
 %--------------------------------------
 \begin{frame}
-  An important early economic model on growth and living standards is Malthus' model. 
-  It has two important features  
+  \begin{figure}
+    \includegraphics[scale=.3]{historic_income.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  A stylised fact from economic history: standards of living have been roughly similar in Assyria (1500 BCE), Roman Egypt, and late 18th century England (Clark, 2007)
+  \begin{itemize}
+    \item Strong link between income per capita and income growth
+    \item Any increases in aggregate outcome offset by increase in population size
+  \end{itemize}
+  \medskip
+  In this Malthusian world income per capita remains at constant level, despite technological progress
   \begin{enumerate}
     \item Long-run stagnation
-    \item The idea that population growth will outpace agricultural productivity
+    \item Population growth will outpace agricultural productivity
   \end{enumerate}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- Let's consider a simple Malthusian model where output is determined by two factors
- \begin{enumerate}
-   \item Land $X$
-   \item Labour $L$
- \end{enumerate}
- For simplicity we will assume that the amount of land is fixed and that the labour force will equal the total population
+  Empirical predictions of the Malthusian model are not that impressive
+  \begin{itemize}
+    \item Specifically that mortality should rise as living standards fall (Kelly \& O'Grada, 2014)
+  \end{itemize}
+  \medskip
+  Nonetheless, the Malthusian has had great influence on economic thinking
+  \begin{itemize}
+    \item Research on environment and conflict
+    \item 'Shithole countries' 
+  \end{itemize}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  Can write the aggregate production function as
+  \begin{figure}
+    \includegraphics[scale=.3]{malthus.eps}
+  \end{figure}  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.3]{malthus2.eps}
+  \end{figure}  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ Let's consider a Malthusian model where output is determined by two factors 
+ \begin{enumerate}
+   \item Land $X$
+   \item Labour $L$
+ \end{enumerate}
+ \medskip
+ For simplicity we assume that
+ \begin{itemize}
+   \item Amount of land is fixed
+   \item Labour force = total population
+ \end{itemize} 
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Aggregate production function can be written as  
   \begin{align}
     Y=AX^{\alpha}L^{1-\alpha}
   \end{align}
   \medskip
   $Y$ is total aggregate output\\
-  $A$ is technology parameter
+  $A$ is technology parameter\\
+  $\alpha$ is output elasticity
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  Output $Y$ will increase when total population $L$ increases, but the marginal productivity will decrease as it is defined by
+  Output $Y$ will increase when total population $L$ increases
   \begin{align}
-    \frac{\delta Y}{\delta L} &= (1-\alpha)AX^{\alpha}L^{-\alpha}\\
+    \frac{\partial Y}{\partial L} &= (1-\alpha)AX^{\alpha}L^{-\alpha}\\
   &= (1-\alpha)A \left( \frac{X}{L} \right)^{\alpha} > 0
   \end{align}  
 \end{frame}
@@ -77,8 +127,7 @@
 
 %--------------------------------------
 \begin{frame}
-  The marginal product is positive, meaning that an extra worker will add extra output.
-  But since $L$ is in the denominator the marginal product will decrease.
+  The marginal product is positive but it will decrease given that $L$ is in the denominator  
   \begin{align}
     \frac{\delta^2Y}{\delta L^2} = -\alpha(1-\alpha)AX^{\alpha}L^{-\alpha-1}<0
   \end{align}
@@ -87,25 +136,29 @@
 
 %--------------------------------------
 \begin{frame}
-  To measure living standard economists and policy makers often rely on output per capita as an indicator.
-  We can express output per capita $y$ as
+  To measure living standards we can use output per capita $y$.\\  
+  Take 
   \begin{align}
-    \frac{Y}{L} &= y = \frac{AX^{\alpha}L^{1-\alpha}}{L}\\
-    &= A\left ( \frac{X}{L} \right)^{\alpha} = Ax^{\alpha}
+    Y=AX^{\alpha}L^{1-\alpha}
   \end{align}
-  Where $x$ is land per capita.
+  and divide by $L$
+  \begin{align}
+    \frac{Y}{L} &= \frac{AX^{\alpha}L^{1-\alpha}}{L}\\
+    &= A\left ( \frac{X}{L} \right)^{\alpha} = Ax^{\alpha} = y
+  \end{align}
+  $x$ is land per capita
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  An increase in population size will have two effects on living standards
+  Increase in population size will have two effects on living standards  
   \begin{enumerate}
-    \item Increase in production meaning an increase in living standards
-    \item More people to share production with meaning a decrease in living standards
+    \item Production increase, resulting in increase in living standards
+    \item More people to share production with, meaning a decrease in living standards
   \end{enumerate}
   \medskip
-  According to the model the latter effect will dominate and therefore population growth will lead to a fall in living standards.  
+  In the Malthusian framework effect 2 will dominate, therefore population growth will lead to a fall in living standards.  
 \end{frame}
 %--------------------------------------
 
@@ -113,16 +166,15 @@
 \begin{frame}
  More formally;
  \begin{align}
-  \frac{\delta y}{\delta L} &= -\alpha AX^{\alpha}L^{-\alpha-1} <0\\
-  \frac{\delta^2 y}{\delta L^2} &= \alpha(1-\alpha)AX^{\alpha}L^{-\alpha-2}>0
+  \frac{\partial y}{\partial L} &= -\alpha AX^{\alpha}L^{-\alpha-1} <0\\
+  \frac{\partial^2 y}{\partial L^2} &= \alpha(1-\alpha)AX^{\alpha}L^{-\alpha-2}>0
  \end{align}  
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- Given the dynamics between population and output growth, let's have a closer look at population dynamics. 
- We let population size $L_t$ is equal last year's population size plus the number of births $B_t$ and minus the number of deaths $D_t$ during the same year, or
+ Let's have a closer look at the population dynamics: In the model population size $L_t$ equals last year's population size plus the number of births $B_t$ and minus the number of deaths $D_t$ during the same year
   \begin{align}
    L_t = L_{t-1} + B_t(y_{t-1}) - D_t(y_{t-1})
   \end{align}
@@ -147,13 +199,13 @@
 
 %--------------------------------------
 \begin{frame}
-  So when output per capita increases, the food supply will increase which allows families to expand and reduce mortality due to better nourishment. 
+  When output per capita increases, the food supply will increase which allows families to expand and reduce mortality due to better nourishment. 
   Output per capita will tend to converge towards an equilibrium indicated by $y^*$, at which point the population ceases to grow.
   \begin{itemize}
     \item This is known as the subsistence level
   \end{itemize}
   \begin{align}
-  L_t-L{t-1} = B_t(y^*)-D_t(y^*)=0
+  L_t-L_{t-1} = B_t(y^*)-D_t(y^*)=0
   \end{align}
 \end{frame}
 %--------------------------------------
@@ -185,9 +237,9 @@
 
 %--------------------------------------
 \begin{frame}
-  Consider a positive technology shock increasing productivity. 
-  \begin{itemize}
-    \item Productivity increase will shift equilibrium punt outward on $y$-curve: temporary increase in output per capita
+  Following a positive technology shocks there will be an increase in productivity:   
+  Productivity increase will shift equilibrium punt outward on $y$-curve: temporary increase in output per capita
+  \begin{itemize}    
     \item This will increase birth rate and decrease death rate
     \item Population will increase reducing the living standards
   \end{itemize}
@@ -198,7 +250,7 @@
 
 %--------------------------------------
 \begin{frame}
-History has shown however that there are a number of factors that can contribute to a break with the Malthusian trap. 
+ History has shown that there are a number of factors contributing to a break with the Malthusian trap:
 \begin{enumerate}
   \item Fall in birth rate ending link with income per capita
   \item Increase in education level
@@ -210,7 +262,7 @@ History has shown however that there are a number of factors that can contribute
 
 %--------------------------------------
 \begin{frame}
- Let's have a look at the Cobb-Douglas model  
+ Moving on to the Cobb-Douglas model  
 \begin{align}
   Y_t=A_tK^{\alpha}_tL^{\beta}_t
 \end{align}
@@ -233,12 +285,12 @@ Since $A_t$ increases productiveness of other factors, it is also known as Total
 
 %--------------------------------------
 \begin{frame}
-  We are often interested in the output per worker or productivity.
-  Output per worker is given by
+  Again, we are interested in output per worker (productivity) which is given by
   \begin{align}
     \frac{Y_t}{L_t}=A_tK^{\alpha}L^{\beta-1}_t=A_t \left(\frac{K_t}{L_t} \right)^{\alpha}L_t^{\alpha+\beta-1}
   \end{align}
-  Increases in output per worker is productivity growth.
+  \medskip
+  Here increases in output per worker is productivity growth.
 \end{frame}
 %--------------------------------------
 
@@ -252,36 +304,34 @@ Since $A_t$ increases productiveness of other factors, it is also known as Total
 
 %--------------------------------------
 \begin{frame}
- There are three way to increase productivity
-This function shows that there are three potential ways to increase productivity
+ The Cobb-Douglas model shows that there are three potential ways through which to increase productivity
 \begin{enumerate}
-  \item Increase in labour force  
-  \item Technological progress; Improving the efficiency of the economy
-  \item Capital deepening: Increasing the amount of capital per worker  
+  \item $L$: Increase in labour force  
+  \item $K$: Increasing the amount of capital per worker (capital deepening)
+  \item $A$: Improving the efficiency of the economy (technological progress)  
 \end{enumerate}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- Concerning growth of the labour force; increasing the number of workers will only add to growth if
+ Increasing the labour will add to growth if 
  \begin{align}
    \alpha+\beta>1
  \end{align}
  \medskip
- i.e. under increasing returns to scale, whereas most growth theories assume constant returns to scale (CRS).
+ i.e. under increasing returns to scale; most growth theories assume constant returns to scale (CRS)
  \begin{align}
    \alpha+\beta &= 1\\
    \frac{Y_t}{L_t} &= A_t \left(\frac{K_t}{L_t}\right)^{\alpha}
  \end{align}
 \end{frame}
-
+%--------------------------------------
 
 
 %--------------------------------------
 \begin{frame}
-  Let's examine what determines growth under the CRS assumptions.
-  Given   
+  Let's examine what determines growth under the CRS assumptions, given   
   \begin{align}
    \alpha+\beta &= 1
   \end{align}
@@ -305,43 +355,40 @@ This function shows that there are three potential ways to increase productivity
 
 %--------------------------------------
 \begin{frame}
-  Can differentiate production function with respect to time; expressing it as a function of $G^Y_t$ 
-  \begin{itemize}
-    \item Can define the growth rates of labour, capital, and technology. 
-  \end{itemize}
+  Can differentiate production function with respect to time; expressing it as a function of $G^Y_t$.
+  E.g. for capital 
   \begin{align}
-    \frac{dK_t^{\alpha}}{dt} &= \frac{dK_t^{\alpha}}{dK_t}\frac{dK_t}{dt} =\alpha K_t^{\alpha-1}\frac{dK_t}{dt}\\
-    \frac{dL_t^{1-\alpha}}{dt} &= \frac{dL_t^{1-\alpha}}{dL_t}\frac{dL_t}{dt} = (1-\alpha)L_t^{-\alpha}\frac{dL_t}{dt}
+    \frac{\partial K_t^{\alpha}}{\partial t} &= \frac{\partial K_t^{\alpha}}{\partial K_t}\frac{\partial K_t}{\partial t} =\alpha K_t^{\alpha-1}\frac{\partial K_t}{\partial t}
   \end{align}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- For the next step we need to use the product rule, which implies
-\begin{align}
-  \frac{dABC}{dx}=BC\frac{dA}{dx}+AC\frac{dB}{dx}+AB\frac{dC}{dx}
+  We can apply this for the whole function using the product rule
+  \begin{align}
+  \frac{\partial ABC}{\partial x}=BC\frac{\partial A}{\partial x}+AC\frac{\partial B}{\partial x}+AB\frac{\partial C}{\partial x}
 \end{align}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- Also using the chain rule, for the whole production function we can calculate the terms involving the impact of changes in capital and labour inputs as
+ Can calculate the terms involving the impact of changes in capital and labour inputs as
   \begin{align}
-    \frac{dY_t}{dt} &= \frac{dA_tK_t^{\alpha}L_t^{1-\alpha}}{dt}\\
-    &= K_t^{\alpha}L_t^{1-\alpha}\frac{dA_t}{dt} + A_tL_t^{1-\alpha}\frac{dK_t^{\alpha}}{dt} + A_tK_t^{\alpha}\frac{dL_t^{1-\alpha}}{dt}\\
-    &= K_t^{\alpha}L_t^{1-\alpha}\frac{dA_t}{dt} + \alpha A_tK_t^{\alpha-1}L_1^{1-\alpha} \frac{dK_t}{dt}  + (1-\alpha)A_tK_t^{\alpha}L_t^{-\alpha}\frac{dLt}{dt}
+    \frac{\partial Y_t}{\partial t} &= \frac{\partial A_tK_t^{\alpha}L_t^{1-\alpha}}{\partial t}\\ \nonumber
+    &= K_t^{\alpha}L_t^{1-\alpha}\frac{\partial A_t}{\partial t} + A_tL_t^{1-\alpha}\frac{\partial K_t^{\alpha}}{\partial t} + A_tK_t^{\alpha}\frac{\partial L_t^{1-\alpha}}{\partial t}\\ \nonumber
+    &= K_t^{\alpha}L_t^{1-\alpha}\frac{\partial A_t}{\partial t} + \alpha A_tK_t^{\alpha-1}L_1^{1-\alpha} \frac{\partial K_t}{\partial t}  + (1-\alpha)A_tK_t^{\alpha}L_t^{-\alpha}\frac{\partial Lt}{\partial t}
   \end{align}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  We can now calculate the growth rate of output by dividing boths sides by $Y_t$.   
+ Calculate growth rate of output by dividing both sides by $Y_t$   
   \begin{align}
-    \frac{1}{Y_t}\frac{dY_t}{dt} & = \frac{K_t^{\alpha}L_t^{1-\alpha}}{A_tK_t^{\alpha}L_t^{1-\alpha}} \frac{dA_t}{dt} + \\& \alpha \frac{A_tK_t^{\alpha-1}L_1^{1-\alpha}}{A_tK_t^{\alpha}L_t^{1-\alpha}} \frac{dK_t}{dt} + (1-\alpha) \frac{A_tK_t^{\alpha}L_t^{-\alpha}}{A_tK_t^{\alpha}L_t^{1-\alpha}} \frac{dLt}{dt}\\
-    \frac{1}{Y_t}\frac{dY_t}{dt} & = \frac{1}{A_t}\frac{dA_t}{dt} + \alpha \frac{1}{Kt}\frac{dK_t}{dt} + (1-\alpha) \frac{1}{L_t}\frac{dL_t}{dt}\\ 
+    \frac{1}{Y_t}\frac{\partial Y_t}{\partial t} & = \frac{K_t^{\alpha}L_t^{1-\alpha}}{A_tK_t^{\alpha}L_t^{1-\alpha}} \frac{\partial A_t}{\partial t} + \\ \nonumber & \alpha \frac{A_tK_t^{\alpha-1}L_1^{1-\alpha}}{A_tK_t^{\alpha}L_t^{1-\alpha}} \frac{\partial K_t}{\partial t} + (1-\alpha) \frac{A_tK_t^{\alpha}L_t^{-\alpha}}{A_tK_t^{\alpha}L_t^{1-\alpha}} \frac{\partial Lt}{\partial t}\\ \nonumber
+    \frac{1}{Y_t}\frac{\partial Y_t}{\partial t} & = \frac{1}{A_t}\frac{\partial A_t}{\partial t} + \alpha \frac{1}{Kt}\frac{\partial K_t}{\partial t} + (1-\alpha) \frac{1}{L_t}\frac{\partial L_t}{\partial t}\\  
     G_t ^Y &=G_t^A +\alpha G_t^K + (1-\alpha)G_t^L
 \end{align}
   \medskip
@@ -351,9 +398,12 @@ This function shows that there are three potential ways to increase productivity
 
 %--------------------------------------
 \begin{frame}
-  This shows that output growth equals technology growth plus a weighted average of the growth rates of capital and labour
+  \begin{align}
+    G_t ^Y &=G_t^A +\alpha G_t^K + (1-\alpha)G_t^L
+  \end{align}
+  i.e. output growth equals technology growth plus a weighted average of the growth rates of capital and labour
   \begin{itemize}
-    \item With the weight determined by $\alpha$
+    \item Weight determined by $\alpha$
   \end{itemize}
   \medskip
   This is the key equation in growth accounting studies. 
@@ -414,37 +464,36 @@ However, if we know the value of parameter $\alpha$ we can get an estimate for g
 \begin{frame}
   The firm's profits are given by
   \begin{align}
-    \Pi_t &= P_tY_t - R_tK_t -W_tL_t\\
+    \Pi_t &= P_tY_t - R_tK_t -W_tL_t\\ \nonumber
     &= P_tA_tK_t^{\alpha}L_t^{1-\alpha}-R_tK_t - W_tL_t  
   \end{align}
+  $P_t Y_t$ is total nominal GDP\\
+  $R_t K_T$ is the total amount of income paid to capital\\
+  $W_t L_t$ is the total amount of income paid to wages  
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
   The firm only needs to decide how much labour and capital to use
-  It will therefore maximise profits by differentiating the function with respect to capital and labour and the the derivatives equal to zero which provides two conditions
+  It will therefore maximise profits by differentiating the function with respect to capital and labour and set the derivatives equal to zero which provides two conditions
 \begin{align}
-  \frac{\delta \Pi_t}{\delta K_t} &= \alpha P_tA_tK_t^{\alpha-1}L_t^{1-\alpha} -R_t = \alpha \frac{P_tY_t}{K_t} - R_t = 0\\
-  \frac{\delta \Pi_t}{\delta L_t} &= (1-\alpha) P_tA_tK_t^{\alpha}L_t^{-\alpha} - W_t = (1-\alpha) \frac{P_tY_t}{L_t}- W_t = 0
-\end{align}
-Rearranging we get
-\begin{align}
-  \alpha &= \frac{R_tK_t}{P_tY_t}\\
-  1-\alpha &= \frac{W_tL_t}{P_tY_t}
+  \frac{\partial \Pi_t}{\partial K_t} &= \alpha P_tA_tK_t^{\alpha-1}L_t^{1-\alpha} -R_t\\ \nonumber
+  & = \alpha \frac{P_tY_t}{K_t} - R_t = 0\\ 
+  \frac{\partial \Pi_t}{\partial L_t} &= (1-\alpha) P_tA_tK_t^{\alpha}L_t^{-\alpha} - W_t \\ \nonumber
+  & = (1-\alpha) \frac{P_tY_t}{L_t}- W_t = 0
 \end{align}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-We have that 
-\begin{itemize}
-  \item $P_t Y_t$ is total nominal GDP
-  \item $W_t L_t$ is the total amount of income paid to wages
-  \item $R_t K_T$ is the total amount of income paid to capital
-\end{itemize}
-
+Rearranging we get
+\begin{align}
+  \alpha &= \frac{R_tK_t}{P_tY_t}\\ 
+  1-\alpha &= \frac{W_tL_t}{P_tY_t}
+\end{align}
+\medskip
 $\alpha$ will be the total amount of income paid to capital relative to total income, at the aggregate level nominal GDP
 \begin{itemize}
   \item $1-\alpha$ can be calculated as the fraction of income paid to workers instead of compensating capital.
@@ -454,16 +503,18 @@ $\alpha$ will be the total amount of income paid to capital relative to total in
 
 %--------------------------------------
 \begin{frame}
-Solow found that for most countries the national income accounts show that wage income explains most of GDP, corresponding to $\alpha<0.5$
+ Solow's results implied that $\alpha<0.5$
   \begin{itemize}
-    \item Based on the estimates for the US economy, commonly $\alpha=\frac{1}{3}$ is used. 
+    \item For most countries the national income accounts show that wage income explain most of GDP
+    \item $\alpha=\frac{1}{3}$ is used, based on the estimates for the US economy
   \end{itemize}
   \medskip
-  However, studies assume that firms are imperfectly competitive, and if that assumption holds, that means that the share if income earned by labour and capital depend on the degree of monopoly power. 
+  Solow's paper also concluded that capital deepening had not been that important for US growth
   \begin{itemize}
-    \item Solow's paper also concluded that capital deepening had not been that important for US growth; TFP growth accounted for 87.5\% of growth in productivity over the period
-    \item TFP is sometimes called the Solow residual because it is a backed out calculation that makes things add up
+    \item TFP growth accounted for 87.5\% of growth in productivity over the period    
   \end{itemize}
+  \medskip
+  TFP is sometimes called the Solow residual because it is a backed out calculation that makes things add up
 \end{frame}
 %--------------------------------------
 
@@ -473,7 +524,7 @@ In the standard Swan-Solow model the production functions links output to capita
 \begin{align}
   Y_t = AF(K_t,L_t) 
 \end{align}
-
+\medskip
 A key feature of the model is that, with a constant labour supply, there are diminishing marginal returns to capital accumulation meaning that each increase in capital will give a progressively smaller increase in output
 \begin{align}
   \frac{\delta^2Y_t}{\delta K_t}<0
@@ -483,33 +534,23 @@ A key feature of the model is that, with a constant labour supply, there are dim
 
 %--------------------------------------
 \begin{frame}
-  There are some additional assumptions such as a closed economy with no government sector or international trade.
-  Therefore, all output takes the form of consumption or investment 
+ Some additional assumptions of the model  
   \begin{align}
-    Y_t =C_t+I_t
+    Y_t =C_t+I_t\\ 
+    S_t=Y_t-C_t=I_t \\ 
+    \frac{\partial K_t}{\partial t}=I_t -\delta K_t \\
+    S_t=sY_t
   \end{align}
+  \medskip
+  i.e. 
+  \begin{itemize}
+    \item All output takes the form of consumption or investment 
+    \item Savings will equal investment
+    \item Capital will depreciate
+    \item Consumers save constant share of income
+  \end{itemize}
 \end{frame}
 %--------------------------------------
-
-%--------------------------------------
-\begin{frame}
- Savings will equal investment
- \begin{align}
-   S_t=Y_t-C_t=I_t
- \end{align}
- \medskip
- Capital will depreciate
- \begin{align}
-  \frac{dK_t}{dt}=I_t -\delta K_t
- \end{align}
- \medskip
- Consumers save constant share of income
- \begin{align}
-  S_t=sY_t
- \end{align}
-\end{frame}
-%--------------------------------------
-
 
 %--------------------------------------
 \begin{frame}
@@ -519,19 +560,18 @@ A key feature of the model is that, with a constant labour supply, there are dim
   \end{align}
   This entails that the capital stock changes over time according to
   \begin{align}
-    \frac{dK_t}{dt}=sY_t-\delta K_t
+    \frac{\partial K_t}{\partial t}=sY_t-\delta K_t
   \end{align}
 \end{frame}
 %--------------------------------------
-
 
 %--------------------------------------
 \begin{frame}
     Capital stock development over time depends on whether investments are greater, equal to, or less than the depreciation rate
  \begin{align}
-    \delta K_t < sY_t &\Rightarrow \frac{dK_t}{dt} > 0\\
-    \delta K_t = sY_t &\Rightarrow \frac{dK_t}{dt} = 0\\
-    \delta K_t > sY_t &\Rightarrow \frac{dK_t}{dt} < 0
+    \partial K_t < sY_t &\Rightarrow \frac{\partial K_t}{\partial t} > 0\\
+    \partial K_t = sY_t &\Rightarrow \frac{\partial K_t}{\partial t} = 0\\
+    \partial K_t > sY_t &\Rightarrow \frac{\partial K_t}{\partial t} < 0
  \end{align}
  \medskip
  The stock of capital will stay constant if the capital/output ratio is
@@ -556,22 +596,25 @@ A key feature of the model is that, with a constant labour supply, there are dim
 
 %--------------------------------------
 \begin{frame}
-  Nonetheless, the model implies a very important difference between these two determinants of growth
+  The model implies a very important difference between these two determinants of growth
   \begin{itemize}
-    \item Savings rate $s$ is subject to a limit, whereas as $A$ does not face such constraints
-    \item Therefore, in order to have long-term sustainable growth increases in TFP matter
+    \item Savings rate $s$ is subject to a limit, whereas as $A$ does not face such constraints    
   \end{itemize}
   \medskip
-  Specifically, growth through capital accumulation will taper off over time producing a one-off increase in output per worker whereas TFP growth can lead to sustained higher growth rates of output per worker
+  Therefore, in order to have long-term sustainable growth increases in TFP matter
+  \begin{itemize}
+    \item Specifically, growth through capital accumulation will taper off over time producing a one-off increase in output per worker whereas TFP growth can lead to sustained higher growth rates of output per worker 
+  \end{itemize}  
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  We can define the capital-output ration as
+  We can define the capital-output ratio as
 \begin{align}
   \frac{K_t}{Y_t}=K_tY_t^{-1}=x_t
 \end{align}
+\medskip
 and the growth rate can be written as
 \begin{align}
   \frac{\Delta x_t}{x_t} = \frac{\Delta K_t}{K_t} - \frac{\Delta Y_t}{Y_t}
@@ -581,9 +624,12 @@ and the growth rate can be written as
 
 %--------------------------------------
 \begin{frame}
-  We can now define the growth equation as
+  We can now define the growth equation 
 \begin{align}
-  G^Y_t &= G^A_t + \alpha G^K_t + (1-\alpha)G^L_t\\
+  G^Y_t &= G^A_t + \alpha G^K_t + (1-\alpha)G^L_t  
+\end{align}
+as
+\begin{align}
   \frac{\Delta Y_t}{Y_t} &= g + \alpha \frac{\Delta K_t}{K_t} + (1-\alpha)n
 \end{align}
 
@@ -594,7 +640,7 @@ Capital growth is given as
 
 Meaning that the growth of the capital-output ratio is given by
 \begin{align}
-  \frac{\Delta x_t}{x_t} &= (1-\alpha) \frac{\Delta K_t}{K_t} -g - (1-\alpha)n\\
+  \frac{\Delta x_t}{x_t} &= (1-\alpha) \frac{\Delta K_t}{K_t} -g - (1-\alpha)n\\ \nonumber
                          &= (1-\alpha) (\frac{s}{x_t} - \frac{g}{1-\alpha}-n-\delta)
 \end{align}
 \end{frame}
@@ -617,7 +663,7 @@ Meaning that the growth of the capital-output ratio is given by
 
 %--------------------------------------
 \begin{frame}
- One important caveat: Results from growth accounting studies can potentially be misleading as they misidentify the source of growth
+ \textbf{NB-} Results from growth accounting studies can potentially be misleading as they misidentify the source of growth
  \begin{itemize}
    \item Consider a country that allocates a fixed share of GDP to investments but is experiencing a steady growth in TFP
    \item The Swan-Solow model predicts in this case a steady increase in output per worker and an increase in capital stock
@@ -642,26 +688,28 @@ Meaning that the growth of the capital-output ratio is given by
 \end{frame}
 %--------------------------------------
 
+
 %--------------------------------------
 \begin{frame}
-One important factor with regard to the reduction in productivity growth is the slow growth rate of the labour force. 
-In recent years the US labour force has flattened out after years of increasing number of people available for work due to
-\begin{enumerate}
-  \item Population growth
-  \item Female labour participation
-  \item Immigration
-\end{enumerate}
-\medskip
-An important long-term demographic trend, that also affects other developed countries is the ageing of the baby boom generation. 
-As more and more people from this generation start to retire, the dependency ratio starts to increase significantly.
-The dependency ratio is the ratio of non-working to working people.  
+ One main challenge for future economic growth in Europe is dealing with demographic changes
+ \begin{itemize}
+   \item Specifically the aging of the population
+   \item Population growth is slowing and will peak in the middle of the century
+   \item Worryingly, the working population (15-64 year) has already peaked and will decline
+ \end{itemize}
+   \medskip
+   Macroeconomic problems facing Europe are twofold
+   \begin{enumerate}
+     \item Short term: weak aggregate demand and high level of debt
+     \item Long term: Changing demography 
+   \end{enumerate}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
   \begin{figure}
-    \includegraphics[scale=.3]{age_usa.eps}
+    \includegraphics[scale=.3]{population_projection.eps}
   \end{figure}
 \end{frame}
 %--------------------------------------
@@ -676,41 +724,12 @@ The dependency ratio is the ratio of non-working to working people.
 
 %--------------------------------------
 \begin{frame}
-  \begin{figure}
-    \includegraphics[scale=.3]{population_projection.eps}
-  \end{figure}
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame}
-  One serious challenge for future economic growth in Europe is dealing with the demographic changes, specifically the effects of an ageing population.
-Population growth is slowing and to peak in the middle of the century.
-Worryingly, the working population, those aged between 15-64 years, has peaked already and is set to decline. 
-The macroeconomic problems that Europe faces are twofold
-\begin{itemize}
-  \item Short term
-  \begin{itemize}
-    \item Weak aggregate demand
-    \item High levels of public and private debt
-  \end{itemize}
-  \item Long term
-  \begin{itemize}
-    \item Demographic challenges
-    \item Requiring productivity increase, immigration, higher ages for retirement
-  \end{itemize}
-\end{itemize}
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame}
  Young (1992) provides a growth accounting study focusing on Hong Kong and Singapore
  \begin{itemize}
-   \item Both cities have been very successful in restructuring their economy; Hong Kong experienced an economic growth of 147\% between the early 1970s and 1990, and Singapore 154\%
+   \item Both cities have been very successful in restructuring their economy; Hong Kong experienced an economic growth of 147\% between the early 1970s and 1990; Singapore 154\%
  \end{itemize}
  \medskip
- Young focuses on these two cities as they have a similar background yet are different on a number of issues emphasised by growth theory. 
+ Young focuses on these two cities as they have a similar background yet are different on a number of issues emphasized by growth theory. 
   Some similarities in the prewar period include
   \begin{itemize}
     \item Both British colonies
@@ -722,11 +741,20 @@ The macroeconomic problems that Europe faces are twofold
 
 %--------------------------------------
 \begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.3]{hongkong_singapore.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+
+%--------------------------------------
+\begin{frame}
   During the postwar period, both city-states developed export-dependent manufacturing industries, going from producing textiles to clothing, plastics, electronics, and since the 1980s shifting to banking and financial services.
   Two important differences between the cities are
 \begin{enumerate}
   \item Hong Kong had a better educated population in the early postwar years
-  \item Hong Kong has pursuit laissez faire policies, whereas Singapore implemented forced national savings and attracted a lot of foreign direct investment
+  \item Hong Kong has pursuit laissez-faire policies, whereas Singapore implemented forced national savings and attracted a lot of foreign direct investment
 \end{enumerate}
 \end{frame}
 %--------------------------------------
@@ -811,7 +839,32 @@ This is to account for the fact that new technologies do not achieve their full 
 
 %--------------------------------------
 \begin{frame}
-  Cross-country evidence on grwoth determinants is often discounted
+  \begin{figure}
+    \includegraphics[scale=1.2]{bolt_et_al.eps}
+  \end{figure}  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  What matters for long-term growth?
+  \begin{itemize}
+    \item Demography
+    \item Geography
+    \item Institutions
+    \item Natural resources
+    \item War and conflict
+    \item Trade
+    \item Education
+    \item Colonial history
+    \item Macroeconomic policy
+  \end{itemize}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Cross-country evidence on growth determinants is often discounted
   \begin{itemize}
     \item Major issue is that there are many candidate models and choice in variable selection leaves room for data mining
   \end{itemize}
@@ -865,12 +918,160 @@ This is to account for the fact that new technologies do not achieve their full 
   \medskip
   Finally, one can get the posterior inclusion probability for variable $k$ by summing the posterior probabilities of all models including the variable.
 \end{frame}
-
+%--------------------------------------
 
 %--------------------------------------
 \begin{frame}
   \begin{figure}
     \includegraphics[scale=.5]{ciccone.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+
+%--------------------------------------
+\begin{frame}
+  Growth accounting studies rely on estimate of GDP, however GDP is often badly measured
+  \begin{itemize}
+    \item Need to measure nominal GDP as well as reliable price indices
+  \end{itemize}
+  \medskip
+  Particularly a problem in developing countries due to number of factors
+  \begin{enumerate}
+    \item Smaller fraction of economic activity is formal
+    \item Economic integration within-country is lower
+    \item Statistical infrastructure is weak
+  \end{enumerate}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Henderson et al. (2012) provide a solution using night-light emissions measured by satellites
+  \begin{itemize}
+    \item Lights at night are conspicuous consumptions
+    \item Can serve as proxy for economic activity; both short and long term
+  \end{itemize}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.12]{noaa.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Henderson et al. (2012) use the following framework to relate lights to GDP growth.\\
+  First, there is classical measurement error in GDP data
+  \begin{align}
+    z_j= y_j+\epsilon_{z,j}
+  \end{align}
+  $z$ the growth of real GDP as measured in national income accounts\\
+  $y$ is growth in true real GDP\\
+  $j$ indexes country, $\epsilon_z$ is denoted $\sigma^2_z$
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Second, relation between growth of lights and true income is given by
+  \begin{align}
+    x_j=\beta y_j + \epsilon_{x,j}
+  \end{align}
+  \medskip
+  i.e. there is a simple constant elasticity between total observable lights $X$ and total income $Y$
+  \begin{align}
+    X_j=Y_j^{\beta}
+  \end{align}
+  \medskip
+  For predictive purpose we are interested in
+  \begin{align}
+    z_j=\hat{\psi} x_j + e_j
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ OLS parameter $\hat{\psi}$ is simply $cov(x,z)/ cov(x)$; relationship between $\hat{\psi}$ and structural parameter $\beta$ is
+ \begin{align}
+   \hat{\psi} = \frac{1}{\beta} \left( \frac{\beta^2 \sigma^2_y}{\beta^2 \sigma^2_y + \sigma^2_x}     \right)
+ \end{align}
+ \medskip
+ $\hat{\psi}$ is an estimate of the inverse of elasticity of lights with respect to income, but it is a biased estimate
+ \begin{itemize}
+   \item Due to inversion of production relationship and measurement error in $x$
+ \end{itemize}
+ Eq. 59 can be used as proxy for best-fit relationship
+ \begin{align}
+   \hat{z}_j=\hat{\psi}x_j
+ \end{align}  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  $\hat{z}$ is a separate estimate of income growth which can be combine with a national account measure to create a composite measure $\hat{y}$
+  \begin{align}
+    \hat{y}_j=\lambda z_j + (1-\lambda)\hat{z}_j
+  \end{align}
+  The variance of the composite estimate is given by  
+  \begin{align}
+    var(\hat{y}-y)=\lambda^2\sigma^2_z + (1-\lambda)^2 \frac{\sigma^2_y \sigma^2_x}{\beta^2 \sigma^2_y + \sigma^2_x}
+  \end{align}
+  This is solved for the weight $\lambda^*$ which minimises the variance
+  \begin{align}
+    \lambda^* = \frac{\sigma^2_x \sigma^2_y}{\sigma^2_z(\beta^2 \sigma^2_y + \sigma^2_x) + \sigma^2_x \sigma^2_y}
+  \end{align} 
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  $\lambda^*$ is a function of four unknown parameters but there are only three known sample moments
+  \begin{align}
+    var(z) &= \sigma^2_y + \sigma^2_z\\
+    var(x) &= \beta^2 \sigma^2_y + \sigma^2_x\\
+    cov(x,z) &= \beta \sigma^2_y
+  \end{align}
+  i.e. for the last moment $cov(y,x)=cov(x,z)$ one more equation is needed, which is based on the assumption about the signal-to-noise ratio in measured GDP growth $z$
+  \begin{align}
+    \phi= \frac{\sigma^2_y}{\sigma^2_y \sigma^2_z}
+  \end{align}
+  \medskip
+  Assuming a specific value for $\phi$, optimal $\lambda$ will be given by
+  \begin{align}
+    \lambda^* &= \frac{\phi var(z)var(x) -cov(z,x)^2}{var(z)var(x)-cov(z,x)^2} \\ \nonumber
+     &= \frac{\phi-\rho^2}{1-\rho^2}
+  \end{align}
+  with $\rho$ being the correlation between $z$ and $x$
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.7]{henderson_et_al.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.45]{henderson_et_al2.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.45]{henderson_et_al3.eps}
   \end{figure}
 \end{frame}
 %--------------------------------------

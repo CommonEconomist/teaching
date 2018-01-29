@@ -2,7 +2,7 @@
 # Data taken from:
 # http://www.ggdc.net/maddison/maddison-project/home.htm
 setwd('~/Dropbox/github/teaching/advanced_macroeconomics')
-par(mar=c(5,5,2,2),bty="n",las=1,cex.axis=2,cex.lab=2)
+par(mar=c(5,5,2,2),bty="n",las=1,cex.axis=2,cex.lab=2,cex.main=2)
 
 # Load data and write to vectors
 maddison<-read.csv("data/maddison.csv",header=TRUE)
@@ -15,7 +15,7 @@ idn<-maddison[,4] # Indonesia (Java)
 
 # Plot data
 plot(year,nld,ylim=c(450,26000),xlim=c(1700,2020),type="b",log="y",
-     xlab="",ylab="",axes=FALSE,pch=0)
+     xlab="",ylab="",main='Income per capita',axes=FALSE,pch=0)
 text(1720,nld[1]+250,"the Netherlands",cex=1.2)
 par(new=TRUE)
 plot(year,zaf,ylim=c(450,26000),xlim=c(1700,2020),type="b",log="y",
