@@ -35,7 +35,7 @@ for(i in 1:N){
   K.share[i]=mean(dK,na.rm=TRUE)/mean(dY,na.rm=TRUE)     # Capital share
 }
 
-# Plot results
+# Plot: Capital and TFP versus growth rate
 par(mar=c(5,5,2,2),bty='n',las=1,mfrow=c(1,2),cex.lab=2,cex.axis=2,cex.main=2)
 plot(K,g,axes=FALSE,xlab='K',ylab='Growth',main='(a)')
 axis(1,tick=FALSE)
@@ -44,8 +44,9 @@ axis(2,tick=FALSE)
 plot(tfp,g,axes=FALSE,xlab='TFP',ylab='',main='(b)')
 axis(1,tick=FALSE)
 
-# Plot K vs. TFP
-par(mfrow=c(1,1),pty='s')
-plot(K,tfp,axes=FALSE,xlab='K',ylab='TFP',main='')
-axis(1,tick=FALSE)
-axis(2,tick=FALSE)
+# Plot: Capital and TFP ratios
+par(mfrow=c(1,1))
+plot(K.share,tfp.share,xlim=c(-2.5,3),ylim=c(-1,2),cex=g,axes=FALSE,
+     xlab='dK/dY',ylab='dA/dY')
+axis(1,tick=FALSE);axis(2,tick=FALSE,line=-1)
+
