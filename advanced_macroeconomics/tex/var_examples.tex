@@ -1,0 +1,238 @@
+\documentclass{beamer}
+\usetheme{}
+\usecolortheme{dolphin}           
+\useinnertheme{circles}
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{enumerate items}[default]
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{booktabs} 
+\usepackage{graphicx}        
+\usepackage{array}
+\usepackage{color}
+\makeatletter
+\def\zapcolorreset{\let\reset@color\relax\ignorespaces}
+\def\colorrows#1{\noalign{\aftergroup\zapcolorreset#1}\ignorespaces}
+\makeatother
+\graphicspath{{/home/swl/Dropbox/ucd/advanced_macro/figures/}} 
+\setbeamertemplate{navigation symbols}{}
+
+%--------------------------------------
+\title{Vector Autoregression: Examples}
+\author{School of Economics, University College Dublin}
+\date{Spring 2018}
+\begin{document}
+
+%--------------------------------------
+\begin{frame}
+ \titlepage
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Stock \& Watson (2001)} Effect of monetary policy shocks. \\
+   VAR model can be useful from two perspectives  
+   \medskip
+  \begin{enumerate}
+    \item Scientific
+    \begin{itemize}
+      \item Monetary policy co-moves with lots of other macro variables
+      \item Only by identifying the structural or exogenous shocks to policy can we discover its true effects
+    \end{itemize}
+    \medskip
+    \item Policy
+    \begin{itemize}
+      \item Can help answer the question "if I choose to raise interest rates by an extra quarter point today, what is likely to
+happen over the next year to inflation and output relative to the case
+where I keep rates unchanged?"
+    \item This is basically a question about impulse responses
+    \end{itemize}
+  \end{enumerate}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Quarterly data, three variables
+\begin{enumerate}
+  \item inflation $\pi_t$
+  \item unemployment rate $u_t$
+  \item federal funds rate $i_t$
+\end{enumerate}
+\medskip
+Lower-triangular causal chain 
+\begin{align}
+  AZ_t = \begin{pmatrix}
+    a_{11} & 0 & 0 \\
+    a_{21} & a_{22} & 0\\
+    a_{31} & a_{32} & a_{33}
+  \end{pmatrix}
+  \begin{pmatrix}
+    \pi_t \\ u_t \\ i_t
+  \end{pmatrix}
+  = BZ_{t-1} + \epsilon_t
+\end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Identifying assumptions}
+\begin{enumerate}
+  \item Inflation depends only on lagged values of the other variables (sticky prices?)
+  \item Unemployment depends on contemporaneous inflation but not the funds rate
+  \item The funds rate depends on both contemporaneous inflation and unemployment
+\end{enumerate}
+\end{frame}
+%--------------------------------------
+
+
+%--------------------------------------
+\begin{frame}
+ \textbf{Kilian (2009)} Oil price shocks\\
+\begin{enumerate}
+  \item What is an oil price shock?
+  \item Are there different type of shocks?
+\end{enumerate}
+ \medskip
+ Kilian identifies three types of shock
+\begin{enumerate}
+  \item Supply: oil production growth rate $\Delta prod_t$
+  \item Demand: global demand measured by real global economic activity $rea_t$
+  \item Speculation: in oil price market, measured by real oil price $rpo_t$ 
+\end{enumerate}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+\begin{align}
+  z_t=(\Delta prod_t, rea_t, rpo_t)'
+\end{align}
+
+  \begin{align*}
+   A_0 z_t &= \alpha + \sum_{i=1}^{24} A_i z_{t-1} + \epsilon_t\\
+   A_0 &= \begin{pmatrix}
+     a & 0 & 0\\
+     b & c & 0\\
+     d & e & f
+    \end{pmatrix} 
+\end{align*}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Identifying assumptions}
+  \begin{enumerate}
+  \item Oil production does not respond within the month to world demand and oil prices
+  \item World demand is affected within the month by oil production, but not by oil prices
+  \item Oil prices respond immediately to oil production and world demand
+\end{enumerate}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+   \textbf{Reduced-form model}
+    \begin{align*}
+      z_t = A_0^{-1}\alpha + A_0^{-1} \sum_{i=1}^{24} A_i z_{t-1} + A_0^{-1} \epsilon_t
+    \end{align*}
+  $A_0$ is lower-triangular matrix, so is $A_0^{-1}$ as well.\\
+  Relation between reduced-form shocks $e_t$ and structural shocks $A_0^{-1} \epsilon_t$
+    \begin{align*}
+      \begin{pmatrix}       e_t^{\Delta prod} \\ e_t^{rea}  \\ e_t^{rpo}      \end{pmatrix}
+      =
+      \begin{pmatrix}
+        a_{11} & 0 & 0 \\
+        a_{21} & a_{22} & 0\\
+        a_{31} & a_{32} & a_{33}
+      \end{pmatrix}
+      \begin{pmatrix}       \epsilon_t^{\Delta prod} \\ \epsilon_t^{rea} \\ \epsilon_t^{rpo}      \end{pmatrix}
+    \end{align*}
+\end{frame}
+%--------------------------------------
+
+
+%--------------------------------------
+\begin{frame}
+  Practically this entails that 
+\begin{enumerate}
+  \item Oil production reduced form shock is a structural shock
+  \item Economic activity reduced form shock is combination of structural oil shock and structural activity shock
+  \item Reduced form oil price shock is combination of all three structural shocks
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+  \textbf{Structural model}
+\begin{align*}
+  AY_t=BY_{t-1} + C\epsilon_t
+\end{align*}
+ \medskip
+ Needs 18 identifying restrictions: $2n^2=18$
+ \begin{enumerate}
+   \item Assuming contemporaneous interaction between variables $C=I$ (9)
+   \item Zero restrictions/lower diagonal assumtpion on $A_0$ (3)
+   \item Unit coefficient normalisation on diagonal $A_0$ (3)
+   \item Orthogonal structural shocks: off-diagonal elements of $\sum$ are 0 (3)
+ \end{enumerate}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Recall Vector Moving Average representation    
+\begin{align*}
+  Y_t = e_t + Ae_{t-1} + A^2e_{t-2} + A^3e_{t-3} + ..... + A^te_0
+\end{align*}
+One can repeat this calculation three times, each time with only one type of shock turned on and the other set to zero. 
+Adding these up, one will get the realized values of $Y_t$.
+Alternatively, one can do a dynamic simulation of the model
+\begin{align*}
+  Y=AY_{t-1}+\epsilon_t
+\end{align*}
+Here we let $\epsilon_t$ represent one of the realised shocks, setting the others to zero
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Brunner (2002)} El Niño and world commodity prices
+  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{align}
+    ENSO_t &= \mu_s +A_{11}(L)ENSO_{t-1} + \epsilon_t\\ \nonumber
+    X_t &= \phi_s + A_{21}(L)ENSO_t + A_{22}(L)X_{t-1} + \eta_t\\
+    \begin{bmatrix}      \epsilon_t \\ \eta_t    \end{bmatrix}
+    &\sim N \left ( \begin{bmatrix} 0 \\ 0 \end{bmatrix},
+    \begin{bmatrix} \sigma^2_{\epsilon} & 0 \\ 0 & \sum_{\eta} \end{bmatrix}
+     \right)
+  \end{align}
+  \begin{align}
+    X_t=[\pi^{cp}_t-\pi^g_t \pi^g_t \Delta y_t]
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Identifying assumptions}
+  \begin{enumerate}
+    \item ENSO events are not influences by contemporaneously economic events
+    \item Assumption that ENSO events are exogenous can be tested
+    \item $\sum_{\eta}$ is expecte to be nondiagonal
+  \end{enumerate}
+\end{frame}
+%--------------------------------------
+
+
+\end{document}

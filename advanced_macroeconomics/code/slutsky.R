@@ -6,7 +6,7 @@ set.seed(2018);x<-rnorm(500)
 t<-1:500
 
 # Plot part of data
-plot(x[1:20],type='l',lwd=2,xlab='t',ylab='Y',axes=FALSE)
+plot(x[5:17],type='l',lwd=2,xlab='t',ylab='Y',axes=FALSE)
 axis(1,tick=FALSE);axis(2,tick=FALSE,line=-1)
 
 # Smooth data
