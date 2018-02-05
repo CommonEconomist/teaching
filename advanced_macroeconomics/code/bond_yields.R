@@ -1,7 +1,7 @@
 ## Bond yields for PIGS economies
 # (Include Germany as reference)
 setwd('~/Dropbox/github/teaching/advanced_macroeconomics')
-par(mar=c(5,5,2,2),bty='n',las=1,cex.axis=2,cex.lab=2)
+par(mar=c(5,5,3,2),bty='n',las=1,cex.axis=2,cex.lab=2,cex.main=2)
 
 # Load data
 bonds<-read.csv("data/bonds.csv",header=TRUE)
@@ -21,8 +21,8 @@ spain<-window(spain,start=c(2006,1),frequency=12)
 germany<-window(germany,start=c(2006,1),frequency=12)
 
 # Plot data
-plot(portugal,ylim=c(0,30),col="chartreuse4",axes=FALSE,xlab="",ylab="%",
-     lwd=2)
+plot(portugal,ylim=c(0,30),col="chartreuse4",axes=FALSE,xlab="",ylab="",
+     lwd=2,main='Bond yields (percentage)')
 lines(ireland,col="steelblue4",lwd=2,lty=2)
 lines(greece,col="dodgerblue2",lwd=2)
 lines(spain,col="firebrick3",lwd=2)

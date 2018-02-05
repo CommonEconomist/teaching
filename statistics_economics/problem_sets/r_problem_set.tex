@@ -1,0 +1,239 @@
+\documentclass{tufte-handout}
+%------------------------------------------------
+%\geometry{showframe} % display margins for debugging page layout
+%------------------------------------------------
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{/home/swl/Dropbox/ucd/eu_economics/figs/}}  % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage{fancyvrb} % extended verbatim environments
+\usepackage{courier}
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+
+%------------------------------------------------
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+%------------------------------------------------
+
+%------------------------------------------------
+%%%% Details %%%%
+%------------------------------------------------
+\title{Statistics for economics \\ R problem sets}
+\author{University College Dublin}
+\date{Spring 2017} 
+
+\begin{document}
+\maketitle  
+%------------------------------------------------------------------------------
+\vspace*{.5cm}
+For the R tutorials you will be working with socio-economic data mainly compiled by Eurostat at the NUTS2 region. 
+The variables included in the data are briefly summarised in table~\ref{table:data}.
+\begin{table}[!h]\centering
+  \caption{Description variables}
+  \label{table:data}
+  \scalebox{0.7}{
+  \begin{tabular}{ll}
+  \\[-1.8ex]\hline 
+  \hline \\[-1.8ex]
+    Variable name         & Description\\
+    \hline \\[-1.8ex]\\	
+    
+    GEO                   & NUTS2 indicator\\
+    ccode                 & Country code\\
+    mortality             & General mortality rate out of 1000\\
+    infant.mortality      & Infant mortality rate per 1000 live births\\
+    female.mortality      & Female mortality rate out of 1000\\
+    middle.aged.mortality & Middle-aged (45-55y) mortality rate per 1000\\
+    mortality.hi          & Binary indicator for regions with above average mortality rates\\
+    \\[-1.8ex]\\
+    eur.pc                & Per capita income in Euro\\
+    pps.pc                & Per capita income in Euro adjusted for purchasing power\\
+    inh.per.doc           & Number of inhabitants per doctor\\
+    income                & Income group (1-low; 4-high)\\
+    structural.fund       & Binary indicator for EU regions that qualify for EU funding\\
+    \\[-1.8ex]\\
+    eastbloc              & Binary indicator for countries that were part of the Warsaw Pact\\
+    candidate             & Binary indicator for candidate countries for EU membership\\
+    efta                  & Binary indicator European Free Trade Association member countries\\
+    euro2102              & Round reached at Euro 2012 football championship (0- not qualified; 4-final)\\
+    \\[-1.8ex]\hline 
+    \hline \\[-1.8ex]
+  \end{tabular}}
+\end{table}
+\marginnote{Note that the binary indicator for former Eastern Bloc countries excludes East Germany and for the candidate countries Iceland is excluded}
+\newline
+\vspace*{.5cm}
+Concerning the data, it can be the case that the data contains missing values or \texttt{NA} values. 
+In that case you have to specify \texttt{na.rm=TRUE}, for instance when you want to get the mean of per capita income you use 
+\begin{quote}
+  \texttt{mean(df\$eur.pc,na.rm=TRUE)}
+\end{quote}
+
+You will also regularly have to subset the data, for instance if we want to know the average infant mortality rate for countries that are part of EFTA we use
+\begin{quote}
+  \texttt{mean(df\$infant.mortality[df\$efta==1])}
+\end{quote}
+Or we can use
+\begin{quote}
+  \texttt{mean(df[df\$efta==1,]\$infant.mortality)}
+\end{quote}
+
+
+\clearpage
+%------------------------------------------------------------------------------
+\section{Problem set 1: Frequencies}
+
+\begin{enumerate}
+  \item Which countries has the most regions in the dataset? How many does Ireland (\texttt{IE}) have?
+  \item Find the average general and infant mortality rate and compare these averages with those for regions in former Eastern Bloc countries.
+  \item Countries that have an income below 75\% of the EU average qualify for EU funding from the Structural Funds and the Cohesion Plan. The dataset includes a variable (\texttt{structural.fund}) to indicate these regions. What is the average mortality rate for these regions? Is it higher or lower than the general average? How does it compare to countries from the former Eastern Bloc and countries that are candidate for EU membership?
+  
+  \medskip 
+  \item What proportion of regions actually qualifies for the structural funding? And what proportion of the regions that qualify for EU funding are not in a former Eastern Bloc country?
+
+  \item What is the probability that a region has a general mortality rate that is above average, but does not qualify for EU funding?
+
+  \item What proportion of regions in the former East bloc is in the highest income category?
+
+  \item What proportion of regions in the middle income groups (2 \& 3) have above average general mortality rates?
+  
+  \item Is the Irish mortality rate above or below average? And which proportion of the regions has per capita income levels higher than the Irish average?\marginnote{Here you have to use \texttt{df\$ccode=="IE"}}
+  
+\end{enumerate}
+
+\clearpage
+
+%------------------------------------------------------------------------------
+\section{Problem set 2: Exploratory data analysis}
+\begin{enumerate}
+  \item Plot a histogram for the general mortality rate. What type of distribution would best describe the data?
+  Increase the number of bins by setting \texttt{breaks} equal to 10 and then to 100.
+
+  \item Plot a boxplot for the general mortality rate. Are there many outliers in the data?\footnote{Note that you can adjust the orientation of the boxplot by setting \texttt{horizontal=TRUE} in the \texttt{boxplot} command.}
+
+  \item Let's examine the distribution of the general mortality rate across the different income groups using the boxplot. 
+  Are there any noticeable differences between the groups?\footnote{To plot the distribution across groups you have to use the \texttt{\texttildelow} operator as in \texttt{dat\$mortality \texttildelow dat\$income}}
+
+  \item Repeat the previous question but now for the 
+  \begin{enumerate}
+    \item infant mortality rate
+    \item female mortality rate
+    \item middle aged mortality rate
+  \end{enumerate}
+
+  \item Using a scatterplot, plot the the general mortality rate against the female mortality rate. Are there any patterns in the data? What does this tell use about the relation between the female mortality and general mortality rate.
+
+  \item Plot the general mortality rate against the log of income per capita (\texttt{eur.pc}). 
+  From the data, is there any descriptive evidence for a link between income and mortality?
+  Proceed, by adding points for regions that qualify for EU funding.\footnote{In \texttt{plot} you need to specify \texttt{log="x"}, if you put income on the x-axis. To add the points you need to use the \texttt{points} command and subset the data.} 
+
+  \item One could imagine that the number of inhabitants per doctor matters for the mortality rate. 
+  Check the relation between inhabitants per doctor and the general and infant mortality rate. 
+  What do you notice?
+
+\end{enumerate}
+
+\clearpage
+
+%------------------------------------------------------------------------------
+\section{Problem set 3: Statistical tests}
+
+\begin{enumerate}
+  \item What is the average mortality rate and variance in former Eastern Bloc regions?
+  How do these moments compare to the whole sample? \footnote{You can find the standard deviation using \texttt{var()}. Note that moments here is just a statistical term for the mean (first moment) and variance (second moment)}
+  
+  \item Let's look at the density of the mortality rate. You can do this by using the command
+  \begin{quote}
+    \texttt{plot(density(df\$mortality))}
+  \end{quote}
+  
+  Add the data for regions in the former Eastern Bloc using
+  \begin{quote}
+    \texttt{lines(density(df\$mortality[df\$eastbloc==1]),lty=2,col="steelblue4")}
+  \end{quote}
+  
+  What do you notice about the data for the former Eastern Bloc?
+  
+  \item Use a t-test to examine whether the general mortality rate in regions in the former Eastern bloc is the same as in other countries. 
+  What is the value of the t-statistic and the p-value? What is the average mortality rate of countries that are not in the former Eastern Bloc?
+  
+  \item Let's have a look at the regions that qualify for EU funding. 
+  Sample 50 regions that qualify for EU funding and 50 that don't. 
+  Use a t-test on the two samples to examine whether the mortality rate is higher in regions that qualify for EU funding. 
+  What is an issue when using sampling to do this test?
+  
+  
+  \item For a number of reasons it could be the case that the mortality rate for a specific sex is different from the general mortality rate. 
+  Use the data to test whether the female mortality rate is lower than the general mortality rate. 
+  Does this also apply when focusing on regions that qualify for EU funding?
+  
+
+  \item Use a z-test to determine whether the mortality rate in regions in the former East bloc is different from the average mortality rate.
+  Repeat this test for regions that qualify for structural funds. Are the conclusions the same when you look at the infant mortality rate?\footnote{Note that due to missing values in the \texttt{structural.fund} variable you have to use \texttt{na.omit} to subset the data. 
+  Also, the z-test in R will only give the test statistic, so you have to look up the value in the table.}
+\end{enumerate}
+
+\clearpage
+
+%------------------------------------------------------------------------------
+\section{Problem set 4: Regression analysis}
+%------------------------------------------------------------------------------
+\section{Regression analysis}
+
+\begin{enumerate}
+  
+  \item Throughout the problem sets we have seen that there are some regional differences across Europe concerning mortality rates. 
+  Let's estimate a very simple model where we just regress the mortality rate on the indicator variable for regions that qualify for EU funding.
+  What does the estimated effect tell us? 
+  Add the indicator variable for countries in former Eastern Bloc countries. 
+  Do the results change? If so, how?
+
+  \item Various studies have shown that there is a link between economic welfare and health. 
+  What do you think about how income and mortality are related? 
+  Let's check the relation using the data by regressing general mortality rate on the log of income per capite. 
+  What us the estimated effect of income on the mortality rate?\footnote{\texttt{log(eur.pc)}}
+  
+  \item Before we continue it is a good idea to check the fit of the model with the data. 
+  We can do this by looking at the relation between the fitted values and the residuals to be sure that there is no problem with the standard errors, and we can look at the relation between the observed and fitted values. 
+  So check the fit of the model by
+  \begin{enumerate}
+    \item plotting the residuals against the fitted values\footnote{\texttt{plot(m1\$residual,fitted(m1)}}
+    \item plotting the fitted values against the observed values\footnote{\texttt{plot(fitted(m1),m1\$model\$mortality)}}
+  \end{enumerate}  
+  Which conclusions would you draw here?
+
+  
+  \item The variable used to capture income might not be adequate to account for cross-regional differences. 
+  Let's re-estimate the model but now using the variable that measures income accounting for purchasing power (\texttt{pps.pc}).
+  Does this lead to any noticeable differences?
+  
+  \item Specify a model with the log of income and add the indicator variable for regions that qualify for EU funding to the model. 
+  What is the estimated effect?
+  Do you think that this is a good model specification?
+
+  \item Specify a model where you regress the mortality rate on the log of income per capita, the Eastern Bloc indicator, and the variable capturing the achievements of the country concerning the Euro 2012 football championships. 
+  Analyse the results and the fit of the model. 
+  Do you think that this is a good model?
+
+  \item Surely having plenty of doctors in an area is somehow related to the mortality rate. 
+  Estimate a model regressing the mortality rate on the log of income, the Eastern Bloc indicator, and the log of the number of inhabitants per doctor (\texttt{inh.per.doc}). 
+  What are your conclusions? 
+  Are the results the same when you use the infant mortality rate? 
+  
+  \item Finally, specify a model where the outcome variable (\texttt{mortality}) is also log-transformed and regress it on the log of income per capita and the Eastern Bloc indicator.\footnote{To plot the fitted values against the observed values you have to use \texttt{plot(m9\$model[,1],m9\$fitted)}} 
+  How does this model compare to the one where the outcome variable is not log-transformed?
+  
+\end{enumerate}
+
+\end{document}

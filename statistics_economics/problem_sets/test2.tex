@@ -1,0 +1,72 @@
+\documentclass{tufte-handout}
+
+%------------------------------------------------
+%\geometry{showframe} % display margins for debugging page layout
+%------------------------------------------------
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{/home/swl/Dropbox/ucd/advanced_macro/figures/}}  % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage{fancyvrb} % extended verbatim environments
+\usepackage{courier}
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=black, urlcolor=blue}
+%------------------------------------------------
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+%------------------------------------------------
+
+%------------------------------------------------
+%%%% Details %%%%
+%------------------------------------------------
+\title{Statistics for economics \\ Computer test 2}
+\author{School of Economics, University College Dublin}
+\date{Spring 2017} 
+
+\begin{document}
+\maketitle  
+
+%------------------------------------------------------------------------------
+\vspace{.5cm}
+Download \texttt{coffeeyield.RData} from the blackboard website and load it in R. 
+The data is taken from the 2002 Nature paper "The Value of Bees to the Coffee Harvest" by Roubik, and contains data on coffee yields (in $kg/ha^{-1}$). 
+It includes the following variables
+\begin{itemize}
+  \item \texttt{country}, country name
+  \item \texttt{world}, factor variable indicating whether the country belongs to the old or new world
+  \item \texttt{world.d}, binary indicator whether the country belongs to the old (0) or new world (1)
+  \item \texttt{yield61to80}, coffee yield between 1961-1980
+  \item \texttt{yield81to01}, coffee yield between 1981-2001
+\end{itemize}
+
+Use the data to answer the questions in the next section. 
+Each question is worth one point, and if you answer all nine questions you get a bonus point, for a total of 10 points. 
+Write your answers down in your favourite word processor and include the figures you produce. 
+When you're done you need to send the document with your answers to \href{stijn.vanweezel@ucd.ie}{stijn.vanweezel@ucd.ie}
+
+\clearpage
+%------------------------------------------------------------------------------
+\section{Questions}
+\begin{enumerate}
+  \item Create a histogram for the coffee yield between 1981-2001, setting the breaks equal to 10. Describe the distribution. 
+  \item Between 1981-2001, what is the average and standard deviation of the coffee yield in the new world and in the old world?
+  \item Use a scatterplot to show the coffee yield between 1961-1980 versus 1981-2001. Is there a relation between the two periods?
+  \item Add points for the new world countries to the scatterplot.\footnote{Can use \texttt{pch=19} or \texttt{col="blue"} or both.} What would you conclude on the basis of the figure?
+  \item By world group\footnote{So for old and new world countries}, create a boxplot for the coffee yield between 1981-2001. Which conclusions do you draw based on the figure?
+  \item Are there countries that see a reduction in yield between the two periods? If so, how many?
+  \item Use a paired t-test to examine whether the average yield in old world countries is the same for the two periods.
+  \item Use a paired t-test to examine whether the average yield in new world countries is higher between 1981-2001 compared to 1961-1980. What does the uncertainty interval tell?  
+  \item Estimate a regression model where you regress the average yield between 1981-2001 on the yield between 1961-1981 and the world indicator. Analyse the estimated effects.
+\end{enumerate}
+\end{document}

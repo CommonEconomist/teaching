@@ -5,7 +5,7 @@
 # Producer Price Index data (WPU012) taken from:
 # http://data.bls.gov/cgi-bin/surveymost?wp
 setwd('~/Dropbox/github/teaching/advanced_macroeconomics')
-par(mar=c(5,5,2,2),bty='n',las=1,cex.axis=2,cex.lab=2,cex.main=2)
+par(mar=c(5,5,4,2),bty='n',las=1,cex.axis=2,cex.lab=2,cex.main=2)
 
 # Load the commodity price data and create time-series object
 imf<-read.csv("data/commodities.csv",header=TRUE)
@@ -14,7 +14,8 @@ rice<-ts(imf$Rice,start=c(1980,1),frequency=12)
 
 # Plot raw data
 par(mfrow=c(1,1))
-plot(rice,xlab="",ylab="",main="",axes=FALSE,lwd=2,ylim=c(100,1200))
+plot(rice,xlab="",ylab="",main="International rice prices \n (nominal)",
+     axes=FALSE,lwd=2,ylim=c(100,1200))
 axis(1,tick=FALSE)
 axis(2,tick=FALSE)
 
@@ -27,9 +28,9 @@ deflator<-ts(ppi$def,start=c(1980,1),frequency=12)
 rice.r<-rice/deflator
 
 # Plot data along with nominal prices
-plot(rice.r,xlab="",ylab="",main="",axes=FALSE,lwd=2,col="steelblue4",
-     ylim=c(100,1200))
-lines(rice,lwd=2,lty=2)
+plot(rice.r,xlab="",ylab="",main="International rice prices \n (real)",
+     axes=FALSE,lwd=2,col="steelblue4",ylim=c(100,1200))
+lines(rice,lwd=1,lty=2,col='grey50')
 axis(1,tick=FALSE)
 axis(2,tick=FALSE)
 
@@ -69,7 +70,8 @@ for(i in 6:length(rice.sim)){
     est[3]*rice.sim[i-3]+est[4]*rice.sim[i-4]
 }
 
-plot(rice.sim,type="l",lwd=2,ylim=c(-.15,1.15),xlab="",ylab="",axes=FALSE)
+plot(rice.sim,type="l",lwd=2,ylim=c(-.15,1.15),main='AR(4) model for rice \n',
+     xlab="",ylab="",axes=FALSE)
 abline(h=0,lty=2)
 axis(1,tick=FALSE,at=1:24);axis(2,tick=FALSE)
 

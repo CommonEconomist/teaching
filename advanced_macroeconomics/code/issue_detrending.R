@@ -1,18 +1,19 @@
 ## Example problem linear detrending of stochastic trend model
 
 # Set parameters
+N=500
 g=3                             # Growth rate
-set.seed(42);e=rnorm(100,0,6)   # Random shocks 
+set.seed(42);e=rnorm(N,0,6)   # Random shocks 
 y=100                           # Starting value
 
 
 # Generate data over time
-for(i in 2:100){
+for(i in 2:N){
   y[i]<-g+y[i-1]+e[i]
 }
 
 # First-difference model
-Ly=c(NA,y[-100])
+Ly=c(NA,y[-N])
 Dy=y[-1]-Ly[-1]
 
 # Plot results
