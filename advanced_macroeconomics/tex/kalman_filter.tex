@@ -1,0 +1,136 @@
+\documentclass{beamer}
+\usetheme{}
+\usecolortheme{dolphin}           
+\useinnertheme{circles}
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{enumerate items}[default]
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{booktabs} 
+\usepackage{graphicx}        
+\usepackage{array}
+\usepackage{color}
+\makeatletter
+\def\zapcolorreset{\let\reset@color\relax\ignorespaces}
+\def\colorrows#1{\noalign{\aftergroup\zapcolorreset#1}\ignorespaces}
+\makeatother
+\graphicspath{{/home/swl/Dropbox/ucd/advanced_macro/figures/}} 
+\setbeamertemplate{navigation symbols}{}
+
+%--------------------------------------
+\title{Time-series data}
+\author{School of Economics, University College Dublin}
+\date{Spring 2018}
+\begin{document}
+
+%--------------------------------------
+\begin{frame}
+ \titlepage
+\end{frame}
+%--------------------------------------
+
+
+%--------------------------------------
+\begin{frame}
+  \begin{align}
+    \begin{pmatrix}      X \\Z     \end{pmatrix}
+    \sim N \left ( \begin{pmatrix}      \mu_X \\ \mu_Z    \end{pmatrix},
+    \begin{pmatrix}       \sigma^2_X & \sigma_{XZ} \\ \sigma_{XZ} & \sigma^2_Z     \end{pmatrix} \right )
+  \end{align}
+  \begin{align}
+    E(X|Z) = \mu_X + \frac{\sigma_{XZ}}{\sigma^2_Z}(Z-\mu_Z)
+  \end{align}
+  \begin{align}
+    E(X|Z) = \mu_X + \rho \frac{\sigma_X}{\sigma_Z}(Z-\mu_Z)
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{align}
+    \begin{pmatrix}      X \\ Z    \end{pmatrix} \sim N \left( 
+    \begin{pmatrix}      \mu_X \\ \mu_Z    \end{pmatrix},
+    \begin{pmatrix}      \sum_{XX} & \sum_{XZ} \\ \sum_{XZ}' & \sum_{ZZ}    \end{pmatrix}
+    \right)
+  \end{align}
+  \begin{align}
+    E(X|Z) = \mu_X + \scriptstyle \sum_{XZ}\sum^{-1}_{ZZ} \textstyle(Z-\mu_Z)
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{align}
+    S-t=FS_{t-1} + u_t
+  \end{align}
+  \begin{align}
+    Z_t= HS_t +v_t
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{align}
+    S_t-S_{t|t-1} \sim N (0,\scriptstyle \sum^S_{t|t-1})
+  \end{align}
+  \begin{align}
+    Z_t=HS_{t|t-1}+v_t +H(S_t-S_{t|t-1})
+  \end{align}
+\end{frame}
+
+%--------------------------------------
+\begin{frame}
+  \begin{align}
+    Z_t=HS_{t|t-1}+v_t +H(S_t-S_{t|t-1})
+  \end{align}
+  \begin{align}
+    v_t + H(S_t-S_{t|t-1}) \sim N (0,\Omega_t)\\
+    \Omega_t =\scriptstyle\sum^v +H\sum^S_{t|t-1}H'
+  \end{align}
+  \begin{align}
+    log\;f(Z_t|Z_{t-1},\theta)= -log\; 2\pi -log\;|\Omega_t|-\frac{1}{2}(Z_t-HS_{t|t-1})'\Omega_t^{-1}(Z_t-HS_{t|t-1})
+  \end{align}
+  \begin{align}
+    f(Z_1,...,Z_T|S_{1|0},\theta)=f(Z_1|S_{1|0},\theta)\prod_{i=2}^{i=T}f(Z_i|Z_{i-1},\theta)
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{align}
+    S_t=FS_{t-1}+u_t \Rightarrow S_{t|t-1}=FS_{t-1|t-1}
+  \end{align}
+  \begin{align}
+    Z_{t|t-1}=HS_{t|t-1}=HFS_{t-1|t-1}
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{align}
+    \begin{pmatrix}      S_t \\ Z_t     \end{pmatrix} \sim N \left( 
+    \begin{pmatrix}      FS_{t-1|t-1} \\HFS_{t-1|t-1}    \end{pmatrix},
+    \begin{pmatrix}      \sum^S_{t|t-1} & \left( H\sum^S_{t|t-1} \right)' \\ H\sum^S_{t|t-1} & \sum^V+H\sum^S_{t|t-1}H' \end{pmatrix} \right)
+  \end{align}
+  \begin{align}
+    E(S_t|Z_t)&=S_{t|t}=FS_{t-1|t-1}+K_t(Z_t-HFS_{t-1|t-1}) \\
+    K_t&= \left(H\scriptstyle \sum^S_{t|t-1} \right)' (\scriptstyle \sum^V + H\scriptstyle \sum^S_{t|t-1} \textstyle H')^{-1} 
+  \end{align}
+  \begin{align}
+    \scriptstyle \sum^S_{t|t-1} \textstyle &= F\scriptstyle \sum^S_{t-1|t-1}\textstyle F'+ \scriptstyle\sum^U\\
+    \scriptstyle \sum^S_{t|t} \textstyle &= (I-K_tH)\scriptstyle \sum^S_{t|t-1}
+  \end{align}
+\end{frame}
+
+
+
+
+%--------------------------------------
+\end{document}

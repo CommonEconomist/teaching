@@ -1,11 +1,10 @@
 ## Example problem linear detrending of stochastic trend model
 
 # Set parameters
-N=500
+N=100
 g=3                             # Growth rate
-set.seed(42);e=rnorm(N,0,6)   # Random shocks 
+set.seed(42);e=rnorm(N,0,5)     # Random shocks 
 y=100                           # Starting value
-
 
 # Generate data over time
 for(i in 2:N){

@@ -86,12 +86,6 @@
  \begin{align}
    y_t=\tau_t + c_t + \epsilon_t
  \end{align}
- \medskip
- What we are often interested in are the short-term fluctuations such as business cycles which means that the data has to be broken down into
-  \begin{itemize}
-    \item A non-stationary long-run trend, 
-    \item A stationary cyclical component
-  \end{itemize}  
 \end{frame}
 %--------------------------------------
 
@@ -113,6 +107,19 @@
 
 %--------------------------------------
 \begin{frame}
+  Concerning macroeconomic data what you generally do is
+  \begin{enumerate}
+    \item Subtract non-stationary long-run trend from data
+    \item Analyse stationary cyclical component that remains
+  \end{enumerate}
+  \medskip
+  The short-term fluctuations comprising \#2 is the business cycle
+\end{frame}
+%--------------------------------------
+
+
+%--------------------------------------
+\begin{frame}
   One of the simplest ways of detrending time-series data is using a log-linear model
   \begin{align}
     log Y_t = y_t = \alpha +gt + \epsilon_t
@@ -126,7 +133,7 @@
 %--------------------------------------
 \begin{frame}
   \begin{figure}
-    \includegraphics[scale=.3]{log_linear.eps}
+    \includegraphics[scale=.25]{log_linear.eps}
   \end{figure}
 \end{frame}
 %--------------------------------------
@@ -134,7 +141,7 @@
 %--------------------------------------
 \begin{frame}
   \begin{figure}
-    \includegraphics[scale=.3]{loglin_errors.eps}
+    \includegraphics[scale=.25]{loglin_errors.eps}
   \end{figure}
 \end{frame}
 %--------------------------------------
@@ -151,36 +158,35 @@
 
 %--------------------------------------
 \begin{frame}
+ Let $y_t$ be our time-series, can write growth as  
+  \begin{align}
+    \Delta y_t = \frac{y_t - y_{t-1}}{y_{t-1}}   \approx  log\; y_t - log\; y_{t-1}
+  \end{align}
+  \medskip
+    \begin{align}
+    \frac{y_t - y_{t-1}}{y_{t-1}} &= \frac{y_t}{y_{t-1}}-\frac{y_{t-1}}{y_{t-1}}\\ \nonumber
+    &= \frac{y_t}{y_{t-1}}-1 \\ \nonumber
+    & \approx log\left(\frac{y_t}{y_{t-1}}\right) \\ \nonumber
+    &= log\; y_t-log\; y_{t-1}      
+  \end{align}    
+  \medskip
+  \textbf{NB-} If $y$ is close to 1, this means that $log\;y$ will be close to $y-1$, and $\frac{y_t}{y_{t-1}}$ is likely close to 0  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
   \begin{figure}
-    \includegraphics[scale=.3]{first_differences.eps}
+    \includegraphics[scale=.4]{log_growth.eps}
   \end{figure}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- For ease of notation let $y_t$ be our time-series, can write growth as  
-  \begin{align}
-    \Delta y_t = \frac{y_t - y_{t-1}}{y_{t-1}}    
-  \end{align}
-  \medskip
-  Taking logs of growth rate gives   
-  \begin{align}
-    \Delta y_t= log\; y_t - log\; y_{t-1}
-  \end{align}    
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame}  
-  \begin{align}
-    log\; y_t-log\; y_{t-1} &= log\left(\frac{y_t}{y_{t-1}}\right) \\ \nonumber
-    & \approx \frac{y_t}{y_{t-1}}-1\\ \nonumber
-    &= \frac{y_t}{y_{t-1}}-\frac{y_{t-1}}{y_{t-1}}\\ \nonumber
-    &= \frac{y_t - y_{t-1}}{y_{t-1}}      
-  \end{align}
-  \medskip
-  \textbf{NB-} If $y$ is close to 1, this means that $log\;y$ will be close to $y-1$, and $\frac{y_t}{y_{t-1}}$ is likely close to 0  
+  \begin{figure}
+    \includegraphics[scale=.25]{first_differences.eps}
+  \end{figure}
 \end{frame}
 %--------------------------------------
 
@@ -195,7 +201,7 @@
 Recall that growth has a constant component $g$ and random component $\epsilon_t$: two important implications
 \begin{enumerate}
   \item Cycles are the accumulation of all the random shock over time that affected $\Delta y_t$
-  \item Expected growth rate will be $g$; irrespective of what happened in the past
+  \item Expected growth will be $g$; irrespective of what happened in the past
 \end{enumerate}
 \medskip
 \textbf{NB-}Another issue is medium-run changes in $g$
@@ -231,7 +237,7 @@ Recall that growth has a constant component $g$ and random component $\epsilon_t
   \end{align}
   \medskip
   $g$=3; starting value for $y$ is 100\\
-  $\epsilon \sim N(0,6)$\\
+  $\epsilon \sim N(0,5)$\\
   Take first-differences
   \begin{align}
     \Delta y = y_t - y_{t-1}
@@ -254,9 +260,7 @@ Recall that growth has a constant component $g$ and random component $\epsilon_t
   \begin{align}
     \Delta Y_{it} &= a_{1i} + b_1X'_{it} + c_{1,0}\Delta R_{it} + c_{1,1} \Delta R_{it-1} + d_{1i}y_t +\epsilon_{1it}\\
     C_{it} &= \alpha_{2i} + \beta_2 X'_{it} + \gamma_{2,0} \Delta \hat{Y}_{it} + \gamma_{2,1} \Delta \hat{Y}_{it-1} + \delta_{2,1} + \epsilon_{2it}
-  \end{align}
-  \medskip
-  One issue here is that precipitation is mean-reverting.
+  \end{align}  
 \end{frame}
 %--------------------------------------
 
@@ -268,26 +272,23 @@ Recall that growth has a constant component $g$ and random component $\epsilon_t
     P(conflict_t) &= a \Delta R_t + b \Delta R_{t-1}  
   \end{align}
   \medskip
-  Can write this in levels as
+  In levels this becomes
   \begin{align}
     P(conflict_t) &= \alpha_0\log\; R_t + \alpha_1 log\; R_{t-1} + \alpha_2 log\; R_{t-2}  
-  \end{align}    
+  \end{align}
+  \medskip
+  With   $\Delta R_t = log\;R_t - log\; R_{t-1}$, parameters in (11) become mixture of those in (12)
+  \begin{align}
+    a=\frac{2\alpha_0-(\alpha_1+\alpha_2)}{3}; b=\frac{(\alpha_0 + \alpha_1)-2\alpha_2}{3}      
+    \end{align}  
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-Given that 
-  \begin{align}
-    \Delta R_t = log\;R_t - log\; R_{t-1}
-  \end{align}
-  \medskip 
-  The estimates in Eq.12 are given by
-  \begin{align}
-    a=\frac{2\alpha_0-(\alpha_1+\alpha_2)}{3}; b=\frac{(\alpha_0 + \alpha_1)-2\alpha_2}{3}
-  \end{align}
-  \medskip
-  i.e. parameters in eq.12 are a mixture of those in eq.13.
+  \begin{figure}
+    \includegraphics[scale=.4]{mean_reversion.eps}
+  \end{figure}
 \end{frame}
 %--------------------------------------
 

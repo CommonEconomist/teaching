@@ -12,8 +12,8 @@ gdp<-Quandl("FRED/GDPC1",order="asc") # Download data via Quandl
 gdp<-ts(gdp$Value,start=c(1947,1),frequency=4)
 
 # Plot raw data
-plot(gdp,type='l',lwd=2,xlab='',ylab='',main='US real gdp \n (in billions)',
-     axes=FALSE) 
+plot(gdp,type='l',lwd=2,xlab='',ylab='',main='US real gdp \n (log)',
+     axes=FALSE,log='y') 
 axis(1,tick=FALSE)
 axis(2,tick=FALSE,line=-1)
 
@@ -47,7 +47,8 @@ lines(gdp.hp,lwd=2)
 axis(1,tick=FALSE);axis(2,tick=FALSE,line=-1)
 
 #### Figure: Recessions ####
-plot(gdp.hp,type="n",xlab="",ylab="",axes=FALSE)
+plot(gdp.hp,type="n",xlab="",ylab="",axes=FALSE,ylim=c(-.1,.1),
+     main='HP filter and recessions')
 
 # Recessions
 rect(1948+11/12,-.15,1949+10/12,.15,col="grey90",lwd=0,border=NA)

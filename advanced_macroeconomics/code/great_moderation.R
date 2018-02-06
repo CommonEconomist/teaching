@@ -18,7 +18,7 @@ infl.sd<-rollapply(infl,width=5,FUN=sd)
 
 # Plot data
 plot(window(gdp.sd,start=c(1962,1)),main='Rolling 5-year average',
-     axes=FALSE,xlab="",ylab="",ylim=c(0,6),lwd=2)
+     axes=FALSE,xlab="",ylab="",ylim=c(0,5),lwd=2)
 lines(window(infl.sd,start=c(1962,1)),col="steelblue4",lwd=2)
 
 axis(1,tick=FALSE)
