@@ -18,6 +18,7 @@
 \makeatother
 \graphicspath{{/home/swl/Dropbox/ucd/advanced_macro/figures/}} 
 \setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
 
 %--------------------------------------
 \title{Vector Autoregression: Examples}
@@ -34,7 +35,7 @@
 %--------------------------------------
 \begin{frame}
   \textbf{Stock \& Watson (2001)} Effect of monetary policy shocks. \\
-   VAR model can be useful from two perspectives  
+   VAR model can be useful from two perspectives: 
    \medskip
   \begin{enumerate}
     \item Scientific
@@ -89,10 +90,73 @@ Lower-triangular causal chain
 \end{frame}
 %--------------------------------------
 
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.4]{stock_watson.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- \textbf{Kilian (2009)} Oil price shocks\\
+  \begin{figure}
+    \includegraphics[scale=.5]{stock_watson2.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Prize puzzle:} A shock to the interest rate seems to actually increase the interest rate for a couple of periods.
+  \begin{itemize}
+    \item Result has been showing up consistently in VAR studies
+  \end{itemize}
+  \medskip
+  Fed could be acting on information that is not captured by the VAR model which may provide information/signals on future inflationary pressure:
+  \begin{itemize}
+    \item i.e. interest rate increase occurs just before inflation increase: VAR confuses correlation/causation
+    \item Including commodity prices often eliminates prize puzzle
+  \end{itemize}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.5]{interest_shock.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.5]{interest_shock2.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.7]{stock_watson3.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.5]{stock_watson4.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ \textbf{Kilian (2009):} Oil price shocks\\
 \begin{enumerate}
   \item What is an oil price shock?
   \item Are there different type of shocks?
@@ -109,67 +173,67 @@ Lower-triangular causal chain
 
 %--------------------------------------
 \begin{frame}
-\begin{align}
+  \begin{figure}
+    \includegraphics[scale=.7]{killian.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Structural VAR}\\
+  \begin{align}
   z_t=(\Delta prod_t, rea_t, rpo_t)'
 \end{align}
-
-  \begin{align*}
-   A_0 z_t &= \alpha + \sum_{i=1}^{24} A_i z_{t-1} + \epsilon_t\\
-   A_0 &= \begin{pmatrix}
-     a & 0 & 0\\
-     b & c & 0\\
-     d & e & f
-    \end{pmatrix} 
-\end{align*}
+\begin{align}
+  A_0z_t = \alpha + \sum^{24}_{i=1}A_iz_{t-i}+\epsilon_t
+\end{align}
+\medskip
+$A_0^{-1}$ has recursive structure such that reduced form errors $e_t$ can be decomposed as
+\begin{align}
+  e_t&= A^{-1}_0\epsilon_t\\ \nonumber
+   &\equiv \begin{pmatrix} e_t^{\delta prod} \\ e_t^ {rea} \\ e_t^{rpo}  \end{pmatrix}
+   = \begin{bmatrix}
+     a_{11} & 0 & 0\\
+     a_{21} & a_{22} & 0\\
+     a_{31} & a_{32} & a_{33}
+   \end{bmatrix}
+   \begin{pmatrix}
+     \epsilon_t^{oil\;supply\;shock} \\ \epsilon_t^{aggregate\;demand\;shock} \\ \epsilon_t^{oil\;specific-demand\;shock}
+   \end{pmatrix}
+\end{align}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Identifying assumptions}
+  \begin{figure}
+    \includegraphics[scale=.7]{killian2.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Exclusion restrictions}
   \begin{enumerate}
-  \item Oil production does not respond within the month to world demand and oil prices
-  \item World demand is affected within the month by oil production, but not by oil prices
-  \item Oil prices respond immediately to oil production and world demand
-\end{enumerate}
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame}
-   \textbf{Reduced-form model}
-    \begin{align*}
-      z_t = A_0^{-1}\alpha + A_0^{-1} \sum_{i=1}^{24} A_i z_{t-1} + A_0^{-1} \epsilon_t
-    \end{align*}
-  $A_0$ is lower-triangular matrix, so is $A_0^{-1}$ as well.\\
-  Relation between reduced-form shocks $e_t$ and structural shocks $A_0^{-1} \epsilon_t$
-    \begin{align*}
-      \begin{pmatrix}       e_t^{\Delta prod} \\ e_t^{rea}  \\ e_t^{rpo}      \end{pmatrix}
-      =
-      \begin{pmatrix}
-        a_{11} & 0 & 0 \\
-        a_{21} & a_{22} & 0\\
-        a_{31} & a_{32} & a_{33}
-      \end{pmatrix}
-      \begin{pmatrix}       \epsilon_t^{\Delta prod} \\ \epsilon_t^{rea} \\ \epsilon_t^{rpo}      \end{pmatrix}
-    \end{align*}
-\end{frame}
-%--------------------------------------
-
-
-%--------------------------------------
-\begin{frame}
-  Practically this entails that 
-\begin{enumerate}
+    \item Crude oil supply does not respond within same month to changes in oil demand/price
+    \item Global demand is affected within the month by oil production, but not prices
+    \item Oil prices respond immediately to oil production and global demand
+  \end{enumerate}
+  \medskip
+  For the shocks this means
+  \begin{enumerate}
   \item Oil production reduced form shock is a structural shock
   \item Economic activity reduced form shock is combination of structural oil shock and structural activity shock
   \item Reduced form oil price shock is combination of all three structural shocks
 \end{enumerate}
-
 \end{frame}
+%--------------------------------------
 
+%--------------------------------------
 \begin{frame}
-  \textbf{Structural model}
+  \textbf{Identifying restrictions}
 \begin{align*}
   AY_t=BY_{t-1} + C\epsilon_t
 \end{align*}
@@ -186,10 +250,20 @@ Lower-triangular causal chain
 
 %--------------------------------------
 \begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.7]{killian3.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Decomposing variables}\\
   Recall Vector Moving Average representation    
 \begin{align*}
   Y_t = e_t + Ae_{t-1} + A^2e_{t-2} + A^3e_{t-3} + ..... + A^te_0
 \end{align*}
+\medskip
 One can repeat this calculation three times, each time with only one type of shock turned on and the other set to zero. 
 Adding these up, one will get the realized values of $Y_t$.
 Alternatively, one can do a dynamic simulation of the model
@@ -202,14 +276,61 @@ Here we let $\epsilon_t$ represent one of the realised shocks, setting the other
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Brunner (2002)} El Niño and world commodity prices
-  
+  \begin{figure}
+    \includegraphics[scale=.7]{killian4.eps}
+  \end{figure}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  \begin{align}
+  \begin{figure}
+    \includegraphics[scale=.7]{killian5.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Brunner (2002)} Effect of El Niño Southern Oscillation (ENSO) on world primary commodity prices.\\
+  \begin{enumerate}
+    \item Examines global economic consequences of the ENSO cycle
+    \item Uses continuous ENSO measures, rather than dummy variables
+    \item Constructs uncertainty intervals on estimates
+  \end{enumerate}  
+  \medskip
+  Finds that ENSO accounts for 20\% of commodity price inflation movements.
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.3]{brunner.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.3]{brunner3.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.2]{brunner2.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ \textbf{Structural VAR}\\
+   \begin{align}
     ENSO_t &= \mu_s +A_{11}(L)ENSO_{t-1} + \epsilon_t\\ \nonumber
     X_t &= \phi_s + A_{21}(L)ENSO_t + A_{22}(L)X_{t-1} + \eta_t\\
     \begin{bmatrix}      \epsilon_t \\ \eta_t    \end{bmatrix}
@@ -218,8 +339,12 @@ Here we let $\epsilon_t$ represent one of the realised shocks, setting the other
      \right)
   \end{align}
   \begin{align}
-    X_t=[\pi^{cp}_t-\pi^g_t \pi^g_t \Delta y_t]
+    X_t=[\pi^{cp}_t-\pi^g_t\; \pi^g_t \Delta y_t]
   \end{align}
+  $\pi^{cp}_t-\pi^g_t$ is price inflation\\
+  $\pi^g_t$ is inflation rate\\
+  $\Delta y_t$ is average GDP growth rate for G7 countries.
+
 \end{frame}
 %--------------------------------------
 
@@ -229,8 +354,48 @@ Here we let $\epsilon_t$ represent one of the realised shocks, setting the other
   \begin{enumerate}
     \item ENSO events are not influences by contemporaneously economic events
     \item Assumption that ENSO events are exogenous can be tested
-    \item $\sum_{\eta}$ is expecte to be nondiagonal
+    \item $\sum_{\eta}$ is expected to be non-diagonal
   \end{enumerate}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.1]{brunner4.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.3]{brunner5.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Rudebusch (1998)} provided some criticisms on the use of VAR, specifically in relation to monetary policy
+  \medskip
+  \begin{enumerate}
+    \item Changes over time in monetary policy formation are ignored
+    \item Relies on final published data, rather than preliminary estimates
+    \item Underestimates information available to policy makers
+    \item Models incorporate long lags, but unlikely that policy makers look that far back
+    \item Monetary shocks don't resemble surprise elements of monetary policy decisions
+    \item Similar IRF reported by models with different monetary policy shocks (data mining)
+  \end{enumerate}
+\end{frame}
+%--------------------------------------
+
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.7]{rudebusch.eps}
+  \end{figure}
 \end{frame}
 %--------------------------------------
 

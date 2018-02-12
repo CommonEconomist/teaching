@@ -18,6 +18,7 @@
 \makeatother
 \graphicspath{{/home/swl/Dropbox/ucd/advanced_macro/figures/}} 
 \setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
 
 %--------------------------------------
 \title{Vector Autoregression}
@@ -33,17 +34,18 @@
 
 %--------------------------------------
 \begin{frame}
+  \textbf{Matrix notation}\\
   Consider VAR model with 2 variables, 1 lag  
 \begin{align}
   y_{1t} &= a_{11} y_{1, t-1} + a_{12} y_{2,t-1} + \epsilon_{1t}\\ \nonumber
   y_{2t} &= a_{21} y_{1, t-1} + a_{22} y_{2,t-1} + \epsilon_{2t}
 \end{align} 
 \medskip
-In matrix notation
+ Can write in matrix notation as 
 \begin{align}
-   Y&=   \begin{pmatrix}   y_{1t}\\  y_{2t}   \end{pmatrix}  \\   \nonumber
-   A&=   \begin{pmatrix}   a_{11} & a_{12}\\   a_{21} &a_{22}   \end{pmatrix}  \\ \nonumber
-   e_t&=   \begin{pmatrix}     e_{1t} \\ e_{2t}   \end{pmatrix}   
+   \begin{pmatrix}   y_{1t}\\  y_{2t}   \end{pmatrix} &=
+   \begin{pmatrix}   a_{11} & a_{12}\\   a_{21} &a_{22}   \end{pmatrix}  \begin{pmatrix}   y_{1,t-1}\\  y_{2,t-1}  \end{pmatrix} +
+   \begin{pmatrix}     e_{1t} \\ e_{2t}   \end{pmatrix}   
 \end{align}
 \begin{align}  Y_t = AY_{t-1} + e_{t} \end{align}
 \end{frame}
@@ -51,21 +53,24 @@ In matrix notation
 
 %--------------------------------------
 \begin{frame}
-  VAR expresses variables as function of what happened i) yesterday ($t-1) $and ii) today's ($t$) shocks
-  \begin{itemize}
-    \item What happened yesterday depends on yesterday's shocks and what happened the day before
-  \end{itemize}
-  \medskip
-  Ergo, today's values are cumulation of the effect of all shocks from the past
-  \begin{itemize}
-    \item This is useful for deriving predictions about the properties of VAR model
-  \end{itemize}
+ \textbf{Cumulation of shocks:} VAR expresses variables as function of shocks
+ \begin{enumerate}
+   \item Yesterday $t-1$
+   \item Today $t-1$
+ \end{enumerate}
+ \medskip
+ Shock at $t-1$ depends on shock at $t-1$ and $t-2$, etc.
+ \begin{itemize}
+   \item Value at $t$ is cumulation of the effect of all shocks from the past
+ \end{itemize}
+ \medskip
+ The fact that the value at $t$ depends on what happened at $t-n$ is useful for generating predictions for $t+1$
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  VAR is represented as \textbf{Vector Moving Average} (VMA):
+  VAR can therefore be represented as \textbf{Vector Moving Average} (VMA):
   \begin{align}
     Y_t &= e_t + AY_{t-1}\\ \nonumber
         &= e_t + A(e_{t-1} + AY_{t-2})\\ \nonumber
@@ -77,48 +82,61 @@ In matrix notation
 
 %--------------------------------------
 \begin{frame}
-\textbf{Shocks:} Define initial shock as
+\textbf{Shocks:} Introduce an initial shock and let the error terms be 0 afterwards
 \begin{align}  
-  e_0=\begin{pmatrix}   1 \\ 0   \end{pmatrix} 
+  e_0&=\begin{pmatrix}   1 \\ 0   \end{pmatrix} \\ 
+  e_t&=0\;,t>0 
 \end{align}
-and all the error terms are 0 afterwards
-\begin{align}
- e_t=0\;for\;t>0 
-\end{align}
-using VMA representation
+\medskip
+Using VMA representation we get 
 \begin{align} 
 Y_t = e_t + Ae_{t-1} + A^2e_{t-2} + A^3e_{t-3} + ..... + A^te_0 
 \end{align}
-response after $n$ periods will be 
+\medskip
+ Response after $n$ periods will be 
 \begin{align}
   A^n \begin{pmatrix} 1 \\ 0  \end{pmatrix}
 \end{align}
+\medskip
 VAR's IRF is directly analogous to AR(1) IRF.
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- \textbf{Forecasting:}
-  Suppose we have information on $Y_t$ and want to forecast what will happen in $Y_{t+1}$;
-  model for next period will be
-  \begin{align}  
+ \textbf{Forecasting:} Given information on $Y_t$ we want to forecast $Y_{t+1}$;
+ can model $Y_{t+1}$ as
+ \begin{align}  
   Y_{t+1} = AY_t + e_{t+1} 
   \end{align}
   Given $E_te_{t+1}= 0$, an unbiased forecast at time $t$ is $AY_t$ 
   \begin{align} 
   E_tY_{t+1} = AY_t 
   \end{align}
-  i.e.  $A^2Y_t$ is an unbiased forecast of $Y_{t+2}$ and $A^nY_t$ of $Y_{t+n}$
   \begin{itemize}
-    \item Once estimated, VAR easily used for forecasts
+    \item Similarly, $A^2Y_t$ is an unbiased forecast of $Y_{t+2}$ and $A^nY_t$ of $Y_{t+n}$
   \end{itemize}
+  \medskip
+  Once estimated, VAR easily used for forecasts  
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  Model we discussed so far is very simple and is just a subset of all possible VAR models, for instance
+  \textbf{Semantics:}
+  \medskip
+  \begin{enumerate}
+    \item \textbf{Forecast:} probabilistic statement, usually over a longer time period\\    
+    \item \textbf{Prediction:} definitive and specific statement 
+  \end{enumerate}
+  \medskip
+  From \textit{The Signal and the Noise} (Silver, 2012)
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  There are many possible VAR models; one we discussed so far is very simple:  
   \begin{itemize}
   \item It doesn't have a constant
   \item Only contains one lagged value
@@ -130,7 +148,7 @@ VAR's IRF is directly analogous to AR(1) IRF.
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Two-lag system:} Model will be more complicated in terms of estimations, but concerning notation it can still be represented using first-order 
+  \textbf{Two-lag system:}\\ Using first-order representation
   \begin{align}
     y_{1t} &= a_{11} y_{1, t-1} + a_{12} y_{1,t-2} + a_{13} y_{2, t-1} + a_{14} y_{2,t-2} + \epsilon_{1t}\\
     y_{2t} &= a_{21} y_{1, t-1} + a_{22} y_{1,t-2} + a_{23} y_{2, t-1} + a_{24} y_{2,t-2} + \epsilon_{2t}
@@ -140,6 +158,8 @@ VAR's IRF is directly analogous to AR(1) IRF.
   \begin{align}  
     Z_t = AZ_{t-1} + e_t 
   \end{align}
+  \medskip
+  Notation is similar to simpler model, estimation will just be more complex  
 \end{frame}
 %--------------------------------------
 
@@ -164,20 +184,19 @@ VAR's IRF is directly analogous to AR(1) IRF.
       \end{pmatrix}
     \end{align}
     \medskip
-    The reduced-form VAR model is a purely econometric model: there is no theoretical element.      
+    The reduced-form VAR is a purely econometric model with no theoretical element.     
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  This leaves the question of how we should interpret the model and shocks to the model. 
-  One interpretation is that $e_{t1}$ is a shock that only affects $y_{t1}$ on impact and $e_{t2}$ only affects $y_{t2}$
+  \textbf{Interpreting the model:} given the reduced-form model one interpretation on shocks is that $e_{1t}$ is a shock that only affects $y_{1t}$ on impact and $e_{2t}$ only affects $y_{2t}$
   \begin{itemize}
-    \item If we are interested in inflation and output, our VAR model could calculate the dynamic effect of a shock to inflation and a shock to output
-    \item From a theoretical point of view it could be that the true shocks generating inflation and output are aggregate supply and demand shocks: they can have both an effect on inflation and output.
-\end{itemize}
-\medskip
-So how do we identify structural shocks?  
+    \item But what if the shocks has an effect on both $y_{1t}$ and $y_{2t}$?
+    \item e.g. aggregate supply and demand shocks affecting inflation and output
+  \end{itemize}
+  \medskip
+  Need to use the reduced-form model to identify structural shocks.
 \end{frame}
 %--------------------------------------
 
@@ -196,24 +215,27 @@ So how do we identify structural shocks?
 
 %--------------------------------------
 \begin{frame}
-  Two VMA representations
+  Can use two VMA representations
 \begin{align}
   Y_t &= e_t + Ae_{t-1} + A^2e_{t-2} + A^3e_{t-3} + ..... + A^te_0\\
       &= C_{\epsilon t} +  AC_{\epsilon t-1} + A^2C_{\epsilon t-2} + A^3C_{\epsilon t-3} + ..... + A^tC_{\epsilon 0}
 \end{align}
 \medskip
-Can interpret the model as
-\begin{itemize}
-  \item One with shocks $e_t$ and IRFs given by $A^n$
-  \item As a model with structural shocks $\epsilon_t$ and IRFs are given by $A^nC$: Could do this for any $C$, we just don't know the structural shocks
-\end{itemize}
+Model can be interpreted as
+\begin{enumerate}
+  \item Shocks $e_t$, IRFs given by $A^n$
+  \item Structural shocks $\epsilon_t$, IRFs are given by $A^nC$
+  \begin{itemize}
+     \item Can be done for any $C$; just don't know the structural shocks.
+   \end{itemize} 
+\end{enumerate}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- Another way to see how reduced-form shocks are different from structural shocks is if there are contemporaneous interactions between variables:
-  consider following VAR model  
+  \textbf{Reduced vs. Structural shocks:}\\
+  Consider contemporaneous interactions between variables
 \begin{align}
   y_{1t} &= a_{12}y_{2t} + b_{11}y_{1,t-1} + b_{12}y_{2,t-1} +\epsilon_{1t}\\ \nonumber
   y_{2t} &= a_{21}y_{1t} + b_{21}y_{1,t-1} + b_{22}y_{2,t-1} +\epsilon_{1t}
@@ -231,12 +253,12 @@ Can interpret the model as
 
 %--------------------------------------
 \begin{frame}
-  For reduced-form model
+  Reduced-form model
   \begin{align}
     Y_t= DY_{t-1} + e_t
   \end{align}
   \medskip
-  Reduced-form coefficients and shocks are
+  Has following coefficients and shocks
 \begin{align}
   D &= A^{-1}B \\
   e_t &= A^{-1} \epsilon_t   
@@ -246,11 +268,12 @@ Can interpret the model as
 
 %--------------------------------------
 \begin{frame}
-  In contrast, for the structural model the impulse response to structural shocks from $n$ periods is given by
+  Structural model, impulse response to structural shocks from $n$ periods given by
   \begin{align}
     D^nA^{-1}
   \end{align}
-  which is true for any arbitrary $A$ matrix.
+  \medskip
+  Hold for any arbitrary $A$ matrix
   \begin{align}
   Y_t&= e_t + De_{t-1} + D^2e_{t-2} + D^3e_{t-3} + .....\\ \nonumber
      &= A^{-1}\epsilon_t + DA^{-1}\epsilon_{t-1} + D^2A^{-1}\epsilon_{t-2} + D^3A^{-1}\epsilon_{t-3} + ..... \end{align}
@@ -259,18 +282,19 @@ Can interpret the model as
 
 %--------------------------------------
 \begin{frame}
-  No problem with using reduced-form VAR to forecast; only run into trouble when you start to ask 'what-if' questions, for instance
+  \textbf{'What-if'}: for reduced-form VAR the question  
   \begin{quote}
     What happens if there is a shock to the first variable in the VAR?  
   \end{quote}
-   Given that the error series in reduced-form VARs are usually correlated this question becomes
+  \medskip
+  Becomes   
   \begin{quote}
     What will normally happen if there is a shock to the first variable, given that this is usually associated with a corresponding shock to the second variable?    
   \end{quote}
   \medskip
-  Interesting questions about the structure of the economy often concern the impact of different types of shocks that are uncorrelated.
+  Due to correlation of error series in reduced-form VAR: often interested in different shock types that are uncorrelated
   \begin{itemize}
-    \item Structural identification that explains how the reduced-form shocks are actually combinations of uncorrelated structural shocks is far more likely to give clear and interesting answers
+    \item Structural identification how reduced-form shocks are actually combinations of uncorrelated structural shocks
   \end{itemize}
 \end{frame}
 %--------------------------------------
@@ -282,61 +306,79 @@ Can interpret the model as
   AY_t = BY_{t-1} + C\epsilon_t 
   \end{align}
   \medskip
-  $n^2$ parameters in $A$; $n^2$ parameters in $B$; $n^2$ parameters in $C$
-  \begin{itemize}
-    \item An an additional $\frac{n(n+1)}{2}$ parameters in $\sum$ describing the variance pattern in the covariance underlying the shock terms
-\end{itemize}
-  \medskip
-  Most general form of the structural VAR (SVAR) is a model with $3n^2 + \frac{n(n+1)}{2}$ parameters.
+  Number of parameters in the model is
+  \begin{align}
+    3n^2 + \frac{n(n+1)}{2}
+  \end{align}
+  \begin{enumerate}
+    \item $n^2$ parameters in $A$
+    \item $n^2$ parameters in $B$
+    \item $n^2$ parameters in $C$
+    \medskip
+    \item $\frac{n(n+1)}{2}$ parameters in $\sum$
+  \end{enumerate}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  Estimating reduced-form VAR
+  \textbf{Estimation}\\  
   \begin{align}  
   Y_t = DY_{t-1} + e_t 
   \end{align}
   \medskip
-  Which gives information on $n^2+\frac{n(n+1)}{2}$ parameters
-  \begin{itemize}
-    \item Parameters in $D$, estimated covariance matrix for the reduced-form errors
-  \end{itemize}  
-  
+  Provides information on $n^2+\frac{n(n+1)}{2}$ parameters
+  \begin{enumerate}
+    \item Parameters in $D$
+    \item Estimated covariance matrix for the reduced-form errors
+  \end{enumerate}
+  \medskip
+  Need to impose $2n^2$ \textit{a priori} theoretical restrictions on the structural VAR.  
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  For information on structural shocks need to impose $2n^2$ \textit{a priori} theoretical restrictions on the structural VAR
+  Imposing $2n^2$ restrictions will leave 
+  \begin{align}
+    n^2+\frac{n(n+1)}{2}
+  \end{align}
+  \medskip
+  known reduced-form parameters and equal number of structural parameters that we like to know; can get an unique solution here.
   \begin{itemize}
-    \item Can be expressed as $n^2+\frac{n(n+1)}{2}$ equations in $n^2+\frac{n(n+1)}{2}$ unknowns, so it has an unique solution
+    \item $n^2+\frac{n(n+1)}{2}$ equations in $n^2+\frac{n(n+1)}{2}$ unknowns
   \end{itemize}
   \medskip
-  This will leave
+  e.g. can assume that reduced-form VAR is equal to SVAR
+  \begin{align}
+    A=C=I
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Recursive SVAR:} SVARs identify shocks as coming from distinct independent sources (uncorrelated).
   \begin{itemize}
-    \item $n^2+\frac{n(n+1)}{2}$ known reduced form parameters
-    \item $n^2+\frac{n(n+1)}{2}$ structural parameters that we are interested in
-  \end{itemize} 
-  For example asserting that the reduced-form VAR is equal to the SVAR means imposing the $2n^2$ restrictions that $A=C=I$
-\end{frame}
-%--------------------------------------
-
-
-
-%--------------------------------------
-\begin{frame}
-  \textbf{NB-} SVARs identify their shocks as coming from distinct independent sources and thus assume that they are uncorrelated.
-  This method (used in the original Sims paper) uses simple regression techniques to construct a set of uncorrelated structural shocks directly from the reduced-form shocks.
-  The error series in reduced-form VARs are usually correlated with each other. 
-  One way to view these correlations is that the reduced-form errors are combinations of a set of statistically independent structural errors.
-  This method sets $A = I$ and constructs a $C$ matrix so that the structural shocks will be uncorrelated.
+    \item How to get uncorrelated structural shocks from correlated reduced form shocks?
+  \end{itemize}
+  \medskip
+  Reduced-form errors are combinations of set of independent structural errors
+  \begin{align*}
+    Y_t &= DY_{t-1} + e_t\\ 
+    e_t &= A^{-1} \epsilon_t \\\\ 
+    AY_t &= BY_{t-1} + C\epsilon_t  
+  \end{align*}
+  \begin{enumerate}
+    \item Set $A = I$
+    \item Construct $C$ such that structural shocks will be uncorrelated
+  \end{enumerate}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Identification:} Start with a reduced-form VAR with three variables and errors $e_{1t}$ , $e_{2t}$, $e_{3t}$: take one of the variables and assert that this is the first structural shock
+  \textbf{Identification:} Take reduced-form VAR with error series ($e_{1t}$ , $e_{2t}$, $e_{3t}$); Assume that one variable is first structural shock
   \begin{align}
     \epsilon_{1t} = e_{1t} 
   \end{align}
@@ -345,19 +387,18 @@ Can interpret the model as
   \begin{align}
     e_{2t} &= c_{21}e_{1t} + \epsilon_{2t}\\
     e_{3t} &= c_{31}e_{1t} + c_{32}e_{2t} + \epsilon_{3t}  
-  \end{align}
-  \medskip
+  \end{align}  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
   This produces
   \begin{align}
     Ge_t= \epsilon_t
   \end{align}
-\end{frame}
-%--------------------------------------
-
-
-%--------------------------------------
-\begin{frame}
-  Can invert $Ge_t$ to create $C$ and give
+  \medskip
+  Invert $Ge_t$ to create $C$ and give
   \begin{align}
     e_t= C\epsilon_t
   \end{align}
@@ -371,13 +412,19 @@ Can interpret the model as
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Cholesky decomposition:} posits causal chain of shocks
+  \textbf{Cholesky decomposition:} Posits causal chain of shocks and creates a lower-triangular matrix
+  \medskip
   \begin{enumerate}
   \item First shock affects all variables at time $t$
   \item Second only affects two of them at time $t$
   \item Last shock only affects one variable at time $t$
-\end{enumerate}
- Two issues
+\end{enumerate} 
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ Two important issues with using Cholesky decomposition: \medskip
  \begin{enumerate}
    \item Restriction assumptions: variables are sticky and do not respond immediately to some shocks
    \item Ordering: not unique meaning that there are $n!$ possible recursive orderings
@@ -387,23 +434,24 @@ Can interpret the model as
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Ordering:} can use idea that certain shocks have an effect on only some variable at time $t$: let $C=I$ and estimate $A$ and $B$ using OLS.
+  \textbf{Ordering:} Some variables only having effect on some variables at time $t$
+  \begin{itemize}
+    \item Let $C=I$, estimate $A$ and $B$ using OLS.
+  \end{itemize}
+   
 \begin{align}
   y_{1t} &= b_{11}y_{1,t-1} + b_{12}y_{2,t-1} + b_{13}y_{3,t-1} + \epsilon_{1t}\\ \nonumber
   y_{2t} &= b_{21}y_{1,t-1} + b_{22}y_{2,t-1} + b_{23}y_{3,t-1}-a_{21}y_{1t} + \epsilon_{2t}\\ \nonumber
   y_{3t} &= b_{31}y_{1,t-1} + b_{32}y_{2,t-1} + b_{33}y_{3,t-1}-a_{31}y_{1t} - a_{32}y_{2t} + \epsilon_{3t}
 \end{align}
-\medskip
- This method delivers shocks and impulse responses that are identical to the Cholesky decomposition.
- \begin{itemize}
-   \item Different combinations of $A$, $B$ and $C$ can deliver the same structural model.
- \end{itemize}
+  \medskip 
+  Different combinations of $A$, $B$ and $C$ can deliver the same structural model. 
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  \textbf{OLS estimation:} VAR is set of linear equations
+  \textbf{OLS:} VAR is set of linear equations
   \begin{itemize}
     \item $n$-variable and $n$-equation model where each variable is explained by its lagged value and the current and lagged value of the $n-1$ remaining variables
   \end{itemize}
@@ -420,38 +468,36 @@ Can interpret the model as
  For AR(1) model, the OLS estimator for sample size $T$ is
 \begin{align}
   \hat{\rho} &= \frac{\sum^T_{t=2}y_t y_{t-1}}{\sum^T_{t=2}y^2_{t-1}}\\ \nonumber
-  &= \rho + \frac{\sum^T_{t=2}\epsilon_t y_{t-1}}{\sum^T_{t=2}y^2_{t-1}}\\ \nonumber
-  &= \rho + \sum_{t=2}^T \left(\frac{y_{t-1}}{\sum_{t=2}^T} \right) \epsilon_t
+  &= \rho + \frac{\sum^T_{t=2}\epsilon_t y_{t-1}}{\sum^T_{t=2}y^2_{t-1}}=
+  \rho + \sum_{t=2}^T \left(\frac{y_{t-1}}{\sum_{t=2}^T y^2_{t-1}} \right) \epsilon_t
 \end{align}
+\medskip
+
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- For $\rho>0$, positive shock to $\epsilon_t$ raises value $y_t$ for $t$ and $t+n$
- \begin{itemize}
-   \item All of which are in $\sum^T_{t=1}y^2_{t-1}$
- \end{itemize}
- $\epsilon_t$ is independent of $y_{t-1}$ 
- \begin{align}
+ \begin{enumerate}
+   \item $\epsilon_t$ is independent of $y_{t-1}$ 
+   \begin{align}
     \mathop{\mathbb{E}}(y_{t-1}\epsilon_t)= 0  
  \end{align}
+   \item $\rho>0$: positive shock to $\epsilon_t$ will increase current and future values of $y_t$.
+ \end{enumerate}
  \medskip
- However, $\epsilon_t$is not independent of the sum  $\sum^T_{t=2}y^2_{t-1}$
- \begin{itemize}
-   \item Since $y_t$ is a function of $\epsilon_t$.
- \end{itemize}
-This entails a negative correlation between $\epsilon_t$ and $\frac{y_{t-1}}{\sum^T_{t=2}y^2_{t-1}}$, so $\mathop{\mathbb{E}} \hat{\rho}<\rho$
-\begin{itemize}
-  \item Argument generalises to VAR models.
-\end{itemize}
+ $y_t$ is a function of $\epsilon_t$: $\epsilon_t$ is not independent of $\sum^T_{t=2}y^2_{t-1}$
+ \begin{align}
+     \mathop{\mathbb{E}} \hat{\rho}<\rho
+   \end{align} 
+ Due to negative correlation between $\epsilon_t$ and $\frac{y_{t-1}}{\sum_{t=2}^T y^2_{t-1}}$ 
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  The size of the bias will depend on two factors
-  \begin{enumerate}
+ \textbf{Size of bias} depends on two factors \medskip
+ \begin{enumerate}
   \item The size of $\rho$: The bigger this is, the stronger the correlation of the shock with future values and thus the bigger the bias.
   \item Sample size $T$: The larger this is, the smaller the fraction of the observations sample that will be highly correlated with the shock and thus the smaller the bias.
 \end{enumerate}
@@ -460,14 +506,26 @@ This entails a negative correlation between $\epsilon_t$ and $\frac{y_{t-1}}{\su
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Bootstrapping:} Use estimated error terms to simulate the underlying sampling distribution of the OLS estimators when the data generating process is given by a VAR with the estimated parameters
-\begin{enumerate}
-  \item Use OLS to estimate model $Z_t= AZ_{t-1} + \epsilon_t$, save errors $\hat{\epsilon_t} $
-  \item Randomly sample from errors to create new error series $\epsilon^*_t$ and simulated data series by recursion $Z^*_t= \hat{A}Z^*_{t-1} + \epsilon^*_t$
-  \item Estimate a VAR model fitting the simulated data and save the different sets of OLS estimated coefficients $\hat{A}^*$
-  \item Compute median for each $\hat{A}^*$ as $\bar{A}$ and compare to $\hat{A}$ to get estimate of OLS bias
-  \item Construct new estimates $A^{boot} = \hat{A}-(\bar{A}-\hat{A})$
-\end{enumerate}
+  \textbf{Bootstrapping:} 
+   Use OLS to estimate model 
+   \begin{align}
+     Z_t= AZ_{t-1} + \epsilon_t
+   \end{align}
+   \medskip
+   Save errors $\hat{\epsilon_t}$ and randomly sample error series $\epsilon^*_t$ and simulated data
+   \begin{align}
+     Z^*_t= \hat{A}Z^*_{t-1} + \epsilon^*_t
+   \end{align}
+   \medskip
+    Estimate VAR with simulated data; save coefficients $\hat{A}^*$
+    \begin{itemize}
+      \item Compute median for each $\hat{A}^*$: $\bar{A}$; compare to $\hat{A}$ to get estimate of OLS bias
+    \end{itemize}
+    \medskip
+    Can construct new estimates 
+    \begin{align}
+      A^{boot} = \hat{A}-(\bar{A}-\hat{A})
+    \end{align}  
 \end{frame}
 %--------------------------------------
 
@@ -479,64 +537,62 @@ This entails a negative correlation between $\epsilon_t$ and $\frac{y_{t-1}}{\su
     f(y_1,y_2,.....,Y_n| \theta)
   \end{align}
   \medskip
-  MLE estimates might be biased but they are i) consistent and ii) asymptotically efficient
-  \begin{itemize}
-    \item MLEs cannot be obtained using analytical methods, so numerical methods are used to estimate the set of coefficients that maximise the likelihood function
-  \end{itemize}
+  Similar to OLS, MLE estimates are biased but they are also
+  \begin{enumerate}
+    \item Consistent
+    \item Asymptotically efficient
+  \end{enumerate}  
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}  
-  ML estimates are given by maximising joint likelihood: multiplying together the likelihood of each of the observations
+  \textbf{Joint likelihood:} ML estimates are given by multiplying likelihood of each observation; maximising joint likelihood  
 \begin{align}
-  f(y_1,...,y_n| \mu, \sigma) = \prod^n_{i=1} \frac{1}{\sqrt{2\pi \sigma^2}} exp \left [ \frac{-(y_i-\mu)^2)}{2\sigma^2} \right ] \\
-  log \;f(y_1,...,y_n| \mu, \sigma) = -\frac{n}{2} log 2\pi - n log \sigma + \sum^n_{i=1} \left [ \frac{-(y_i-\mu)^2}{2\sigma^2} \right ]
-\end{align}
-\medskip
- Can also write this as
- \begin{align}
-   \prod^n_{i=1} & f(y_i| \theta)\\
-   \sum^n_{i=1} & ln\; f(y_i| \theta)
- \end{align}
+  f(y_1,...,y_n| \mu, \sigma) &= \prod^n_{i=1} \frac{1}{\sqrt{2\pi \sigma^2}} exp \left [ \frac{-(y_i-\mu)^2)}{2\sigma^2} \right ] \\ \nonumber
+  &= \prod^n_{i=1} f(y_i| \theta)\\
+  log \;f(y_1,...,y_n| \mu, \sigma) &= -\frac{n}{2} log 2\pi - n log \sigma + \sum^n_{i=1} \left [ \frac{-(y_i-\mu)^2}{2\sigma^2} \right ] \\ \nonumber
+  &= \sum^n_{i=1} ln\; f(y_i| \theta)
+\end{align}\
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  Consider $AR(1)$ model with $\epsilon_t \sim N(0, \sigma^2)$
+  Consider AR(1) model
+  \begin{align}
+  y_t&= \rho y_{t-1} + \epsilon_t \\ 
+   \epsilon_t &\sim N(0, \sigma^2)
+  \end{align}
+  For joint unconditional series $y_1,y_2,...,y_n$ we assume
+  \begin{align}
+     y_2\sim N(\rho y_1,\sigma^2), y_3\sim N(\rho y_2,\sigma^2),... 
+   \end{align} 
+   \medskip  
+  For $\theta= (\rho, \sigma)$, conditional on the first observation the joint distribution can be written as
 \begin{align}
-  y_t= \rho y_{t-1} + \epsilon_t
-\end{align}
-Let $\theta= (\rho, \sigma)$; conditional on the first observation the joint distribution can be written as
-\begin{align}
-  f(y_2,...,y_n| \theta, y1)= \prod^n_{i=2} \frac{1}{\sqrt{2 \pi \sigma^2}} exp \left [ \frac{-(y_i - \rho y_{i-1})^2}{2\sigma^2} \right ]
-\end{align}
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame}
-  The log-likelihood function is
-\begin{align}
+  f(y_2,...,y_n| \theta, y1) &= \prod^n_{i=2} \frac{1}{\sqrt{2 \pi \sigma^2}} exp \left [ \frac{-(y_i - \rho y_{i-1})^2}{2\sigma^2} \right ] \\
   log f(y_2,...,y_n| \theta, y1) &= -\frac{n}{2} log 2\pi - n log \sigma + \sum^n_{i=1} 
   \left [ \frac{-(y_i-\rho y_{i-1})^2}{2\sigma^2} \right ]\\ \nonumber
   &=  -\frac{n}{2} log 2\pi - n log \sigma - \frac{1}{2\sigma^2} \sum^n_{i=1}(y_i-\rho y_{i-1})^2
 \end{align}
-OLS will provide the MLE estimate for $\rho$
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- Using Cholesky decomposition to estimate a VAR with $n$ variables and $k$ lags means that the number of parameters equals
+ \textbf{Parameters:} For VAR with $n$ variables and $k$ lags, number of parameters equals
  \begin{align}
-    n^2k + \frac{n(n-1)}{2} 
+   n^2k + \frac{n(n-1)}{2} 
  \end{align}
- That's 12 parameters for $n=3,k=1$; 231 parameters for $n=6,k=6$.
- Two issues to consider here
+ \begin{itemize}
+   \item $n=3,k=1$: 12 parameters
+   \item $n=6,k=6$: 231 parameters
+ \end{itemize}
+ \medskip
+ Two issues to consider
  \begin{enumerate}
-   \item Many coefficients are probably (close to) zero
+   \item Many coefficients are probably zero (or close)
    \begin{itemize}
      \item Overfitting: poor-quality estimates, bad forecasts
    \end{itemize}
@@ -555,10 +611,10 @@ OLS will provide the MLE estimate for $\rho$
     P(A|B) &= \frac{P(B|A)P(A)}{P(B)}\\
     P(A|B)&\propto P(B|A)P(A)
   \end{align}
-  Can use \textbf{Bayes' Law.} For example, suppose you have prior knowledge that $A$ is a very unlikely event, e.g. Canada invading the U.S.A. Then even if you observe something, call it $B$, that is likely to occur if $A$ is true, e.g. a television broadcast of a Canadian invasion, you should probably still place a pretty low weight on $A$ being true.
+  \medskip
+  Can use \textbf{Bayes' Law} to incorporate prior knowledge.
 \end{frame}
 %--------------------------------------
-
 
 %--------------------------------------
 \begin{frame}
@@ -566,8 +622,8 @@ OLS will provide the MLE estimate for $\rho$
 \begin{align}
   P(\theta= \theta^* | Z=D) \propto P(Z=D | \theta =\theta^*)P(\theta= \theta^*)  
 \end{align}
-  \medskip
-  Calculate probability that parameters $\theta$ take on a particular value $\theta^*$ given the observed data $D$ as a function of two other probabilities
+\medskip
+In English: the probability data parameters $\theta$ take on value $\theta^*$ given data $D$ is a function of
 \begin{enumerate}
   \item The probability that $Z=D$ if $\theta= \theta^*$
   \item The probability that $\theta = \theta^*$
@@ -577,7 +633,7 @@ OLS will provide the MLE estimate for $\rho$
 
 %--------------------------------------
 \begin{frame}
-  Rewrite relationship in form of PDF given that coefficients and data are continuous
+  \textbf{Probability density function:} Rewrite relationship given that data and coefficients are continuous  
   \begin{align}
     f_\theta(\theta^* | D) \propto f_Z(D | \theta^*)f_\theta(\theta^*)
 \end{align}
@@ -592,49 +648,51 @@ OLS will provide the MLE estimate for $\rho$
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Likelihood function:} $f_Z(D | \theta^*)$ 
-    \begin{itemize}
-      \item For each possible value of $\theta^*$ it tells you the probability of a given dataset occurring if the true coefficients $\theta= \theta^*$
-      \item The likelihood functions can be calculated once you have made assumptions about the distributional form of the error process.
-    \end{itemize}
-    \medskip
-    \textbf{Prior:} specified as distribution $f_\theta(\theta^*)$
-    \begin{itemize}
-      \item Summarises the researcher's pre-existing knowledge about the parameters $\theta$
-    \end{itemize}
-    Prior distribution is combined with the likelihood function to produce posterior distribution
+  \textbf{Likelihood function:} 
+  \begin{align}
+    f_Z(D | \theta^*)
+  \end{align}
+    For each possible value of $\theta^*$ gives the probability of observed dataset if true coefficients
+    \begin{align}
+      \theta= \theta^*
+    \end{align}    
+    The likelihood function can be calculated once you have made assumptions about the distributional form of the error process.    
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Prior:} Summarises the researcher's pre-existing knowledge about the parameters $\theta$, specified as distribution 
+  \begin{align}
+    f_\theta(\theta^*)
+  \end{align}
+  Prior distribution is combined with the likelihood function to produce posterior distribution
     \begin{align}
       f_\theta(\theta^* | D)
     \end{align}
-    Specifies the probability of all possible coefficient values given both the observed data and the priors
+    Specifies the probability of all possible coefficient values given both the observed data and the priors    
 \end{frame}
 %--------------------------------------
 
 
-
 %--------------------------------------
 \begin{frame}
-  To get best estimator we can use the mean of the posterior distribution  
+  \textbf{Point estimate:} For best estimator can use mean of posterior distribution 
 \begin{align}
   \hat{\theta}= \int^\infty_{-\infty} xf_\theta(x | D)dx
 \end{align}
-This estimator is a weighted average of 
-\begin{itemize}
-  \item The maximum likelihood estimator
+ Estimator is weighted average of
+ \begin{enumerate}
+   \item The maximum likelihood estimator
   \item The mean of the prior distribution
-\end{itemize}
-\medskip
- Weights depend on the covariances of the likelihood and prior functions
- \begin{itemize} 
-   \item The more confidence the researcher specifies in the prior, the more weight will be placed on the prior mean in the estimator.
-   \item With normally distributed errors Bayesian estimators of VAR coefficients are weighted averages of OLS coefficients and the mean of the prior distribution
- \end{itemize}
+ \end{enumerate}
+ With normally distributed errors Bayesian estimators of VAR coefficients are weighted averages of OLS coefficients and the mean of the prior distribution 
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Long-run restrictions:} Identifying assumptions of recursive VAR require knowledge on how variables react instantaneous to certain shocks: often involves guesswork
+  \textbf{Long-run restrictions:} Identifying assumptions for VAR requires knowledge on how variables react instantaneous to certain shocks
   \begin{itemize}
     \item Variables can be slow or information available with lag
     \item Economic theory of little help due to focus on long run
@@ -643,19 +701,22 @@ This estimator is a weighted average of
     \end{itemize}
   \end{itemize}
   \medskip
-  Alternative approach: use theoretically-inspired long-run restrictions to identify shocks and impulse responses
+  Alternative approach: use theoretically-inspired long-run restrictions to identify shocks and impulse responses.
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
   \begin{align}
-    Z-t&= BZ_{t-1}+C\epsilon_t\\
+    Z_t&= BZ_{t-1}+C\epsilon_t    
+  \end{align}
+  Covariance matrix of structural shocks is
+  \begin{align}
     E(\epsilon_t \epsilon_t') &= \begin{pmatrix} E(\epsilon_1^2) & E(\epsilon_1 \epsilon_2) \\ E(\epsilon_1 \epsilon_2) & E(\epsilon_2^2) \end{pmatrix} = I
   \end{align}
   \medskip
   Structural shocks are uncorrelated and have unit variance.\\
-  Covariance matrix of reduced-form errors is 
+  Reduced-form:
   \begin{align}
     \sum = E(e_t e_t') = E \{(C\epsilon_t) (C\epsilon_t)'\} = CE(\epsilon_t \epsilon_t')C' = CC'
   \end{align}
@@ -669,27 +730,26 @@ This estimator is a weighted average of
   \begin{align}
     Z_t=(\Delta y_t,\Delta x_t)'
   \end{align}
-  \medskip
-  Long-run effect of shock on $y_t$ is the sum of effects on $\Delta y_t, \Delta y_{t+1}$, etc.
-  \begin{itemize}
-     \item Long-run effect is sum of impulse responses
-   \end{itemize} 
-   Impulse response for model  
+  Long-run effect of shock on $y_t$ is sum of effects on 
+  \begin{align}
+    \Delta y_t, \Delta y_{t+1},\Delta y_{t+1},...,\Delta y_{t+n}
+  \end{align}
+  i.e. long-run effect is sum of impulse responses, meaning that for model     
   \begin{align}
     Z_t = BZ_{t-1} + C\epsilon_t
   \end{align}
-  is 
+  The impulse response is
   \begin{enumerate}
     \item $C$ in $t$
     \item $BC$ in $t+1$
     \item $B^nC$ after $n$ periods
-  \end{enumerate}
+  \end{enumerate}  
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  Long run level effects are given by
+  \textbf{Long-run level effect}  
   \begin{align}
     D=(I+B+B^2+B^3+...)C
   \end{align}
@@ -706,16 +766,16 @@ This estimator is a weighted average of
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Blacnhard-Quah method:}
+  \textbf{Blanchard-Quah method:}
   \begin{align}
     DD'=(I-B)^{-1}CC'\left( (I-B)^{-1} \right)'
   \end{align}
-  Given 
+  We defined the covariance matrix of reduced-form shocks as
   \begin{align}
     CC'= \sum 
   \end{align}
   \medskip
-  Which can be estimated, so we get
+  This can be estimated, producing
   \begin{align}
     DD'=(I-B)^{-1}\sum \left( (I-B)^{-1} \right)'
   \end{align} 
@@ -724,7 +784,8 @@ This estimator is a weighted average of
 
 %--------------------------------------
 \begin{frame}
-  We are going to make a restriction concerning the long-run effects described in $D$ which we assume to be lower triangular
+\textbf{Long-run effect restriction:} Assume that $D$ is lower-triangular
+\medskip  
   \begin{enumerate}
     \item First shock has long-run effect on first variable
     \item First and second shock have long run effect on second variable
@@ -738,23 +799,45 @@ This estimator is a weighted average of
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Cholesky factor:} $DD'$ is a symmetrix matrix which means that there is a unique lower-triangular matrix $D$ so that $DD'$ equals the symmetrix matrix
+  \textbf{Cholesky factor:} All symmetric matrices have a unique lower-diagonal matrix $D$ such that $DD'$ equals the symmetric matrix
   \begin{itemize}
-    \item entry $i,j$ equals entry $j,i$
+    \item Symmetrix matrix means that entry $i,j$ equals entry $j,i$
   \end{itemize}
   \medskip
-  Can calculate $D$ using know matrix
+  Calculate $D$ using known matrix
   \begin{align}
     (I-B)^{-1}\sum \left( (I-B)^{-1} \right)'
   \end{align}
-  \medskip
-  Recall that $D=(I-B)^{-1}C$, which means $C$, defining the structural shocks, can be calculated as
+  Given 
+  \begin{align}
+    D=(I-B)^{-1}C
+  \end{align}
+  Matrix $C$ defining structural shocks can be calculated as  
   \begin{align}
     C=(I-B)D
   \end{align}
 \end{frame}
 %--------------------------------------
 
+%--------------------------------------
+\begin{frame}
+  \textbf{Galí} (1999): Looks at change in labour productivity versus number of hours worked
+  \begin{itemize}
+    \item Based on Real Business Cycle (RBC) model which assumes that technology shocks drive business cycle
+    \item In this case hours worked should increase in booms compared to recessions
+  \end{itemize}
+  \medskip
+  Lower-diagonal assumption is that technology shock can affect productivity in long-run, but non-technology shock cannot
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.7]{gali.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
 
 %--------------------------------------
 \end{document}
