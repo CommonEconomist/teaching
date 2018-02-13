@@ -83,9 +83,9 @@ Lower-triangular causal chain
 \begin{frame}
   \textbf{Identifying assumptions}
 \begin{enumerate}
-  \item Inflation depends only on lagged values of the other variables (sticky prices?)
+  \item Inflation depends only on lagged values of the other variables (sticky prices)
   \item Unemployment depends on contemporaneous inflation but not the funds rate
-  \item The funds rate depends on both contemporaneous inflation and unemployment
+  \item Funds rate depends on both contemporaneous inflation and unemployment
 \end{enumerate}
 \end{frame}
 %--------------------------------------
@@ -108,7 +108,7 @@ Lower-triangular causal chain
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Prize puzzle:} A shock to the interest rate seems to actually increase the interest rate for a couple of periods.
+  \textbf{Prize puzzle:} A shock to the interest rate seems to actually increase the inflation rate for a couple of periods.
   \begin{itemize}
     \item Result has been showing up consistently in VAR studies
   \end{itemize}
@@ -124,7 +124,7 @@ Lower-triangular causal chain
 %--------------------------------------
 \begin{frame}
   \begin{figure}
-    \includegraphics[scale=.5]{interest_shock.eps}
+    \includegraphics[scale=.4]{interest_shock.eps}
   \end{figure}
 \end{frame}
 %--------------------------------------
@@ -132,7 +132,7 @@ Lower-triangular causal chain
 %--------------------------------------
 \begin{frame}
   \begin{figure}
-    \includegraphics[scale=.5]{interest_shock2.eps}
+    \includegraphics[scale=.4]{interest_shock2.eps}
   \end{figure}
 \end{frame}
 %--------------------------------------
@@ -189,7 +189,7 @@ Lower-triangular causal chain
   A_0z_t = \alpha + \sum^{24}_{i=1}A_iz_{t-i}+\epsilon_t
 \end{align}
 \medskip
-$A_0^{-1}$ has recursive structure such that reduced form errors $e_t$ can be decomposed as
+$A_0^{-1}$ has recursive structure; reduced form errors $e_t$ can be decomposed as
 \begin{align}
   e_t&= A^{-1}_0\epsilon_t\\ \nonumber
    &\equiv \begin{pmatrix} e_t^{\delta prod} \\ e_t^ {rea} \\ e_t^{rpo}  \end{pmatrix}
@@ -241,7 +241,7 @@ $A_0^{-1}$ has recursive structure such that reduced form errors $e_t$ can be de
  Needs 18 identifying restrictions: $2n^2=18$
  \begin{enumerate}
    \item Assuming contemporaneous interaction between variables $C=I$ (9)
-   \item Zero restrictions/lower diagonal assumtpion on $A_0$ (3)
+   \item Zero restrictions/lower diagonal assumption on $A_0$ (3)
    \item Unit coefficient normalisation on diagonal $A_0$ (3)
    \item Orthogonal structural shocks: off-diagonal elements of $\sum$ are 0 (3)
  \end{enumerate}
@@ -352,9 +352,11 @@ Here we let $\epsilon_t$ represent one of the realised shocks, setting the other
 \begin{frame}
   \textbf{Identifying assumptions}
   \begin{enumerate}
-    \item ENSO events are not influences by contemporaneously economic events
-    \item Assumption that ENSO events are exogenous can be tested
-    \item $\sum_{\eta}$ is expected to be non-diagonal
+    \item ENSO events are not influenced by contemporaneously economic events: $\epsilon_t$ orthogonal    
+    \item $\sum_{\eta}$ is expected to be non-diagonal: shocks in $\eta$ are correlated
+    \begin{itemize}
+      \item Not required since focus is on $\epsilon_t$, which is uncorrelated with $\eta_t$
+    \end{itemize}
   \end{enumerate}
 \end{frame}
 %--------------------------------------
@@ -370,7 +372,7 @@ Here we let $\epsilon_t$ represent one of the realised shocks, setting the other
 %--------------------------------------
 \begin{frame}
   \begin{figure}
-    \includegraphics[scale=.3]{brunner5.eps}
+    \includegraphics[scale=.2]{brunner5.eps}
   \end{figure}
 \end{frame}
 %--------------------------------------

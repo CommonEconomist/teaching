@@ -56,7 +56,7 @@
  \textbf{Cumulation of shocks:} VAR expresses variables as function of shocks
  \begin{enumerate}
    \item Yesterday $t-1$
-   \item Today $t-1$
+   \item Today $t$
  \end{enumerate}
  \medskip
  Shock at $t-1$ depends on shock at $t-1$ and $t-2$, etc.
@@ -109,7 +109,7 @@ VAR's IRF is directly analogous to AR(1) IRF.
  \begin{align}  
   Y_{t+1} = AY_t + e_{t+1} 
   \end{align}
-  Given $E_te_{t+1}= 0$, an unbiased forecast at time $t$ is $AY_t$ 
+  Given $\mathbb{E}(e_{t+1})= 0$, an unbiased forecast at time $t$ is $AY_t$ 
   \begin{align} 
   E_tY_{t+1} = AY_t 
   \end{align}
@@ -134,23 +134,12 @@ VAR's IRF is directly analogous to AR(1) IRF.
 \end{frame}
 %--------------------------------------
 
-%--------------------------------------
-\begin{frame}
-  There are many possible VAR models; one we discussed so far is very simple:  
-  \begin{itemize}
-  \item It doesn't have a constant
-  \item Only contains one lagged value
-  \end{itemize}
-  \medskip
-  \textbf{NB-} Can add third variable as constant taking value 1: the equation for the constant term will just state that it equals its own lagged values; this formulation actually incorporates models with constant terms.
-\end{frame}
-%--------------------------------------
 
 %--------------------------------------
 \begin{frame}
   \textbf{Two-lag system:}\\ Using first-order representation
   \begin{align}
-    y_{1t} &= a_{11} y_{1, t-1} + a_{12} y_{1,t-2} + a_{13} y_{2, t-1} + a_{14} y_{2,t-2} + \epsilon_{1t}\\
+    y_{1t} &= a_{11} y_{1, t-1} + a_{12} y_{1,t-2} + a_{13} y_{2, t-1} + a_{14} y_{2,t-2} + \epsilon_{1t}\\ \nonumber
     y_{2t} &= a_{21} y_{1, t-1} + a_{22} y_{1,t-2} + a_{23} y_{2, t-1} + a_{24} y_{2,t-2} + \epsilon_{2t}
   \end{align}
   \medskip
@@ -190,9 +179,18 @@ VAR's IRF is directly analogous to AR(1) IRF.
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Interpreting the model:} given the reduced-form model one interpretation on shocks is that $e_{1t}$ is a shock that only affects $y_{1t}$ on impact and $e_{2t}$ only affects $y_{2t}$
-  \begin{itemize}
-    \item But what if the shocks has an effect on both $y_{1t}$ and $y_{2t}$?
+  \textbf{Interpreting the model:} 
+  \begin{align}
+    e_t &= \begin{pmatrix}
+        e_{1t} \\ 0 \\ e_{2t} \\ 0 
+      \end{pmatrix}
+  \end{align}
+  \begin{enumerate}
+    \item $e_{1t}$ is a shock that only affects $y_{1t}$
+    \item $e_{2t}$ only affects $y_{2t}$
+  \end{enumerate}
+  But what if the shocks has an effect on both $y_{1t}$ and $y_{2t}$? 
+  \begin{itemize}    
     \item e.g. aggregate supply and demand shocks affecting inflation and output
   \end{itemize}
   \medskip
@@ -208,7 +206,7 @@ VAR's IRF is directly analogous to AR(1) IRF.
       e_{2t}&= c_{21}\epsilon_{1t} + c_{22}\epsilon_{2t}  
   \end{align}
   \begin{align}  
-      e_t= C_{\epsilon t} 
+      e_t= C\epsilon_t 
   \end{align}
 \end{frame}
 %--------------------------------------
@@ -218,7 +216,7 @@ VAR's IRF is directly analogous to AR(1) IRF.
   Can use two VMA representations
 \begin{align}
   Y_t &= e_t + Ae_{t-1} + A^2e_{t-2} + A^3e_{t-3} + ..... + A^te_0\\
-      &= C_{\epsilon t} +  AC_{\epsilon t-1} + A^2C_{\epsilon t-2} + A^3C_{\epsilon t-3} + ..... + A^tC_{\epsilon 0}
+      &= C\epsilon_t +  AC\epsilon_{t-1} + A^2C\epsilon_{t-2} + A^3C\epsilon_{t-3} + ..... + A^tC\epsilon_0
 \end{align}
 \medskip
 Model can be interpreted as
@@ -253,12 +251,13 @@ Model can be interpreted as
 
 %--------------------------------------
 \begin{frame}
-  Reduced-form model
+  Can re-write SVAR as reduced-form model
   \begin{align}
-    Y_t= DY_{t-1} + e_t
+  AY_t &= BY_{t-1} + \epsilon_t \\
+    Y_t&= DY_{t-1} + e_t
   \end{align}
   \medskip
-  Has following coefficients and shocks
+  Reduced-form model has following coefficients and shocks
 \begin{align}
   D &= A^{-1}B \\
   e_t &= A^{-1} \epsilon_t   
@@ -273,7 +272,7 @@ Model can be interpreted as
     D^nA^{-1}
   \end{align}
   \medskip
-  Hold for any arbitrary $A$ matrix
+  Holds for any arbitrary $A$ matrix
   \begin{align}
   Y_t&= e_t + De_{t-1} + D^2e_{t-2} + D^3e_{t-3} + .....\\ \nonumber
      &= A^{-1}\epsilon_t + DA^{-1}\epsilon_{t-1} + D^2A^{-1}\epsilon_{t-2} + D^3A^{-1}\epsilon_{t-3} + ..... \end{align}
@@ -315,7 +314,7 @@ Model can be interpreted as
     \item $n^2$ parameters in $B$
     \item $n^2$ parameters in $C$
     \medskip
-    \item $\frac{n(n+1)}{2}$ parameters in $\sum$
+    \item $\frac{n(n+1)}{2}$ parameters in $\sum_{\epsilon}$
   \end{enumerate}
 \end{frame}
 %--------------------------------------
@@ -378,7 +377,7 @@ Model can be interpreted as
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Identification:} Take reduced-form VAR with error series ($e_{1t}$ , $e_{2t}$, $e_{3t}$); Assume that one variable is first structural shock
+  \textbf{Cholesky decomposition:} Take reduced-form VAR with error series ($e_{1t}$ , $e_{2t}$, $e_{3t}$); Assume that one variable is first structural shock
   \begin{align}
     \epsilon_{1t} = e_{1t} 
   \end{align}
@@ -388,11 +387,6 @@ Model can be interpreted as
     e_{2t} &= c_{21}e_{1t} + \epsilon_{2t}\\
     e_{3t} &= c_{31}e_{1t} + c_{32}e_{2t} + \epsilon_{3t}  
   \end{align}  
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame}
   This produces
   \begin{align}
     Ge_t= \epsilon_t
@@ -402,17 +396,12 @@ Model can be interpreted as
   \begin{align}
     e_t= C\epsilon_t
   \end{align}
-  \medskip
-  Identification: Done
-  \begin{itemize}
-    \item Recall that in OLS the error terms are uncorrelated with RHS variables: here by construction, we have that $\epsilon_t$ are uncorrelated with each other
-  \end{itemize}  
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Cholesky decomposition:} Posits causal chain of shocks and creates a lower-triangular matrix
+  \textbf{Cholesky decomposition} posits causal chain of shocks and creates a lower-triangular matrix
   \medskip
   \begin{enumerate}
   \item First shock affects all variables at time $t$
@@ -468,11 +457,9 @@ Model can be interpreted as
  For AR(1) model, the OLS estimator for sample size $T$ is
 \begin{align}
   \hat{\rho} &= \frac{\sum^T_{t=2}y_t y_{t-1}}{\sum^T_{t=2}y^2_{t-1}}\\ \nonumber
-  &= \rho + \frac{\sum^T_{t=2}\epsilon_t y_{t-1}}{\sum^T_{t=2}y^2_{t-1}}=
-  \rho + \sum_{t=2}^T \left(\frac{y_{t-1}}{\sum_{t=2}^T y^2_{t-1}} \right) \epsilon_t
+  &= \rho + \frac{\sum^T_{t=2} y_{t-1} \epsilon}{\sum^T_{t=2}y^2_{t-1}}=
+  \rho +   \left(\sum_{t=2}^T \frac{y_{t-1}}{\sum_{t=2}^T y^2_{t-1}} \right) \epsilon_t
 \end{align}
-\medskip
-
 \end{frame}
 %--------------------------------------
 
@@ -487,7 +474,7 @@ Model can be interpreted as
  \end{enumerate}
  \medskip
  $y_t$ is a function of $\epsilon_t$: $\epsilon_t$ is not independent of $\sum^T_{t=2}y^2_{t-1}$
- \begin{align}
+ \begin{align}     
      \mathop{\mathbb{E}} \hat{\rho}<\rho
    \end{align} 
  Due to negative correlation between $\epsilon_t$ and $\frac{y_{t-1}}{\sum_{t=2}^T y^2_{t-1}}$ 
@@ -498,9 +485,12 @@ Model can be interpreted as
 \begin{frame}
  \textbf{Size of bias} depends on two factors \medskip
  \begin{enumerate}
-  \item The size of $\rho$: The bigger this is, the stronger the correlation of the shock with future values and thus the bigger the bias.
-  \item Sample size $T$: The larger this is, the smaller the fraction of the observations sample that will be highly correlated with the shock and thus the smaller the bias.
+  \item Size of $\rho$; larger correlation of $\epsilon_t$ with $y_t+n$: larger bias
+  \medskip
+  \item Sample size $T$; larger $T$ will reduce fraction on $y$ that will be highly correlated with $\epsilon_t$: smaller bias
 \end{enumerate}
+\medskip
+In VAR context, bias is more severe if 'own' lag coefficients are larger and smaller sample size.
 \end{frame}
 %--------------------------------------
 
@@ -537,7 +527,7 @@ Model can be interpreted as
     f(y_1,y_2,.....,Y_n| \theta)
   \end{align}
   \medskip
-  Similar to OLS, MLE estimates are biased but they are also
+  Similar to OLS, ML estimates are biased but they are also
   \begin{enumerate}
     \item Consistent
     \item Asymptotically efficient
@@ -581,7 +571,7 @@ Model can be interpreted as
 
 %--------------------------------------
 \begin{frame}
- \textbf{Parameters:} For VAR with $n$ variables and $k$ lags, number of parameters equals
+ \textbf{Parameters:} using Cholesky decomposition, for VAR with $n$ variables and $k$ lags, number of parameters equals
  \begin{align}
    n^2k + \frac{n(n-1)}{2} 
  \end{align}
@@ -592,14 +582,15 @@ Model can be interpreted as
  \medskip
  Two issues to consider
  \begin{enumerate}
-   \item Many coefficients are probably zero (or close)
-   \begin{itemize}
-     \item Overfitting: poor-quality estimates, bad forecasts
-   \end{itemize}
    \item Can limit the number of variables/lags used
    \begin{itemize}
       \item Misspecification: poor inferences, bad forecasts
     \end{itemize} 
+    \medskip
+   \item Many coefficients are probably zero (or close)
+   \begin{itemize}
+     \item Overfitting: poor-quality estimates, bad forecasts
+   \end{itemize}   
  \end{enumerate}
 \end{frame}
 %--------------------------------------
@@ -620,12 +611,12 @@ Model can be interpreted as
 \begin{frame}
  For the set of variables $Z$ and parameters $\theta$
 \begin{align}
-  P(\theta= \theta^* | Z=D) \propto P(Z=D | \theta =\theta^*)P(\theta= \theta^*)  
+  P(\theta= \theta^* | Z=X) \propto P(Z=X | \theta =\theta^*)P(\theta= \theta^*)  
 \end{align}
 \medskip
-In English: the probability data parameters $\theta$ take on value $\theta^*$ given data $D$ is a function of
+In English: the probability data parameters $\theta$ take on value $\theta^*$ given data $X$ is a function of
 \begin{enumerate}
-  \item The probability that $Z=D$ if $\theta= \theta^*$
+  \item The probability that $Z=X$ if $\theta= \theta^*$
   \item The probability that $\theta = \theta^*$
 \end{enumerate}
 \end{frame}
@@ -635,7 +626,7 @@ In English: the probability data parameters $\theta$ take on value $\theta^*$ gi
 \begin{frame}
   \textbf{Probability density function:} Rewrite relationship given that data and coefficients are continuous  
   \begin{align}
-    f_\theta(\theta^* | D) \propto f_Z(D | \theta^*)f_\theta(\theta^*)
+    f_\theta(\theta^* | X) \propto f_Z(X | \theta^*)f_\theta(\theta^*)
 \end{align}
  Model has three important components
  \begin{enumerate}
@@ -650,7 +641,7 @@ In English: the probability data parameters $\theta$ take on value $\theta^*$ gi
 \begin{frame}
   \textbf{Likelihood function:} 
   \begin{align}
-    f_Z(D | \theta^*)
+    f_Z(X | \theta^*)
   \end{align}
     For each possible value of $\theta^*$ gives the probability of observed dataset if true coefficients
     \begin{align}
@@ -668,7 +659,7 @@ In English: the probability data parameters $\theta$ take on value $\theta^*$ gi
   \end{align}
   Prior distribution is combined with the likelihood function to produce posterior distribution
     \begin{align}
-      f_\theta(\theta^* | D)
+      f_\theta(\theta^* | X)
     \end{align}
     Specifies the probability of all possible coefficient values given both the observed data and the priors    
 \end{frame}
@@ -679,7 +670,7 @@ In English: the probability data parameters $\theta$ take on value $\theta^*$ gi
 \begin{frame}
   \textbf{Point estimate:} For best estimator can use mean of posterior distribution 
 \begin{align}
-  \hat{\theta}= \int^\infty_{-\infty} xf_\theta(x | D)dx
+  \hat{\theta}= \int^\infty_{-\infty} xf_\theta(x | X)dx
 \end{align}
  Estimator is weighted average of
  \begin{enumerate}
@@ -712,13 +703,13 @@ In English: the probability data parameters $\theta$ take on value $\theta^*$ gi
   \end{align}
   Covariance matrix of structural shocks is
   \begin{align}
-    E(\epsilon_t \epsilon_t') &= \begin{pmatrix} E(\epsilon_1^2) & E(\epsilon_1 \epsilon_2) \\ E(\epsilon_1 \epsilon_2) & E(\epsilon_2^2) \end{pmatrix} = I
+    \mathbb{E}(\epsilon_t \epsilon_t') &= \begin{pmatrix} \mathbb{E}(\epsilon_1^2) & \mathbb{E}(\epsilon_1 \epsilon_2) \\ \mathbb{E}(\epsilon_1 \epsilon_2) & \mathbb{E}(\epsilon_2^2) \end{pmatrix} = I
   \end{align}
   \medskip
   Structural shocks are uncorrelated and have unit variance.\\
   Reduced-form:
   \begin{align}
-    \sum = E(e_t e_t') = E \{(C\epsilon_t) (C\epsilon_t)'\} = CE(\epsilon_t \epsilon_t')C' = CC'
+    \sum = \mathbb{E}(e_t e_t') = \mathbb{E} \{(C\epsilon_t) (C\epsilon_t)'\} = C\mathbb{E}(\epsilon_t \epsilon_t')C' = CC'
   \end{align}
   Observed covariance structure of the reduced-form shocks provide information on how they are related to uncorrelated structural shocks
 \end{frame}
@@ -801,7 +792,7 @@ In English: the probability data parameters $\theta$ take on value $\theta^*$ gi
 \begin{frame}
   \textbf{Cholesky factor:} All symmetric matrices have a unique lower-diagonal matrix $D$ such that $DD'$ equals the symmetric matrix
   \begin{itemize}
-    \item Symmetrix matrix means that entry $i,j$ equals entry $j,i$
+    \item Symmetric matrix means that entry $i,j$ equals entry $j,i$
   \end{itemize}
   \medskip
   Calculate $D$ using known matrix
