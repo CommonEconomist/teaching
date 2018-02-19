@@ -20,7 +20,7 @@
 \setbeamertemplate{navigation symbols}{}
 
 %--------------------------------------
-\title{Time-series data}
+\title{Kalman filter}
 \author{School of Economics, University College Dublin}
 \date{Spring 2018}
 \begin{document}
@@ -31,106 +31,277 @@
 \end{frame}
 %--------------------------------------
 
-
 %--------------------------------------
 \begin{frame}
-  \begin{align}
-    \begin{pmatrix}      X \\Z     \end{pmatrix}
-    \sim N \left ( \begin{pmatrix}      \mu_X \\ \mu_Z    \end{pmatrix},
-    \begin{pmatrix}       \sigma^2_X & \sigma_{XZ} \\ \sigma_{XZ} & \sigma^2_Z     \end{pmatrix} \right )
-  \end{align}
-  \begin{align}
-    E(X|Z) = \mu_X + \frac{\sigma_{XZ}}{\sigma^2_Z}(Z-\mu_Z)
-  \end{align}
-  \begin{align}
-    E(X|Z) = \mu_X + \rho \frac{\sigma_X}{\sigma_Z}(Z-\mu_Z)
-  \end{align}
+  \textbf{Latent variables:} Variables that are not directly observed but inferred from other variables
+  \begin{itemize}
+    \item Unobserved, but variable can still play important role in theoretical model
+  \end{itemize}
+  \medskip
+  Example: Potential output
+  \begin{itemize}
+    \item Keynesian model inflationary pressure determined by deviation of output from potential output
+    \item Consider GDP increase in last quarter but no sign of inflationary pressure: potential output increased
+  \end{itemize}  
+  \medskip
+  Q: Can we assume that there has been a change in potential output?
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
+  \textbf{Signal vs. noise:} Need to have a method that extracts useful signal from data that also contains lot of noise
+  \begin{itemize}
+     \item w.r.t. example; potential output probably stable from quarter to quarter while there is likelt random noise fluctuations in inflation 
+   \end{itemize} 
+   \medskip
+   One way to extract a signal is the \textbf{Kalman filter}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Conditional expectations:} We want an estimate of the value of variable $X$ 
+  \begin{itemize}
+    \item Problem: we don't observe $X$, only $Z$ which is correlated with $X$.
+  \end{itemize}
+  \medskip
+  Assume that $X,Z$ are jointly normally distributed
+  \begin{align}
+    \begin{pmatrix}      X \\Z     \end{pmatrix}
+    \sim N \left ( \begin{pmatrix}      \mu_X \\ \mu_Z    \end{pmatrix},
+    \begin{pmatrix}       \sigma^2_X & \sigma_{XZ} \\ \sigma_{XZ} & \sigma^2_Z     \end{pmatrix} \right )
+  \end{align}  
+  \medskip
+  We get
+  \begin{align}
+    \mathbb{E}(X|Z) = \mu_X + \frac{\sigma_{XZ}}{\sigma^2_Z}(Z-\mu_Z)
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+% Need to check this slide
+%--------------------------------------
+\begin{frame}
+  Alternatively, define $\rho$ as correlation between $X$ and $Z$
+  \begin{align}
+    \rho= \frac{\sigma_{XZ}}{\sigma_X \sigma_Z}
+  \end{align}
+  Inserting in (2) we get
+  \begin{align}
+    \mathbb{E}(X|Z) = \mu_X + \rho \frac{\sigma_X}{\sigma_Z}(Z-\mu_Z)
+  \end{align}
+  \medskip
+  Weight put on information from $Z$ depends on
+  \begin{enumerate}
+    \item Correlation between $X$ and $Z$ ($\rho$)
+    \item The relative standard deviation ($\frac{\sigma_X}{\sigma_Z}$)
+  \end{enumerate}
+  If $Z$ has high standard deviation, it is a poor signal.
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Multivariate conditional expectations:} Can generalise from 2 to $n$ variables:
+  Let $X$ be $1\; x\; n$ vector of variables and $Z$ $1\; x\; m$
   \begin{align}
     \begin{pmatrix}      X \\ Z    \end{pmatrix} \sim N \left( 
     \begin{pmatrix}      \mu_X \\ \mu_Z    \end{pmatrix},
     \begin{pmatrix}      \sum_{XX} & \sum_{XZ} \\ \sum_{XZ}' & \sum_{ZZ}    \end{pmatrix}
     \right)
   \end{align}
+  \medskip 
+  Expected value of $X$ conditional on $Z$ is 
   \begin{align}
-    E(X|Z) = \mu_X + \scriptstyle \sum_{XZ}\sum^{-1}_{ZZ} \textstyle(Z-\mu_Z)
+    \mathbb{E}(X|Z) = \mu_X + \scriptstyle \sum_{XZ}\sum^{-1}_{ZZ} \textstyle(Z-\mu_Z)
   \end{align}
+  \medskip
+  This is an important formula in the Kalman filter
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
+  \textbf{State-space models:} Linear time-series models that mix observable and unobservable variables.
   \begin{align}
-    S-t=FS_{t-1} + u_t
+    S_t=FS_{t-1} + u_t
   \end{align}
+  \textbf{State equation} - or transition equation - describes how unobservables $S_t$ evolve over time
   \begin{align}
     Z_t= HS_t +v_t
   \end{align}
+  \textbf{Measurement equation}, relates set of observable variables $Z_t$ to unobservable variables $S_t$  
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
+  \textbf{Errors:} Both $u_t$ and $v_t$ can include either 
+  \begin{enumerate}
+    \item Normally distributed errors
+    \item Zeros, if the described equation is an identity
+  \end{enumerate}
+  \begin{align}
+    u_t &\sim N(0,\scriptstyle \sum^u) \\
+    v_t &\sim N(0,\scriptstyle \sum^v)
+  \end{align}
+  \medskip
+  $\sum$ might not have full matrix rank
+  \begin{itemize}
+    \item Or rank deficient
+    \item i.e. not enough information in data to estimate equation
+  \end{itemize}  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Estimation:} Observed data described by
+  \begin{align}
+    Z_t = HS_t + v_t
+  \end{align}
+  Cannot observe $S_t$ but can replace it with unbiased guess based on information available at time $t$
+  \begin{align}
+    S_{t|t-1}
+  \end{align}
+  Assume that errors are normally distributed with known covariance matrix
   \begin{align}
     S_t-S_{t|t-1} \sim N (0,\scriptstyle \sum^S_{t|t-1})
   \end{align}
+  Can express observed variables as
   \begin{align}
     Z_t=HS_{t|t-1}+v_t +H(S_t-S_{t|t-1})
   \end{align}
 \end{frame}
 
+
+
 %--------------------------------------
 \begin{frame}
+  Can estimate model using ML; variance of error term, after conditioning on $t-1$ state-variable estimate, is given by
   \begin{align}
-    Z_t=HS_{t|t-1}+v_t +H(S_t-S_{t|t-1})
+    v_t &+ H(S_t-S_{t|t-1}) \sim N (0,\Omega_t)\\
+    \Omega_t &=\scriptstyle\sum^v +H\sum^S_{t|t-1}H'
   \end{align}
+  Parameters of model are given by 
   \begin{align}
-    v_t + H(S_t-S_{t|t-1}) \sim N (0,\Omega_t)\\
-    \Omega_t =\scriptstyle\sum^v +H\sum^S_{t|t-1}H'
+    \theta=(F,H,\scriptstyle \sum^u,\sum^v)
   \end{align}
+  Log-likelihood function for $Z_t$ given observables at $t-1$ is
   \begin{align}
-    log\;f(Z_t|Z_{t-1},\theta)= -log\; 2\pi -log\;|\Omega_t|-\frac{1}{2}(Z_t-HS_{t|t-1})'\Omega_t^{-1}(Z_t-HS_{t|t-1})
-  \end{align}
+    log\;f(Z_t|Z_{t-1},\theta)= -log\; 2\pi -log\;|\Omega_t|-\\ \nonumber \frac{1}{2}(Z_t-HS_{t|t-1})'\Omega_t^{-1}(Z_t-HS_{t|t-1})
+  \end{align}  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Combined likelihood is given by
+  \begin{itemize}
+    \item Based on initial estimate of first period unobservable state $S_{1|0}$
+  \end{itemize}
   \begin{align}
     f(Z_1,...,Z_T|S_{1|0},\theta)=f(Z_1|S_{1|0},\theta)\prod_{i=2}^{i=T}f(Z_i|Z_{i-1},\theta)
   \end{align}
+  All we need is a method to get an unbiased guess based on information available at $t-1$: This is where the Kalman filter comes in
+  \begin{itemize}
+    \item Iterative method
+    \item Given estimates of state variables for $t$, it uses observable data for $t+1$ to update estimates
+  \end{itemize}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
+  \textbf{Estimating state variables:} Formulate estimate of state variable at time $t$ given information at $t-1$
   \begin{align}
     S_t=FS_{t-1}+u_t \Rightarrow S_{t|t-1}=FS_{t-1|t-1}
   \end{align}
+  At $t-1$, expected value for the observables at $t$ are
   \begin{align}
     Z_{t|t-1}=HS_{t|t-1}=HFS_{t-1|t-1}
   \end{align}
+  At $t$ we observe $Z_t$; need to update estimate of state variable given information
+  \begin{align}
+     Z_t-HFS_{t-1|t-1}
+   \end{align} 
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
+  Model assumptions imply
   \begin{align}
     \begin{pmatrix}      S_t \\ Z_t     \end{pmatrix} \sim N \left( 
     \begin{pmatrix}      FS_{t-1|t-1} \\HFS_{t-1|t-1}    \end{pmatrix},
     \begin{pmatrix}      \sum^S_{t|t-1} & \left( H\sum^S_{t|t-1} \right)' \\ H\sum^S_{t|t-1} & \sum^V+H\sum^S_{t|t-1}H' \end{pmatrix} \right)
   \end{align}
+  \medskip
+  Use conditional expectations to state that minimum variance unbiased estimate of $S_t|Z_t$ is
   \begin{align}
-    E(S_t|Z_t)&=S_{t|t}=FS_{t-1|t-1}+K_t(Z_t-HFS_{t-1|t-1}) \\
+     \mathbb{E}(S_t|Z_t)&=S_{t|t}=FS_{t-1|t-1}+K_t(Z_t-HFS_{t-1|t-1})     
+  \end{align}  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  $K_t$ is the \textbf{Kalman gain} matrix
+  \begin{align}
     K_t&= \left(H\scriptstyle \sum^S_{t|t-1} \right)' (\scriptstyle \sum^V + H\scriptstyle \sum^S_{t|t-1} \textstyle H')^{-1} 
   \end{align}
+  \medskip
+  Covariance matrices required to compute $K_t$ are updated by 
   \begin{align}
     \scriptstyle \sum^S_{t|t-1} \textstyle &= F\scriptstyle \sum^S_{t-1|t-1}\textstyle F'+ \scriptstyle\sum^U\\
     \scriptstyle \sum^S_{t|t} \textstyle &= (I-K_tH)\scriptstyle \sum^S_{t|t-1}
   \end{align}
 \end{frame}
+%--------------------------------------
 
+%--------------------------------------
+\begin{frame}
+  Initialising the Kalman filter we still need
+  \begin{enumerate}
+    \item Initial estimate $S_{1|0}$
+    \item Covariance matrix
+  \end{enumerate}
+  \medskip
+  In many macroeconomic models $S$ can be assumed to have zero mean. For the covariance matrix we use
+  \begin{align}
+    \scriptstyle \sum^S_{t|t-1} = \textstyle F \scriptstyle \sum^S_{t-1|t-1} \textstyle F' + \scriptstyle \sum^u
+  \end{align}
+  Values of this covariance matrix will converge; for unconditional covariance matrix can use value for $\sum$ that solves
+  \begin{align}
+    \scriptstyle \sum=\textstyle F \scriptstyle \sum \textstyle F' + \scriptstyle \sum^u
+  \end{align}
+\end{frame}
+%--------------------------------------
 
-
+%--------------------------------------
+\begin{frame}
+  \textbf{Hodrick-Prescott filter}
+  \begin{align}
+    \sum_{t=1}^{N} [(y_t - y_t^*)^2+ \lambda(\Delta y_t^* - \Delta y_{t-1}^*)]
+  \end{align}
+  Consider state-space model
+  \begin{align}
+    y_t &= y^*_t+C_t\\
+    \Delta y^*_t &= \Delta Y^*_{t-1} + \epsilon^g_t \\
+    C_t &= \epsilon_t^c
+  \end{align}
+  Here
+  \begin{align}
+    Var(\epsilon^g_t) &= \sigma_g^2; Var(\epsilon_t^c) = \sigma_c^2
+  \end{align}
+  HP filer = Kalman filter when
+  \begin{align}
+    \lambda = \frac{\sigma_c^2}{\sigma_g^2} 
+  \end{align}
+  It is assumed that $\sigma_c^2$ is 5 percentage points and $\sigma_g^2$ one-eight percentage point: $\lambda=1600$
+\end{frame}
+%--------------------------------------
 
 %--------------------------------------
 \end{document}
