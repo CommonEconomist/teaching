@@ -1,7 +1,15 @@
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 # Figures for lecture on OCA conditions in the EU
-#------------------------------------------------------------------------------
-#### Openness to trade ####
-require(WDI)
+# Last update: 2018 02 20
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+library(WDI)
+library(psych)
+library(plyr)
+library(countrycode)
+
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+# 1) Opennes to trade 
+# Parameters for data
 EU<-c("AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR",
       "DE","GR","HU","IE","IT","LV","LT","LU","MT","NL",
       "PL","RO","SK","SI","ES","SE","GB")
@@ -16,7 +24,6 @@ wdi$flow<-(wdi[,5]+wdi[,6])/wdi[,4]*100
 wdi<-wdi[order(wdi$flow),]
 
 # Plot data
-require(psych)
 par(las=1)
 barplot(wdi$flow,xaxt="n",yaxt="n",ylab="",border=F,width=c(.35),space=1.8,
         horiz=TRUE,col="black")
@@ -25,9 +32,9 @@ axis(1,tick=F)
 abline(v=seq(0,350,10),col="white",lwd=3)
 abline(v=0,col="gray",lwd=2)
 
-#------------------------------------------------------------------------------
-#### Inflation ####
-u<-read.csv("data_raw/eurostat_inflation.csv")
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+# 2) Inflation
+u<-read.csv("data/eurostat_inflation.csv")
 
 # Data to time-series
 deu<-ts(u[u$GEO=="Germany (until 1990 former territory of the FRG)",]$Value,
@@ -44,18 +51,16 @@ lines(gre,col="steelblue4",lty=2,lwd=2)
 axis(1,tick=FALSE)
 axis(2,tick=FALSE)
 
-#------------------------------------------------------------------------------
-#### Public debt, quarterly ####
-d<-read.csv("data_raw/eurostat_public_debt_q.csv",stringsAsFactors=FALSE)
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+# 3) Public debt 
+d<-read.csv("data/eurostat_public_debt_q.csv",stringsAsFactors=FALSE)
 
 # Aggregate data to create average
-require(plyr)
 d<-ddply(d,.(GEO),summarise,debt=mean(Value,na.rm=TRUE))
 d<-d[-9:-15,]
 
 # Change name for Germany
 d$GEO[d$GEO=="Germany (until 1990 former territory of the FRG)"]<-"Germany"
-require(countrycode)
 d$iso2c<-countrycode(d$GEO,"country.name","iso2c",warn=TRUE)
 d<-na.omit(d[order(d$debt),])
 
@@ -68,9 +73,9 @@ abline(v=seq(0,130,10),col="white",lwd=3)
 abline(v=0,col="gray",lwd=2)
 abline(v=60,lty=2)
 
-#------------------------------------------------------------------------------
-#### Public opinion on Europe ####
-p<-read.csv("data_raw/eurobarometer.csv")
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+# 4) Public opinion on Europe
+p<-read.csv("data/eurobarometer.csv")
 p$d<-as.numeric(p$Date)
 p<-p[p$d==2,]
 p$value<-p$Often*100

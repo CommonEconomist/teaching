@@ -131,6 +131,26 @@ Lower-triangular causal chain
 
 %--------------------------------------
 \begin{frame}
+  Order was
+  \begin{enumerate}
+    \item Inflation
+    \item Unemployment
+    \item Interest rate
+  \end{enumerate}
+  \medskip
+  Change into  
+  \begin{enumerate}
+    \item Interest rate 
+    \item Unemployment
+    \item Inflation
+  \end{enumerate}
+  \medskip
+  Fed can only respond with lag, inflation should be able to respond directly.
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
   \begin{figure}
     \includegraphics[scale=.4]{interest_shock2.eps}
   \end{figure}
@@ -192,7 +212,7 @@ Lower-triangular causal chain
 $A_0^{-1}$ has recursive structure; reduced form errors $e_t$ can be decomposed as
 \begin{align}
   e_t&= A^{-1}_0\epsilon_t\\ \nonumber
-   &\equiv \begin{pmatrix} e_t^{\delta prod} \\ e_t^ {rea} \\ e_t^{rpo}  \end{pmatrix}
+   &\equiv \begin{pmatrix} e_t^{\Delta prod} \\ e_t^ {rea} \\ e_t^{rpo}  \end{pmatrix}
    = \begin{bmatrix}
      a_{11} & 0 & 0\\
      a_{21} & a_{22} & 0\\
@@ -268,7 +288,7 @@ One can repeat this calculation three times, each time with only one type of sho
 Adding these up, one will get the realized values of $Y_t$.
 Alternatively, one can do a dynamic simulation of the model
 \begin{align*}
-  Y=AY_{t-1}+\epsilon_t
+  Y_t=AY_{t-1}+\epsilon_t
 \end{align*}
 Here we let $\epsilon_t$ represent one of the realised shocks, setting the others to zero
 \end{frame}
@@ -339,7 +359,7 @@ Here we let $\epsilon_t$ represent one of the realised shocks, setting the other
      \right)
   \end{align}
   \begin{align}
-    X_t=[\pi^{cp}_t-\pi^g_t\; \pi^g_t \Delta y_t]
+    X_t=[\pi^{cp}_t-\pi^g_t\; \pi^g_t \;\Delta y_t]
   \end{align}
   $\pi^{cp}_t-\pi^g_t$ is price inflation\\
   $\pi^g_t$ is inflation rate\\
@@ -352,7 +372,8 @@ Here we let $\epsilon_t$ represent one of the realised shocks, setting the other
 \begin{frame}
   \textbf{Identifying assumptions}
   \begin{enumerate}
-    \item ENSO events are not influenced by contemporaneously economic events: $\epsilon_t$ orthogonal    
+    \item $\epsilon_t$ orthogonal: $ENSO_t$ not influenced by $X_t$ 
+    \medskip
     \item $\sum_{\eta}$ is expected to be non-diagonal: shocks in $\eta$ are correlated
     \begin{itemize}
       \item Not required since focus is on $\epsilon_t$, which is uncorrelated with $\eta_t$
@@ -392,12 +413,22 @@ Here we let $\epsilon_t$ represent one of the realised shocks, setting the other
 \end{frame}
 %--------------------------------------
 
-
 %--------------------------------------
 \begin{frame}
   \begin{figure}
     \includegraphics[scale=.7]{rudebusch.eps}
   \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Sims (1998)} response
+  \begin{enumerate}
+    \item VAR models differ in shocks but agree on effects
+    \item Financial market surprises not best measure for exogenous element of monetary policy
+    \item Issues such as time invariance, variable selection apply to other methods as well
+  \end{enumerate}
 \end{frame}
 %--------------------------------------
 

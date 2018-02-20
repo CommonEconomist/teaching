@@ -18,7 +18,7 @@
 \makeatother
 \graphicspath{{/home/swl/Dropbox/ucd/advanced_macro/figures/}} 
 \setbeamertemplate{navigation symbols}{}
-
+\setbeamertemplate{footline}[frame number]
 %--------------------------------------
 \title{Kalman filter}
 \author{School of Economics, University College Dublin}
@@ -40,33 +40,37 @@
   \medskip
   Example: Potential output
   \begin{itemize}
-    \item Keynesian model inflationary pressure determined by deviation of output from potential output
+    \item Keynesian model: inflationary pressure determined by deviation of output from potential output
     \item Consider GDP increase in last quarter but no sign of inflationary pressure: potential output increased
   \end{itemize}  
   \medskip
-  Q: Can we assume that there has been a change in potential output?
+  \textbf{Q:} Can we assume that there has been a change in potential output?
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Signal vs. noise:} Need to have a method that extracts useful signal from data that also contains lot of noise
+  \textbf{A:} Potential output probably stable from quarter to quarter while there is likely random noise fluctuations in inflation
   \begin{itemize}
-     \item w.r.t. example; potential output probably stable from quarter to quarter while there is likelt random noise fluctuations in inflation 
-   \end{itemize} 
-   \medskip
+    \item Signal vs. noise: Need to have a method that extracts useful signal from data that also contains lot of noise
+  \end{itemize}
+  \medskip  
    One way to extract a signal is the \textbf{Kalman filter}
+   \begin{itemize}
+     \item Recursive method to estimate state of process; minimises MSE
+   \end{itemize}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Conditional expectations:} We want an estimate of the value of variable $X$ 
+  \textbf{Conditional expectations:}\\
+   We want an estimate of the value of variable $X$ 
   \begin{itemize}
-    \item Problem: we don't observe $X$, only $Z$ which is correlated with $X$.
+    \item Problem: we don't observe $X$
   \end{itemize}
   \medskip
-  Assume that $X,Z$ are jointly normally distributed
+  Do observe $Z$ which is correlated with $X$: Assume that $X,Z$ are jointly normally distributed
   \begin{align}
     \begin{pmatrix}      X \\Z     \end{pmatrix}
     \sim N \left ( \begin{pmatrix}      \mu_X \\ \mu_Z    \end{pmatrix},
@@ -103,8 +107,11 @@
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Multivariate conditional expectations:} Can generalise from 2 to $n$ variables:
-  Let $X$ be $1\; x\; n$ vector of variables and $Z$ $1\; x\; m$
+  \textbf{Multivariate conditional expectations}\\
+  Can generalise from 2 to $n$ variables
+  \begin{itemize}
+    \item Let $X$ be $1\; x\; n$ vector of variables and $Z$ $1\; x\; m$ 
+  \end{itemize}  
   \begin{align}
     \begin{pmatrix}      X \\ Z    \end{pmatrix} \sim N \left( 
     \begin{pmatrix}      \mu_X \\ \mu_Z    \end{pmatrix},
@@ -115,9 +122,7 @@
   Expected value of $X$ conditional on $Z$ is 
   \begin{align}
     \mathbb{E}(X|Z) = \mu_X + \scriptstyle \sum_{XZ}\sum^{-1}_{ZZ} \textstyle(Z-\mu_Z)
-  \end{align}
-  \medskip
-  This is an important formula in the Kalman filter
+  \end{align}  
 \end{frame}
 %--------------------------------------
 
@@ -131,7 +136,7 @@
   \begin{align}
     Z_t= HS_t +v_t
   \end{align}
-  \textbf{Measurement equation}, relates set of observable variables $Z_t$ to unobservable variables $S_t$  
+  \textbf{Measurement equation}, relates set of observable variables $Z_t$ to unobservable variables $S_t$    
 \end{frame}
 %--------------------------------------
 
@@ -167,7 +172,7 @@
   \end{align}
   Assume that errors are normally distributed with known covariance matrix
   \begin{align}
-    S_t-S_{t|t-1} \sim N (0,\scriptstyle \sum^S_{t|t-1})
+    S_t-S_{t|t-1} \sim N (0,\scriptstyle \sum^S_{t|t-1} \textstyle)
   \end{align}
   Can express observed variables as
   \begin{align}
@@ -179,21 +184,36 @@
 
 %--------------------------------------
 \begin{frame}
-  Can estimate model using ML; variance of error term, after conditioning on $t-1$ state-variable estimate, is given by
+  \begin{itemize}
+     \item $S_{t|t-1}$ is observable
+     \item $v_t, S_t-S_{t|t-1}$ are unobservable but normally distributed
+   \end{itemize} 
+  Can estimate model using ML ; with observed data
+  \begin{align}
+    Z_t=HS_{t|t-1}+v_t +H(S_t-S_{t|t-1})
+  \end{align}
+  Variance of error , after conditioning on $t-1$ state-variable estimate, is given by
   \begin{align}
     v_t &+ H(S_t-S_{t|t-1}) \sim N (0,\Omega_t)\\
     \Omega_t &=\scriptstyle\sum^v +H\sum^S_{t|t-1}H'
-  \end{align}
-  Parameters of model are given by 
-  \begin{align}
-    \theta=(F,H,\scriptstyle \sum^u,\sum^v)
-  \end{align}
-  Log-likelihood function for $Z_t$ given observables at $t-1$ is
-  \begin{align}
-    log\;f(Z_t|Z_{t-1},\theta)= -log\; 2\pi -log\;|\Omega_t|-\\ \nonumber \frac{1}{2}(Z_t-HS_{t|t-1})'\Omega_t^{-1}(Z_t-HS_{t|t-1})
   \end{align}  
 \end{frame}
 %--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Parameters of model are given by 
+  \begin{align}
+    \theta=(F,H,\scriptstyle \sum^u,\sum^v \textstyle)
+  \end{align}
+  Log-likelihood function for $Z_t$ given observables at $t-1$ is  
+  \begin{align}
+    log\;f(Z_t|Z_{t-1},\theta)&= -log\; 2\pi -log\;|\Omega_t|- \\ \nonumber &\frac{1}{2}(Z_t-HS_{t|t-1})' \Omega_t^{-1}(Z_t-HS_{t|t-1})
+  \end{align}  
+\end{frame}
+%--------------------------------------
+
+
 
 %--------------------------------------
 \begin{frame}
@@ -204,10 +224,20 @@
   \begin{align}
     f(Z_1,...,Z_T|S_{1|0},\theta)=f(Z_1|S_{1|0},\theta)\prod_{i=2}^{i=T}f(Z_i|Z_{i-1},\theta)
   \end{align}
-  All we need is a method to get an unbiased guess based on information available at $t-1$: This is where the Kalman filter comes in
+  \begin{align}
+    log\;f(Z_1,...,Z_T|S_{1|0}, \theta) &= -T\;log\; 2\pi - \sum^T_{i=2}log\; |\Omega| \\ \nonumber
+    &- \frac{1}{2} \sum^T_{i=1} (Z_i-HS_{i|i-1})' \Omega_i^{-1} (Z_i - HS_{i|i-1}) 
+  \end{align}
+  ML parameter estimates will be set of matrices $\theta=(F,H,\sum^v,\sum^u)$ that provides largest value for this function  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  MLE will estimate model's parameters; only need an unbiased guess based on information available at $t-1$ ($S_{t|t-1}$): Use Kalman filter 
   \begin{itemize}
     \item Iterative method
-    \item Given estimates of state variables for $t$, it uses observable data for $t+1$ to update estimates
+    \item Provides estimates of state variables for $t$, uses observable data for $t+1$ to update estimates
   \end{itemize}
 \end{frame}
 %--------------------------------------
@@ -249,7 +279,7 @@
 \begin{frame}
   $K_t$ is the \textbf{Kalman gain} matrix
   \begin{align}
-    K_t&= \left(H\scriptstyle \sum^S_{t|t-1} \right)' (\scriptstyle \sum^V + H\scriptstyle \sum^S_{t|t-1} \textstyle H')^{-1} 
+    K_t&= \left(H\scriptstyle \sum^S_{t|t-1} \right)' \left( \scriptstyle \sum^V + H\scriptstyle \sum^S_{t|t-1} \textstyle H'\right )^{-1} 
   \end{align}
   \medskip
   Covariance matrices required to compute $K_t$ are updated by 
@@ -259,6 +289,7 @@
   \end{align}
 \end{frame}
 %--------------------------------------
+
 
 %--------------------------------------
 \begin{frame}
@@ -281,6 +312,21 @@
 
 %--------------------------------------
 \begin{frame}
+  \textbf{Kalman smoother:} Kalman filter is a one-sided filter
+  \begin{itemize}
+    \item $\hat{S}_t$ based on data available at $t$ 
+  \end{itemize}
+  \medskip
+  Good for real-time, but we often have access to full historical dataset
+  \begin{itemize}
+    \item Time-varying models can be estimated using Kalman smoother
+    \item Two-sided filter using all available data to compute $\hat{S}_t$
+  \end{itemize}  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
   \textbf{Hodrick-Prescott filter}
   \begin{align}
     \sum_{t=1}^{N} [(y_t - y_t^*)^2+ \lambda(\Delta y_t^* - \Delta y_{t-1}^*)]
@@ -288,20 +334,57 @@
   Consider state-space model
   \begin{align}
     y_t &= y^*_t+C_t\\
-    \Delta y^*_t &= \Delta Y^*_{t-1} + \epsilon^g_t \\
+    \Delta y^*_t &= \Delta y^*_{t-1} + \epsilon^g_t \\
     C_t &= \epsilon_t^c
   \end{align}
   Here
   \begin{align}
     Var(\epsilon^g_t) &= \sigma_g^2; Var(\epsilon_t^c) = \sigma_c^2
   \end{align}
-  HP filer = Kalman filter when
+  HP filter = Kalman filter when
   \begin{align}
     \lambda = \frac{\sigma_c^2}{\sigma_g^2} 
   \end{align}
   It is assumed that $\sigma_c^2$ is 5 percentage points and $\sigma_g^2$ one-eight percentage point: $\lambda=1600$
 \end{frame}
 %--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Laubach \& Williams} (2001): Estimate model with two unobservable time-varying series
+  \begin{enumerate}
+    \item Potential output
+    \item Natural rate of interest
+  \end{enumerate}
+  \begin{align*}
+    \tilde{y}_t &= y_t-y^*_t \\ 
+    \tilde{y}_t &= A_y(L)\tilde{y}_{t-1} + A_r(L)(r_{t-1}-r^*_{t-1}) + \epsilon_{1t}\\
+    \pi_t &= B_{\pi}(L)\pi_{t-1} + B_y(L)\tilde{y}_{t-1} + B_x(L)x_t + \epsilon_{2t}\\
+    r^*_t &= cg_t +z_t\\
+    z_t &= D_z(L)z_{t-1} + \epsilon_{3t}\\
+    y^*_t &= y^*_{t-1} +g_{t-1} + \epsilon_{4t}\\
+    g_t &= g_{t-1} + \epsilon_{5t}
+  \end{align*}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.5]{lw.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.7]{lw2.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+
 
 %--------------------------------------
 \end{document}

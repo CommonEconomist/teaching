@@ -1,0 +1,677 @@
+\documentclass{beamer}
+\usetheme{}
+\usecolortheme{dolphin}           
+\useinnertheme{circles}
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{enumerate items}[default]
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{booktabs} 
+\usepackage{graphicx}        
+\usepackage{array}
+\usepackage{color}
+\makeatletter
+\def\zapcolorreset{\let\reset@color\relax\ignorespaces}
+\def\colorrows#1{\noalign{\aftergroup\zapcolorreset#1}\ignorespaces}
+\makeatother
+\graphicspath{{/home/swl/Dropbox/ucd/advanced_macro/figures/}} 
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+%--------------------------------------
+\title{Rational expectations}
+\author{School of Economics, University College Dublin}
+\date{Spring 2018}
+\begin{document}
+
+%--------------------------------------
+\begin{frame}
+ \titlepage
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{DSGE} models have both backward and forward looking elements:
+  Backward looking dynamics come from identities
+  \begin{align}
+     K_t= (1-\gamma) K_{t-1} + I_t
+   \end{align} 
+  Forward looking dynamics from optimising behaviour
+  \begin{itemize}
+    \item What agents expect to happen tomorrow is very important for what they decide to do today.
+  \end{itemize}
+  Modeling this requires assumptions about how people formulate expectations
+  \begin{itemize}
+    \item DSGE approach relies on the idea that people have \textbf{rational expectation}
+  \end{itemize}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Rational expectations} entails that agents
+  \begin{enumerate}
+    \item Use publicly available information efficiently (i.e. no systematic mistakes)
+    \item Understand the structure of the economy and base their expectation on this knowledge
+  \end{enumerate}
+  \medskip
+  Rational expectation is a baseline assumption about people's behaviour.
+  \begin{align}
+    y_t=x_t + a\mathbb{E}_ty_{t+1}
+  \end{align}
+  Today's value of $y$ is determined by  
+\begin{enumerate}
+  \item $x$
+  \item tomorrow's expected value of $y$
+\end{enumerate}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Under rational expectations agents formulate their expectations that is consistent with  
+\begin{align}
+  \mathbb{E}_ty_{t+1} &= \mathbb{E}_tx_{t+1} + a\mathbb{E}_t\mathbb{E}_{t+1}y_{t+2}\\ \nonumber
+  \mathbb{E}_ty_{t+1} &= \mathbb{E}_tx_{t+1} + a\mathbb{E}_ty_{t+2}
+\end{align}
+\begin{align}
+  \mathbb{E}_t\mathbb{E}_{t+1}y_{t+2} = \mathbb{E}_ty_{t+2}
+\end{align}
+\medskip
+This is the \textbf{Law of Iterated Expectations}
+\begin{itemize}
+  \item It is not rational for me to expect to have a different expectation next period for $y_{t+2}$ than the one that I have today.
+  \item Based on the information set available at $t$.
+\end{itemize}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Use repeated substitution to get solution for model  
+\begin{align}  
+    y_t = x_t + a\mathbb{E}_tx_{t+1} + a^2\mathbb{E}_ty_{t+2} 
+\end{align}
+Include additional periods
+\begin{align}
+  y_t &= x_t + a\mathbb{E}_tx_{t+1} + a^2\mathbb{E}_ty_{t+2}+ .....\\ \nonumber &+a^{N-1}\mathbb{E}_tx_{t+N-1} + a^{N}\mathbb{E}_ty_{t+N}\\ \nonumber
+  y_t &= \sum^{N-1}_{k=0}a^k\mathbb{E}_tx_{t+k} + a^{N}\mathbb{E}_ty_{t+N}\\ \nonumber
+  y_t &= \sum^\infty_{k=0}a^k\mathbb{E}_tx_{t+k}
+\end{align}
+ This assumes that 
+ \begin{align}
+   \lim_{N \rightarrow \infty} a^{N}\mathbb{E}_ty_{t+N} = 0
+ \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Asset pricing}
+  Consider asset which can be bought for $P_t$, yielding dividend of $D_t$
+  \begin{itemize}
+    \item There is a close alternative to this asset which will yield a guaranteed rate of return $r$. 
+  \end{itemize}
+  A risk neutral investor will only hold the asset if the yield is the as the same rate of return
+\begin{align}  
+  \frac{D_t + \mathbb{E}tP_{t+1}}{P_t}&=1+r  
+\end{align}
+\medskip
+\begin{align}
+  P_t&= \frac{D_t}{1+r} + \frac{\mathbb{E}_tP_{t+1}}{1+r}\\ \nonumber
+  P_t&= \sum^{\infty}_{k=0}\left(\frac{1}{1+r}\right)^{k+1}\mathbb{E}_tD_{t+k}   
+\end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Backward solution}  
+ \begin{align}
+    y_t=x_t + a\mathbb{E}_ty_{t+1} \\ \nonumber
+    y_t= x_t + ay_{t+1} + a\epsilon_{t+1}
+ \end{align}
+  $\epsilon_{t+1}$ is a forecast error that cannot be predicted at time $t$. 
+  Can move time index back one period
+  \begin{align}
+  y_t &= x_t + ay_{t+1} + a\epsilon_{t+1}\\ \nonumber
+  y_{t-1} &= x_{t-1} + ay_t + a\epsilon_t\\ \nonumber
+  ay_t &= y_{t-1} - x_{t-1} - a\epsilon_t\\ \nonumber
+  y_t &= a^{-1}y_{t-1} - a^{-1}x_{t-1} - \epsilon_t 
+\end{align}
+\begin{align}
+  y_t&= -\sum^{\infty}_{k=0}a^{-k}\epsilon_{t-k}-\sum^{\infty}_{k=1}a^{-k}x_{t-k}
+\end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  We have two solutions
+  \begin{align}
+    y_t &= \sum^\infty_{k=0}a^k\mathbb{E}_tx_{t+k} \\
+    y_t&= -\sum^{\infty}_{k=0}a^{-k}\epsilon_{t-k}-\sum^{\infty}_{k=1}a^{-k}x_{t-k}
+  \end{align}
+  Both are correct, which one we use depends on $a$
+  \begin{align}
+    |a|>1
+  \end{align}
+  Weights on forward solution are explosive: use backward solution
+  \begin{itemize}
+    \item Forward solution will not converge to finite sum
+    \item $y_t$ depends more on values of $x_t$ far in the distant future than on today's values
+  \end{itemize}  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame} 
+  \begin{align}
+    |a|<1
+  \end{align}
+  Weights on backward solution are explosive and need to use forward solution
+  \begin{itemize}
+    \item Path of $x_t$ will tell path of $y_t$
+  \end{itemize}
+  Most cases assume that $|a|<1$
+  \begin{align}
+    \lim_{N \rightarrow \infty} a^N \mathbb{E}_t y_{t+N} = 0
+  \end{align}
+   $y_t$ can't grow too fast (transversality condition)
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Rational bubbles:} If transversality condition is not imposed, the model can have any other solution
+  \begin{align}
+    y_t = y_t^* + b_t
+  \end{align}
+$b_t$ is bubble component; model must satisfy
+\begin{align}
+  y_t^* + b_t = x_t + a\mathbb{E}_t y^*_{t+1} + a\mathbb{E}_tb_{t+1} 
+\end{align}
+By construction we have that
+\begin{align}
+  y_t^* = x_t + a\mathbb{E}_t y^*_{t+1}
+\end{align}
+This entails that the additional components will satisfy
+\begin{align}
+  b_t = a\mathbb{E}_tb_{t+1} 
+\end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  When $|a|<1$, $b$ is always expected to get bigger in absolute value, going to infinity in expectation: This is a bubble.
+  \begin{align}
+    b_t=\mathbb{E}_t \left[\frac{1}{1+r} \right] b_{t+1}
+  \end{align}
+  $b_t$ grows in expectations at a rate of $r$: There may be restrictions in the real economy that stop $b$ growing forever.
+
+
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Can also satisfy 
+  \begin{align}
+    b_t = a\mathbb{E}_tb_{t+1} 
+  \end{align}
+  through
+\begin{align}
+  b_{t+1} \left\{\begin{matrix}
+  (aq)^{-1}b_t + e_{t+1} & \;with\;probability\; &q
+\\ e_{t+1} & \;with\;probability\;&1-q
+\end{matrix}\right.   
+\end{align}
+\begin{align}
+  \mathbb{E}_te_{t+1}=0
+\end{align}
+This is a bubble that everyone knows is going to crash eventually. 
+Even in that case, the bubble can keep going. 
+Imposing 
+\begin{align}
+  \lim_{N \rightarrow \infty} a^N\mathbb{E}_ty_{t+N}=0
+\end{align}
+rules out bubbles of this or any other form.
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{align}  y_t &= \sum^\infty_{k=0}a^k\mathbb{E}_tx_{t+k}  \end{align}
+Provides some useful insights into how $y_t$ is determined. 
+However, without some assumptions about how $x_t$ evolves over time, it cannot be used to give precise predictions about the dynamics of $y_t$. 
+Ideally we want to simulate the behaviour of $y_t$. 
+One reason there is a strong link between DSGE modeling and VAR models is that the question on the behaviour of $y_t$ is often  addressed by assuming that the exogenous variables $x_t$ are generated by backward-looking time series models, like VARs.
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Structural to reduced form}
+  \begin{align}
+    y_t &= \sum^\infty_{k=0}a^k\mathbb{E}_tx_{t+k}
+  \end{align}
+  Provide insights into determination of $y_t$ but
+  \begin{itemize}
+    \item Need assumption about how $x_t$ evolves over time
+    \item Required for predictions about $y_t$ dynamics
+  \end{itemize}
+  Often assumed that $x_t$ is generated by backward looking process: Can be modeled with VAR 
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ Consider $x_t$ with DGP  
+\begin{align}
+  x_t&=\rho x_{t-1} + \epsilon_t \\ \nonumber 
+  |\rho| &< 1
+\end{align}
+\begin{align}
+  \mathbb{E}_tx_{t+k}=\rho^kx_t
+\end{align}
+ Model solution can be written as 
+\begin{align}
+  y_t=\left[ \sum^{\infty}_{k=0}(a\rho)^k \right]x_t
+\end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame} 
+  Assuming $|a\rho|<1$, the infinite sum converges to
+  \begin{align}
+  \sum^{\infty}_{k=0}(a\rho)^k=\frac{1}{1-a\rho}
+\end{align}
+
+The model solution becomes
+\begin{align}
+  y_t=\frac{1}{1-a\rho}x_t
+\end{align}
+This is the reduced-form solution for the model which, together with the equation describing the evolution of $x_t$, can be easily simulated on a computer. 
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Reduced-form} model has VAR-like representation
+  \begin{align}
+  y_t &= \frac{1}{1-a\rho}(\rho x_{t-1}+\epsilon_t)\\
+      &= \rho y_{t-1} +  \frac{1}{1-a\rho}\epsilon_t
+  \end{align}
+  Both the $x_t$ and $y_t$ series have purely backward-looking representations
+  \begin{itemize}
+    \item This simple model helps to explain how theoretical models tend to predict that the data can be described well using a VAR.
+  \end{itemize}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{DSGE recipe}
+  \begin{enumerate}
+  \item Obtain structural equations involving expectations of future driving variables (the $\mathbb{E}_tx_{t+k}$ terms)
+  \item Make assumptions about the time series process for the driving variables ($x_t$)
+  \item Solve for a reduced-form solution that can be simulated on a computer
+\end{enumerate}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Permanent income hypothesis:} Let consumption depend on present discounted value of after-tax income
+\begin{align}
+  c_t=\gamma \sum^{\infty}_{k=0}\beta^k \mathbb{E}_ty_{t+k}
+\end{align}
+ Income generating process is 
+ \begin{align}
+   y_t&= (1+g)Y_{t-1}+\epsilon_t \\
+   \mathbb{E}_ty_{t+k}&=(1+g)^ky_t
+ \end{align}
+ Reduced-form representation
+ \begin{align}
+    c_t=\gamma \left[\sum^{\infty}_{k=0} (\beta(1+g))^k \right ]y_t
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Assuming 
+  \begin{align}
+    \beta(1+g)^k<1
+  \end{align}
+  this becomes
+\begin{align}
+  c_t=\frac{\gamma}{1-\beta(1+g)}y_t
+\end{align}
+Two important implications
+  \begin{enumerate}
+  \item The structural equation is always true for the model
+  \item The reduced-representation depends on the process $y_t$ taking a particular form
+\end{enumerate}
+If the process changes, so will the reduced-form process. 
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Temporary tax cuts}
+  Suppose that the government is thinking about a temporary one-period income tax cut. 
+They ask their advisers what the estimated effect of the tax cut on consumption would be. 
+So they run a regression of consumption $c_t$ on after-tax income $y_t$. 
+\begin{itemize}
+  \item If, in the past consumers had generally expected income growth $g$, then the income coefficient will be approximately $\frac{\gamma}{1-\beta(1+g)}$: each 1 increase in income produced by the tax cut will increase consumption by $\frac{\gamma}{1-\beta(1+g)}$
+  \item If the households have rational expectations the increase will be just $\gamma$
+\end{itemize}
+In the case were $\beta=0.95$ and $g=0.02$ the temporary tax cut would lead to an increase of $32\gamma$ in spending increase of $32\gamma$ whereas under rational expectations it would just be $\gamma$.
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Jump variables}
+  \begin{align}  
+      y_t=\sum^{\infty}_{k=0}a^k\mathbb{E}_tx_{t+k} 
+  \end{align}
+  These are known as \textbf{jump variables}
+  \begin{itemize}
+  \item Only depend on what happens today and what's expected to happen tomorrow
+  \item Will jump if expectations about future change
+  \item Past does not restrict their movement
+\end{itemize}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Second-order stochastic difference equations}
+  Jump variables are ok for stock prices but less for variables in real economy; these take on form of second-order stochastic difference equations
+  \begin{align}  
+    y_t=ay_{t-1} + b\mathbb{E}_ty_{t+1} + x_t 
+  \end{align}
+  How to solve these? Suppose there is value for $\lambda$ such that
+  \begin{align}
+    v_t=y_t-\lambda y_{t-1}  
+  \end{align}
+  follows SDE of form
+  \begin{align}
+  v_t=\alpha \mathbb{E}_tv_{t+1} + \beta x_t  
+\end{align}
+\end{frame}
+%--------------------------------------
+
+
+
+%--------------------------------------
+\begin{frame}
+  \begin{align}
+  v_t=\alpha \mathbb{E}_tv_{t+1} + \beta x_t  
+  \end{align}
+  Can solve for $v_t$ and back out the values for $y_t$. 
+  Given 
+  \begin{align}
+    y_t=v_t+\lambda y_{t-1}
+  \end{align}
+  Rewrite (X) as
+\begin{align}
+  v_t+\lambda y_{t-1} &= ay_{t-1} + b(\mathbb{E}_tv_{t+1} + \lambda y_t) + x_t\\ \nonumber
+  &= ay_{t-1} + b\mathbb{E}_tv_{t+1} + b\lambda(v_t + \lambda y_{t-1}) + x_t\\ \nonumber
+  (1-b\lambda)v_t &= b\mathbb{E}_tv_{t+1} + x_t + (b\lambda^2 - \lambda +a)y_{t-1}
+\end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  By definition, $\lambda$ is a number such that the $v_t$  it defined followed a first-order stochastic difference equation; $\lambda$ satisfies 
+  \begin{align}
+    b\lambda^2 - \lambda + a=0
+  \end{align}
+Two values for $\lambda$ that satisfy it; for each value we can characterize $v_t$ by
+\begin{align}
+  v_t &= \frac{b}{1-b\lambda}\mathbb{E}_t v_{t+1} + \frac{1}{1-b\lambda}x_t\\
+  &= \frac{1}{1-b\lambda}\sum^{\infty}_{k=0}\left(\frac{b}{1-b\lambda}\right)^k \mathbb{E}_t x_{t+k}
+\end{align}
+$y_t$ obeys
+\begin{align}
+  y_t=\lambda y_{t-1} + \frac{1}{1-b\lambda}\sum^{\infty}_{k=0}\left(\frac{b}{1-b\lambda}\right)^k E_t x_{t+k} 
+\end{align}
+Usually only one of the potential values of $\lambda$ is less than one in absolute value, so this gives the unique stable solution.
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Solution for single equation can be generalised to vectors
+  \begin{align}
+    Z_t&=\begin{pmatrix}      z_{1t} \\ z_{2t} \\ . \\ z_{nt}  \end{pmatrix}     
+\end{align}
+ Can put this in macroeconomic model
+ \begin{align}
+   Z_t&=B\mathbb{E}_tZ_{t+1} + X_t
+ \end{align}
+$B$ is an $n\; x\; n$ matrix. Can use repeated substitution to provide solution
+  \begin{align}  
+  Z_t=\sum^{\infty}_{k=0}B^k \mathbb{E}_t X_{t+k}  
+\end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Eigenvalues:} Eq. 28 will only give stable solution under certain conditions
+  $\lambda_i$ is an eigenvalue of the matrix $B$ if there exists a vector $e_i$ such that 
+  \begin{align}
+     Be_i=\lambda_i e_i 
+  \end{align}
+  Denote by $P$ the matrix that has as columns $n$ eigenvectors corresponding to these eigenvalues. 
+\begin{align}
+  \Omega=\begin{pmatrix}
+    \lambda_1 &0 &0 &0\\
+    0 &\lambda_2 &0 &0\\
+    0 & 0 & . &0\\
+    0 &0 &0 & \lambda_n
+  \end{pmatrix}
+\end{align}
+$\Omega$ is a diagonal matrix of eigenvalues. 
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{align}
+    BP&=P\Omega \\ \nonumber
+    B&=P\Omega P^{-1}
+  \end{align}
+  Provides information on relationship between eigenvalues and higher powers of $B$
+\begin{align}
+  B^n=P\Omega P^{-1} = P \begin{pmatrix}
+    \lambda_1 &0 &0 &0\\
+    0 &\lambda_2 &0 &0\\
+    0 & 0 & . &0\\
+    0 &0 &0 & \lambda_n
+  \end{pmatrix}
+  P^{-1}
+\end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+\begin{itemize}
+  \item The difference between lower and higher powers of $B$ is that the higher powers depend on the eigenvalues take to the power $n$
+  \item If all of the eigenvalues are in the unit circle, i.e. less than one in absolute value, then all of the entries in $B^n$ will tend towards zero as $n \rightarrow \infty$
+\end{itemize}
+  \begin{align}
+    Z_t=B\mathbb{E}_tZ_{t+1} + X_t
+  \end{align}
+  Has a unique stable forward-looking solution is that the eigenvalues of $B$ are all inside the unit circle.   
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Calculating eigenvalues}
+  \begin{align}
+    A = \begin{pmatrix}    a_{11} & a_{12} \\ a_{21} & a_{22}  \end{pmatrix}
+  \end{align}
+  Suppose that $A$ has two eigenvalues, $\lambda_1$ and $\lambda_2$
+\begin{align}
+  \lambda = \begin{pmatrix}
+    \lambda_1 \\ \lambda_2
+  \end{pmatrix}
+\end{align}
+The fact that there are eigenvectors when multiplied by $A-\lambda I$ equal a vector of zeroes means that the determinant of the matrix equal zero.
+\begin{align}
+  A-\lambda I = \begin{pmatrix}
+    a_{11}-\lambda & a_{12} \\ a_{21} & a_{22}-\lambda_2
+  \end{pmatrix}
+\end{align}
+Solving the quadratic formula will give the two eigenvalues of A
+\begin{align}
+  (a_{11}-\lambda_1 a_{12})(a_{22}-\lambda_2)-a_{12}a_{21}=0
+\end{align}
+\end{frame}
+%--------------------------------------
+
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Binder-Pesaran}  
+  \begin{align}  
+  Z_t=AZ_{t-1} + B\mathbb{E}_t Z_{t+1} + HX_t 
+  \end{align}
+  Binder and Pesaran solved this model in a manner exactly analogous to the second-order SDE 
+  \begin{align}
+   W_t=Z_t - CZ_{t-1}  
+   \end{align}
+   Find matrix $C$ such that (X) obeys a first-order matrix of the form 
+   \begin{align}
+    W_t=F\mathbb{E}_t W_{t+1} + GX_t  
+    \end{align}
+    Transform the problem of solving the second-order system in equation into a simpler first-order system.
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame} 
+ What must $C$ be?
+ \begin{align}
+   Z_t=W_t + CZ_{t-1}
+ \end{align}
+ Can re-write as 
+ \begin{align}
+  W_t + CZ_{t-1} &= AZ_{t-1} + B(\mathbb{E}_t W_{t+1} + CZ_t) + HX_t\\ \nonumber
+  &= AZ_{t-1} + B(\mathbb{E}_t W_{t+1} + C(W_t+CZ_{t-1})) + HX_t  
+  \end{align}
+  $C$ will eliminate the backward-looking terms; can re-arrange
+  \begin{align}
+    (I-BC)W_t = B\mathbb{E}_t W_{t+1} + (BC^2-C+A)Z_{t-1} + HX_t  
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  $C$ makes $W_t$ follow a first-order forward-looking matrix equation, i.e. no extra $Z_{t-1}$ terms, we get
+\begin{align}
+  BC^2-C+A=0
+\end{align}
+This equation can be solved to give $C$, one method is to use
+\begin{align}
+  C=BC^2+A
+\end{align}
+\begin{enumerate}
+  \item Provide initial guess $C_0=I$
+  \item Iterate on $C_n=BC^2_{n-1}$ until all entries in $C_n$ converge
+\end{enumerate}  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Knowing $C$ we have
+  \begin{align}
+    W_t=F\mathbb{E}_t W_{t+1} + GX_t
+  \end{align}
+  where
+  \begin{align}
+      F &= (I-BC)^{-1}B\\
+      G &= (I-BC)^{-1}H  
+  \end{align}
+  Assuming that all eigenvalues of $F$ are inside the unit circle, this has a stable forward-looking solution
+  \begin{align}
+    W_t= \sum^{\infty}_{k=0} F^k\mathbb{E}_t(GX_{t+k})
+  \end{align}
+  Which can be written in terms of the original equation as
+  \begin{align}
+    Z_t= CZ_{t-1} + \sum^{\infty}_{k=0} F^k\mathbb{E}_t(GX_{t+k})
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Reduced form representation:}
+  Suppose variables $X_t$ can be represented using VAR
+  \begin{align}
+    X_t=DX_{t-1} + \epsilon_t
+  \end{align}
+  Let eigenvalues for $D$ be inside unit circle, this implies
+  \begin{align}
+    \mathbb{E}_t X_{t+k}=D^k X_t
+  \end{align}
+  Model solution is given by
+  \begin{align}
+    Z_t= CZ_{t-1} + \left[ \sum^{\infty}_{k=0}F^k GD^k \right]X_t  
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  The infinite sum in eq. (X)to matrix $P$; model has a reduced form representation which can be simulated along with the VAR process 
+\begin{align}
+  Z_t= CZ_{t-1} + PX_t
+\end{align}
+This provides a relatively simple recipe for simulating DSGE models:
+\begin{enumerate}
+  \item Specify matrices $A,B,H$
+  \item Solve for $C,F,G$
+  \item Specify a VAR process for the driving variables
+  \item Obtain the reduced-form representations  
+\end{enumerate}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  There are often multiple values for different variables at $t$: estimate model as
+  \begin{align}
+    KZ_t=AZ_{t-1} + B\mathbb{E}_t Z_{t+1} + HX_t
+  \end{align}
+  Computer software will multiply both sides by $K^{-1}$  and solve using the Binder-Pesaran model. 
+\begin{align}
+  Z_t= K^{-1}AZ_{t-1} + K^{-1}B\mathbb{E}_t Z_{t+1} + K^{-1}HX_t
+\end{align}
+ Only need to figure out what model implies in terms of $K,A,B,H$; computer will provide following representation
+  \begin{align}
+    Z_t &= CZ_{t-1} + PX_t\\
+    X_t &=DX_{t-1} + \epsilon_t
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+
+%--------------------------------------
+\end{document}
