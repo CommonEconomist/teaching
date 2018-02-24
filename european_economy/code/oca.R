@@ -25,9 +25,10 @@ wdi<-wdi[order(wdi$flow),]
 
 # Plot data
 par(las=1)
-barplot(wdi$flow,xaxt="n",yaxt="n",ylab="",border=F,width=c(.35),space=1.8,
+barplot(wdi$flow,xaxt="n",yaxt="n",xlab="Relative to GDP",
+        border=F,width=c(.35),space=1.8,
         horiz=TRUE,col="black")
-axis(2,at=(1:27)-.26,labels=wdi$iso2c, tick=F)
+axis(2,at=(1:27)-.26,labels=wdi$iso2c, tick=F,cex.axis=1.3)
 axis(1,tick=F)
 abline(v=seq(0,350,10),col="white",lwd=3)
 abline(v=0,col="gray",lwd=2)
@@ -43,13 +44,14 @@ ita<-ts(u[u$GEO=="Italy",]$Value,start=c(1996,1),frequency=1)
 gre<-ts(u[u$GEO=="Greece",]$Value,start=c(1996,1),frequency=1)
 
 # Plot data
-par(las=1,bty="n",cex.axis=1.5,cex.lab=1.5,mar=c(4,5,1,1))
-plot(deu,xlab="",ylab="",axes=FALSE,ylim=c(-1.5,8),lwd=2)
-lines(ita,col="steelblue4",lwd=2)
+par(las=1,bty="n",cex.axis=2,cex.lab=2,cex.main=2,mar=c(4,5,3,1))
+plot(deu,xlab="",ylab="",axes=FALSE,ylim=c(-1.5,8),lwd=2,main='Inflation rate')
 lines(gre,col="steelblue4",lty=2,lwd=2)
-
 axis(1,tick=FALSE)
 axis(2,tick=FALSE)
+
+text(2005,1,'Germany',cex=2)
+text(2005,4,'Greece',cex=2)
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 # 3) Public debt 
@@ -67,7 +69,7 @@ d<-na.omit(d[order(d$debt),])
 # Plot data
 barplot(d$debt,xaxt="n",yaxt="n",ylab="",border=F,width=c(.35),space=1.8,
         horiz=TRUE,col="black")
-axis(2,at=(1:29)-.26,labels=d$iso2c, tick=F)
+axis(2,at=(1:29)-.26,labels=d$iso2c, tick=F,cex.axis=1.3)
 axis(1,tick=F)
 abline(v=seq(0,130,10),col="white",lwd=3)
 abline(v=0,col="gray",lwd=2)
@@ -85,7 +87,7 @@ p<-p[order(p$value),]
 par(mar=c(4,10,1,1))
 barplot(p$value,xaxt="n",yaxt="n",ylab="",border=F,width=c(.35),space=1.8,
         horiz=TRUE,col="black")
-axis(2,at=(1:12)-.26,labels=p$Country, tick=F)
+axis(2,at=(1:12)-.26,labels=p$Country, tick=F,cex.axis=1.3)
 axis(1,tick=F)
 abline(v=seq(0,35,5),col="white",lwd=3)
 abline(v=0,col="gray",lwd=2)
