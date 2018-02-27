@@ -142,14 +142,14 @@
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Errors:} Both $u_t$ and $v_t$ can include either 
+  \textbf{Errors}\\ Both $u_t$ and $v_t$ can include either 
   \begin{enumerate}
     \item Normally distributed errors
     \item Zeros, if the described equation is an identity
   \end{enumerate}
   \begin{align}
-    u_t &\sim N(0,\scriptstyle \sum^u) \\
-    v_t &\sim N(0,\scriptstyle \sum^v)
+    u_t &\sim N \left( 0,\scriptstyle \sum^u \right) \\
+    v_t &\sim N \left( 0,\scriptstyle \sum^v \right)
   \end{align}
   \medskip
   $\sum$ might not have full matrix rank
@@ -162,7 +162,7 @@
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Estimation:} Observed data described by
+  \textbf{Estimation}\\ Observed data described by
   \begin{align}
     Z_t = HS_t + v_t
   \end{align}
@@ -179,23 +179,25 @@
     Z_t=HS_{t|t-1}+v_t +H(S_t-S_{t|t-1})
   \end{align}
 \end{frame}
-
-
+%--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  \begin{itemize}
+  \begin{enumerate}
      \item $S_{t|t-1}$ is observable
      \item $v_t, S_t-S_{t|t-1}$ are unobservable but normally distributed
-   \end{itemize} 
-  Can estimate model using ML ; with observed data
+   \end{enumerate} 
+   \medskip
+   Estimate model using ML
+  
   \begin{align}
     Z_t=HS_{t|t-1}+v_t +H(S_t-S_{t|t-1})
   \end{align}
-  Variance of error , after conditioning on $t-1$ state-variable estimate, is given by
+  \medskip
+  Variance of error, after conditioning on $t-1$ state-variable estimate, is given by
   \begin{align}
     v_t &+ H(S_t-S_{t|t-1}) \sim N (0,\Omega_t)\\
-    \Omega_t &=\scriptstyle\sum^v +H\sum^S_{t|t-1}H'
+    \Omega_t &=\scriptstyle\sum^v \textstyle+ H \scriptstyle \sum^S_{t|t-1} \textstyle H'
   \end{align}  
 \end{frame}
 %--------------------------------------
@@ -212,7 +214,6 @@
   \end{align}  
 \end{frame}
 %--------------------------------------
-
 
 
 %--------------------------------------
@@ -244,7 +245,7 @@
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Estimating state variables:} Formulate estimate of state variable at time $t$ given information at $t-1$
+  \textbf{Estimating state variables}\\ Formulate estimate of state variable at time $t$ given information at $t-1$
   \begin{align}
     S_t=FS_{t-1}+u_t \Rightarrow S_{t|t-1}=FS_{t-1|t-1}
   \end{align}
@@ -279,7 +280,7 @@
 \begin{frame}
   $K_t$ is the \textbf{Kalman gain} matrix
   \begin{align}
-    K_t&= \left(H\scriptstyle \sum^S_{t|t-1} \right)' \left( \scriptstyle \sum^V + H\scriptstyle \sum^S_{t|t-1} \textstyle H'\right )^{-1} 
+    K_t&= \left(H\scriptstyle \sum^S_{t|t-1} \right)' \left( \scriptstyle \sum^V + \textstyle H\scriptstyle \sum^S_{t|t-1} \textstyle H'\right )^{-1} 
   \end{align}
   \medskip
   Covariance matrices required to compute $K_t$ are updated by 
@@ -299,11 +300,12 @@
     \item Covariance matrix
   \end{enumerate}
   \medskip
-  In many macroeconomic models $S$ can be assumed to have zero mean. For the covariance matrix we use
+  In many macroeconomic models $S$ can be assumed to have zero mean. \\
+  For the covariance matrix recall
   \begin{align}
     \scriptstyle \sum^S_{t|t-1} = \textstyle F \scriptstyle \sum^S_{t-1|t-1} \textstyle F' + \scriptstyle \sum^u
   \end{align}
-  Values of this covariance matrix will converge; for unconditional covariance matrix can use value for $\sum$ that solves
+  Matrix will generally converge: for unconditional covariance matrix use $\sum$ value solves
   \begin{align}
     \scriptstyle \sum=\textstyle F \scriptstyle \sum \textstyle F' + \scriptstyle \sum^u
   \end{align}
