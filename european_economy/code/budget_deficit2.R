@@ -1,6 +1,6 @@
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 # Budget deficit
-# Last update: 2018 02 20
+# Last update: 2018 02 28
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 source('code/lines.R')
 d<-read.csv("data/eurostat_budget_deficit.csv",header=TRUE)
@@ -17,10 +17,9 @@ startYear<-min(dat.l$TIME);endYear<-max(dat.l$TIME)
 # Plot data
 plot(0,xlim=c(startYear,endYear),ylim=c(-35,10),type="n",bty="n",
      main="Budget surplus (% of GDP)",xlab="",ylab="",axes=FALSE)
-abline(h=-3,lwd=2);abline(h=0,lwd=2)
+abline(h=-3,lwd=2.5)
 
 lifeLines(m,col="grey60")
-lines(startYear:endYear,m[9,],col="black",lwd=2.5)       # Euro area
-lines(startYear:endYear,m[14,],col="steelblue4",lwd=2.5) # Greece
-lines(startYear:endYear,m[13,],col="gold",lwd=2.5)       # Germany
+lines(startYear:endYear,m[9,],col="black",lwd=2,lty=2)   # Euro area
+lines(startYear:endYear,m[14,],col="steelblue4",lwd=2) # Greece
 axis(1,tick=FALSE); axis(2,tick=FALSE)

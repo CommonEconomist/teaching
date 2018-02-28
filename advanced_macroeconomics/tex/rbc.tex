@@ -33,6 +33,116 @@
 
 %--------------------------------------
 \begin{frame}
+  \textbf{Business cycles}\\
+  Economies fluctuate over time: some things that need explaining
+  \begin{enumerate}
+    \item Volatility
+    \item Comovements
+    \item Persistence (autocorrelation)
+    \item Effect of expectations on current decisions
+  \end{enumerate}
+  \medskip
+  Two theoretical approached for explaining this
+  \begin{enumerate}
+    \item Market clearing
+    \item Non-market clearing
+  \end{enumerate}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Two competing models
+  \begin{enumerate}
+    \item Real Business Cycle model (RBC)
+    \item New-Keynesian model (NKM)
+  \end{enumerate}
+  \medskip
+  Similarities
+  \begin{itemize}
+    \item Dynamic general equilibrium
+    \item Stochastic shocks
+    \item Forward looking expectations
+  \end{itemize}
+  \medskip
+  Main difference concerns information and prices
+  \begin{itemize}
+    \item RBC: Complete and flexible 
+    \item NKM: Incomplete and sticky
+  \end{itemize}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Real Business Cycle model}\\
+  \begin{enumerate}
+    \item Take Swan-Solow growth model
+    \item Insert (1) into dynamics optimisation framework
+    \begin{itemize}
+      \item No more constant savings rate
+    \end{itemize}
+    \item Add shocks to total factor productivity ($A$)
+    \begin{itemize}
+      \item Include uncertainty about shocks
+    \end{itemize}
+    \item Add leisure to account for changes in hours of work
+  \end{enumerate}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Why real?\\
+  \medskip
+  Equilibrium is about
+  \begin{itemize}
+    \item Household preferences
+    \item Technology used by firms
+    \item Government policy decisions
+  \end{itemize}
+  \medskip
+  These are \textbf{real} factors
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Recap: \textbf{Swan-Solow model}
+  \begin{align}
+    Y_t &= K_t^{\alpha}(A_tN_t)^{1-\alpha}\\
+    K_t &= (1+\gamma)K_{t-1} + I_t\\
+    I_t &= sY_t\\
+    N_t &= (1+n)N_{t-1}\\
+    A_t &= (1+m)A_{t-1}\\
+    Y_t &\equiv C_t + I_t
+  \end{align}
+  \begin{align*}
+    0<\alpha<1, \gamma>0, 0<s<1
+  \end{align*}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Fundamental mechanism of model is shocks to Total Factor Productivity (TFP)
+  \begin{itemize}
+    \item Recall positive correlation between GDP and productivity
+  \end{itemize}
+  \medskip
+  Major result: Fluctuations as an equilibrium outcome
+  \begin{itemize}
+    \item Work harder when productivity is high: wages increase as labour becomes more productive
+    \item Save more when productivity is high: interest rates increase as capital becomes more productive
+  \end{itemize}
+  \medskip
+  Fluctuations in economy are not that bad
+\end{frame}
+%--------------------------------------
+
+
+%--------------------------------------
+\begin{frame}
   \textbf{Real Business Cycle model:} Assumes
   \begin{enumerate}
     \item Perfectly functioning competitive markets
@@ -102,7 +212,7 @@ Can formulate this as a Langrangian problem
 %--------------------------------------
 \begin{frame} 
 \begin{align}
-  L &= E_t \sum^{\infty}_{i=0}\beta^i[U(C_{t+i}) - V(N_{t+i})] +\\ \nonumber
+  \mathcal{L} &= E_t \sum^{\infty}_{i=0}\beta^i[U(C_{t+i}) - V(N_{t+i})] +\\ \nonumber
   & E_t \sum^{\infty}_{i=0}\beta^i \lambda_{t+i} [A_tK^\alpha_{t+i-1}N^{1-\alpha}_t + (1-\gamma)K_{t+i-1} - C_{t+i} - K_{t+i}]
 \end{align}
  The Langrangian involves picking a series of values for consumption and labour, subject to satisfying a series of constraints. 
@@ -111,13 +221,20 @@ Can formulate this as a Langrangian problem
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Infinity:} Equations sums to infinity: entails infinite number of first-order conditions for current and expected values of $C_t, K_t,N_t$.
+  \textbf{Infinity}\\ 
+  Equations sums to infinity
   \begin{itemize}
+    \item Entails infinite number of first-order conditions for current and expected values of $C_t, K_t,N_t$.
     \item Can be simplified by looking at when exactly the time $t$ and $t+n$ variables appear
-  \end{itemize}
-  NB - derivative for capital is 
-  \begin{align}
-    \frac{\delta L}{\delta K_t}
+  \end{itemize}  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+Example; Capital
+\begin{align}
+    \frac{\partial \mathcal{L}}{\partial K_t}
   \end{align}
   Find when $K_t$ appears.
 \begin{align}
@@ -127,13 +244,19 @@ Can formulate this as a Langrangian problem
 \end{frame}
 %--------------------------------------
 
+
 %--------------------------------------
 \begin{frame}
+   $t$ variables only appear once
   \begin{itemize}
-  \item $t$ variables only appear once: their FOCs consist of differentiating the model end setting the derivatives equal to zero
-  \item $t+n$ appear exactly as the $t$ variables, only in expectation form and multiplied by discount $\beta^n$: their FOCs are identical to the $t$ variables. 
+  \item FOCs consist of differentiating the model end setting the derivatives equal to zero  
+\end{itemize}
+$t+n$ appear exactly as the $t$ variables: only in expectation form and multiplied by discount $\beta^n$
+\begin{itemize}
+  \item FOCs are identical to the $t$ variables
 \end{itemize}
 \end{frame}
+%--------------------------------------
 
 %--------------------------------------
 \begin{frame}
@@ -142,10 +265,10 @@ Can formulate this as a Langrangian problem
   \end{align}
   Differentiating we get the following FOCs
 \begin{align}
-  \frac{\delta L}{\delta C_t}&: U'(C_t)-\lambda_t=0\\
-  \frac{\delta L}{\delta K_t}&: -\lambda_t + \beta E_t\left[\lambda_{t+1} \left( \alpha\frac{Y_{t+1}}{K_t}+1-\gamma \right) \right] =0\\
-  \frac{\delta L}{\delta N_t}&: -V'(N_t) + (1-\alpha) \lambda_t \frac{Y_t}{N_t}=0\\
-  \frac{\delta L}{\delta \lambda_t}&: A_tK^\alpha_{t-1}N^{1-\alpha}_t - C_t - K_t + (1-\gamma)K_{t-1} =0
+  \frac{\partial \mathcal{L}}{\partial C_t}&: U'(C_t)-\lambda_t=0\\
+  \frac{\partial \mathcal{L}}{\partial K_t}&: -\lambda_t + \beta E_t\left[\lambda_{t+1} \left( \alpha\frac{Y_{t+1}}{K_t}+1-\gamma \right) \right] =0\\
+  \frac{\partial \mathcal{L}}{\partial N_t}&: -V'(N_t) + (1-\alpha) \lambda_t \frac{Y_t}{N_t}=0\\
+  \frac{\partial \mathcal{L}}{\partial \lambda_t}&: A_tK^\alpha_{t-1}N^{1-\alpha}_t - C_t - K_t + (1-\gamma)K_{t-1} =0
 \end{align}
 \end{frame}
 %--------------------------------------
@@ -164,7 +287,7 @@ This can then be combined with the FOC for consumption to give
   U'(C_t)= \beta E_t[U'(C_{t+1})R_{t+1}]
 \end{align}
 \begin{align}
-  \frac{\Delta L}{\Delta C_t} &= U'(C_t)-\lambda_t=0\\
+  \frac{\partial \mathcal{L}}{\partial C_t} &= U'(C_t)-\lambda_t=0\\
   \lambda_t &= U'(C_t)
 \end{align}
 \end{frame}
@@ -177,29 +300,43 @@ This can then be combined with the FOC for consumption to give
   \item The marginal utility of consumption must equal the marginal utility of capital
   \item And the marginal utility of capital must equal the expected value of capital at $t+1$ times the return of capital times a discount factor
 \end{itemize}
-
-
-The interpretation of the Keynes-Ramsey condition is that
-\begin{itemize}
-  \item A $\Delta$ decrease in consumption today will lead to a loss of $U'(C_t)\Delta$ in utility
-  \item Invest to get $R_{t+1}\Delta$ tomorrow
-  \item Which is worth $\beta E_t[U'(C_{t+1})R_{t+1}]$ in terms of today's utility.
-  \item Along an optimal path, the household must be indifferent
-\end{itemize}
-
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  \textbf{CCRA Consumption and Separable Consumption-Leisure}
-  The model uses the utility function
-  This formulation of the Constant Relative Risk Aversion (CRRA) utility from consumption and separate disutility from labour turns out to be necessary for the model to have a stable growth path solution.
-\begin{align}
-  U(C_t)-V(N_t)=\frac{C_t^{1-\eta}}{1-\eta}-\nu N_t
-\end{align}
+ Interpretation Keynes-Ramsey condition:\\
+ $\Delta$ decrease in $C_t$ will lead to utility losse
+ \begin{align*}
+    U'(C_t)\Delta
+  \end{align*} 
+  Invest to get $R_{t+1}\Delta$ next period which will be worth
+ \begin{align*}
+  \beta E_t[U'(C_{t+1})R_{t+1}]
+ \end{align*}
+ in current period's utiity
+ \begin{itemize}
+   \item Along an optimal path, the household must be indifferent 
+ \end{itemize}
+\end{frame}
+%--------------------------------------
 
-The Keynes-Ramsey condition becomes
+
+
+%--------------------------------------
+\begin{frame}
+  \textbf{CCRA Consumption and Separable Consumption-Leisure}\\
+  The model uses the utility function
+  \begin{align}
+  U(C_t)-V(N_t)=\frac{C_t^{1-\eta}}{1-\eta}-\nu N_t
+  \end{align}
+  This formulation of the Constant Relative Risk Aversion (CRRA) utility from consumption and separate disutility from labour turns out to be necessary for the model to have a stable growth path solution.
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  The Keynes-Ramsey condition becomes
 \begin{align}
   C^{-\eta}_t=\beta E_t(C^{-\eta}_{t+1}R_{t+1})
 \end{align}
@@ -213,6 +350,7 @@ And the condition for optimal worked hours becomes
 \end{align}
 \end{frame}
 %--------------------------------------
+
 
 %--------------------------------------
 \begin{frame}
@@ -243,11 +381,35 @@ Process for the technology variable is \begin{align}
 
 %--------------------------------------
 \begin{frame}
- \textbf{Log-linearisation}
- Nonlinear systems can generally not be solved analytically.
-The solution can be approximated however using a corresponding set of linear equations.
-The idea is to use Taylor series approximation: any nonlinear function $F(x_t,y_t)$ can be approximated around any point ($x^*_t,y^*_t$) using the formula
+ \textbf{Taking log differences} ($\Delta\;logs$)
+ \begin{align*}
+   Y_t = 2X_t &\Leftrightarrow y=x\\
+   Y_t = 2X_tZ_t &\Leftrightarrow y=x+z\\
+   Y_t=2X_tZ_t^{-3} &\Leftrightarrow y=x-3z\\
+   Y_{t+1} = X_{t+1} +Z_{t+1} &\Leftrightarrow y=x\frac{X_t}{Y_t}+z\frac{Z_t}{Y_t}\\
+   Y_{t+1} = X_{t+1} + a &\Leftrightarrow y=x\frac{X_t}{Y_t}
+ \end{align*}
+\end{frame}
+%--------------------------------------
 
+%--------------------------------------
+\begin{frame}
+ \textbf{Log-linearisation}\\
+ Nonlinear systems can generally not be solved analytically
+ \begin{itemize}
+   \item Solution can be approximated using corresponding set of linear equations: Use Taylor series
+ \end{itemize}
+ \medskip
+ Non-linear function $F(x_t,y_t)$ can be approximated around any point $x^*_t,y^*_t$ using
+ 
+ \begin{align}
+   F(x_t,y_t) &= F(x_t^*,y^*_t)\\ \nonumber
+   &+ F_x(x^*_t,y^*_t)(x_t-x^*_t) \\ \nonumber
+   &+ F_y(x^*_t,y^*_t)(y_t-y^*_t)\\ \nonumber
+   &+ F_{xx}(x^*_t,y^*_t)(x_t- x^*_t)^2\\ \nonumber
+   &+ F_{xy}(x^*_t,y^*_t)(x_t−x^*_t) (y_t-y^*_t)\\ \nonumber
+   &+ F_{yy}(x^*_t,y^*_t) (y_t-y^*_t) +...
+ \end{align}
 \end{frame}
 %--------------------------------------
 
@@ -263,98 +425,156 @@ If we linearise around point that is far away from ($x_t,y_t$), then the approxi
 
 %--------------------------------------
 \begin{frame}
-  DSGE model use a particular version of this technique, by taking logs and linearise the logs of the variables around a steady-state path in which all real variables are growing at the same rate.
-The steady-state path is relevant because the stochastic economy will, on
-average, tend to fluctuate around the values given by this path, making the
-approximation an accurate one.
-This gives us a set of linear equations in the deviations of the logs of these variables from their steady-state values.
-Remember that log-differences are approximately percentage deviations
-\begin{align}
-  ln X-ln Y \approx \frac{X-Y}{Y}
-\end{align}
-This approach gives us 
-\begin{itemize}
-  \item A system that expresses variables in terms of their percentage deviations from the steady-state paths
-  \item A system of variables that can be thought of representing the business-cycle component of the model
-  \item Coefficients are elasticities and IRFs are easy to interpret
-  \item It is also easy to implement
-\end{itemize}
+  \textbf{Steady-state path}\\
+  DSGE models take log-linearise  variables around steady-state path
+  \begin{itemize}
+    \item Around this path all real variables grow at same rate
+  \end{itemize}
+  \medskip
+  Stochastic economy will on average fluctuate around values given by steady state path
+  \begin{itemize}
+    \item Can get therefore an accurate approximation
+    \item Provides set of linear equations in log-deviations of variables from steady-state values
+    \begin{align*}
+      x_t=ln\; X_t - ln\; X^*
+    \end{align*}
+  \end{itemize}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-The key to the log-linearization method is that every variable can be written as
-A log-deviation of a variable from its steady-state value is noted as $x_t=ln X_t - ln X^*$.
-\begin{align}
-  X_t=X^*\frac{X_t}{X^*}=X^* e^{x_t}
-\end{align}
-A first-order Taylor approximation for $e^{x_t}$ can be given by
+ Recall: log-differences are approximately percentage deviations
+ \begin{align*}
+   ln\;X-ln\; Y \approx \frac{X-Y}{Y} 
+ \end{align*}
+ \medskip
+ Approach provides
+ \begin{itemize}
+   \item System of variables expressed in percentage deviations from steady-state path
+   \item System that can be thought of as business-cycle component of model
+   \item Coefficients are elasticities (also easy with IRF)
+   \item Easy to implement
+ \end{itemize}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+ Write variable as
+ \begin{align}
+   X_t=X^*\frac{X_t}{X^*}=X^* e^{x_t} 
+ \end{align}
+ First-order Taylor approximation for $e^{x_t}$ given by
 \begin{align}
   e^{x_t}\approx1+x_t
 \end{align}
-Meaning that the variables can be written as
+ Can write variable as
 \begin{align}
   X_t \approx X^*(1+x_t)
 \end{align}
-Additionally we can set terms like $x_ty_t=0$ when multiplying variables since we are looking at small deviations from the steady state; multiplying these small deviations together one will get a term close to zero.
+\end{frame}
+%--------------------------------------
+
+
+%--------------------------------------
+\begin{frame}
+ Can set
+ \begin{align}
+   x_ty_t=0
+ \end{align}
+  \medskip
+  Multiplying small deviations from steady-state will produce term close to zero anyway.
 \begin{align}
-  X_tY_t\approx X^*Y^*(1+x_t)(1+y_t) \approx X^*Y^*(1+x_t+y_t)
+  X_tY_t &\approx X^*Y^*(1+x_t)(1+y_t) \\
+  &\approx X^*Y^*(1+x_t+y_t)
 \end{align}
 \end{frame}
 %--------------------------------------
 
+
+
 %--------------------------------------
 \begin{frame}
-  Start with
-\begin{align} Y_t=C_t+I_t \end{align}
-
-Re-write as
-\begin{align} Y^*e^{y_t}=C^*e^{c_t}+I^*e^{i_t} \end{align}
-
-Using first-order approximation this becomes
-\begin{align} Y^*(1+y_t) = C^*(1+c_t) + I^*(1+i_t) \end{align}
-
-Since the steady-state terms must obey identities so
-\begin{align} Y^* = C^* + I^* \end{align}
-
-Cancelling these terms on both sides we get
-\begin{align} Y^*y_t = C^*c_t + I^*i_t \end{align}
-
-Which we will write as
-\begin{align} y_t=\frac{C^*}{Y^*}c_t+\frac{I^*}{Y^*}i_t \end{align}
+ Example; Income
+  \begin{align} 
+    Y_t=C_t+I_t 
+  \end{align}
+  \medskip
+  Rewrite
+ \begin{align} 
+    Y^*e^{y_t}=C^*e^{c_t}+I^*e^{i_t} 
+  \end{align}
+  \medskip
+  Use first-order approximation
+ \begin{align} 
+    Y^*(1+y_t) = C^*(1+c_t) + I^*(1+i_t) 
+ \end{align}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  \begin{align}Y_t=A_tK^{\alpha}_{t-1}N^{1-\alpha}_t \end{align}
+  Steady-state terms must obey identities
+  \begin{align} 
+     Y^* = C^* + I^* 
+  \end{align}
+  \medskip
+  Canceling terms on both sides
+ \begin{align} 
+     Y^*y_t = C^*c_t + I^*i_t 
+  \end{align}
+  \medskip
+  Which we can write
+  \begin{align} 
+     y_t=\frac{C^*}{Y^*}c_t+\frac{I^*}{Y^*}i_t 
+  \end{align}
+\end{frame}
+%--------------------------------------
 
-This can be re-written in terms of steady-states and log-deviations as
-\begin{align} Y^*e^{y_t} = (A^* e^{a_t}) (K^*)^{\alpha}e^{\alpha k_{t-1}} (N^*)^{1-\alpha}e^{(1-\alpha)n_t}\end{align}
 
-Again, the steady-state values obey identities so that
-\begin{align} Y^* = A^* (K^*)^{\alpha} (N^*)^{1-\alpha} \end{align}
+%--------------------------------------
+\begin{frame}
+  Example: Production function
+  \begin{align}
+    Y_t=A_tK^{\alpha}_{t-1}N^{1-\alpha}_t 
+  \end{align}
+  \medskip
+  Re-write in terms of steady-state and log deviations
+  \begin{align} 
+     Y^*e^{y_t} = (A^* e^{a_t}) (K^*)^{\alpha}e^{\alpha k_{t-1}} (N^*)^{1-\alpha}e^{(1-\alpha)n_t}
+  \end{align}
+  \medskip
+  Steady-state must obey identities
+  \begin{align} 
+    Y^* = A^* (K^*)^{\alpha} (N^*)^{1-\alpha} 
+  \end{align}
+\end{frame}
+%--------------------------------------
 
-Cancelling will give
-\begin{align}e^{y_t}=e^{a_t}e^{\alpha k_{t-1}}e^{(1-\alpha)n_t} \end{align}
-
-Using first-order Taylor approximation this becomes
+%--------------------------------------
+\begin{frame}
+  Canceling terms we get 
+  \begin{align}
+    e^{y_t}=e^{a_t}e^{\alpha k_{t-1}}e^{(1-\alpha)n_t} 
+  \end{align}
+  \medskip
+  Use first-order Taylor approximation
 \begin{align}
   (1+y_t)=(1+\alpha_t)(1+\alpha k_{t-1})(1+(1-\alpha)n_t)
 \end{align}
-
-Ignoring the cross-products of the log-deviations this simplifies to
-\begin{align} y_t=a_t+\alpha k_{t-1} + (1-\alpha)n_t \end{align}
-
+\medskip
+Ignore cross-products of log-deviations: simplifies to
+ \begin{align} 
+   y_t=a_t+\alpha k_{t-1} + (1-\alpha)n_t 
+\end{align}
 \end{frame}
 %--------------------------------------
 
+
 %--------------------------------------
 \begin{frame}
-  Once all the equations have been log-linearised , we have a system of seven equations of the form
-
-\begin{align}
+  Log-linearised system
+  \begin{align*}
   y_t &= \frac{C^*}{Y^*}c_t + \frac{I^*}{Y^*}i_t\\
   y_t &= a_t + \alpha k_{t-1} + (1-\alpha)n_t\\
   k_t &= \frac{I^*}{K^*}i_t + (1-\gamma)k_{t-1}\\
@@ -362,38 +582,66 @@ Ignoring the cross-products of the log-deviations this simplifies to
   c_t &= E_tc_{t+1} - \frac{1}{\eta}E_t r_{t+1}\\
   r_t &= \left(\frac{\alpha}{R^*}\frac{Y^*}{K^*} \right)(y_t-k_{t-1})\\
   a_t &= \rho a_{t-1} + \epsilon_t
-\end{align}
-The model used assumes that technology, the source of all long-term growth in the economy, is given by $a_t=\rho a_{t-1} + \epsilon_t$. This means that there is no trend growth in the economy, and as a result all the steady-state variables are constants.
+ \end{align*}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- Calculating the steady state:
- The log-linearised system contains three variables related to the steady-state path which needs to be calculated.
- These are $\frac{C^*}{Y^*},\frac{I^*}{Y^*},\frac{I^*}{K^*},\frac{\alpha}{R^*}\frac{Y^*}{K^*}$
-We do this by taking the original non-linearized RBC system and figuring out
-what things look like along a zero growth path.
-We start with the steady-state interest rate which is linked to consumption behaviour via the so called Euler equation (or Keynes-Ramsey condition)In the vicinity of the steady state we have that $y_t=y_{t+1}=y^*$ so $\frac{y_t}{y_{t+1}}=1$
+ Technology is assumed to be given by
+ \begin{align}
+   a_t=\rho a_{t-1} + \epsilon_t
+ \end{align}
+  Entail no trend growth in economy
+  \begin{itemize}
+    \item Implies that steady-state variables are constants
+  \end{itemize} 
+\end{frame}
+%--------------------------------------
+
+
+
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Calculating steady-state}\\
+  Three steady-state variables that need to be calculated; involves terms
+  \begin{align}
+    \frac{C^*}{Y^*},\frac{I^*}{Y^*},\frac{I^*}{K^*},\frac{\alpha}{R^*}\frac{Y^*}{K^*}
+  \end{align}
+  \medskip
+  Take original non-linearised RBC system: figure out what it looks like along zero growth path
+  \begin{align}
+    y_t=y_{t+1}=y^*
+  \end{align}
+  Therefore
+  \begin{align}
+    \frac{y_t}{y_{t+1}}=1
+  \end{align}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-\begin{align}
+ Start with interest rate
+ \begin{itemize}
+   \item Linked to consumption behaviour via Keynes-Ramsey condition
+ \end{itemize}
+  \begin{align}
   C_t^{-\eta} &= \beta E_t(C_{t+1}^{-\eta}R_{t+1})\\
   1 &= \beta E_t \left( \left(\frac{C_t}{C_{t+1}} \right)^\eta R_{t+1} \right)
 \end{align}
-
-Because we have no trend growth in technology in our model, the steady-state features consumption, investment, and output will all take constant values with no uncertainty.
-In steady-state we have
-\begin{align}
+  Have no trend growth in technology
+  \begin{itemize}
+    \item Constant values for steady-state consumption, investment, and output
+  \end{itemize}
+  In steady-state we have
+  \begin{align}
   C^*_t &= C^*_{t+1}=C^*\\
   R^* &= \beta^{-1}
 \end{align}
-In a no-growth economy, the rate of return on capital is determined by the
-rate of time preference.
-
+\medskip
+In a no-growth economy, the rate of return on capital is determined by the rate of time preference.
 \end{frame}
 %--------------------------------------
 
@@ -463,6 +711,7 @@ From this it follows that the consumption-output ratio must be
 
 %--------------------------------------
 \begin{frame}
+ Final system
   \begin{align}
   y_t &= \left(1-\frac{\alpha \gamma}{\beta^{-1}+\gamma -1}\right)c_t +
   \left(\frac{\alpha \gamma}{\beta^{-1}+\gamma-1}\right)i_t\\
@@ -473,9 +722,20 @@ From this it follows that the consumption-output ratio must be
   r_t &= (1-\beta(1-\gamma))(y_t-k_{t-1})\\
   a_t &= \rho a_{t-1} + \epsilon_t
 \end{align}
-Once we make assumptions about the underlying parameter values a solution algorithm such as the Binder-Pesaran program can be used to obtain the reduced-form solution and simulate the model. 
 \end{frame}
 %--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Estimation}
+  \begin{enumerate}
+    \item Make assumption about underlying parameter values
+    \item Use Binder-Pesarant algorith to get reduced-form solution
+    \item Simulate model
+  \end{enumerate} 
+\end{frame}
+%--------------------------------------
+
 
 %--------------------------------------
 \begin{frame}
@@ -538,20 +798,7 @@ However, these propagation mechanisms are quite weak as shown in figure which il
 \end{frame}
 %--------------------------------------
 
-%--------------------------------------
-\begin{frame}
 
-\begin{align*}
-  F(x_t,y_t) = F(x_t^*,y^*_t) +\\ 
-  F_x(x^*_t,y^*_t)(x_t-x^*_t) + \\
-  F_y(x^*_t,y^*_t)(y_t-y^*_t) +\\
-  F_{xx}(x^*_t,y^*_t)(x_t- x^*_t)^2+ 
-  F_{xy}(x^*_t,y^*_t)(x_t−x^*_t) (y_t-y^*_t)+\\
-  F_{yy}(x^*_t,y^*_t) (y_t-y^*_t) +...
-\end{align*}
-
-\end{frame}
-%--------------------------------------
 
 
 %--------------------------------------

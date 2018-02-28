@@ -1,6 +1,6 @@
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 # Unemployment
-# Last update: 2018 02 20
+# Last update: 2018 02 28
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 source('code/lines.R')
 library(reshape2)
@@ -20,7 +20,6 @@ plot(0,xlim=c(startYear,endYear),ylim=c(0,30),type="n",bty="n",
      main="Unemployment rate",xlab="",ylab="",axes=FALSE)
 
 lifeLines(m,col="grey60")
-lines(startYear:endYear,m[9,],col="black",lwd=2.5)       # Euro area
-lines(startYear:endYear,m[27,],col="firebrick3",lwd=2.5) # Spain
-lines(startYear:endYear,m[12,],col="gold",lwd=2.5)     # Germany
+lines(startYear:endYear,m[9,],col="black",lwd=2,lty=2)       # Euro area
+lines(startYear:endYear,m[27,],col="firebrick3",lwd=2) # Spain
 axis(1,tick=FALSE); axis(2,tick=FALSE)

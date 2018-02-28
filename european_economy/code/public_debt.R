@@ -1,6 +1,6 @@
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 # Public debt
-# Last update: 2018 02 20
+# Last update: 2018 02 28
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 d<-read.csv("data/eurostat_public_debt.csv",header=TRUE)
 
@@ -8,6 +8,6 @@ d<-read.csv("data/eurostat_public_debt.csv",header=TRUE)
 plot(d$TIME,d$Value,axes=FALSE,xlab="",ylab="",ylim=c(0,200),
      main="Public debt (% of GDP)",pch=19,col="grey50")
 lines(d$TIME[d$GEO=="Euro area (17 countries)"],
-      d$Value[d$GEO=="Euro area (17 countries)"],lwd=2,col="steelblue4")
+      d$Value[d$GEO=="Euro area (17 countries)"],lwd=2,col="black",lty=2)
 axis(1,tick=FALSE);axis(2,tick=FALSE)
-abline(h=60,lwd=2,lty=2)
+abline(h=60,lwd=2)

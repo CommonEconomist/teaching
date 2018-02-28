@@ -1,6 +1,6 @@
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 # Greek depression
-# Last update: 2018 02 20
+# Last update: 2018 02 28
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 par(mar=c(3,3,1,1),las=1,bty="n",cex.axis=2,cex.lab=2)
 
@@ -33,8 +33,8 @@ cont<-window(grc.adj,start=c(2007,2),frequency=4)
 cont<-cont/cont[1]*100
 
 # Plot
-par(mar=c(4,5,1,1))
-plot(cont,axes=FALSE,xlab="",ylab="",lwd=2)
+par(mar=c(4,5,3,1))
+plot(cont,axes=FALSE,xlab="",ylab="",lwd=2,main='Contraction Greek economy')
 axis(1,tick=FALSE);axis(2,tick=FALSE)
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
@@ -52,7 +52,8 @@ text(2015,x[17]+2,"Public \n spending")
 lines(y,lty=2,type="b")
 text(2015,y[17]+2,"Tax \n revenue")
 
-axis(1,tick=FALSE,at=seq(1999,2015,2),label=seq(1999,2015,2));axis(2,tick=FALSE)
+axis(1,tick=FALSE,at=seq(1999,2015,2),label=seq(1999,2015,2))
+axis(2,tick=FALSE,line=-1)
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 # 4) Labour costs
@@ -79,7 +80,8 @@ gdptr<-ts(d$Value[d$VARIABLE=="GDPTR"]/(1*10^9),start=c(1995,1),frequency=1)
 
 
 # Plot
-par(mar=c(5,5,1,1))
-plot(gdp,ylim=c(90,250),lwd=2,axes=FALSE,ylab="",xlab="")
+par(mar=c(5,5,3,1))
+plot(gdp,ylim=c(90,250),lwd=2,axes=FALSE,ylab="",xlab="",
+     main='Greece potential and realised GDP')
 lines(gdptr,lwd=2,lty=2)
 axis(1,tick=FALSE);axis(2,tick=FALSE)
