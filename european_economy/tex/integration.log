@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.11.1)  5 MAR 2018 14:54
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.11.1)  3 MAR 2018 18:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**rbc.tex
-(/home/swl/github/teaching/advanced_macroeconomics/tex/rbc.tex
+**integration.tex
+(/home/swl/github/teaching/european_economy/tex/integration.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 3 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
@@ -804,8 +804,8 @@ Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \extratabsurround=\skip57
 \backup@length=\skip58
 )
-(/home/swl/github/teaching/advanced_macroeconomics/tex/rbc.aux)
-\openout1 = `rbc.aux'.
+(/home/swl/github/teaching/european_economy/tex/integration.aux)
+\openout1 = `integration.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
 LaTeX Font Info:    ... okay on input line 26.
@@ -878,10 +878,10 @@ LaTeX Info: Redefining \ref on input line 26.
 LaTeX Info: Redefining \pageref on input line 26.
 LaTeX Info: Redefining \nameref on input line 26.
 
-(/home/swl/github/teaching/advanced_macroeconomics/tex/rbc.out)
-(/home/swl/github/teaching/advanced_macroeconomics/tex/rbc.out)
+(/home/swl/github/teaching/european_economy/tex/integration.out)
+(/home/swl/github/teaching/european_economy/tex/integration.out)
 \@outlinefile=\write5
-\openout5 = `rbc.out'.
+\openout5 = `integration.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 26.
@@ -956,110 +956,117 @@ Dictionary: translator-theorem-dictionary, Language: English
 )
 LaTeX Info: Redefining \includegraphics on input line 26.
 
-(/home/swl/github/teaching/advanced_macroeconomics/tex/rbc.nav) [1
+(/home/swl/github/teaching/european_economy/tex/integration.nav) [1
+
+] [2
 
 ]
-File: fred.eps Graphic file (type eps)
- <fred.eps>
-[2
+LaTeX Font Info:    Try loading font information for OT1+lmss on input line 63.
 
-]
-File: fred2.eps Graphic file (type eps)
- <fred2.eps> [3
 
-]
-File: fred3.eps Graphic file (type eps)
- <fred3.eps> [4
-
-]
-File: fred4.eps Graphic file (type eps)
- <fred4.eps> [5
-
-]
-File: business_cycle.eps Graphic file (type eps)
- <business_cycle.eps>
-[6
-
-]
-File: business_cycle2.eps Graphic file (type eps)
- <business_cycle2.eps> [7
-
-]
-File: business_cycle3.eps Graphic file (type eps)
- <business_cycle3.eps> [8
-
-]
-File: williamson.eps Graphic file (type eps)
- <williamson.eps>
-[9
-
-] [10
-
-]
-LaTeX Font Info:    Try loading font information for OT1+lmss on input line 139
-.
- (/usr/share/texmf/tex/latex/lm/ot1lmss.fd
+(/usr/share/texmf/tex/latex/lm/ot1lmss.fd
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 139.
-
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 63.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 139
-.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 63.
+
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 139
-.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 63.
+
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 139.
+(Font)              <8> on input line 63.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 139.
+(Font)              <6> on input line 63.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 139.
-LaTeX Font Info:    Try loading font information for U+msa on input line 139.
+(Font)              <5> on input line 63.
+LaTeX Font Info:    Try loading font information for U+msa on input line 63.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 139.
+LaTeX Font Info:    Try loading font information for U+msb on input line 63.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 139.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 63.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 139.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 63.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <5> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 139.
- [11
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 63.
+ [3
+
+] [4
 
 ]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 157.
+(Font)              <10.95> on input line 103.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 157.
- [12
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 103.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 103.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 103.
+ [5
 
-] [13
+] [6
 
 ]
-[14
+[7
 
-] [15
+] [8
 
-] [16
+]
+File: rutte.eps Graphic file (type eps)
+ <rutte.eps> [9
 
-] [17
+]
+Missing character: There is no ’ in font ec-lmsso10!
+ [10
+
+] [11
+
+]
+File: smbc.eps Graphic file (type eps)
+ <smbc.eps> [12
+
+]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 216.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 216.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 216.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <7> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 216.
+ [13
+
+] [14
+
+]
+File: ire_gdp.eps Graphic file (type eps)
+ <ire_gdp.eps>
+[15
+
+]
+File: ire_gdp_hp.eps Graphic file (type eps)
+ <ire_gdp_hp.eps> [16
+
+]
+File: eu_G.eps Graphic file (type eps)
+ <eu_G.eps> [17
 
 ] [18
 
@@ -1069,7 +1076,13 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
 
 ] [21
 
-] [22
+]
+File: de_bruyne.eps Graphic file (type eps)
+ <de_bruyne.eps>
+Overfull \vbox (25.37524pt too high) detected at line 333
+ []
+
+[22
 
 ] [23
 
@@ -1079,20 +1092,28 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
 
 ] [26
 
-] [27
+]
+File: impossible_trinity.eps Graphic file (type eps)
+ <impossible_trinity.eps> [27
 
 ] [28
 
-]
-[29
+] [29
 
 ] [30
 
 ] [31
 
-] [32
+]
+[32
 
-] [33
+]
+File: big_mac_index.eps Graphic file (type eps)
+ <big_mac_index.eps>
+Overfull \vbox (12.4229pt too high) detected at line 507
+ []
+
+[33
 
 ] [34
 
@@ -1100,105 +1121,44 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
 
 ] [36
 
-]
-Missing character: There is no − in font rm-lmss10!
-Missing character: There is no − in font rm-lmss10!
- [37
+] [37
 
 ] [38
 
-] [39
-
-] [40
-
-] [41
-
-] [42
-
-] [43
-
 ]
-[44
+File: expensive_pacific.eps Graphic file (type eps)
+ <expensive_pacific.eps>
+Overfull \hbox (8.89137pt too wide) in paragraph at lines 605--605
+ [] 
+ []
 
-] [45
-
-] [46
-
-] [47
-
-] [48
-
-] [49
-
-] [50
-
-] [51
-
-] [52
-
-] [53
-
-] [54
-
-] [55
-
-] [56
-
-]
-File: rbc1.eps Graphic file (type eps)
- <rbc1.eps>
-[57
-
-] [58
-
-]
-File: rbc2.eps Graphic file (type eps)
- <rbc2.eps> [59
-
-] [60
-
-]
-File: rbc3.eps Graphic file (type eps)
- <rbc3.eps> [61
-
-] [62
-
-]
-File: rbc4.eps Graphic file (type eps)
- <rbc4.eps> [63
-
-]
-File: rbc5.eps Graphic file (type eps)
- <rbc5.eps>
-[64
-
-] [65
+[39
 
 ]
 \tf@nav=\write6
-\openout6 = `rbc.nav'.
+\openout6 = `integration.nav'.
 
 \tf@toc=\write7
-\openout7 = `rbc.toc'.
+\openout7 = `integration.toc'.
 
 \tf@snm=\write8
-\openout8 = `rbc.snm'.
+\openout8 = `integration.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1001.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1001.
- (/home/swl/github/teaching/advanced_macroeconomics/tex/rbc.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1001.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1001.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1001.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 609.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 609.
+ (/home/swl/github/teaching/european_economy/tex/integration.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 609.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 609.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 609.
  ) 
 Here is how much of TeX's memory you used:
- 19926 strings out of 495579
- 360400 string characters out of 6187322
- 405866 words of memory out of 5000000
- 22764 multiletter control sequences out of 15000+600000
- 54159 words of font info for 51 fonts, out of 8000000 for 9000
+ 19947 strings out of 495579
+ 361542 string characters out of 6187322
+ 403840 words of memory out of 5000000
+ 22782 multiletter control sequences out of 15000+600000
+ 79511 words of font info for 71 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 48i,12n,51p,405b,400s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,11n,51p,413b,414s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /home/swl/github/teaching/advanced_macroeconomics/tex/rbc.pdf
- (65 pages).
+Output written on /home/swl/github/teaching/european_economy/tex/integration.pd
+f (39 pages).
