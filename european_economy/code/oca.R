@@ -25,7 +25,7 @@ wdi<-wdi[order(wdi$flow),]
 
 # Plot data
 par(las=1)
-barplot(wdi$flow,xaxt="n",yaxt="n",xlab="Relative to GDP",
+barplot(wdi$flow,xaxt="n",yaxt="n",xlab="",main='Trade relative to GDP',
         border=F,width=c(.35),space=1.8,
         horiz=TRUE,col="black")
 axis(2,at=(1:27)-.26,labels=wdi$iso2c, tick=F,cex.axis=1.3)
@@ -68,7 +68,7 @@ d<-na.omit(d[order(d$debt),])
 
 # Plot data
 barplot(d$debt,xaxt="n",yaxt="n",ylab="",border=F,width=c(.35),space=1.8,
-        horiz=TRUE,col="black")
+        horiz=TRUE,col="black",main='Public debt relative to GDP')
 axis(2,at=(1:29)-.26,labels=d$iso2c, tick=F,cex.axis=1.3)
 axis(1,tick=F)
 abline(v=seq(0,130,10),col="white",lwd=3)
