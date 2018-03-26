@@ -34,13 +34,73 @@
 
 %--------------------------------------
 \begin{frame}
-  \textbf{New Keynesian model} addresses some of the critiques on the Keynesian model
+  Kydland \& Prescott (1982) "Time to Build and Aggregate Fluctuations" showed strength of DSGE modeling
+  \begin{itemize}
+    \item Small coherent model of economy
+    \item Optimising agents, rational expectations, market clearing
+    \item Model generated data that resembled observed data
+  \end{itemize}
+  \medskip
+  Some shortcomings
+  \begin{itemize}
+    \item Volatility of hours, persistence of output    
+  \end{itemize}
+  \medskip
+  But model did remarkably well excluding a lot of presumed \textit{sine qua nons}
+  \begin{itemize}
+    \item Money, nominal rigidities (i.e. stickiness), non-market clearing
+  \end{itemize}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Q:} Does money matter?
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Short-term fluctuations linked to money increase through price stickiness 
+  \begin{itemize}
+    \item Hume, Keynes, Friedman
+  \end{itemize}
+  \medskip
+  Strong empirical case supporting notion that money matters
+  \begin{itemize}
+    \item "A Monetary History of the U.S.", Friedman \& Schwartz (1971)
+    \item Empirical evidence from VAR models
+  \end{itemize}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Can include money into DSGE model, requires
+  \begin{enumerate}
+    \item Monopolistic competition
+    \item Role to justify existence of money (e.g. in utility)
+    \item Monetary authority inducing nominal shocks to economy
+  \end{enumerate}
+  \medskip
+  Model fit improves by
+  \begin{enumerate}
+    \item Delay/extend response economy to shock (e.g. habit persistence)
+    \item Adding extra shocks (e.g. preferences)
+  \end{enumerate}
+\end{frame}
+%--------------------------------------
+
+
+%--------------------------------------
+\begin{frame}
+  \textbf{New Keynesian model} addresses some of critiques on Keynesian model
   \begin{itemize}
     \item Rational expectations
     \item People behave optimally
   \end{itemize}
   \medskip
-  Also room for monetary policy to have systematic effects
+  Room for systematic effects of monetary policy  
   \begin{itemize}
     \item Central mechanism for monetary policy is \textbf{sticky prices}
     \item If prices don't move in line with money; central bank can't control real money supply or interest rate
@@ -48,27 +108,60 @@
 \end{frame}
 %--------------------------------------
 
+
 %--------------------------------------
 \begin{frame}
- \textbf{Dixit-Stiglitz model}\\
- Used as vantage point to describe optimal behaviour  
+  Basic features of NK model
+  \begin{itemize}
+    \item General equilibrium model
+    \item Two stages of production: firms are monopolistically competitive
+    \item Firms cannot reoptimise prices each period
+    \item Due to price stickiness monetary policy has real effects: needs to be described by model
+  \end{itemize}
+  \medskip
+  Basically NK model is RBC model with
+  \begin{enumerate}
+    \item Sticky prices
+    \item Monetary authority operating via interest rate feedback rule
+    \item Additional simplifications
+    \begin{itemize}
+      \item No capital accumulation (only labour); no trend productivity growth, only stationary shocks 
+    \end{itemize}
+  \end{enumerate}
+\end{frame}
+%--------------------------------------
 
-\begin{align}
-  Y_t=\left( \int_0^1 Y_t(i)^{\frac{\theta-1}{\theta}}di\right)^{\frac{\theta}{\theta-1}}
-\end{align}
-Consumers will maximise their utility function $U(Y_t)$ over an aggregate of a continuum of differentiated goods
-\begin{itemize}
-  \item $\theta$ denotes constant elasticity of substitution
-\end{itemize}
-\medskip
-This model does not include capital but only consumption goods. 
+%--------------------------------------
+\begin{frame}
+  Why are prices sticky?
+  \begin{itemize}
+    \item Imperfect information
+    \item Costs of changing prices
+    \item Agents trust in price stability (in stable economic environment)
+  \end{itemize}
 \end{frame}
 %--------------------------------------
 
 
 %--------------------------------------
 \begin{frame}
- Demand function for each differentiated good is of the form
+ To describe optimal behaviour, use \textbf{Dixit-Stiglitz model}\\
+\begin{align}
+  Y_t=\left( \int_0^1 Y_t(i)^{\frac{\theta-1}{\theta}}di\right)^{\frac{\theta}{\theta-1}}
+\end{align}
+Consumers maximise utility function $U(Y_t)$ over an aggregate of a continuum of differentiated goods
+\begin{itemize}
+  \item $\theta$ denotes constant elasticity of substitution
+\end{itemize}
+\medskip
+ Model only includes consumption goods, no capital
+\end{frame}
+%--------------------------------------
+
+
+%--------------------------------------
+\begin{frame}
+ For each differentiated good, demand function has form 
 \begin{align}
   Y_t(i)=Y_t \left( \frac{P_t(i)}{P_t}\right)^{-\theta}
 \end{align}
@@ -82,19 +175,30 @@ $P_t$ is the aggregate price index which is defined by
 
 %--------------------------------------
 \begin{frame}
- \textbf{Calvo model}\\
- Used to describe price rigitidy, or sticky prices
+ To describe price rigidity use \textbf{Calvo model}\\ 
 \begin{align}
   P_t &= \left[(1-\alpha)X_t^{1-\theta} + \alpha P_{t-1}^{1-\theta} \right] ^{\frac{1}{1-\theta}}\\
   P_t^{1-\theta} &= (1-\alpha)X_t^{1-\theta} + \alpha P_{t-1}^{1-\theta}
 \end{align}
-$1-\alpha$ is random fraction of firms able to reset their price\\
-$X_t$ is the price that the firms resetting today have chosen
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+Random fraction of firms is able to reset prices
+\begin{align}
+   1-\alpha 
+\end{align}
+Firms reset price to 
+\begin{align}
+   X_t 
+\end{align}
 \begin{enumerate}
   \item All other firms keep prices unchaged
   \item All firms setting new prices today set the same price.
 \end{enumerate}
-Apart from this difference in timing, of when they set prices, the firms are completely symmetric
+\medskip
+ Firms are completely symmetric: except for timing of price-setting
 \end{frame}
 %--------------------------------------
 
@@ -102,58 +206,137 @@ Apart from this difference in timing, of when they set prices, the firms are com
 \begin{frame}
  Prices may be fixed for many periods: Firms pick a price to maximise
 \begin{align}
-  E_t \left[ \sum_{k=0}^{\infty} (\alpha \beta)^k (Y_{t+k}P_{t+k}^{\theta-1}X_t^{1-\theta} -
-  P_{t+l}^{-1}C (Y_{t+k}P_{t+k}^{\theta}X_t^{-\theta}) \right]
+  \mathbb{E}_t \left[ \sum_{k=0}^{\infty} (\alpha \beta)^k (Y_{t+k}P_{t+k}^{\theta-1}X_t^{1-\theta} -
+  P_{t+k}^{-1}C (Y_{t+k}P_{t+k}^{\theta}X_t^{-\theta}) ) \right]
 \end{align}
 $C(.)$ is the cost function\\
-Solution for maximisation problem is (differentiating with regard to $X_t$)
+Differentiate with respect to $X_t$ to get solution of maximisation problem
 \begin{align}
-  X_t = \frac{\theta}{\theta-1} \frac{E_t \left(\sum_{k=0}^{\infty}(\alpha \beta)^k Y_{t+k}P_{t+k}^{\theta-1}MC_{t+k} \right)}
-  {E_t \left(\sum_{k=0}^{\infty}(\alpha \beta)^k Y_{t+k}P_{t+k}^{\theta-1} \right) }
+  X_t = \frac{\theta}{\theta-1} \frac{\mathbb{E}_t \left(\sum_{k=0}^{\infty}(\alpha \beta)^k Y_{t+k}P_{t+k}^{\theta-1}MC_{t+k} \right)}
+  {\mathbb{E}_t \left(\sum_{k=0}^{\infty}(\alpha \beta)^k Y_{t+k}P_{t+k}^{\theta-1} \right) }
 \end{align}  
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  This entails that changed price $X_t$ is a markup over a weighted average of future marginal costs: without frictions the firm would set 
+  \begin{align*}
+  X_t = \frac{\theta}{\theta-1} \frac{\mathbb{E}_t \left(\sum_{k=0}^{\infty}(\alpha \beta)^k Y_{t+k}P_{t+k}^{\theta-1}MC_{t+k} \right)}
+  {\mathbb{E}_t \left(\sum_{k=0}^{\infty}(\alpha \beta)^k Y_{t+k}P_{t+k}^{\theta-1} \right) }
+  \end{align*}
+  \medskip
+  Without pricing frictions, firm sets
   \begin{align}
     X_t=\frac{\theta}{\theta-1}MC_t
   \end{align}
-i.e. the price equals $\frac{\theta}{\theta-1}$ times the marginal costs\\
-Got two non-linear equations for price
+  \medskip
+  i.e. price is markup over marginal costs  \\
+  Price likely to be fixed for number of periods
+  \begin{itemize}
+    \item Optimal price is markup over weighted average of future marginal costs
+  \end{itemize}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame} 
+  \begin{align}    (\alpha \beta)^k  \end{align}
+    Less weight on future MC because of 
+    \begin{enumerate}[i]
+      \item Discounting
+      \item Lower probability for price set at $t$ to be around at $k$ as $k$ increases
+    \end{enumerate}
+    \begin{align} Y_{t+k}P_{t+k}^{\theta-1}   \end{align}
+    Represents aggregate factors affecting future firm demand
+    \begin{enumerate}[i]
+      \item $Y_{t+k}$ increases firm will sell more; as $P_{t+k}$ goes up, firm's relative price down and demand increases
+      \item Will offset discounting term (somewhat)
+    \end{enumerate}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Have two non-linear equations for price
 \begin{align}
     P_t^{1-\theta} &= (1-\alpha)X_t^{1-\theta} + \alpha P_{t-1}^{1-\theta}\\
-    X_t &= \frac{\theta}{\theta-1} \frac{E_t \left(\sum_{k=0}^{\infty}(\alpha \beta)^k Y_{t+k}P{t+k}^{\theta-1}MC_{t+k} \right)}
-  {E_t \left(\sum_{k=0}^{\infty}(\alpha \beta)^k Y_{t+k}P{t+k}^{\theta-1} \right) }
+    X_t &= \frac{\theta}{\theta-1} \frac{\mathbb{E}_t \left(\sum_{k=0}^{\infty}(\alpha \beta)^k Y_{t+k}P{t+k}^{\theta-1}MC_{t+k} \right)}
+  {\mathbb{E}_t \left(\sum_{k=0}^{\infty}(\alpha \beta)^k Y_{t+k}P{t+k}^{\theta-1} \right) }
 \end{align}
+\medskip
+  Not easy to solve or simulate price equation
+  \begin{itemize}
+    \item  Use log-linear approximations taken around constant growth, zero inflation path
+  \end{itemize}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
-\begin{frame}
-  Solving or simulating price equations is not easy: use log-linear approximations taken around constant growth, zero inflation path
-  \begin{align}
-    X_t^* &= P^*=P^*_{t-1}=P^*\\
-  X^* &= \left(\frac{\theta}{1-\theta}\right)MC^*    
+\begin{frame}  
+  Zero-inflation steady-state is such that  
+    \begin{align}
+    X_t^* &= P_t^*=P^*_{t-1}=P^*\\  
   \end{align}
-\begin{align}
-  p_t &= (1-\alpha)x_t + \alpha p_{t-1}\\
-  x_t &= (1-\alpha \beta) \sum_{k=0}^{\infty} (\alpha \beta)^k E_tmc_{t+k}
-\end{align} 
+  \begin{align}
+    P_t^{1-\theta} &= (1-\alpha)X_t^{1-\theta} + \alpha P_{t-1}^{1-\theta}
+  \end{align}
+  Becomes
+  \begin{align}
+    (P^*)^{1-\theta} (1+(1-\theta)p_t)=& (1-\alpha)(P^*)^{1-\theta} (1+(1-\theta)x_t)+ \\ \nonumber
+    &\alpha(P^*)^{1-\theta}(1+(1-\theta)p_{t-1})
+  \end{align}
+  Simplifies to
+  \begin{align}
+    p_t=(1-\alpha)x_t+\alpha p_{t-1}
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame} 
+ FOC for optimal pricing is given by
+ \begin{align}
+   \mathbb{E}_t \left [ \sum_{k=0}^{\infty} (\alpha \beta)^k \left( (1-\theta)Y_{t+k}P_{t+k}^{\theta-1}X_t^{-\theta} + \theta MC_{t+k}Y_{t+k}P_{t+k}^{\theta-1}X_t^{-\theta-1} \right)\right]=0
+ \end{align}
+ Around steady-state we get
+ \begin{align}
+   (1-\theta)Y_{t+k}P_{t+k}^{\theta-1}X_t^{-\theta} & \approx  (1-\theta)Y^*(P^*)^{\theta-1}(X^*)^{-\theta} \\ \nonumber 
+   &(1+y_{t+k}+(\theta-1)p_{t+k}-\theta x_t)\\
+  \theta MC_{t+k}Y_{t+k}P_{t+k}^{\theta-1}X_t^{-\theta-1} & \approx \\ \nonumber 
+  & \theta MC^* Y^* (P^*)^{\theta-1} (X^*)^{-\theta-1} \\ \nonumber &(1+mc_{t+k} + y_{t+k} + (\theta -1) p_{t+k} - (1-\theta) x_t)
+ \end{align}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  Reverse engineering can see that optimal reset price can be written as
+  Can use that in steady-state 
   \begin{align}
-  x_t=(1-\alpha \beta) mc_t + (\alpha \beta) E_t x_{t+1}
+    X^* = \left( \frac{\theta}{\theta-1}\right ) MC^*
+  \end{align}
+  Simplifies to
+  \begin{align}
+    \mathbb{E}_t \left[ \sum_{k=0}^{\infty} (\alpha \beta)^k (x_t - mc_{t+k}) \right] &=0 \\ \nonumber  
+    x_t &= (1-\alpha \beta) \sum_{k=0}^{\infty} (\alpha \beta)^k \mathbb{E}_t mc_{t+k}
+  \end{align}
+  Aggregate output and price level drop out: log-price is weighted average of expected future logs  of marginal costs
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Reverse engineering 
+  \begin{align}
+    x_t &= (1-\alpha \beta) \sum_{k=0}^{\infty} (\alpha \beta)^k \mathbb{E}_t mc_{t+k}
+  \end{align}
+  can write optimal reset price as
+  \begin{align}
+  x_t=(1-\alpha \beta) mc_t + (\alpha \beta) \mathbb{E}_t x_{t+1}
  \end{align}
  Can combine this with fact that 
 \begin{align}
-  p_t &= (1-\alpha)x_t+\alpha p_{t-1}\\
-  x_t &= \frac{1}{1-\alpha}(p_t-\alpha p_{t-1})  
+  p_t &= (1-\alpha)x_t+\alpha p_{t-1}\\ \nonumber
+  \frac{1}{1-\alpha}(p_t-\alpha p_{t-1}) &= x_t 
 \end{align}
 \end{frame}
 %--------------------------------------
@@ -166,7 +349,7 @@ Got two non-linear equations for price
   \end{align}
   After bunch of re-arranging you get  
 \begin{align}
-  \pi_t= \beta E_t \pi_{t+1} + \frac{(1+\alpha)(1-\alpha \beta)}{\alpha}(mc_t - p_t)
+  \pi_t= \beta \mathbb{E}_t \pi_{t+1} + \frac{(1+\alpha)(1-\alpha \beta)}{\alpha}(mc_t - p_t)
 \end{align}
 $\pi_t$ is a function 
 \begin{enumerate}
@@ -180,11 +363,12 @@ $\pi_t$ is a function
 %--------------------------------------
 \begin{frame}
   \textbf{Output}\\
-  Assume that there are standard diminishing returns to labour production function
+  Assume diminishing returns to labour production function
   \begin{itemize}
     \item Higher output reduces marginal productivity and raises marginal cost 
   \end{itemize}
-  This means that real marginal costs are a function of the output gap
+  \medskip
+  Makes real marginal costs a function of output gap  
 \begin{align}
   mc_t-p_t=\eta x_t
 \end{align}
@@ -192,44 +376,44 @@ Concerning $x_t$
 \begin{align}
   x_t=y_t-y_t^n
 \end{align}
-$y_t^n$ is the path of output that would have been obtained in a zero inflation price friction free economy
+$y_t^n$ is output path in zero-inflation price friction free economy
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- We get NKPC of the form
+ NKPC has form
   \begin{align}
-  \pi_t=\beta E_t \pi_{t+1} + \kappa x_t
+  \pi_t=\beta \mathbb{E}_t \pi_{t+1} + \kappa x_t
 \end{align}
 \medskip
- Looks a lot like traditional expectations-augmented Phillips curve
-It is a first-order stochastic difference equation, which entails a solution in the form
+ Looks like traditional expectations-augmented Phillips curve.\\
+ First-order stochastic difference equation; has solution in form
 \begin{align}  
-  \pi_t=\kappa \sum_{k=0}^{\infty}\beta^k E_t x_{t+k} 
+  \pi_t=\kappa \sum_{k=0}^{\infty}\beta^k \mathbb{E}_t x_{t+k} 
 \end{align}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
+ No backward-looking element in
 \begin{align}  
-  \pi_t=\kappa \sum_{k=0}^{\infty}\beta^k E_t x_{t+k} 
+  \pi_t=\kappa \sum_{k=0}^{\infty}\beta^k \mathbb{E}_t x_{t+k} 
 \end{align}
-\medskip
-Has no backward-looking element
 \begin{itemize}
   \item No intrinsic inertia in inflation
-  \item Lagged inflation effects, in conventional models, are actually a statistical artifact
+  \item In conventional model, lagged inflation effects are statistical artifact
 \end{itemize}
 \medskip
-Note that original formulation of NKPC does not have error/shock term
+ Original NKPC formulation has no shock/error term
 \begin{itemize}
   \item Maybe price movements not consistent with this formulation.
 \end{itemize}
 \begin{align}
-  \pi_t=\beta E_t \pi_{t+1} + \kappa x_t + u_t
+  \pi_t=\beta \mathbb{E}_t \pi_{t+1} + \kappa x_t + u_t
 \end{align} 
+\medskip
  \textbf{Cost-push shock} added to NKPC
 \end{frame}
 %--------------------------------------
@@ -237,7 +421,7 @@ Note that original formulation of NKPC does not have error/shock term
 %--------------------------------------
 \begin{frame}
   \begin{align}
-  \pi_t=\beta E_t \pi_{t+1} + \kappa x_t + u_t
+  \pi_t=\beta \mathbb{E}_t \pi_{t+1} + \kappa x_t + u_t
 \end{align} 
  $u_t$ accounts for misc. shocks:
  \begin{itemize}
@@ -250,11 +434,12 @@ Note that original formulation of NKPC does not have error/shock term
 
 %--------------------------------------
 \begin{frame}
-  NKPC links inflation to output: Consider how we link output to monetary policy. 
+  NKPC links inflation to output
   \begin{itemize}
-    \item First of three equations that make up the New Keynesian model
+    \item Need to consider how to link output to monetary policy
   \end{itemize}
-  NKM uses interest rates: recall that model does not include capital
+  \medskip  
+  NK model uses interest rates: recall exclusion of capital in model
   \begin{align}
     Y=C
   \end{align}
@@ -269,31 +454,31 @@ Note that original formulation of NKPC does not have error/shock term
 \begin{frame}
   Intertemporal budget constraint given by  
 \begin{align}
-  \sum_{k=0}^{\infty} \frac{E_t C_{t+k}}{\left(\prod_{m=1}^{k+t}R_{t+m} \right)} =
-   A_t +   \sum_{k=0}^{\infty} \frac{E_t Y_{t+k}}{\left(\prod_{m=1}^{k+t}R_{t+m} \right)}
+  \sum_{k=0}^{\infty} \frac{\mathbb{E}_t C_{t+k}}{\left(\prod_{m=1}^{k+t}R_{t+m} \right)} =
+   A_t +   \sum_{k=0}^{\infty} \frac{\mathbb{E}_t Y_{t+k}}{\left(\prod_{m=1}^{k+t}R_{t+m} \right)}
 \end{align}
 $R_t$ is the interest rate\\
 Can write Lagrangian as
 \begin{align}
   L &= \sum_{k=0}^{\infty} \left(\frac{1}{1+\beta} \right)^k U(C_{t+k}) \\ \nonumber
-  &+ \lambda \left[A_t + \sum_{k=0}^{\infty} \frac{E_t Y_{t+k}}{\left( \prod_{m=1}^{k+1} R_{t+m} \right)} -
-  \sum_{k=0}^{\infty} \frac{E_t C_{t+k}}{\left( \prod_{m=1}^{k+1} R_{t+m} \right)} \right ]
+  &+ \lambda \left[A_t + \sum_{k=0}^{\infty} \frac{\mathbb{E}_t Y_{t+k}}{\left( \prod_{m=1}^{k+1} R_{t+m} \right)} -
+  \sum_{k=0}^{\infty} \frac{\mathbb{E}_t C_{t+k}}{\left( \prod_{m=1}^{k+1} R_{t+m} \right)} \right ]
 \end{align}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Euler equation} can be derived by combining FOCs for $C_t$ and $C_{t+1}$ 
+  Derive \textbf{Euler equation} by combining FOCs for $C_t$ and $C_{t+1}$ 
 \begin{align}  
-  U'(C_t) = E_t \left[ \left(\frac{R_{t+1}}{1+\beta} \right) U'(C_{t+1})\right] 
+  U'(C_t) = \mathbb{E}_t \left[ \left(\frac{R_{t+1}}{1+\beta} \right) U'(C_{t+1})\right] 
   \end{align}
   Can set
   \begin{align}
     U(C_t)=U(Y_t)=\frac{Y_t^{1-\frac{1}{\sigma}}}{1-\frac{1}{\sigma}}
   \end{align}
   \begin{align}
-  E_t \left[ \left( \frac{R_{t+1}}{1+\beta} \right) \left( \frac{Y_t}{Y_{t+1}} \right)^{\frac{1}{\sigma}} \right]=1 
+  \mathbb{E}_t \left[ \left( \frac{R_{t+1}}{1+\beta} \right) \left( \frac{Y_t}{Y_{t+1}} \right)^{\frac{1}{\sigma}} \right]=1 
  \end{align}
  \textbf{NB-}Similar to the Real Business Cycle model this is a Constant Relative Risk Aversion (CRRA) utility from consumption
 \end{frame}
@@ -307,28 +492,28 @@ Can write Lagrangian as
   \end{align}
 Log-linearised version of the Euler equation is 
 \begin{align}  
-y_t=E_ty_{t+1} - \sigma(i_t - E_t\pi_{t+1} - \rho) 
+y_t=\mathbb{E}_ty_{t+1} - \sigma(i_t - \mathbb{E}_t\pi_{t+1} - \rho) 
 \end{align}
 i.e. today's output depends negatively on the real interest rate
 \end{frame}
 %--------------------------------------
 
 
-
 %--------------------------------------
 \begin{frame}
-  Recall that the equation for inflation featured the output gap 
+  Recall that inflation equation featured output gap  
   \begin{align}
     x_t=y_t-y_t^n  
   \end{align}
-  Substitute into Euler equation\footnote{$E_ty_{t+1}$ with $E_tx_{t+1}+E_ty^n_{t+1}$}
+  Substitute into Euler equation\footnote{$\mathbb{E}_ty_{t+1}$ with $\mathbb{E}_tx_{t+1}+\mathbb{E}_ty^n_{t+1}$}
 \begin{align}
-  x_t &= E_t x_{t+1} - \sigma (i_t - E_t \pi_{t+1} - \rho) + E_t y_{t+1}^n - y_t^n\\
-  x_t &= E_t x_{t+1} - \sigma (i_t - E_t \pi_{t+1} - r_t^n)
+  x_t &= \mathbb{E}_t x_{t+1} - \sigma (i_t - \mathbb{E}_t \pi_{t+1} - \rho) + \mathbb{E}_t y_{t+1}^n - y_t^n\\
+  x_t &= \mathbb{E}_t x_{t+1} - \sigma (i_t - \mathbb{E}_t \pi_{t+1} - r_t^n)
 \end{align}
+\medskip
 Natural interest rate is given by
 \begin{align}
-  r_t^n=\sigma^{-1}E_t\Delta y_{t+1}^n - log \beta  
+  r_t^n=\sigma^{-1}\mathbb{E}_t\Delta y_{t+1}^n - log \beta  
 \end{align}
 \end{frame}
 %--------------------------------------
@@ -337,7 +522,7 @@ Natural interest rate is given by
 \begin{frame}
   $r_t$ is a function of
   \begin{align}
-    E_t \Delta y_{t+1}^n
+    \mathbb{E}_t \Delta y_{t+1}^n
   \end{align}
   Meaning that it is determined by 
   \begin{enumerate}
@@ -346,7 +531,7 @@ Natural interest rate is given by
   \end{enumerate}
   Output gap $x_t$ follows a first-order stochastic difference equation which has a solution of the form
 \begin{align}
-  x_t = \sigma \sum_{k=0}^{\infty} (i_{t+k} - E_t \pi_{t+k+1} - r_{t+k}^n)  
+  x_t = \sigma \sum_{k=0}^{\infty} (i_{t+k} - \mathbb{E}_t \pi_{t+k+1} - r_{t+k}^n)  
 \end{align}  
 \end{frame}
 %--------------------------------------
@@ -360,28 +545,31 @@ Natural interest rate is given by
      \item Current policy
      \item All future interest rates
    \end{enumerate}
-  \medskip
-  Central bankers should therefore take care in managing expectations about future policy
-  \begin{itemize}
-    \item Future interest rates are their key tool
-  \end{itemize}
-Interpreting $i_t$ as the short-term interest rate, and assuming that the expectations theory of the term structure holds, this model states that it is the long-term interest rates that matter for spending. 
-
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  In its most basic form the New Keynesian model has three equations. 
-We have already derived 
+  Central bankers should therefore take care in managing expectations about future policy
+  \begin{itemize}
+    \item Future interest rates are their key tool
+  \end{itemize}
+Interpreting $i_t$ as the short-term interest rate, and assuming that the expectations theory of the term structure holds, this model states that it is the long-term interest rates that matter for spending.   
+\end{frame}
+%--------------------------------------
+
+
+%--------------------------------------
+\begin{frame}
+  In most basic form NK model has three equations
 \begin{enumerate}
-  \item The New Keynesian Phillips curve
-  \begin{align} \pi_t=\beta E_t \pi_{t+1} + \kappa x_t + u_t \end{align}
-  \item The Euler equation for output
-  \begin{align} x_t =E_t x_{t+1} - \sigma (i_t - E_t \pi_{t+1} - r_t^n) \end{align}
+  \item New Keynesian Phillips curve
+  \begin{align} \pi_t=\beta \mathbb{E}_t \pi_{t+1} + \kappa x_t + u_t \end{align}
+  \item Euler equation for output
+  \begin{align} x_t = \mathbb{E}_t x_{t+1} - \sigma (i_t - \mathbb{E}_t \pi_{t+1} - r_t^n) \end{align}
 \end{enumerate}
-Now we only have to find an equation describing how interest rate policy is set. 
-This is usually described as an explicit interest rate rule.  
+ \medskip
+ Only need one final equation: description of how interest rate policy is set.
 \end{frame}
 %--------------------------------------
 
@@ -389,17 +577,18 @@ This is usually described as an explicit interest rate rule.
 \begin{frame}
   \textbf{Output-inflation dynamics}
 \begin{align}
-  x_t &=E_tx_{t+1} - \sigma(i_t-E_t\pi_{t+1} - r_t^n)\\
-  \pi_t &= \beta E_t \pi_{t+1} + \kappa x_t + u_t
+  x_t &=\mathbb{E}_tx_{t+1} - \sigma(i_t-\mathbb{E}_t\pi_{t+1} - r_t^n)\\
+  \pi_t &= \beta \mathbb{E}_t \pi_{t+1} + \kappa x_t + u_t
 \end{align}
-  Can be rewritten as 
+\medskip
+Can rewrite as  
 \begin{align}
-  \pi_t = \beta E_t \pi_{t+1} + \kappa E_t x_{t+1} - \kappa\sigma(i_t - E_t \pi_{t+1} - r_t^n) + u_t
+  \pi_t = \beta \mathbb{E}_t \pi_{t+1} + \kappa \mathbb{E}_t x_{t+1} - \kappa\sigma(i_t - \mathbb{E}_t \pi_{t+1} - r_t^n) + u_t
 \end{align}
  Put in vector form
 \begin{align}
   \begin{pmatrix} x_t \\ \pi_t \end{pmatrix} = \begin{pmatrix} 1 & \sigma \\ \kappa & \beta +\kappa\sigma \end{pmatrix}
-  \begin{pmatrix} E_tx_{t+1} \\ E_t \pi{t+1} \end{pmatrix} + 
+  \begin{pmatrix} \mathbb{E}_tx_{t+1} \\ \mathbb{E}_t \pi{t+1} \end{pmatrix} + 
   \begin{pmatrix} \sigma (r_t^n-i_t) \\ \kappa\sigma (r_t^n-i_t) + u_t \end{pmatrix}
 \end{align}  
 \end{frame}
@@ -409,7 +598,7 @@ This is usually described as an explicit interest rate rule.
 \begin{frame}
  Have model in form
  \begin{align}
-  Z_t=AE_tZ_{t+1}+BV_t 
+  Z_t=A\mathbb{E}_tZ_{t+1}+BV_t 
  \end{align}
  For unique stable solution the eigenvalues of $A$ need to be less than 1
 \begin{align} 
@@ -446,16 +635,17 @@ This is usually described as an explicit interest rate rule.
    \item one eigenvalue between zero and one 
    \item one eigenvalue greater than 1
  \end{enumerate}
+\medskip
 This is a serious problem for the model: no unique stable solution; model has multiple equilibria
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  Two ways to deal with $\lambda$ issue
+  Two options to deal with $\lambda$ issue
 \begin{enumerate}
-  \item Accept that there are multiple equilibria: analyse the impact of interest rate changes on output and inflation across a range of different possible equilibria
-  \item Specify that monetary policy follows a particular rule and this rule is designed to produce a unique stable equilibrium
+  \item Accept multiple equilibria: analyse impact interest rate changes on output and inflation across range of different possible equilibria
+  \item Specify monetary policy following a particular rule; rule designed to produce a unique stable equilibrium
 \end{enumerate}
 \end{frame}
 %--------------------------------------
@@ -466,10 +656,12 @@ This is a serious problem for the model: no unique stable solution; model has mu
 \begin{align} 
   i_t=r_t^n+ \phi_{\pi}\pi_t+\phi_xx_t 
 \end{align}
+ \medskip
   Monetary policy sets interest rate based on inflation and output gap
   \begin{itemize}
     \item Increase in $\pi,x$ will increase $i$    
   \end{itemize}
+  \medskip
  Note inclusion of natural interest rate: set interest rate moves with the natural interest rate
  \begin{itemize}
    \item Rule here allows $i$ to move with natural rate: Taylor's rule has a constant intercept
@@ -481,12 +673,12 @@ This is a serious problem for the model: no unique stable solution; model has mu
 \begin{frame}
   Rule can be substituted in the equation for $x_t$ to give
 \begin{align}  
-  x_t=E_tx_{t+1} + \sigma E_t \pi_{t+1} - \sigma\phi_{\pi}\pi_t -\sigma\pi_x x_t 
+  x_t=\mathbb{E}_tx_{t+1} + \sigma \mathbb{E}_t \pi_{t+1} - \sigma\phi_{\pi}\pi_t -\sigma\pi_x x_t 
 \end{align}  
  To look at dynamics rewrite equations in matrix form
  \begin{align}
   Z_t&=\begin{pmatrix} x_t \\ \pi_t \end{pmatrix}; V_t=\begin{pmatrix}  0 \\u_t \end{pmatrix} \\
-  Z_t&=AE_tZ_{t+1}+BV_t 
+  Z_t&=A\mathbb{E}_tZ_{t+1}+BV_t 
  \end{align}
 \end{frame}
 %--------------------------------------
@@ -496,7 +688,7 @@ This is a serious problem for the model: no unique stable solution; model has mu
 \begin{frame}
  In standard model
  \begin{align*}
-   Z_t=AE_tZ_{t+1}+BV_t 
+   Z_t=A\mathbb{E}_tZ_{t+1}+BV_t 
  \end{align*}
   We have
   \begin{align}
@@ -514,12 +706,11 @@ This is a serious problem for the model: no unique stable solution; model has mu
 
 %--------------------------------------
 \begin{frame}
-  System is a matrix version of the first-order stochastic difference equations: can be solved in a similar fashion to give
+  System is a matrix version of the first-order stochastic difference equation: can be solved in a similar fashion to give
 \begin{align}
-  Z_t=\sum_{k=0}^{\infty}A^k BE_tV_{t+k}
+  Z_t=\sum_{k=0}^{\infty}A^k B\mathbb{E}_tV_{t+k}
 \end{align}
-To have unique stable equilibrium the absolute values of both eigenvalues of $A$ need to be less than 1, which will be the case when
-This will be the case when 
+ For unique stable equilibrium absolute values of both eigenvalues of $A$ need to be less than 1, which will be the case when
 \begin{align}  
   \phi_{\pi}+\frac{(1-\beta)\phi_x}{\kappa}>1 
 \end{align}
@@ -534,11 +725,12 @@ $\beta \approx 1$ so the condition is approximately $\phi_{\pi}>1$
     \item Nominal interest rates must rise by more than inflation so that real rates rise in response to an increase in inflation
     \item Needed for stability because otherwise inflationary shocks reduces real interest rates which stimulates the economy which will further stimulate inflation
   \end{itemize}
+  \medskip
   A big question for central banks of course is what is optimal to do? 
   In general we know that central banks 
 \begin{itemize}
-  \item Don't like inflation\footnote{Ask the Germans}
-  \item Like to keep output an a steady path close to potential
+  \item Don't like inflation 
+  \item Like to keep output on a steady path close to potential
 \end{itemize}
 \end{frame}
 %--------------------------------------
@@ -548,29 +740,27 @@ $\beta \approx 1$ so the condition is approximately $\phi_{\pi}>1$
   \textbf{Loss function}\\
    Central bank behaviour can be modeled using loss function   
   \begin{align} 
-  L_t = \frac{1}{2}\sum_{t=0}^{\infty}\beta^tE_t(\pi_{t+k}^2 + \gamma x_{t+k}^2) 
+  L_t = \frac{1}{2}\sum_{t=0}^{\infty}\beta^t\mathbb{E}_t(\pi_{t+k}^2 + \gamma x_{t+k}^2) 
 \end{align}
 $x_t$ is the output gap\\
 $\gamma$ indicates the weight put on stabilisation relative to inflation stabilisation\\
 $\kappa$ is the coefficient on the output gap in the NKPC \\
 $\theta$ is the elasticity of demand for firms\\
-
 \end{frame}
 %--------------------------------------
 
+%--------------------------------------
 \begin{frame}
-Quadratic loss functions like these are popular since differentiating things to the power 2 produces linear relationships
+ Quadratic loss functions are popular because differentiating them will produce linear relationships
  \begin{itemize}
-   \item Quadratic loss function can also be used as an approximation to consumer utility in the NKM
+   \item Quadratic loss function can also be used as an approximation to consumer utility in the NK model
  \end{itemize}
  Research has shown that 
  \begin{align}
    \gamma=\frac{\kappa}{\theta}   
  \end{align}
 \end{frame}
-
-
-
+%--------------------------------------
 
 %--------------------------------------
 \begin{frame}
@@ -583,8 +773,8 @@ Quadratic loss functions like these are popular since differentiating things to 
   \end{align}
   Consumers don't just care about the level of consumption but also its allocation. 
   \begin{itemize}
-    \item With inflation, sticky prices imply different prices for the symmetric goods and thus different consumption levels
-    \item Optimality requires equal consumption of all items in the bundle. Rationale for welfare effect of inflation, independent of its effect on output
+    \item With inflation, sticky prices imply different prices for symmetric goods and thus different consumption levels
+    \item Optimality requires equal consumption of all items in the bundle; rationale for welfare effect of inflation, independent of its effect on output
   \end{itemize}
 \end{frame}
 %--------------------------------------
@@ -594,13 +784,13 @@ Quadratic loss functions like these are popular since differentiating things to 
   \textbf{Optimal policy under commitment}\\
   Suppose that the central bank can commit today to a strategy it can adopt now and in the future. 
 \begin{align}
-  L= \sum_{t=0}^{\infty} \beta^tE_t \left[ \frac{1}{2}  (\pi_{t+k}^2 + \gamma x_{t+k}^2) + 
+  L= \sum_{t=0}^{\infty} \beta^t \mathbb{E}_t \left[ \frac{1}{2}  (\pi_{t+k}^2 + \gamma x_{t+k}^2) + 
   \lambda_{t+k} (\pi_{t+k} - \beta \pi_{t+k+1} - \kappa x_{t+k}) \right] 
 \end{align}
 FOCs are 
 \begin{align}
-  \gamma E_t x_{t+k} - \kappa E_t \lambda_{t+k} &= 0\\
-  E_t\pi_{t+k} + E_t\lambda_{t+k} - E_t \lambda_{t+k-1} &=0
+  \gamma \mathbb{E}_t x_{t+k} - \kappa \mathbb{E}_t \lambda_{t+k} &= 0\\
+  \mathbb{E}_t\pi_{t+k} + \mathbb{E}_t\lambda_{t+k} - \mathbb{E}_t \lambda_{t+k-1} &=0
 \end{align}
 for $t=0,1,2,...$ where $\lambda_{-1}=0$
 \begin{itemize}
@@ -611,27 +801,28 @@ for $t=0,1,2,...$ where $\lambda_{-1}=0$
 
 %--------------------------------------
 \begin{frame}
-  From this we get that 
+  We get
 \begin{align}
-  E_t x_{t+k}= \frac{\kappa}{\gamma} E_t\lambda_{t+k} &= \theta E_t \lambda_{t+k}\\
-  E_t \pi_{t+k} = E_t \lambda_{t+k-1} - E_t \lambda_{t+k} &= -\frac{1}{\theta}E_t \Delta x_{t+k}\\
-  \Delta E_t x_{t+k} &= - \theta E_t \pi_{t+k}
+  \mathbb{E}_t x_{t+k}= \frac{\kappa}{\gamma} \mathbb{E}_t\lambda_{t+k} &= \theta \mathbb{E}_t \lambda_{t+k}\\
+  \mathbb{E}_t \pi_{t+k} = \mathbb{E}_t \lambda_{t+k-1} - \mathbb{E}_t \lambda_{t+k} &= -\frac{1}{\theta}\mathbb{E}_t \Delta x_{t+k}\\
+  \Delta \mathbb{E}_t x_{t+k} &= - \theta \mathbb{E}_t \pi_{t+k}
 \end{align}
-
-Therefore the optimal policy under commitment will be characterised by
+\medskip
+Optimal policy \textbf{under commitment} is therefore characterised by
 \begin{align}
   x_t &= -\theta\pi_t = \theta(p_{t-1}-p_t)\\
-  E_t \Delta x_{t+1} &= -\theta E_t \pi_{t+k} = \theta (p_{t+k-1} - p_{t+k})
+  \mathbb{E}_t \Delta x_{t+1} &= -\theta \mathbb{E}_t \pi_{t+k} = \theta (p_{t+k-1} - p_{t+k})
 \end{align}  
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  If we consider some initial price level $p_{-1}$ we get
+  Considering initial price level  $p_{-1}$ we get
 \begin{align}  
-  E_t x_{t+k} = \theta(p_{-1} - E_tp_{t+k}) 
+  \mathbb{E}_t x_{t+k} = \theta(p_{-1} - \mathbb{E}_tp_{t+k}) 
 \end{align}
+\medskip
 Since
 \begin{align}
   \pi_t=p_t-p_{t-1}
@@ -642,15 +833,16 @@ Since
 %--------------------------------------
 \begin{frame}
   \begin{align}  
-  E_t x_{t+k} = \theta(p_{-1} - E_tp_{t+k}) 
+  \mathbb{E}_t x_{t+k} = \theta(p_{-1} - \mathbb{E}_tp_{t+k}) 
 \end{align}
+\medskip
 Optimal policy is set against the price level
 \begin{itemize}
-  \item Shocks will will only temporarily affect price level but have no cumulative effect
-  \item On average inflation will be zero 
+  \item Shocks will temporarily affect price level: no cumulative effect
+  \item Inflation will be zero, on average
 \end{itemize}
 \medskip
-\textbf{NB-} Policy is history dependent: policy today depends on the whole past sequence of shocks that have determined today's price level
+Policy is history dependent: policy today depends on the whole past sequence of shocks that have determined today's price level
 \end{frame}
 %--------------------------------------
 
@@ -660,51 +852,56 @@ Optimal policy is set against the price level
   \textbf{Optimal policy under discretion}\\  
   Consider scenario where a central bank cannot commit to taking a particular course of action in the future
   \begin{itemize}
-    \item All they can do is adopt the optimal strategy for what to do today.  
+    \item Can only set optimal strategy for what to do today    
   \end{itemize}
-Recall that the optimality conditions for period $t$ and $t+1$ are
+  \medskip
+  Optimality conditions for period $t$ and $t+1$ are
 \begin{align}
   x_t &= -\theta\pi_t\\
-  E_tx_t - E_tx_{t+1} &= -\theta\pi_{t+1}
+  \mathbb{E}_tx_t - \mathbb{E}_tx_{t+1} &= -\theta\pi_{t+1}
 \end{align}
-The conditions for the first period are different from the rest
+ \medskip
+ First period conditions differ from rest
 \begin{itemize}
    \item At $t$, $t-1$ is gone and doesn't matter
-   \item Have to take into account the effect that time $t$ decisions will have at time $t+1$
+   \item Account for fact that time $t$ affect $t+1$
  \end{itemize} 
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- Under discretion the policy maker always sets 
+ \textbf{Under discretion} policy maker always sets 
 \begin{align}
   x_t=-\theta\pi_t
 \end{align}
-Policy is set against inflation, where inflation can be characterised by 
+Policy is set against inflation; inflation characterised by 
 \begin{align}
-  \pi_t=\beta E_t\pi_{t+1}-\kappa\theta\pi_t+u_t
+  \pi_t=\beta \mathbb{E}_t\pi_{t+1}-\kappa\theta\pi_t+u_t
 \end{align}
-With new first-order difference equation
+\medskip
+First-order difference equation
 \begin{align}
-  \pi_t=\left(\frac{1}{1+\theta\kappa}\right) (\beta E_t\pi_{t+1} + u_t)
+  \pi_t=\left(\frac{1}{1+\theta\kappa}\right) (\beta \mathbb{E}_t\pi_{t+1} + u_t)
 \end{align}
-and a repeated iteration solution
+\medskip
+Repeated iteration solution
 \begin{align}
-  \pi_t = \left(\frac{1}{1+\theta\kappa}\right) \sum_{k=0}^{\infty} \left(\frac{\beta}{1+\theta\kappa}\right)^k E_tu_{t+k}
+  \pi_t = \left(\frac{1}{1+\theta\kappa}\right) \sum_{k=0}^{\infty} \left(\frac{\beta}{1+\theta\kappa}\right)^k \mathbb{E}_tu_{t+k}
 \end{align}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  It is often assumed that the cost-push shocks follow an $AR(1)$ process which implies 
+  \textbf{Cost-push} shocks assumed to follow $AR(1)$ process, implying
   \begin{align}
-    E_tu_{t+k}=\rho^ku_t
+    \mathbb{E}_tu_{t+k}=\rho^ku_t
   \end{align}
+  \medskip
   With 
   \begin{align}
- u_t=\rho u_{t-1} + v_t,\; v_t \sim N(0,\sigma^2) 
+ u_t&=\rho u_{t-1} + v_t \\ \nonumber v_t &\sim N(0,\sigma^2) 
 \end{align}
 \end{frame}
 %--------------------------------------
@@ -724,16 +921,18 @@ for $|c|<1$, inflation becomes
 \end{frame}
 %--------------------------------------%--------------------------------------
 \begin{frame}
-  The $AR(1)$ cost-push shock implies that 
+  $AR(1)$ cost-push shock implies that 
 \begin{align}
-  E_tx_{t+1} &= \rho x_t\\
-  E_t \pi_{t+1} &= \rho \pi_t  
+  \mathbb{E}_tx_{t+1} &= \rho x_t\\
+  \mathbb{E}_t \pi_{t+1} &= \rho \pi_t  
 \end{align}
-which can be substituted in the Euler equation along with 
+\medskip
+Substitute into Euler equation along with
 \begin{align}
   x_t&=-\theta\pi_t\\ \nonumber
-  x_t&=E_t x_{t+1}-\sigma(i_t-E_t \pi_{t+1}-r_t^n)
+  x_t&=\mathbb{E}_t x_{t+1}-\sigma(i_t-\mathbb{E}_t \pi_{t+1}-r_t^n)
 \end{align}
+\medskip
 to back out what the optimal interest rate looks like  
 \end{frame}
 %--------------------------------------
@@ -743,11 +942,13 @@ to back out what the optimal interest rate looks like
   \begin{align}
   i_t=r_t^n+ \left( \rho + \frac{(1-\rho)\theta}{\sigma} \right) \pi_t
 \end{align}
+\medskip
 This will be greater than 1 if 
 \begin{align}
  \frac{\theta}{\sigma}>1 
 \end{align}
-which will hold for all reasonable parameterisations
+\medskip
+ which will hold for all reasonable parameterisations
 \begin{itemize}
    \item Inflation and thus interest rates do not depend at all on what happened in the past.
  \end{itemize} 
@@ -777,21 +978,21 @@ which will hold for all reasonable parameterisations
   \end{itemize}
   Due to shocks people can expect central bank to pursue tighter policy from $t+1$ onwards;short-run trade-off will be shifted by the change 
   \begin{align}
-   u_t+E_t\pi_{t+1} 
+   u_t+\mathbb{E}_t\pi_{t+1} 
   \end{align}
-  Shift will actually be smaller and thus possibly increase stabilisation. \\
-Now the main issue here of course is that it might not be practically feasible to pick a policy and stick to it.   
+  Shift will actually be smaller and thus possibly increase stabilisation: main issue is that it might not be practically feasible to pick a policy and stick to it.   
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
   \textbf{Empirical issues}\\
-  Central role for NKPC in NKM: relies on output gap $x_t$
+  Central role for NKPC in NK model: relies on output gap $x_t$
   \begin{itemize}
     \item How to measure this gap?
   \end{itemize}
- Can assume that on average output tend to return to its natural rate
+  \medskip
+  Can assume that on average output tend to return to its natural rate
  \begin{itemize}
    \item Use simple trend as proxy for natural rate (e.g. HP-filter)
  \end{itemize}
@@ -808,17 +1009,22 @@ Now the main issue here of course is that it might not be practically feasible t
 \begin{align}
   \tilde{y}_t=y_t-y_t^{tr}
 \end{align}
- NKPC can be estimated with data using
+\medskip
+Can estimate NKPS using 
 \begin{align}
-  \pi_t = \beta E_t \pi_{t+1} + \kappa\tilde{y}_t
+  \pi_t = \beta \mathbb{E}_t \pi_{t+1} + \kappa\tilde{y}_t
 \end{align}
-We can't observe $E_t \pi_{t+1}$ so we substitute realised $\pi_{t+1}$ and use an instrumental variable to deal with the fact this this is a noisy estimator of what we really want.
+\medskip
+Cannot observe $\mathbb{E}_t \pi_{t+1}$: substitute realised $\pi_{t+1}$ 
+\begin{itemize}
+  \item Use an instrumental variable to deal with the fact this this is a noisy estimator of what we really want.
+\end{itemize}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- One issue arising here is that often we find that
+  Results often show 
   \begin{align}
     \kappa<0
   \end{align}
@@ -834,7 +1040,7 @@ We can't observe $E_t \pi_{t+1}$ so we substitute realised $\pi_{t+1}$ and use a
 \begin{frame}
   Given that $\beta\approx1$, we can proxy
 \begin{align}
-  \pi_t-\beta E_t\pi_{t+1}
+  \pi_t-\beta \mathbb{E}_t\pi_{t+1}
 \end{align} 
 with 
 \begin{align}
@@ -842,12 +1048,11 @@ with
 \end{align}
 Negative sign on $\kappa$ might not be that surprising: two possible reasons for failure
 \begin{enumerate}
-  \item The model is wrong
-  \item The output gap is measured with error
+  \item Model is wrong
+  \item Output gap measured with error
 \end{enumerate}
 \end{frame}
 %--------------------------------------
-
 
 
 %--------------------------------------
@@ -863,7 +1068,7 @@ Negative sign on $\kappa$ might not be that surprising: two possible reasons for
   \end{itemize}
   Estimate 
   \begin{align}
-   \pi_t = \beta E_t \pi_{t+1} + \gamma s_t    
+   \pi_t = \beta \mathbb{E}_t \pi_{t+1} + \gamma s_t    
   \end{align}
   Find
   \begin{align}
@@ -874,35 +1079,49 @@ Negative sign on $\kappa$ might not be that surprising: two possible reasons for
 
 %--------------------------------------
 \begin{frame}
-  figure
+  \begin{figure}
+    \includegraphics[scale=.25]{labour_share.eps}
+  \end{figure}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-\textbf{Rudd \& Whelan} shown that there is actually downward trend in labour share across countries\\
- If the KNPC would work well with either the labour share or another measure of real marginal cost, this would imply that it is completely forward looking. 
+\textbf{Rudd \& Whelan} (2007) show downward trend in labour share across countries
+\begin{itemize}
+  \item If NKPS works well with labour share, or other measure for real marginal costs, implies that it is completely forward looking
+\end{itemize} 
 \begin{align}
-  \pi_t = \gamma \sum_{k=0}^{\infty} \beta^k E_t s_{t+k}
+  \pi_t = \gamma \sum_{k=0}^{\infty} \beta^k \mathbb{}_t s_{t+k}
 \end{align}
+Can use VAR model to forecast level of $s_{t+k}$ and give a fitted value for the equations above.
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-A VAR model could be used to forecast the levels of $s_{t+k}$ and give a fitted value for the equations above.
-However, research has shown (Rudd \& Whelan, 2006) that the fits are not really good. 
-In contrast, adding lagged inflation to the model
+ Fit of model not really good (Rudd \& Whelan, 2006); better when including lagged inflation
 \begin{align}
   \pi_t = \gamma \sum_{k=0}^{\infty} \beta^k E_t s_{t+k} + \rho \pi_{t-1}
 \end{align}
-improves the fit of the model considerably. 
-So a main problem with the New-Keynesian Phillips Curve is that it doesn't account properly for inflation's dependence on its own lags. 
-
+NKPC's main problem: does not account properly for inflation's dependence on own lags
 \end{frame}
 %--------------------------------------
 
-
+%--------------------------------------
+\begin{frame}
+  Can use a hybrid version
+  \begin{align}
+    \pi_t = \gamma_f \mathbb{E}_t\pi_{t+1} +\gamma_b \pi_{t-1} + \kappa x_t
+  \end{align}
+  $x_t$ measures inflationary pressure\\
+  Some theoretical weaknesses
+  \begin{enumerate}
+    \item Rule-of-thumb price-setters: some people set backward-looking prices, other don't (Gali-Gertler, 1999)
+    \item Indexation: each period some set optimal prices, others don't; non-optimising price-setters index to past inflation (Christiano et al, 2005)
+  \end{enumerate}
+\end{frame}
+%--------------------------------------
 
 
 %--------------------------------------
