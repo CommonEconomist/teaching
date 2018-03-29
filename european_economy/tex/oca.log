@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.11.1)  26 MAR 2018 19:00
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.11.1)  28 MAR 2018 15:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**integration
-(./integration.tex
+**oca
+(./oca.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 3 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
@@ -803,9 +803,8 @@ Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \NC@list=\toks45
 \extratabsurround=\skip57
 \backup@length=\skip58
-)
-No file integration.aux.
-\openout1 = `integration.aux'.
+) (./oca.aux)
+\openout1 = `oca.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
 LaTeX Font Info:    ... okay on input line 26.
@@ -824,6 +823,7 @@ LaTeX Font Info:    ... okay on input line 26.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 26.
 LaTeX Font Info:    ... okay on input line 26.
 LaTeX Font Info:    Try loading font information for T1+lmss on input line 26.
+
 (/usr/share/texmf/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -876,12 +876,10 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 26.
 LaTeX Info: Redefining \pageref on input line 26.
 LaTeX Info: Redefining \nameref on input line 26.
+
+(./oca.out) (./oca.out)
 \@outlinefile=\write5
-\openout5 = `integration.out'.
-
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
+\openout5 = `oca.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 26.
@@ -955,120 +953,108 @@ orem-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
 LaTeX Info: Redefining \includegraphics on input line 26.
-
-No file integration.nav.
+ (./oca.nav)
 [1
 
-] [2
+]
+File: eurozone.eps Graphic file (type eps)
+ <eurozone.eps> [2
 
 ]
-LaTeX Font Info:    Try loading font information for OT1+lmss on input line 63.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 57.
+LaTeX Font Info:    Try loading font information for OT1+lmss on input line 57.
 
  (/usr/share/texmf/tex/latex/lm/ot1lmss.fd
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 63.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 57.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 63.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 57.
 
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 63.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 57.
 
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 63.
+(Font)              <8> on input line 57.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 63.
+(Font)              <6> on input line 57.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 63.
-LaTeX Font Info:    Try loading font information for U+msa on input line 63.
+(Font)              <5> on input line 57.
+LaTeX Font Info:    Try loading font information for U+msa on input line 57.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 63.
+LaTeX Font Info:    Try loading font information for U+msb on input line 57.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 63.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 57.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 63.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 57.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <5> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 63.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 57.
  [3
 
 ] [4
 
-] [5
-
 ]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 128.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 128.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 128.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 128.
- [6
+File: snake.eps Graphic file (type eps)
+ <snake.eps>
+Overfull \hbox (31.47919pt too wide) in paragraph at lines 79--79
+ [] 
+ []
 
-]
-[7
+[5
+
+] [6
+
+] [7
 
 ] [8
 
 ] [9
 
-]
-File: rutte.eps Graphic file (type eps)
- <rutte.eps> [10
+] [10
 
-]
-Missing character: There is no ’ in font ec-lmsso10!
- [11
+] [11
 
 ] [12
 
-]
-File: smbc.eps Graphic file (type eps)
- <smbc.eps> [13
+] [13
+
+] [14
 
 ]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 241.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 241.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 241.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <7> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 241.
- [14
-
-] [15
+File: sick_man.eps Graphic file (type eps)
+ <sick_man.eps> [15
 
 ]
-File: ire_gdp.eps Graphic file (type eps)
- <ire_gdp.eps>
+File: germany_gdp.eps Graphic file (type eps)
+
+<germany_gdp.eps>
+Overfull \hbox (31.47919pt too wide) in paragraph at lines 226--226
+ [] 
+ []
+
 [16
 
-]
-File: ire_gdp_hp.eps Graphic file (type eps)
- <ire_gdp_hp.eps> [17
+] [17
 
-]
-File: eu_G.eps Graphic file (type eps)
- <eu_G.eps> [18
+] [18
 
 ] [19
 
@@ -1076,26 +1062,16 @@ File: eu_G.eps Graphic file (type eps)
 
 ] [21
 
-] [22
-
 ]
-File: de_bruyne.eps Graphic file (type eps)
- <de_bruyne.eps>
-Overfull \vbox (25.37524pt too high) detected at line 358
- []
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 331.
+ [22
 
-[23
+] [23
 
 ] [24
 
-]
-File: government_bonds.eps Graphic file (type eps)
- <government_bonds.eps>
-Overfull \hbox (31.47919pt too wide) in paragraph at lines 378--378
- [] 
- []
-
-[25
+] [25
 
 ] [26
 
@@ -1106,33 +1082,53 @@ Overfull \hbox (31.47919pt too wide) in paragraph at lines 378--378
 ] [29
 
 ]
-File: impossible_trinity.eps Graphic file (type eps)
- <impossible_trinity.eps> [30
+File: eu_labour.eps Graphic file (type eps)
 
-] [31
+<eu_labour.eps> [30
 
 ]
-File: denmark.eps Graphic file (type eps)
- <denmark.eps>
-[32
+File: eu_labour2.eps Graphic file (type eps)
+ <eu_labour2.eps> [31
 
-] [33
+]
+File: eu_labour3.eps Graphic file (type eps)
+ <eu_labour3.eps> [32
+
+]
+File: eu_labour4.eps Graphic file (type eps)
+
+<eu_labour4.eps> [33
 
 ] [34
 
-] [35
+]
+File: openness.eps Graphic file (type eps)
+ <openness.eps>
+Overfull \hbox (31.47919pt too wide) in paragraph at lines 505--505
+ [] 
+ []
+
+[35
 
 ] [36
 
 ]
-File: big_mac_index.eps Graphic file (type eps)
- <big_mac_index.eps>
-Overfull \vbox (12.4229pt too high) detected at line 571
+File: inflation.eps Graphic file (type eps)
+ <inflation.eps>
+Overfull \hbox (31.47919pt too wide) in paragraph at lines 530--530
+ [] 
  []
 
 [37
 
-] [38
+]
+File: public_debt.eps Graphic file (type eps)
+ <public_debt.eps>
+Overfull \hbox (31.47919pt too wide) in paragraph at lines 538--538
+ [] 
+ []
+
+[38
 
 ] [39
 
@@ -1140,41 +1136,45 @@ Overfull \vbox (12.4229pt too high) detected at line 571
 
 ] [41
 
-]
-File: expensive_pacific.eps Graphic file (type eps)
- <expensive_pacific.eps>
-Overfull \hbox (8.89137pt too wide) in paragraph at lines 652--652
- [] 
- []
-
-[42
+] [42
 
 ] [43
 
 ]
+File: eurobarometer.eps Graphic file (type eps)
+ <eurobarometer.eps> [44
+
+] [45
+
+] [46
+
+] [47
+
+]
 \tf@nav=\write6
-\openout6 = `integration.nav'.
+\openout6 = `oca.nav'.
 
 \tf@toc=\write7
-\openout7 = `integration.toc'.
+\openout7 = `oca.toc'.
 
 \tf@snm=\write8
-\openout8 = `integration.snm'.
+\openout8 = `oca.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 673.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 673.
- (./integration.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 673.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 673.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 673.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 675.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 675.
+
+(./oca.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 675.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 675.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 675.
  ) 
 Here is how much of TeX's memory you used:
- 19859 strings out of 495579
- 360128 string characters out of 6187322
- 403475 words of memory out of 5000000
- 22701 multiletter control sequences out of 15000+600000
- 79511 words of font info for 71 fonts, out of 8000000 for 9000
+ 19937 strings out of 495579
+ 360496 string characters out of 6187322
+ 402847 words of memory out of 5000000
+ 22777 multiletter control sequences out of 15000+600000
+ 54159 words of font info for 51 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 48i,11n,51p,409b,413s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,11n,51p,401b,394s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on integration.pdf (43 pages).
+Output written on oca.pdf (47 pages).
