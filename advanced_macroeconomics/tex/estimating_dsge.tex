@@ -34,13 +34,6 @@
 
 %--------------------------------------
 \begin{frame}
- Example frequentism
-\end{frame}
-%--------------------------------------
-
-
-%--------------------------------------
-\begin{frame}
  DSGE models are complex; early models were calibrated
  \begin{itemize}
      \item Picking parameter values that match steady-state values
@@ -143,31 +136,35 @@ $u_t$ does not have any microeconomic foundation, but it will provide a sense of
   \epsilon_t&\sim N(0,\sum\nolimits_\epsilon)
 \end{align}
 \medskip
- Suppose endogenous variables are observed by $Z_1,Z_2,......,Z_T$; exogenous variables by $X_1,X_2,......,X_T$
+ Suppose endogenous and exogenous variables are observed by
+ \begin{align}
+   Z_1,Z_2,......,Z_T\\
+   X_1,X_2,......,X_T
+ \end{align}
+ Can combine log-likelihood fuctions for $Z,X$
  \begin{itemize}
-    \item Can combine log-likelihood functions for the $Z$ and $X$ data as the likelihood of the full model multiplies the likelihood of the $X$ data and the likelihood of the $Z$ data 
-  \end{itemize} 
+  \item Likelihood full model multiplies likelihood of $X$ data and likelihood of $Z$ data  
+ \end{itemize} 
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- Maximum likelihood estimates of $A,B,H,D,\sum\nolimits_{\epsilon}, \sum\nolimits_u$ are those that maximise the following log-likelihood
+ Maximum likelihood estimates of $A,B,H,D,\Sigma_{\epsilon}, \Sigma_u$ are those that maximise the following log-likelihood
+\begin{itemize}
+  \item Subject to the restrictions that map $A$ and $B$ into $C$ and map $A,B,H,D$ into $P$.  
+\end{itemize}
 \begin{align}
-  -T\;log2\pi - T (log |\sum\nolimits_\epsilon^{-1}| + log |\sum\nolimits_u^{-1}|)\\
-  - \frac{1}{2}\sum\nolimits_{k=1}^T(X_i-DX_{i-1})'\sum\nolimits_\epsilon^{-1}(X_i-DX_{i-1})\\
-  -\frac{1}{2}\sum\nolimits_{k=1}^T(Z_i-CZ_{i-1}-PX_i)'\sum\nolimits_u^{-1}(Z_i-CZ_{i-1}-PX_i)  
+  -T\;log2\pi - T (log |\Sigma_\epsilon^{-1}| + log |\Sigma_u^{-1}|)\\ \nonumber
+  - \frac{1}{2}\Sigma_{k=1}^T(X_i-DX_{i-1})'\Sigma_\epsilon^{-1}(X_i-DX_{i-1})\\ \nonumber
+  -\frac{1}{2}\Sigma_{k=1}^T(Z_i-CZ_{i-1}-PX_i)'\Sigma_u^{-1}(Z_i-CZ_{i-1}-PX_i)  \nonumber
 \end{align}
-Subject to the restrictions that map $A$ and $B$ into $C$ and map $A,B,H,D$ into $P$.  
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  One issue: Most DSGE models do not exclusively rely on observable variables
-  \begin{itemize}
-    \item Mix of observable and unobservable variables. 
-  \end{itemize}
+  DSGE models mix of observable and unobservable variables\\
   \medskip
   Consider standard RBC model
 \begin{align*}
@@ -205,37 +202,42 @@ In order to deal with the unobservable variables, special techniques are require
 \begin{frame}
   RBC model features stochastic shocks but also \textbf{stochastic singularity}
   \begin{itemize}
-    \item shocks in all the equations are just multiples of each other. 
-    \item The model will therefore predict that certain ratios of the observed variables will be constant, while in reality these predictions do not hold    
+    \item Shocks in equations are multiples of each other. 
+    \item Model will predict that certain ratios of observed variables will be constant; will not hold in reality
   \end{itemize}
+  \medskip
   Result: model won't fit the data
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- For a model to have well-defined econometric estimates it is therefore necessary that for every observable variable there is at least one unobservable shock. 
-This can take in shape in two different forms
+ Implication: every observable variable requires at least one unobservable shock
+ \begin{itemize}
+   \item Necessary to have well-defined econometric estimates
+ \end{itemize}
+ \medskip
+  Unobservable shock can take on two forms: 
 \begin{enumerate}
-  \item measurement error
-  \item involve a shock in each equation with a clear structural interpretation
+  \item Measurement error
+  \item Shock with clear structural interpretation
 \end{enumerate}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  A DSGE model that is a mix of observable and unobservable variables is an example of state-space model. 
-This type model can be described using two equations
+  DSGE model, with mix of observable/unobservable variables, is a \textbf{state-space} model
 \begin{enumerate}
-  \item the state (transition) equation $S_t$
-  \item the measurement equation $Z_t$
+  \item State (transition) equation $S_t$
+  \item Measurement equation $Z_t$
 \end{enumerate}
 \begin{align*}
     S_t &= FS_{t-1} + u_t\\
     Z_t &= HS_t+v_t
 \end{align*}
-The error terms $u_t,v_t$ can include normally distributed errors or zeroes if the equation described is an identity.
+ \medskip
+Error terms $u_t,v_t$ can include normally distributed errors or zeroes if the equation described is an identity.
 \end{frame}
 %--------------------------------------
 
@@ -247,7 +249,8 @@ The error terms $u_t,v_t$ can include normally distributed errors or zeroes if t
   c_t &= a_{ck}k_{t-1} + a_{cz}z_t\\
   z_t &= \rho z_{t-1} + \epsilon_t
 \end{align}
-For the sake of the illustration let's assume that consumption and capital are only observed with error, this makes that the two observable variables are
+\medskip
+Assume consumption and capital are only observed with error: observables variables given by
 \begin{align}
   k_t^* &= a_{kk}k_{t-1} + a_{kz}z_t + u_t^k\\
   c_t^* &= a_{ck}k_{t-1} + a_{cz}z_t + u_t^c\\  
@@ -258,7 +261,7 @@ For the sake of the illustration let's assume that consumption and capital are o
 
 %--------------------------------------
 \begin{frame}
-  This can be written in state-space form using the transition and measurement equation
+ Can rewrite into state-space form  
 \begin{align}
   \begin{pmatrix} k_{t-1} \\ z_t  \end{pmatrix} &= 
   \begin{pmatrix} a_{kk} & a_{kz} \\ 0 & \rho \end{pmatrix}
@@ -269,44 +272,41 @@ For the sake of the illustration let's assume that consumption and capital are o
   \begin{pmatrix} k_{t-1} \\ z_t \end{pmatrix} +
   \begin{pmatrix} u^k_{t-1} \\ u^c_t \end{pmatrix}
 \end{align}
-Some adjustments had to be made to get the model in state-space form and the timing conventions associated with this representation are not quite the same as in the original model.
-
+ NB - Some adjustments had to be made to get the model in state-space form and the timing conventions associated with this representation are not quite the same as in the original model.
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  Here we get that
+  System given by
 \begin{align}
   S_t &= \begin{pmatrix} k_{t-1} \\ z_t  \end{pmatrix}\\
   Z_t &= \begin{pmatrix} k^*_{t-1} \\ c^*_t \end{pmatrix}
 \end{align}
-This can be used for all DSGE models which can be estimated using the Kalman filter. 
+ \medskip
+ This can be used for all DSGE models which can be estimated using the Kalman filter. 
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  Using the Kalman filter one can actually estimate a DSGE model that mixes observable and unobservable variables using MLE. 
 Once you have specified the model you can feed it into a computer package which will 
 \begin{enumerate}
-  \item Sort the model into space-state methods
+  \item Sort the model into space-state model
   \item Find possible parameter values 
   \item Use Kalman filter to smooth parameters
   \item Produce period-by-period likelihoods for possible parameter values
   \item Pick best parameters and calculate standard errors (using MLE)  
 \end{enumerate}
-
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  Using MLE is not without dangers however. 
-Some of the issues with maximising the likelihood of a DSGE include
+  MLE estimation not without dangers: 
 \begin{itemize}
   \item Large number of parameters
-  \item Sparsity of data (often quarterly)
+  \item Data sparsity (often quarterly)
   \item Flexible nature of DSGE, generating similar behaviour with different parameter values
   \item Standard errors difficult to compute
 \end{itemize}
@@ -339,12 +339,15 @@ approximation to the small sample one
 
 %--------------------------------------
 \begin{frame}
-Due to this difficulties, most current research prefers to use Bayesian methods. 
-The Bayesian approach specifies a prior likelihood which will be combined with the likelihood function to produce an estimate of the posterior. 
-Once the posterior is calculated it is relatively straightforward to produce means, confidence intervals, etc. 
-The main advantage of the Bayesian approach over MLE is that it uses a full likelihood function rather than a single point estimate. 
-One important question concerning the use of Bayesian method is of course how the prior is determined. 
-In practice the prior is defined using a distribution in the form that fits common sense and corresponds to previous studies. 
+  Most use Bayesian methods
+  \begin{enumerate}
+    \item Specify prior
+    \item Combine with likelihood function
+    \item Calculate posterior estimate
+    \item Use posterior to produce means, uncertainty intervals, etc. 
+  \end{enumerate}
+  \medskip
+  Main advantage: Get full likelihood function rather than single point estimate
 \end{frame}
 %--------------------------------------
 
@@ -383,6 +386,8 @@ In practice the prior is defined using a distribution in the form that fits comm
    \pi(\theta|y^T, i) = \frac{p(y^T|\theta,i)\pi(\theta|i)}{\int p(y^T|\theta,i)\pi(\theta|i)d\theta}.
  \end{align}
   In short: Prior beliefs $\pi(\theta|y^T, i)$ are combined with sample information $f(y^T|\theta,i)$ to arrive at new beliefs $\pi(\theta|y^T,i)$
+  \\ \medskip
+  \textbf{Q:} How is the prior determined?
 \end{frame}
 %--------------------------------------
 
@@ -410,9 +415,9 @@ In practice the prior is defined using a distribution in the form that fits comm
 \end{frame}
 %--------------------------------------
 
-
 %--------------------------------------
 \begin{frame}
+  Advantages/disadvantages of Bayesian method
   \begin{enumerate}
     \item User-relevant answers
     \item Can use pre-sample information
@@ -482,8 +487,7 @@ In practice the prior is defined using a distribution in the form that fits comm
     S_t=f(S_{t-1}, W_t; \theta) &\rightarrow p(S_t|S_{t-1};\theta)\\
     Y_t=g(S_t, V_t;\theta) &\rightarrow p(Y_t|S_t;\theta)\\
     Y_t=g(f(S_{t-1},W_t;\theta),V_t;\theta) &\rightarrow p(Y_t|S_{t-1};\theta)
-  \end{align}
-  
+  \end{align}  
 \end{frame}
 %--------------------------------------
 
@@ -493,6 +497,7 @@ In practice the prior is defined using a distribution in the form that fits comm
    p(Y^T|\theta) &= p(y_1|\theta) \prod^T_{t=2}p(y_t|y_{t-1};\theta)\\
    &= \int(p(y_1|s_1;\theta)dS_1\prod^T_{t=2} \int p(y_t|S_t;\theta) p(S_t|Y_{t-1};\theta)dS_t
   \end{align}
+  \medskip
   Can therefore evaluate likelihood of model when we have knowledge of
   \begin{align}
     \{p(S_t|y_{t-1};\theta \} ^T_{t-1}\\
@@ -507,6 +512,7 @@ In practice the prior is defined using a distribution in the form that fits comm
   \begin{align}
     p(S_{t+1}|y_t;\theta)=\int p(S_{t+1}|S_t;\theta)p(S_t|y_t;\theta)dS_t
   \end{align}
+  \medskip
   Provides forecasting rule for the evolution of states
   \begin{quote}
     The distribution of states tomorrow, given the states until today, is equal to the distribution of states today times the transition probabilities integrated over all possible states
@@ -549,14 +555,16 @@ In practice the prior is defined using a distribution in the form that fits comm
     \item Maximisation
     \item Description
   \end{enumerate}
+  \medskip
   Can also just use posterior distribution
   \begin{align}
     \pi(\theta|y_t) = \frac{p(y_t|\theta)\pi(\theta)}{\int p(y_t|\theta)\pi(\theta)d\theta}
   \end{align}
-  Use Markov Chain Monte Carlo methods
+  \medskip
+  Use Markov Chain Monte Carlo (MCMC) methods
   \begin{itemize}
     \item Metropolis-Hastings algorithm
-    \item Gibbs sample (special case of (1))
+    \item Gibbs sample (special case of Metropolis-Hastings)
   \end{itemize}
 \end{frame}
 %--------------------------------------
@@ -570,6 +578,21 @@ In practice the prior is defined using a distribution in the form that fits comm
 \end{frame}
 %--------------------------------------
 
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.3]{gibbs1.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.3]{gibbs2.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
 
 %--------------------------------------
 \end{document}
