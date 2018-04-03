@@ -937,10 +937,14 @@ for $|c|<1$, inflation becomes
   \mathbb{E}_t \pi_{t+1} &= \rho \pi_t  
 \end{align}
 \medskip
-Substitute into Euler equation along with
+Substitute into Euler equation 
 \begin{align}
-  x_t&=-\theta\pi_t\\ \nonumber
   x_t&=\mathbb{E}_t x_{t+1}-\sigma(i_t-\mathbb{E}_t \pi_{t+1}-r_t^n)
+\end{align}
+\medskip
+along with
+\begin{align}
+  x_t&=-\theta\pi_t  
 \end{align}
 \medskip
 to back out what the optimal interest rate looks like  
@@ -950,7 +954,8 @@ to back out what the optimal interest rate looks like
 %--------------------------------------
 \begin{frame}
   \begin{align}
-  i_t=r_t^n+ \left( \rho + \frac{(1-\rho)\theta}{\sigma} \right) \pi_t
+  -\theta\pi_t &= \rho x_t-\sigma(i_t-\rho \pi_{t}-r_t^n) \\
+  i_t&=r_t^n+ \left( \rho + \frac{(1-\rho)\theta}{\sigma} \right) \pi_t
 \end{align}
 \medskip
 This will be greater than 1 if 
@@ -960,6 +965,7 @@ This will be greater than 1 if
 \medskip
  which will hold for all reasonable parameterisations
 \begin{itemize}
+   \item Satifies Taylor principle
    \item Inflation and interest rates do not depend at all on what happened in the past.
  \end{itemize} 
 \end{frame}
@@ -967,30 +973,59 @@ This will be greater than 1 if
 
 %--------------------------------------
 \begin{frame}
-  \textbf{Woodford} (2003) argues that policy under commitment produces superior welfare outcomes
+  \textbf{Welfare gains}: Consider transitory cost-push shock $u_t$
   \begin{itemize}
-    \item Private sector will anticipate future policies will be different
-    \item Conditions at time $t$ have the potential to improve stabilisation outcomes at time $t+1$
-    \item Holds even if these conditions will actually no longer matter at a later time. 
+    \item Assume that expectations about shock won't affect future policy
   \end{itemize}
+  \medskip
+    Short-run trade-off between inflation and output gap at $t$, vertical shift
+    \begin{align}
+       u_t
+     \end{align} 
+\medskip
+Requires the central bank to choose
+\begin{enumerate}
+  \item Increase inflation
+  \item Have negative output gap
+  \item Combination of both
+\end{enumerate}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  Have to consider the transitory cost-push shock $u_t$; Woodford argues expectations about shock won't affect future policy
-  \begin{itemize}
-    \item Short-run trade-off between inflation and the output gap; shift vertically by
-    \begin{align}
-       u_t
-     \end{align} 
-    \item Central bank has to choose whether to increase inflation, have a negative output gap, or possibly a bit of both
-  \end{itemize}
-  Due to shocks people can expect central bank to pursue tighter policy from $t+1$ onwards;short-run trade-off will be shifted by the change 
+ In contrast, if central bank is expected to pursue tighter policy from $t+1$ onwards; short-run trade-off will be shifted by total \textbf{change}
   \begin{align}
    u_t+\mathbb{E}_t\pi_{t+1} 
   \end{align}
-  Shift will actually be smaller and thus possibly increase stabilisation: main issue is that it might not be practically feasible to pick a policy and stick to it.   
+  \medskip
+  Shift will actually be smaller and thus possibly increase stabilisation. 
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Difference between commitment and discretion boils down to implicit price versus inflation target
+  \begin{itemize}
+    \item Price target better at anchoring $\mathbb{E}_t\pi_{t+1}$
+    \item Agents know central bank will enact policy to return price level to its target      
+  \end{itemize}
+  \medskip
+  Less volatile expected inflation improves available tradeoff between current inflation and output gap
+  \begin{itemize}
+    \item More movement in $\mathbb{E}_t\pi_{t+1}$ means more movement in either inflation or output gap: reduces welfare
+  \end{itemize}
+  \medskip
+  Main issue is that it might not be practically feasible to pick a policy and stick to it.   
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics{sims.eps}
+  \end{figure}
+  From "\textit{Optimal Monetary Policy in the New Keynesian Model}", Sims (2014)
 \end{frame}
 %--------------------------------------
 
@@ -1002,7 +1037,7 @@ This will be greater than 1 if
     \item How to measure this gap?
   \end{itemize}
   \medskip
-  Can assume that on average output tend to return to its natural rate
+  Assume that average output tends to return to natural rate
  \begin{itemize}
    \item Use simple trend as proxy for natural rate (e.g. HP-filter)
  \end{itemize}
@@ -1047,12 +1082,12 @@ Cannot observe $\mathbb{E}_t \pi_{t+1}$: substitute realised $\pi_{t+1}$
 
 %--------------------------------------
 \begin{frame}
-Seems counterintuitive but we know that
+$\kappa<0$ seems counterintuitive; however $\Delta\pi_t$ is
 \begin{enumerate}
-  \item $\Delta\pi_t$ is negatively correlated with the unemployment rate
-  \item Therefore positively correlated with the output gap
-\end{enumerate}
-\medskip
+  \item  Negatively correlated with the unemployment rate (accelerationist)
+  \item  Therefore positively correlated with the output gap
+\end{enumerate} 
+\medskip 
   Given that $\beta\approx1$, we can proxy
 \begin{align}
   \pi_t-\beta \mathbb{E}_t\pi_{t+1}
@@ -1061,7 +1096,8 @@ with
 \begin{align}
   \pi_t-\pi_{t+1}=-\Delta\pi_{t+1}
 \end{align}
-Negative sign on $\kappa$ might not be that surprising: two possible reasons for failure
+Negative sign on $\kappa$ might not be that surprising\\
+Two possible reasons for failure
 \begin{enumerate}
   \item Model is wrong
   \item Output gap measured with error
@@ -1087,7 +1123,7 @@ Negative sign on $\kappa$ might not be that surprising: two possible reasons for
   \end{align}
   Find
   \begin{align}
-    \beta>0
+    \gamma>0
   \end{align} 
 \end{frame}
 %--------------------------------------
@@ -1113,11 +1149,12 @@ Some issues
 \begin{align}
   \pi_t = \gamma \sum_{k=0}^{\infty} \beta^k \mathbb{}_t s_{t+k}
 \end{align}
-Can use VAR model to forecast level of $s_{t+k}$ and give a fitted value for the equations above.
+\medskip
+Use VAR to forecast $s_{t+k}$ and provide fitted value for (111).
 \end{frame}
 %--------------------------------------
 
-%--------------------------------------
+  %--------------------------------------
 \begin{frame}
  Fit of model not really good (Rudd \& Whelan, 2006); better when including lagged inflation
 \begin{align}

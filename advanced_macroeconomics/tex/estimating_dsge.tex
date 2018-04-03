@@ -38,12 +38,12 @@
  \begin{itemize}
      \item Picking parameter values that match steady-state values
      \begin{itemize}
-       \item Labour share of income; capital-output ratio; etc. 
+       \item Labour share of income, capital-output ratio, etc. 
      \end{itemize}
      \item Combine with historical averages
      \item Parameter estimates from microeconomic studies 
      \begin{itemize}
-       \item Relative risk aversion; labour supply elasticities; depreciation rates
+       \item Relative risk aversion, labour supply elasticities, depreciation rates
      \end{itemize}
    \end{itemize}  
    \medskip
@@ -67,7 +67,7 @@
 \begin{frame}
   \textbf{Solved model}  
 \begin{align}  
-  KZ_t = AZ_{t-1} + BE_tZ_{t+1} + HX_t 
+  KZ_t = AZ_{t-1} + B\mathbb{E}_tZ_{t+1} + HX_t 
 \end{align}
 $Z_t$ is a set of $n$ endogenous variables\\
 $X_t$ is a set of $k$ exogenous variables; evolves according to 
@@ -93,7 +93,7 @@ $P$ depends on the coefficients in $A,B,H,D$.
 \end{align*}
  To establish model's properties could simulate it
  \begin{itemize}
-   \item But we are interested in the estimates of the coefficients in $A, B, D, H$
+   \item However, of interest are coefficient estimates in $A, B, D, H$
    \item Estimation depends on type of data we have
  \end{itemize} 
 \end{frame}
@@ -104,9 +104,9 @@ $P$ depends on the coefficients in $A,B,H,D$.
 \begin{frame}
   \textbf{Observable variables}\\
   Suppose all variables in $X_t,Z_t$ are observable: model makes a clear prediction that given any set of structural parameter $A,B,H,D$, the data will be given by
-\begin{align*}  
+\begin{align}  
   Z_t=CZ_{t-1}+PX_t 
-\end{align*}
+\end{align}
 \end{frame}
 %--------------------------------------
 
@@ -116,7 +116,7 @@ $P$ depends on the coefficients in $A,B,H,D$.
   \begin{itemize}
     \item Cross-equation restrictions in DSGE models
     \item Particular patterns must be observed by $C,P$
-    \item Cannot use MLE as a results
+    \item Cannot use MLE as a result
   \end{itemize}
   Can add error terms $u_t$ to estimate $A, B, D, H$ 
 \begin{align}
@@ -132,8 +132,8 @@ $u_t$ does not have any microeconomic foundation, but it will provide a sense of
 \begin{align}  
   Z_t&=CZ_{t-1} + PX_t + u_t\\
   X_t &= DX_{t-1} + \epsilon_t\\
-  u_t&\sim N(0,\sum\nolimits_u)\\
-  \epsilon_t&\sim N(0,\sum\nolimits_\epsilon)
+  u_t&\sim N(0,\Sigma_u)\\
+  \epsilon_t&\sim N(0,\Sigma_\epsilon)
 \end{align}
 \medskip
  Suppose endogenous and exogenous variables are observed by
@@ -173,7 +173,7 @@ $u_t$ does not have any microeconomic foundation, but it will provide a sense of
   y_t &= a_t +\alpha k_{t-1} + (1-\alpha)n_t\\
   k_t &= \gamma i_t + (1-\gamma)k_{t-1}\\
   n_t &= y_t-\eta c_t\\
-  c_t &= E_t c_{t+1} - \frac{1}{\eta}E_t r_{t+1}\\
+  c_t &= \mathbb{E}_t c_{t+1} - \frac{1}{\eta}\mathbb{E}_t r_{t+1}\\
   r_t &= (1-\beta(1-\gamma))(y_t-k_{t-1})\\
   a_t &= \rho a_{t-1} + \epsilon_t
 \end{align*}
@@ -182,31 +182,38 @@ $u_t$ does not have any microeconomic foundation, but it will provide a sense of
 
 %--------------------------------------
 \begin{frame}
-  Model features 7 equations with 6 endogenous variables and one exogenous variable
+  Model features 7 equations: 6 endogenous variables, 1 exogenous variable
 \begin{itemize}
   \item Endogenous: $y_t,c_t,i_t,k_t,n_t,r_t$
   \item Exogenous: $a_t$
 \end{itemize}
 \medskip
-The model also mixes 4 observable variables and three unobservable variables
+Model also mixes 4 observable variables and 3 unobservable variables
 \begin{itemize}
   \item Observable: $y_t,c_t,i_t,n_t$
   \item Unobservable: $a_t, k_t, r_t$
 \end{itemize}
-Issue in RBC model: All observed series depend on unobservable technology series\\
-In order to deal with the unobservable variables, special techniques are required. 
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  RBC model features stochastic shocks but also \textbf{stochastic singularity}
+  One issue concerning RBC model
   \begin{itemize}
-    \item Shocks in equations are multiples of each other. 
-    \item Model will predict that certain ratios of observed variables will be constant; will not hold in reality
+    \item All observed series depend on unobservable technology series
+    \item Same unobserved variable shows up in all reduced-form solution equations
   \end{itemize}
   \medskip
-  Result: model won't fit the data
+  Model has stochastic shocks; also features \textbf{stochastic singularity}
+  \begin{itemize}
+    \item Shocks in equations are multiples of each other
+    \item Model predicts certain rations of observed variables will be constant
+    \begin{itemize}
+      \item E.g. current and lagged consumption
+    \end{itemize}    
+  \end{itemize}
+  \medskip
+  Model prediction won't hold in reality; model won't fit data  
 \end{frame}
 %--------------------------------------
 
@@ -230,12 +237,14 @@ In order to deal with the unobservable variables, special techniques are require
   DSGE model, with mix of observable/unobservable variables, is a \textbf{state-space} model
 \begin{enumerate}
   \item State (transition) equation $S_t$
+  \begin{align*}
+    S_t &= FS_{t-1} + u_t
+  \end{align*}
   \item Measurement equation $Z_t$
-\end{enumerate}
-\begin{align*}
-    S_t &= FS_{t-1} + u_t\\
+  \begin{align*}
     Z_t &= HS_t+v_t
-\end{align*}
+  \end{align*}
+\end{enumerate} 
  \medskip
 Error terms $u_t,v_t$ can include normally distributed errors or zeroes if the equation described is an identity.
 \end{frame}
@@ -250,10 +259,10 @@ Error terms $u_t,v_t$ can include normally distributed errors or zeroes if the e
   z_t &= \rho z_{t-1} + \epsilon_t
 \end{align}
 \medskip
-Assume consumption and capital are only observed with error: observables variables given by
+Assume consumption and capital are only observed with error: observable variables given by
 \begin{align}
   k_t^* &= a_{kk}k_{t-1} + a_{kz}z_t + u_t^k\\
-  c_t^* &= a_{ck}k_{t-1} + a_{cz}z_t + u_t^c\\  
+  c_t^* &= a_{ck}k_{t-1} + a_{cz}z_t + u_t^c  
 \end{align}
 \end{frame}
 %--------------------------------------
@@ -261,17 +270,23 @@ Assume consumption and capital are only observed with error: observables variabl
 
 %--------------------------------------
 \begin{frame}
- Can rewrite into state-space form  
+ Can rewrite into state-space form:
+ State equation   
 \begin{align}
   \begin{pmatrix} k_{t-1} \\ z_t  \end{pmatrix} &= 
   \begin{pmatrix} a_{kk} & a_{kz} \\ 0 & \rho \end{pmatrix}
   \begin{pmatrix} k_{t-2} \\ z_{t-1} \end{pmatrix} +
-  \begin{pmatrix} 0 \\ \epsilon_t \end{pmatrix}\\
+  \begin{pmatrix} 0 \\ \epsilon_t \end{pmatrix}
+\end{align}
+\medskip
+Measurement equation
+\begin{align}
   \begin{pmatrix} k^*_{t-1} \\ c^*_t \end{pmatrix} &=
   \begin{pmatrix} 1 & 0 \\ a_{ck} & a_{cz}  \end{pmatrix}
   \begin{pmatrix} k_{t-1} \\ z_t \end{pmatrix} +
   \begin{pmatrix} u^k_{t-1} \\ u^c_t \end{pmatrix}
 \end{align}
+\medskip
  NB - Some adjustments had to be made to get the model in state-space form and the timing conventions associated with this representation are not quite the same as in the original model.
 \end{frame}
 %--------------------------------------
@@ -290,7 +305,7 @@ Assume consumption and capital are only observed with error: observables variabl
 
 %--------------------------------------
 \begin{frame}
-Once you have specified the model you can feed it into a computer package which will 
+ Specified model can be estimated on computer which will
 \begin{enumerate}
   \item Sort the model into space-state model
   \item Find possible parameter values 
@@ -304,11 +319,11 @@ Once you have specified the model you can feed it into a computer package which 
 %--------------------------------------
 \begin{frame}
   MLE estimation not without dangers: 
-\begin{itemize}
-  \item Large number of parameters
-  \item Data sparsity (often quarterly)
-  \item Flexible nature of DSGE, generating similar behaviour with different parameter values
+\begin{itemize}    
+  \item Flexible nature of DSGE: generating similar behaviour with different parameter values
   \item Standard errors difficult to compute
+  \item Data sparsity (often quarterly)
+  \item Large number of parameters
 \end{itemize}
 \end{frame}
 %--------------------------------------
@@ -339,7 +354,7 @@ approximation to the small sample one
 
 %--------------------------------------
 \begin{frame}
-  Most use Bayesian methods
+  Most research uses Bayesian methods
   \begin{enumerate}
     \item Specify prior
     \item Combine with likelihood function
@@ -385,8 +400,8 @@ approximation to the small sample one
  \begin{align}
    \pi(\theta|y^T, i) = \frac{p(y^T|\theta,i)\pi(\theta|i)}{\int p(y^T|\theta,i)\pi(\theta|i)d\theta}.
  \end{align}
-  In short: Prior beliefs $\pi(\theta|y^T, i)$ are combined with sample information $f(y^T|\theta,i)$ to arrive at new beliefs $\pi(\theta|y^T,i)$
-  \\ \medskip
+  In short: Prior beliefs $\pi(\theta|i)$ are combined with sample information $f(y^T|\theta,i)$ to arrive at new beliefs $\pi(\theta|y^T,i)$
+  \\ \bigskip
   \textbf{Q:} How is the prior determined?
 \end{frame}
 %--------------------------------------
@@ -417,13 +432,15 @@ approximation to the small sample one
 
 %--------------------------------------
 \begin{frame}
-  Advantages/disadvantages of Bayesian method
+  Advantages Bayesian method
   \begin{enumerate}
     \item User-relevant answers
     \item Can use pre-sample information
     \item Direct computation of objects of interests
     \item Ease to deal with misspecified models
   \end{enumerate}
+  \medskip
+  Disadvantages Bayesian method
   \begin{enumerate}
     \item Other methods provide more transparent link with FOCs and equilibrium equations
     \item Still can be computationally intensive
@@ -433,7 +450,7 @@ approximation to the small sample one
 
 %--------------------------------------
 \begin{frame}
- Need right set of tools
+ Need right set of tools to estimate model
  \begin{enumerate}
    \item Solution methods
    \item Method to evaluate likelihood of model
@@ -500,7 +517,7 @@ approximation to the small sample one
   \medskip
   Can therefore evaluate likelihood of model when we have knowledge of
   \begin{align}
-    \{p(S_t|y_{t-1};\theta \} ^T_{t-1}\\
+    \{p(S_t|y_{t-1};\theta) \} ^T_{t-1}\\
     p(S_1;\theta)
   \end{align} 
 \end{frame}
@@ -534,10 +551,11 @@ approximation to the small sample one
 \begin{frame}
   Using Chapman-Kolmogorov equation and Bayes Theorem can generate complete sequence for
   \begin{align}
-    \{p(S_t|y_{t-1};\theta\}^T_{t=1}
+    \{p(S_t|y_{t-1};\theta) \}^T_{t=1}
   \end{align}
   \medskip
-  Mathematically straightforward; practically difficult: Can fix computational problem
+  Mathematically straightforward; practically difficult\\
+  Can fix computational problem
   \begin{enumerate}
     \item Kalman filter
     \item Particle filter
@@ -556,7 +574,7 @@ approximation to the small sample one
     \item Description
   \end{enumerate}
   \medskip
-  Can also just use posterior distribution
+  Use posterior distribution
   \begin{align}
     \pi(\theta|y_t) = \frac{p(y_t|\theta)\pi(\theta)}{\int p(y_t|\theta)\pi(\theta)d\theta}
   \end{align}
@@ -577,6 +595,16 @@ approximation to the small sample one
   \end{figure}
 \end{frame}
 %--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Eq. (9) as referred to in previous slide
+  \begin{align*}
+   p(y^T|\theta) \simeq \frac{1}{N} \sum^N_{i=1}p(y_1|s^i_{0|0}; \psi) \prod^T_{t=2}\frac{1}{N}\sum^N_{i=1}p(y_t|s^i_{t|t-1};\theta)
+  \end{align*}
+  \medskip
+  From \textit{"The econometrics of DSGE models"}, Fernandez-Villaverde
+\end{frame}
 
 %--------------------------------------
 \begin{frame}
