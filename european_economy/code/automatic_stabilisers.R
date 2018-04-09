@@ -17,4 +17,4 @@ lines(y,lty=2,type="b")
 text(2015,y[17]+1.2,"Tax \n revenue")
 
 axis(1,tick=FALSE,at=seq(1999,2015,2),label=seq(1999,2015,2));
-axis(2,at=seq(35,50,5),label=seq(35,50,5),tick=FALSE)
+axis(2,at=seq(35,50,5),label=seq(35,50,5),tick=FALSE,line=-2)
