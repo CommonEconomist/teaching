@@ -21,7 +21,7 @@
 \setbeamertemplate{footline}[frame number]
 
 %--------------------------------------
-\title{Lending}
+\title{Banking \& risk}
 \author{School of Economics, University College Dublin}
 \date{Spring 2018}
 \begin{document}
@@ -399,6 +399,30 @@ We assume that loan supply depends positively on the expected pay off. Note howe
 
 %--------------------------------------
 \begin{frame}
+  \begin{figure}
+    \includegraphics{stiglitz_weiss1.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics{stiglitz_weiss2.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics{stiglitz_weiss3.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
  Sovereign defaults (textit{incomplete list}):\\
  \medskip
  Early 1800s: number of countries after the Napoleonic Wars, e.g. Denmark, France, the Netherlands, and Sweden\\
@@ -435,6 +459,14 @@ figure
     \item Closing of a bond market is an rare and abrupt events: People often don't see it coming
   \end{itemize}
   After a default a country needs to restructure it debt which often involves writing off part of it, in order to restore the debt level to a more sustainable level. 
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics{templars.eps}
+  \end{figure}
 \end{frame}
 %--------------------------------------
 
@@ -719,7 +751,7 @@ Banking crisis likely leads to credit squeeze
 \begin{enumerate}
   \item Revenues
     \begin{itemize}
-      \item Interest income from yloans:  5\% of your EUR 50 million
+      \item Interest income from loans:  5\% of your EUR 50 million
       \item Fees charged: EUR 1 million
     \end{itemize}
   \item Costs
@@ -1087,9 +1119,164 @@ Insolvency of one bank can bring down whole system: \textbf{systemic risk}
 \end{frame}
 %--------------------------------------
 
+%--------------------------------------
+\begin{frame}
+ Normal times
+ \begin{align}
+   log\;z_{p,t}&= log\; z_{p,t-1} + \mu + \epsilon_t \\
+   log\; z_{r,t} &= \rho_z log\; z_{r,t-1}
+ \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Disasters
+  \begin{align}
+    K_{t+1} &= \left( (1-\delta)K_t + \phi \left(\frac{I_t}{K_t}\right)K_t e^{\zeta_{t+1}} \right)\\
+    log\;z_{p,t}&= log\; z_{p,t-1} + \mu + \epsilon_t + \theta_t \\
+    log\; z_{r,t} &= \rho_z log\; z_{r,t-1} +\varphi_t - \theta_t\\
+    log(p_t) &= \rho_p log(p_{t-1}) + (1-\rho_p)log\overline(p)+\epsilon_t^p
+  \end{align}
+
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ \begin{align}
+   Pr(x_{t+1}=1 | x_t=1) &= max(q,p_t)\\
+   Pr(x_{t+1}=1 | x_t=0) &= p_t
+ \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.8]{gourio1.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+\begin{figure}
+    \includegraphics[scale=.8]{gourio2.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+\begin{figure}
+    \includegraphics[scale=.8]{gourio3.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
 
 
+%--------------------------------------
+\begin{frame} 
+  Value at Risk motivated by question
+  \begin{quote}
+    What is, realistically, the worst that could happen over one day, one week, ore one year?
+  \end{quote}
+  \begin{align}
+    Pr(W<W_0-VaR)\leq 1-\alpha
+  \end{align}
+  \begin{align}
+    VaR \equiv inf\{V|F(W_0-V)\leq1-\alpha\}
+  \end{align}
+\end{frame}
+%--------------------------------------
 
+%--------------------------------------
+\begin{frame} 
+  A bank is owed money by two firms
+  \begin{itemize}
+    \item 1M by firm A, 1M by firm B
+  \end{itemize}
+  Both firms are creditworthy and pay back the loan with $Pr=0.995$
+  \begin{itemize}
+    \item When A defaults, bank can recover 0.5M
+    \item When B defaults, nothing can be recovered
+  \end{itemize}
+  \begin{align}
+    VaR=0
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ \begin{align}
+   Pr(repayment < 1M-x)\leq 0.01
+ \end{align}
+ Both firms repay with $Pr=0.995$; can set $x=0$
+ \begin{align}
+   Pr(repayment < 1M)=0.005 \leq 0.01
+ \end{align}
+ However, banks has more to lose when firm B defaults; need better measure.
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{align}
+    Tail\;loss = \mathbb{E}(W|W<q) = \frac{\int^q_{-\infty}Wf(W)dW}{\int^q_{-\infty}f(W)dW}
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \textbf{Power law}
+  \begin{align}
+    f(x)=Ax^{-\alpha}
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics{barro.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics{barro_jin1.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics{barro_jin2.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics{barro_jin3.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics{barro_jin4.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
 
 %--------------------------------------
 \end{document}
