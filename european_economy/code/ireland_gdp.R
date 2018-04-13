@@ -11,8 +11,12 @@ plot(gdp,type='l',lwd=2,xlab='',ylab='',main='Ireland GDP',axes=FALSE,log='y')
 axis(1,tick=FALSE)
 axis(2,tick=FALSE,line=-1)
 
+lines(hpfilter(gdp,freq=1600)$trend,lwd=2,lty=2)
+
+
 # Detrend
 gdp.hp<-hpfilter(log(gdp),freq=1600)$cycle
 plot(gdp.hp,lwd=2,xlab='',ylab='',axes=FALSE,main='Ireland GDP cycles')
 abline(h=0,lty=3)
 axis(1,tick=FALSE);axis(2,tick=FALSE,line=-1)
+

@@ -67,29 +67,30 @@ To understand consumer interest rates need to understand risk involved with cons
 \begin{frame}
   Expected return on loan
   \begin{align}
+   R(1-p)-p\\ \nonumber
     R-Rp-p\\ \nonumber
     R-p
 \end{align}
- For same expected return, interest rate needs to be
+ For same expecter return, interest $r$ needs to be 
 \begin{align}
-  R-p=r\\ \nonumber
-  R=r+p
+  r &= R-p\\ \nonumber
+  r+p &=R
 \end{align}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- If loan comes with collateral, default implies return
+ For loan with collateral, default return:
 \begin{align}
   c-1<0  
 \end{align}
-We get
+\medskip
+Eq.3 becomes
 \begin{align}
   R=r+(1-c)p  
 \end{align}
- \medskip
- This entails that
+ \medskip 
  \begin{enumerate}
    \item Collateralised loans have lower interest rates
    \item Interest rate depends on type of collateral
@@ -115,29 +116,37 @@ We get
 
 %--------------------------------------
 \begin{frame}
- Concerning default risk and collateral 
+  \begin{figure}
+    \includegraphics{bond_rates2.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ \textbf{Default risk and collateral}  
 \begin{enumerate}
-  \item Interest rate is affected by the value of the collateral
-  \item Value of assets fluctuate with the state of the economy
+  \item Interest rate affected by value of collateral
+  \item Value of assets fluctuate with state of economy
 \end{enumerate}
  \medskip
- Suggests mechanism by which financial sector can propagate business cycle shocks: \textbf{financial accelerator}
+ \text{Financial accelerator}: mechanisms by which financial sector can propagate business cycle shocks 
  \begin{itemize}
-   \item shock that produces a recession will lead to higher interest rate spreads for borrowers which will worsen the recession. 
+   \item Recession-causing shock will increase interest rate spreads which will worsen the recession
  \end{itemize}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-Bernanke \& Gertler (1989) \\
-  Aggregated demand is given by
+\textbf{Bernanke, Gertler \& Gilchrist} (1999) \\
+  Demand
 \begin{align}
   y_t &= \frac{C}{Y}c_t + \frac{I}{Y}inv_t + \frac{G}{Y}g_t + \frac{C^e}{Y}c^e_t+...\\
   c_t &= -\sigma r_{t+1} + E_tc_{t+1}\\
   c^e_t &= \frac{1-\phi}{\phi}n_{t+1}\\
   q_t &= \phi(i_t-k_t)  \\
-  E_tr_{kt+1} &= (1-\rho)E_t(p_{wt+1}-p_{t-1} + y_{t-1} - k_{t+1}) + \rho E_tq_{t+1} -q_t\\
+  E_tr_{kt+1} &= (1-\rho)E_t(p_{wt+1}-p_{t-1} + y_{t-1} \\ \nonumber &- k_{t+1}) + \rho E_tq_{t+1} -q_t\\
   E_tr_{kt+1} - r_{t+1} &= -v(n_t -q_t -k_{t+1})  
 \end{align}
 \end{frame}
@@ -145,7 +154,7 @@ Bernanke \& Gertler (1989) \\
 
 %--------------------------------------
 \begin{frame}
-  And aggregate supply is given by
+  Supply
 \begin{align}
   y_t &= a_t + \alpha k_t + (1-\alpha)l_t\\
   y_t-l_t &= \mu_t + \gamma_l l_t + c_t\\
@@ -156,18 +165,14 @@ Bernanke \& Gertler (1989) \\
 
 %--------------------------------------
 \begin{frame}
-  The evolution of the state variable is described by
+  The evolution of the state variable 
 \begin{align}
   k_{t+1} &= \delta inv_t + (1-\delta)k_t\\
   n_t &= \frac{\theta RK}{N}[r_ t^k - r_t] + \theta R(r_t+n_{t-1})\\
   r_t &= i_{t-1} - \pi_{t-1}
 \end{align}
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame}
-  And finally the monetary policy rule is given by
+\medskip
+Monetary policy rule is given by
 \begin{align}
   i_t &= \rho i_{t-1} + (1-\rho)[\gamma_{\pi}\pi_t + \gamma_y(y_t - y_t^n)]+ \epsilon_t^{rn}\\
   i_t &= r_{t+1} - E_t\pi_{t+1}
@@ -177,13 +182,35 @@ Bernanke \& Gertler (1989) \\
 
 %--------------------------------------
 \begin{frame}
+ \begin{figure}
+   \includegraphics{bernanke.eps}
+ \end{figure}  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ \begin{figure}
+   \includegraphics{bernanke2.eps}
+ \end{figure}  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ \begin{figure}
+   \includegraphics{bernanke3.eps}
+ \end{figure}  
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
 Borrowers with higher risk pay higher interest rates.
 \begin{itemize}
-  \item Assumption: for each risk level, someone willing to lend at high enough rates
-  \item Credit suppliers can refuse to make a loan, rather than trying to balance the loss by raising the interest rate. 
+  \item Assumption: for each risk level, someone willing to lend at high enough rates  
 \end{itemize}
-\medskip
-This is called \textbf{credit rationing}
+ Credit suppliers can refuse to make a loan, rather than trying to balance the loss by raising the interest rate: \textbf{credit rationing}
 \begin{quote}
   Lenders provide a smaller amount of loans than is demanded at the market interest rate.
 \end{quote}
@@ -192,14 +219,13 @@ This is called \textbf{credit rationing}
 
 %--------------------------------------
 \begin{frame}
- Credit rationing can be quite severe, turning down credit-worthy borrowers
-The problem here is that there is asymmetric information due to the fact that 
+ Asymmetric information in credit market:
 \begin{itemize}
   \item Banks can't always tell good borrowers from bad
   \item From bank's point of view borrowers worsen as interest rates increase
 \end{itemize}
   \medskip
-  Issue of information asymmetry
+  Credit rationing can be quite severe, turning down credit-worthy borrowers
 \end{frame}
 %--------------------------------------
 
@@ -246,18 +272,26 @@ The problem here is that there is asymmetric information due to the fact that
 
 %--------------------------------------
 \begin{frame}
- Default occurs when
+ \textbf{Default} 
 \begin{align}
   C+R\leq B(1+r)
 \end{align}
 \medskip
-where $B$ being the amount borrowed, and $C$ the collateral.\\
-Return to firm $\pi(R,r)$ given by
+$B$, amount borrowed\\
+$C$, collateral
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ \textbf{Returns}\\
+ \medskip
+ For firm $\pi(R,r)$ 
 \begin{align}
   \pi(R,r)=Max(R-(1+r)B;-C)
 \end{align}
 \medskip
-Return to the bank can be written as 
+For bank
 \begin{align}
   \rho(R,r)=min(R+C;B(1+r))
 \end{align}
@@ -329,7 +363,7 @@ In this case outcome is a convex function of $R$, so more uncertainty increases 
 
 %--------------------------------------
 \begin{frame}
-Bank pay off given by
+\textbf{Bank pay off}
 \begin{align}
   Min(R+C;(1+r)B)
 \end{align}
@@ -361,6 +395,14 @@ Bank pay off given by
 
 %--------------------------------------
 \begin{frame}
+  \begin{figure}
+    \includegraphics{stiglitz_weiss2.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
  $r$ increase has two effects on bank's pay off 
 \begin{enumerate}
   \item +ve: higher interest revenues from each project that pays off
@@ -372,28 +414,16 @@ At some point second effect dominates: bank profits rise as the interest rate go
 
 %--------------------------------------
 \begin{frame} 
-  Assume there are only two types of borrowers, low and high risk. 
-Profits drop at the point where the low-risk types drop out.
-Extended to a continuous number of types, this implies a particular interest rate $r^*$, which is consistent with a maximum level of profits.
-We assume that loan supply depends positively on the expected pay off. Note however, that banks can't simply choose the interest rate $r^*$, simply because they'd like this outcome. If there isn't sufficient demand to meet this supply, then this can't be an equilibrium: Banks would be chasing customers offering them $r^*$ and lots of people would be turning them down.
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame}
- Equilibrium outcome determined by supply/demand interaction
-\begin{enumerate}
-  \item Low loan demand
-  \begin{itemize}
-    \item Loan demand curve intersects loan supply curve below $r^*$. 
-    \item Market functions normally: all who request a loan receive one
-\end{itemize}
-  \item High loan demand
-  \begin{itemize}
-    \item Loan demand and supply curves do not intersect: bank pick optimal interest rate $r^*$    
-    \item Credit rationing: More demand than banks are willing to supply
-  \end{itemize}
-\end{enumerate}
+ \textbf{Borrower type}
+ \begin{enumerate}
+   \item Low risk
+   \item High risk
+ \end{enumerate}
+ Profits drop at point where low-risk types drop out
+ \begin{itemize}
+   \item Continuous number of types: interest rate $r^*$, which is consistent with maximum profit level
+   \item Assume that loan supply depends positively on the expected pay off
+ \end{itemize} 
 \end{frame}
 %--------------------------------------
 
@@ -407,11 +437,33 @@ We assume that loan supply depends positively on the expected pay off. Note howe
 
 %--------------------------------------
 \begin{frame}
-  \begin{figure}
-    \includegraphics{stiglitz_weiss2.eps}
-  \end{figure}
+Problem: banks cannot simply choose $r^*$
+ \begin{itemize}
+   \item No equilibrium if there is not sufficient demand
+   \item Banks would chase consumers offering them $r^*$ and lots of people would be turning them down
+ \end{itemize}
 \end{frame}
 %--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ Equilibrium outcome determined by supply/demand interaction
+\begin{enumerate}
+  \item Low loan demand
+  \begin{itemize}
+    \item Loan demand curve intersects loan supply curve below $r^*$. 
+    \item Market functions normally: all who request a loan receive one
+\end{itemize}
+\medskip
+  \item High loan demand
+  \begin{itemize}
+    \item Loan demand and supply curves do not intersect: bank pick optimal interest rate $r^*$    
+    \item Credit rationing: More demand than banks are willing to supply
+  \end{itemize}
+\end{enumerate}
+\end{frame}
+%--------------------------------------
+
 
 %--------------------------------------
 \begin{frame}
@@ -423,7 +475,7 @@ We assume that loan supply depends positively on the expected pay off. Note howe
 
 %--------------------------------------
 \begin{frame}
- Sovereign defaults (textit{incomplete list}):\\
+ Examples sovereign defaults:\\
  \medskip
  Early 1800s: number of countries after the Napoleonic Wars, e.g. Denmark, France, the Netherlands, and Sweden\\
  1875: Ottoman Empire\\
@@ -438,7 +490,9 @@ We assume that loan supply depends positively on the expected pay off. Note howe
 
 %--------------------------------------
 \begin{frame}
-figure 
+  \begin{figure}
+      \includegraphics[scale=.3]{bonds.eps}
+    \end{figure}  
 \end{frame}
 %--------------------------------------
 
@@ -465,18 +519,8 @@ figure
 %--------------------------------------
 \begin{frame}
   \begin{figure}
-    \includegraphics{templars.eps}
+    \includegraphics[scale=.5]{templars.eps}
   \end{figure}
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame}
- Two types of banking relevant to today's financial system
-\begin{enumerate}
-  \item Clearing house banks
-  \item Fractional reserve banking
-\end{enumerate}
 \end{frame}
 %--------------------------------------
 
@@ -494,13 +538,23 @@ figure
 
 %--------------------------------------
 \begin{frame}
+ Two types of banking relevant to today's financial system
+\begin{enumerate}
+  \item Clearing house banks
+  \item Fractional reserve banking
+\end{enumerate}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
   Suppose that one business day the following transactions occur
 \begin{itemize}
-  \item Bank A's depositors have accounts credited with EUR 10 million from Bank B's depositors
-  \item Bank B's depositors will be credited with EUR 9 million from Bank A's depositors
+  \item Bank A: accounts credited with EUR 10M from Bank B depositors
+  \item Bank B: credited with EUR 9M from Bank A depositors
 \end{itemize}
  \medskip
- Total transfers: EUR 19 million\\
+ Total transfers: EUR 19M\\
  \begin{enumerate}
    \item Have couriers transfer money back and forth
    \item Settle account at end of the business day
@@ -512,8 +566,8 @@ figure
 \begin{frame}
   \textbf{Clearing house bank}
   \begin{itemize}
-  \item Clearing house will order transfer of EUR 1 million from Bank B to Bank A
-  \item More efficiently: Deduct EUR 1 million from ledger entry for Bank B's account,  add it to Bank A's
+  \item Will order transfer of EUR 1M from Bank B to Bank A
+  \item More efficiently: deduct EUR 1 M from ledger entry for Bank B's account; add it to Bank A's
   \item All deposits still fully backed by the cash in the vaults
 \end{itemize}
 \medskip
@@ -523,7 +577,7 @@ Forerunner of today's central banks
 
 %--------------------------------------
 \begin{frame}
- Most of time only small small fraction of bank's total deposits will be demanded on any given time
+ Most of time only small small fraction of bank's total deposits will be demanded at any given time
  \begin{itemize}
    \item "most" being important qualifier here
  \end{itemize}
@@ -542,21 +596,14 @@ This practice is called \textbf{fractional reserve banking }
   \item Saves depository money: banks can charge interest on loans
   \item Banks serve as an intermediary  
 \end{enumerate}
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame}
- Disadvantage of fractional reserve banking is risk of bank run  
-\begin{itemize}
-  \item Bank supposed to have assets greater than liabilities owed to non-investors(positive bank capital)
-  \item It could be the case that the bank makes loans to borrowers who default
-  \item When customers suspect that the bank does not have the assets to pay back money they might want to have their money back
-  \item This could lead to a run on the bank: many depositors want their money back. 
-  \item Many banks are unable to cope with bank runs
-\end{itemize}
  \medskip
- Potential for instability due to maturity mismatch
+ Disadvantage: risk of bank run
+ \begin{itemize}
+   \item Assets $\leq$ liabilities (e.g. due to loan defaults)
+   \item Suspicion of insolvency could lead depositors to claim their money
+ \end{itemize}
+ \medskip
+ Main issue is a maturity mismatch
  \begin{itemize}
    \item People who supply funds want to have it available for return at shorter terms than the people who the bank lends the money to
  \end{itemize}
@@ -565,7 +612,7 @@ This practice is called \textbf{fractional reserve banking }
 
 %--------------------------------------
 \begin{frame}
- Bank's balance sheet lists assets and liabilities  
+ Understanding bank run: bank's balance sheet 
 \begin{itemize}
   \item Liabilities: sources of the bank's funds
   \item Assets: uses of said funds
@@ -575,16 +622,16 @@ This practice is called \textbf{fractional reserve banking }
 
 %--------------------------------------
 \begin{frame}
- Some risks of assets
+ Risky nature of assets
 \begin{itemize}
   \item Borrowers don't pay back loans
   \item Bad investments are sometimes made in stocks and bonds
-  \item Other assets invested in lose much of their value
+  \item Other assets invested in decline in value
 \end{itemize}
 \medskip
- Might result in negative equity capital
+ Result: negative equity capital
  \begin{itemize}
-   \item Assets go below what it owes to depositors and bond-holders
+   \item Assets go below what is owed to depositors and bond-holders
    \item Might trigger bank run when bank is suspected to be insolvent
  \end{itemize}  
 \end{frame}
@@ -592,7 +639,7 @@ This practice is called \textbf{fractional reserve banking }
 
 %--------------------------------------
 \begin{frame}
- Some recent bank runs\\
+ Examples recent bank runs:\\
  \medskip
  2001: Bank run in Argentina during economic crisis (1999-2002)
  2007: Northern Rock, UK\\
@@ -603,13 +650,13 @@ This practice is called \textbf{fractional reserve banking }
 
 %--------------------------------------
 \begin{frame}
-  Couple of things happen during a bank run 
+  What happens during a bank run? 
 \begin{enumerate}
   \item Banks starts paying off depositors; selling off most liquid assets: e.g. cash, excess reserves at central bank, etc.
   \item Bank sells non-liquid assets: long-term customer loans, property assets: fire sale
 \end{enumerate}
  \medskip
- Bank runs often triggered by - assumed- insolvency of bank: makes make more insolvent
+ Bank runs often triggered by - assumed- insolvency: makes bank make more insolvent
  \begin{itemize}
    \item Bank run can be triggered by just rumours
    \item Banks and governments are always quick to declare that the banks are fully solvent
@@ -651,15 +698,14 @@ Banking crisis likely leads to credit squeeze
   \begin{enumerate}
   \item Loans
   \begin{itemize}
-    \item Hard for bank to call in loans
-    \item When loan is paid off, bank will keep funds as cash, reserves, or invest in securities
-    \item Or pay off deposit outflows or maturing bond liabilities
-    \item Don't make new loans
+    \item Hard to call in
+    \item When paid-off, funds kept as cash, reserves, or invested in securities
+    \item Pay off deposit outflows or maturing bond liabilities
+    \item Don't make new loans!
   \end{itemize}
   \item Deposits
   \begin{itemize}
-    \item Customers prefer to keep cash at home
-    \item Banks will have less funds to loan
+    \item Customers prefer cash at home: banks will have less funds to loan
   \end{itemize}
   \item Other borrowings
   \begin{itemize}
@@ -667,12 +713,11 @@ Banking crisis likely leads to credit squeeze
   \end{itemize}
   \item Cash and reserves
   \begin{itemize}
-    \item Large amounts of cash and reserves will be kept on balance sheet
-    \item Needed to survive a potential bank run
+    \item Will be kept on balance sheet: needed to survive potential bank run
   \end{itemize}
   \item Securities
   \begin{itemize}
-    \item Banks will prefer to shift towards securities that can be quickly sold to raise cash
+    \item Preferred: can be quickly sold to raise cash
   \end{itemize}
 \end{enumerate} 
 \end{frame}
@@ -702,27 +747,27 @@ Banking crisis likely leads to credit squeeze
 
 %--------------------------------------
 \begin{frame}
- In addition there is a incentive problem
+ Also, incentive problem
  \begin{itemize}
-   \item From risk-averse moneylenders to risk-loving gamblers
+   \item Bankers moved from risk-averse moneylenders to risk-loving gamblers
  \end{itemize}
 \begin{enumerate}
   \item High leverage (little equity capital relative to assets)
   \item Many risky investments
   \item Too much short-term non-deposit funding
-  \item Are too big
+  \item Too big
 \end{enumerate}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  Imagine investment group starts a bank with starting capital of EUR 10 million:
+  Imagine investment group starts a bank with starting capital of EUR 10M
 \begin{itemize}
-  \item EUR 1 million on a retail branch network
-  \item Offer 1\% interest rate on deposits: attracts EUR 50 million
-  \item EUR 50 million to make loans: interest rate of 5\%
-  \item EUR 9 million in cash and reserves
+  \item EUR 1M spend on retail branch network
+  \item Offer 1\% interest rate on deposits: attracts EUR 50M
+  \item EUR 50M to make loans: interest rate of 5\%
+  \item EUR 9M in cash and reserves
 \end{itemize}
 \end{frame}
 %--------------------------------------
@@ -751,19 +796,15 @@ Banking crisis likely leads to credit squeeze
 \begin{enumerate}
   \item Revenues
     \begin{itemize}
-      \item Interest income from loans:  5\% of your EUR 50 million
-      \item Fees charged: EUR 1 million
+      \item Loan interest: EUR 2.5M
+      \item Fees: EUR 1M
     \end{itemize}
   \item Costs
     \begin{itemize}
-      \item Interest on deposits: EUR 0.5 million
-      \item Running costs: EUR 1.5 million
+      \item Deposit interest: EUR 0.5M
+      \item Running costs: EUR 1.5M
     \end{itemize}
 \end{enumerate}
-\end{frame}
-%--------------------------------------
-%--------------------------------------
-\begin{frame}
 \begin{table}[!h] \centering
 \caption{Income statement}
 \scalebox{.9}{
@@ -779,14 +820,21 @@ Banking crisis likely leads to credit squeeze
 \end{table}
 \end{frame}
 %--------------------------------------
+
 %--------------------------------------
 \begin{frame}
- Bank got an investment of EUR 10 million and made a profit of EUR 1.5 million giving a Return on Equity of 15\%:
- Try to expand business
+ Investment: EUR 10M\\
+ Profit: EUR 1.5M\\
+ Return on Equity
+ \begin{align}
+   RoE=\frac{1.5}{10}=15\%
+ \end{align}
+ \medskip
+ Time to expand! 
 \begin{itemize}
-  \item EUR 0.5 million is paid back to investors in dividends
-  \item EUR 1 million is used to make more loans
-  \item EUR 20 million is issued in debt securities to raise funds to make additional loans
+  \item EUR 0.5M paid in dividends
+  \item EUR 1M for more loans
+  \item EUR 20M in debt securities to raise funds to make additional loans
 \end{itemize}
 \end{frame}
 %--------------------------------------
@@ -811,8 +859,12 @@ Banking crisis likely leads to credit squeeze
 
 %--------------------------------------
 \begin{frame}
- The goal of bank is to expand, but there is one small problem: some people don't pay back their loans. 
-Suppose that of the EUR 21 million that used for new loans EUR 5 million went to a slightly narcissistic real estate developer who went bankrupt. 
+  Goal of bank is to expand business; through making more loans
+  \begin{itemize}
+    \item Means attracting more risky borrowers: increase in probability that people don't pay back loans
+  \end{itemize}
+  \medskip
+  Suppose that of the 21M in loans, 5M went to a real estate developer who went bankrupt
 \end{frame}
 %--------------------------------------
 
@@ -829,7 +881,7 @@ Suppose that of the EUR 21 million that used for new loans EUR 5 million went to
     Loans                   & 66  & Deposits        & 50\\
     Branch network building & 1   & Equity capital  & 6\\
     Cash and reserves       & 9   & Debt securities & 20\\[-1.8ex]\\
-    Total                   & 76  & ~               & 6\\
+    Total                   & 76  & ~               & 76\\
     \\[-1.8ex]\hline \hline \\[-1.8ex]
     \end{tabular}}
 \end{table}
@@ -838,42 +890,42 @@ Suppose that of the EUR 21 million that used for new loans EUR 5 million went to
 %--------------------------------------
 
 %--------------------------------------
-\begin{frame}
-  Can see that the assets exceed deposits and debts by only  EUR 6 million. 
-There are a couple of points worth mentioning here. 
+\begin{frame} 
 \begin{enumerate}
   \item Equity capital is risky; one bad loan removes a fair chunk
   \item Investors will get paid dividends when there is a profit, but they are the first to lose money when there is a bad loan
   \item Depositors and debt-holders have first claim to getting their money back
 \end{enumerate}
-The main lesson here is that the bank needs to be very cautious in assessing the credit risk of a loan.
+ \medskip
+  Bank needs to be cautious in assessing credit risk of loan
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-Having established some of the risks faced by a bank, we now move on to analyse how size matters in this respect. 
-Again, suppose that a banks starts with an equity capital of EUR 10 million does the following
-\begin{itemize}
-  \item Pays 2\% on deposits
-  \item Charges 3\% on loans
-  \item Has a 10\% of deposits reserve requirements 
+ Does size matter?\\
+ \medskip
+ Start bank with equity capital of EUR 10M 
+ \begin{itemize}
+  \item Pay 2\% on deposits
+  \item Charge 3\% on loans
+  \item 10\% of deposits reserve requirements 
 \end{itemize}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  We will consider two cases here in terms of raising funds
+  Consider two approaches to raising funds  
 \begin{enumerate}
   \item Conservative 
   \begin{itemize}
-    \item  EUR 90 million is raised in deposits
+    \item  90M raised in deposits
   \end{itemize} 
  \item Aggressive 
   \begin{itemize}
-    \item EUR 90 million is raised in deposits
-    \item EUR 100 million borrowed from international money markets (2\% interest rate)
+    \item 90M raised in deposits
+    \item 1000M borrowed from international money markets (2\% interest rate)
   \end{itemize}
 \end{enumerate}
 \end{frame}
@@ -895,11 +947,7 @@ Again, suppose that a banks starts with an equity capital of EUR 10 million does
     \\[-1.8ex]\hline \hline \\[-1.8ex]
     \end{tabular}}
 \end{table}
-\end{frame}
-%--------------------------------------
 
-%--------------------------------------
-\begin{frame}
 \begin{table}[!h] \centering
 \label{table:aggressive}
 \caption{Balance sheet starting with EUR 200 million}
@@ -918,19 +966,18 @@ Again, suppose that a banks starts with an equity capital of EUR 10 million does
 \end{frame}
 %--------------------------------------
 
+
 %--------------------------------------
 \begin{frame}
-  Using a more conservative approach in fund raising the profits of the bank will be
+  Profits and RoE for conservative approach  
 \begin{align*}
-  \Pi &= 3\%*91 - 2\%*90\\
-      &= 2.73   - 1.8 =0.93\\
+  \Pi &= 3\%*91 - 2\%*90 = 2.73   - 1.8 =0.93\\
   RoE &= 9.3\%
 \end{align*}
-
-With a more aggressive approach, where the bank borrows money on the international market, the profits will be 
+\medskip
+Profits and RoE for aggressive approach
 \begin{align*}
-  \Pi &= 3\%*191 - 2\%*190\\
-      &= 5.73    - 3.82 =1.91\\
+  \Pi &= 3\%*191 - 2\%*190 = 5.73    - 3.82 =1.91\\
   RoE &=19.1\%
 \end{align*}
 \end{frame}
@@ -938,67 +985,83 @@ With a more aggressive approach, where the bank borrows money on the internation
 
 %--------------------------------------
 \begin{frame}
-  Important to note is that the larger bank has a capital to assets ratio which is lower while the profits are higher, and thus also has a higher return to equity.
-  Highly-leveraged banks make larger profits, but they also take on more risks. 
-It has more credit risk since loans could go bad, and there is more liquidity risk as funds from the international money market could dry up.
-The capital-asset ratio is often discussed in reversed terms as the assets-capital ratio which is called the leverage ratio.
-For the two banks we have leverage ratios of
+  Larger bank has 
+  \begin{itemize}
+    \item Lower capital-to-assets ratio
+    \item Higher profits
+    \item Higher RoE
+  \end{itemize}
+  \medskip
+  Highly-leverage banks make larger profits but also take more risks
+  \begin{itemize}
+    \item More credit risk since loans could go bad, 
+    \item More liquidity risk as funds from international money market could dry up
+  \end{itemize}
+  \medskip
+  Not in banker's self-interest to maintain sufficient capital levels\\
+  \medskip
+  \textbf{Leverage ratio} is the assets-capital ratio
 \begin{enumerate}
-  \item 10 for the smaller bank: equity capital was 10\% of total assets 
-  \item 20 for the larger bank: equity capital was 5\% of total assets 
+  \item Small bank: 10: equity capital was 10\% of total assets 
+  \item Large bank: 20  equity capital was 5\% of total assets 
 \end{enumerate}
-
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  Main takeaway here is that it is not in the self-interest of the bankers to maintain sufficient capital levels to protect against losses as higher credit and liquidity risk means higher bank profits.
-There are two sets of incentives to consider here
+ Two sets of incentives  
 \begin{enumerate}
   \item Investors
   \begin{itemize}
-    \item People differ in the amount of risk they are willing to accept
-    \item Shareholders of highly-leveraged banks be willing to lose all their money in the prospect of high returns most of the time
-    \item By the time things go pear-shaped they may have made a decent enough return from all the dividends
+    \item Shareholders of highly-leveraged banks willing to lose all their money with prospect of high returns most of the time
+    \item When things go pear-shaped, may have made a decent enough return from all the dividends
   \end{itemize}
   \item Bank management
   \begin{itemize}
-    \item There are strong incentives for the management to take on high leverage, even when investors are risk averse
+    \item Even when investors are risk adverse there are strong incentives for high leverage
     \item E.g. profit-linked bonuses, which means that they want to maximise profit today
-    \item When a bank blows up they don't have to pay back bonuses
+    \item In case of bankruptcy don't have to pay back bonuses
+    \item Government bailout: privatised profits, socialised losses 
   \end{itemize}
 \end{enumerate}
+\end{frame}
+%--------------------------------------
 
+%--------------------------------------
+\begin{frame} 
+  \textbf{Value at Risk}, measure for risk level of investments of a bank, motivated by question
+  \begin{quote}
+    What is, realistically, the worst that could happen over one day, one week, ore one year?
+  \end{quote}
+  \begin{align}
+    Pr(W<W_0-VaR)\leq 1-\alpha
+  \end{align}
+  \begin{align}
+    VaR \equiv inf\{V|F(W_0-V)\leq1-\alpha\}
+  \end{align}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  In terms of systemic risk a bank may be perceived to be too bit got fail because its failure could bring down the whole financial system. 
-This provides incentives for banks to grow lager as the larger they get the higher the probability that the state will intervene when things go wrong.
-An interesting paper on this topic is "Banking on the state" by Alessandri and Haldane (2009). 
-They document how
-\begin{itemize}
-  \item The banking sector has grown in size relative to the economy
-  \item Banks have become more leveraged and less liquid
-  \item Have engaged in more risky trading activities
-\end{itemize}
-
+  \begin{figure}
+    \includegraphics[scale=.3]{VaR.eps}
+  \end{figure}
 \end{frame}
 %--------------------------------------
 
+
 %--------------------------------------
 \begin{frame}
-  A measure for the level of risk of the investments of a bank is the Value at Risk. 
-The VaR estimates how much a bank could lose under normal market conditions using a statistical distribution of the bank's credit losses 
+  VaR estimates possible loss under normal market conditions, using statistical distribution of the bank's credit losses
 \begin{itemize}
-  \item Expected loss is the average of the distribution 
+  \item Expected loss (distribution average) 
   \begin{itemize}
     \item Banks should deal with these by writing down part of their loans each year as loan loss provision
     \item i.e. valuing assets at less than their current book value in anticipation of future losses
   \end{itemize}
-  \item Right hand side line (stress loss) is the extreme tail of the distribution
+  \item Stress loss (distribution extreme tail)
   \begin{itemize}
     \item 1\% tail is commonly used
     \item e.g. at a weekly VaR of EUR 50 million, there is  1\% chance that your portfolio will lose more than EUR 50 million over the course of a week 
@@ -1008,14 +1071,82 @@ The VaR estimates how much a bank could lose under normal market conditions usin
 %--------------------------------------
 
 %--------------------------------------
-\begin{frame}
-  Using the IRB approach as set out by Basel II, banks are required to have a minimum level of regulatory capital equal to some multiple of the unexpected losses indicated by the VaR.\footnote{Usually by a factor of three.}
-\begin{align*} 
-    Capital \; required = 3* VaR 
-\end{align*}
+\begin{frame} 
+  A bank is owed money by two firms
+  \begin{itemize}
+    \item 1M by firm A, 1M by firm B
+  \end{itemize}
+  Both firms are credit worthy and pay back the loan with $Pr=0.995$
+  \begin{itemize}
+    \item When A defaults, bank can recover 0.5M
+    \item When B defaults, nothing can be recovered
+  \end{itemize}
+  \begin{align}
+    VaR=0
+  \end{align}
+\end{frame}
+%--------------------------------------
 
-The Basel regulations also require banks to have capital equal to at least 8\% of risk weighted assets.
-The VaR can be used to calculate the value of risk weighted assets as 
+%--------------------------------------
+\begin{frame}
+ \begin{align}
+   Pr(repayment < 1M-x)\leq 0.01
+ \end{align}
+ Both firms repay with $Pr=0.995$; can set $x=0$
+ \begin{align}
+   Pr(repayment < 1M)=0.005 \leq 0.01
+ \end{align}
+ However, banks has more to lose when firm B defaults; need better measure.
+ \begin{align}
+    Tail\;loss = \mathbb{E}(W|W<q) = \frac{\int^q_{-\infty}Wf(W)dW}{\int^q_{-\infty}f(W)dW}
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.3]{VaR2.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Bank will go bankrupt with probability $p$
+  \begin{itemize}
+    \item Failure probability can be decreased by holding more capital
+    \item VaR indicates amount of capital required to stave off default with high probability
+  \end{itemize}
+  \medskip
+  Tail loss no concern for equity holders
+  \begin{itemize}
+    \item Is of interest to creditors and other actors in wider economy; these do not control the bank
+  \end{itemize}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  Time horizon in VaR should be long enough so that
+  \begin{itemize}
+    \item Corrective measures can be taken to rectify problem
+    \item Horizon is appropriate for degree of asset illiquidity
+    \item Uncertainty level chosen to account for ease of recapitalisation
+  \end{itemize}
+\end{frame}
+
+
+%--------------------------------------
+\begin{frame}
+ VaR bedrock of capital regulations by Basel regulations
+  \begin{itemize}
+    \item Minimum level regulatory capital equal to some multiple of unexpected losses
+    \begin{align*}
+      Capital\; Required = 3\cdot VaR
+    \end{align*}
+  \end{itemize}
+   Basel regulations also require risk-weighted assets of $\geq$8\%
 \begin{align*} 
   RWA=\frac{3*VaR}{0.08} 
 \end{align*}
@@ -1025,34 +1156,34 @@ The VaR can be used to calculate the value of risk weighted assets as
 
 %--------------------------------------
 \begin{frame}
-  Some additional adjustments need to be made to arrive at the final RWA figure
-\begin{enumerate}
-  \item An upward adjustment for market risk\footnote{"...pertaining to interest rate related instruments, equities, foreign exchange risk and commodities risk."}
-  \item An adjustment for operational risk\footnote{"...inadequate or failed internal processes, people and systems or from external events."} 
-\end{enumerate}
-
+  Final RWA figure determined by some adjustments
+  \begin{enumerate}
+    \item Market risk
+    \begin{quote}
+      pertaining to interest rate related instruments, equities, foreign exchange risk and commodities risk
+    \end{quote}
+    \item Operational risk
+    \begin{quote}
+      inadequate or failed internal processes, people and systems or from external events
+    \end{quote}
+  \end{enumerate}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- One caveat implementing VaR
- \begin{enumerate}
-   \item Figure is usually determined by using a distribution of past returns of the assets held
- \end{enumerate}
- \medskip
- Two issues with this approach
+ VaR shortcoming: uses distribution of past asset returns 
 \begin{enumerate}
   \item Estimation sample
   \begin{itemize}
-    \item True distribution is not know, can only be estimated from historical data
-    \item Banks mainly rely on using returns from recent years
+    \item True distribution not known; can only be estimated from historical data
+    \item Banks rely mainly on using returns from recent years
   \end{itemize}
   \medskip
   \item Tail risk
   \begin{itemize}
-    \item Financial markets generate extreme losses more often than predicted by a normal distribution
-    \item Fat tails are not properly accounted for
+    \item Fat tails not accounted for
+    \item Financial markets generate extreme losses more often than predicted by normal distribution    
   \end{itemize}
 \end{enumerate}
 \end{frame}
@@ -1060,7 +1191,7 @@ The VaR can be used to calculate the value of risk weighted assets as
 
 %--------------------------------------
 \begin{frame}
-  Interbank markets make it easier for banks to cope with reserve requirements by
+  Interbank markets can help banks coping with reserve requirements
 \begin{itemize}
   \item Lending and borrowing short-term funds
   \item Allowing banks with lots of deposits but without good loan opportunities to lend to banks with good loan opportunities but limited deposits
@@ -1107,44 +1238,138 @@ Insolvency of one bank can bring down whole system: \textbf{systemic risk}
 
 %--------------------------------------
 \begin{frame}
- \textbf{Prudential regulation} are rules put into place to maintain stability: can actually lead to financial instability
+  \textbf{Alessandri \& Haldane}(2009) "Banking on the state"
+\begin{itemize}
+  \item The banking sector has grown in size relative to the economy
+  \item Banks have become more leveraged and less liquid
+  \item Have engaged in more risky trading activities
+\end{itemize}
+ \begin{figure}
+   \includegraphics[scale=.4]{bank_state.eps}
+ \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ \textbf{Prudential regulation} can lead to financial instability
   \begin{enumerate}
-  \item During boom times asset prices increase, loans are paid back and this increases equity for banks 
-  \item Equity increase allows banks to expand their operation acquiring new assets
-  \item With lots of demand, liquidity is not an issue and asset boom continues
-  \item Boom turn into busts however and eventually the cycles plays out and a recession arrives
-  \item Banks will worry about capital requirement and sell off assets
-  \item Asset sales drive down prices, eroding equity across the system.
+  \item Asset prices increase during boom, loans paid back: increase in equity
+  \item Can expand operation: acquire new assets; liquidity not issue with large demand: boom continues
+  \item Boom turns into bust: business cycle plays out; recession arrives
+  \item Capital requirement will lead to asset sell off: price decrease will erode equity
 \end{enumerate}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- Normal times
+  \textbf{Power law}
+  \begin{align}
+    f(x)=Ax^{-\alpha}
+  \end{align}
+  \medskip
+  $\alpha$, scaling parameter\\
+  $A$, constant
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+ \textbf{Barro \& Jin} (2011) "On the size distribution of macroeconomic disasters"
  \begin{align}
-   log\;z_{p,t}&= log\; z_{p,t-1} + \mu + \epsilon_t \\
-   log\; z_{r,t} &= \rho_z log\; z_{r,t-1}
+   log(Y_{t+1}) &= log(Y_t)+g+u_{t+1}+v_{t+1}\\ \nonumber
+   Y_t&=C_t; g \geq 0 \\
+ \end{align}
+ $v_{t+1}$ accounts for low-probability disasters: output contracts by fraction $b$
+ \begin{align}
+   0 < b \leq 1
+ \end{align}
+ \begin{align}
+   Pr(1-p) &: v_{t+1}=0\\ \nonumber
+   Pr(p) &: v_{t+1} =log(1-b)
+ \end{align}
+ \begin{align}
+   g^* &= g+ \frac{1}{2}\cdot\sigma^2 -p\cdot Eb
  \end{align}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  Disasters
+  Disaster size
+  \begin{align}
+    z &\equiv 1/(1-b)
+  \end{align}
+  \medskip
+  Single power law
+  \begin{align}
+    f(z) &= Az^{-(\alpha+1)}\\
+    A&=\alpha z_0^{\alpha}    
+  \end{align}
+  \medskip
+  Double power law
+  \begin{align}
+    f(z) = \begin{Bmatrix}
+      0, & if\; z<z_0,\\
+      Bz^{-(\beta+1)}, & if\; z_0 \leq z \leq \delta,\\
+      Az^{-(\alpha+1)}, &if\; \delta \leq z, 
+    \end{Bmatrix}
+  \end{align}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.7]{barro_jin1.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.7]{barro_jin2.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.7]{barro_jin3.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.7]{barro_jin4.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+
+%--------------------------------------
+\begin{frame}
+ \textbf{Gourio} (2012) "Disaster risk and business cycles"\\
+ \medskip
+ Normal times
+ \begin{align}
+   log\;z_{p,t}&= log\; z_{p,t-1} + \mu + \epsilon_t \\
+   log\; z_{r,t} &= \rho_z log\; z_{r,t-1}
+ \end{align}
+ \medskip
+ Disasters
   \begin{align}
     K_{t+1} &= \left( (1-\delta)K_t + \phi \left(\frac{I_t}{K_t}\right)K_t e^{\zeta_{t+1}} \right)\\
     log\;z_{p,t}&= log\; z_{p,t-1} + \mu + \epsilon_t + \theta_t \\
     log\; z_{r,t} &= \rho_z log\; z_{r,t-1} +\varphi_t - \theta_t\\
     log(p_t) &= \rho_p log(p_{t-1}) + (1-\rho_p)log\overline(p)+\epsilon_t^p
   \end{align}
-
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame}
- \begin{align}
+  \begin{align}
    Pr(x_{t+1}=1 | x_t=1) &= max(q,p_t)\\
    Pr(x_{t+1}=1 | x_t=0) &= p_t
  \end{align}
@@ -1175,65 +1400,25 @@ Insolvency of one bank can bring down whole system: \textbf{systemic risk}
 \end{frame}
 %--------------------------------------
 
-
 %--------------------------------------
-\begin{frame} 
-  Value at Risk motivated by question
-  \begin{quote}
-    What is, realistically, the worst that could happen over one day, one week, ore one year?
-  \end{quote}
-  \begin{align}
-    Pr(W<W_0-VaR)\leq 1-\alpha
-  \end{align}
-  \begin{align}
-    VaR \equiv inf\{V|F(W_0-V)\leq1-\alpha\}
-  \end{align}
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame} 
-  A bank is owed money by two firms
+\begin{frame}
+  \textbf{Boissay et al.} (2016) "Booms and Banking Crises"\\ 
+  \medskip
+  Financial recessions are sui generis
+  \begin{enumerate}
+    \item They are rare events
+    \item Are deeper and last longer compared to other recessions
+    \item Follow credit booms (i.e. not random)
+  \end{enumerate}
+  \medskip
+  Model: bank heterogeneity leads to interbank market
   \begin{itemize}
-    \item 1M by firm A, 1M by firm B
+    \item Moral hazard and asymmetric information may lead eventually to financial recession
   \end{itemize}
-  Both firms are creditworthy and pay back the loan with $Pr=0.995$
-  \begin{itemize}
-    \item When A defaults, bank can recover 0.5M
-    \item When B defaults, nothing can be recovered
-  \end{itemize}
+  \medskip
+  Illustrate that these recession are not triggered by adverse exogenous shocks
   \begin{align}
-    VaR=0
-  \end{align}
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame}
- \begin{align}
-   Pr(repayment < 1M-x)\leq 0.01
- \end{align}
- Both firms repay with $Pr=0.995$; can set $x=0$
- \begin{align}
-   Pr(repayment < 1M)=0.005 \leq 0.01
- \end{align}
- However, banks has more to lose when firm B defaults; need better measure.
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame}
-  \begin{align}
-    Tail\;loss = \mathbb{E}(W|W<q) = \frac{\int^q_{-\infty}Wf(W)dW}{\int^q_{-\infty}f(W)dW}
-  \end{align}
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame}
-  \textbf{Power law}
-  \begin{align}
-    f(x)=Ax^{-\alpha}
+    P(z_{t+1}<\overline{z}_{t+1}|z_t,A_t) = \Phi(log \overline{z}_{t+1}-\rho_zlog z_t)
   \end{align}
 \end{frame}
 %--------------------------------------
@@ -1241,7 +1426,7 @@ Insolvency of one bank can bring down whole system: \textbf{systemic risk}
 %--------------------------------------
 \begin{frame}
   \begin{figure}
-    \includegraphics{barro.eps}
+    \includegraphics[scale=.7]{boissay.eps}
   \end{figure}
 \end{frame}
 %--------------------------------------
@@ -1249,7 +1434,7 @@ Insolvency of one bank can bring down whole system: \textbf{systemic risk}
 %--------------------------------------
 \begin{frame}
   \begin{figure}
-    \includegraphics{barro_jin1.eps}
+    \includegraphics[scale=.7]{boissay2.eps}
   \end{figure}
 \end{frame}
 %--------------------------------------
@@ -1257,23 +1442,7 @@ Insolvency of one bank can bring down whole system: \textbf{systemic risk}
 %--------------------------------------
 \begin{frame}
   \begin{figure}
-    \includegraphics{barro_jin2.eps}
-  \end{figure}
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame}
-  \begin{figure}
-    \includegraphics{barro_jin3.eps}
-  \end{figure}
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame}
-  \begin{figure}
-    \includegraphics{barro_jin4.eps}
+    \includegraphics[scale=.7]{boissay3.eps}
   \end{figure}
 \end{frame}
 %--------------------------------------
