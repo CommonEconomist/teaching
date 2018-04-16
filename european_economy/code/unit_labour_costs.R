@@ -30,13 +30,13 @@ for(i in 1:length(startYear:endYear)){
 
 # Plot figure
 par(las=1,tck=0.02,mar=c(4,5,3,5),mgp=c(2.8,0.3,2.8),
-    cex.lab=1.2,cex.axis=1.2,cex.main=0.9)
+    cex.lab=2,cex.axis=2,cex.main=0.9)
 
 plot(0,xlim=c(startYear,endYear),ylim=c(95,160),type="n",bty="n",
      main="",xlab="Nominal Unit Labour Cost Index",ylab="",axes=FALSE)
-lines(startYear:endYear,l[1:18],lwd=2,col="black")
+lines(startYear:endYear,l[1:18],lwd=2,col="black") # Inflation target
 
-lifeLines(m,col="grey60") # Inflation target
+lifeLines(m,col="grey60") 
 lines(startYear:endYear,colMeans(m,na.rm=TRUE),col="black",lwd=2,lty=2) # Mean
 lines(startYear:endYear,m[5,],col="gold",lwd=2.5) # Germany
 lines(startYear:endYear,m[12,],col="firebrick3",lwd=2.5) # Spain

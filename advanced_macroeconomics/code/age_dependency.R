@@ -1,5 +1,5 @@
 ## Age dependency
-setwd('~/Dropbox/github/teaching/advanced_macroeconomics')
+setwd('~/github/teaching/advanced_macroeconomics')
 par(mar=c(5,5,2,2),bty='n',las=1,cex.axis=2,cex.lab=2,cex.main=2)
 
 require(WDI)
