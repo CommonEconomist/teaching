@@ -7,7 +7,6 @@ UCD (M.Sc.)
 
 
 ### Reading list 
-*In progress*
 
 1. **Identification in macroeconomics**, Nakamura & Steinsson, NBER working paper, 2017. 
 [[paper](http://www.columbia.edu/~en2198/papers/macroempirics.pdf)]
@@ -75,6 +74,9 @@ UCD (M.Sc.)
 [[paper](http://faculty.econ.ucdavis.edu/faculty/kdsalyer/LECTURES/Ecn200e/summers_illusion.pdf)]
 33. **Macroeconomics after the Crisis : Time to deal with the pretense-of-knowledge syndrome**, Caballero, Journal of Economic Perspectives, 2010.
 [[paper](http://pubs.aeaweb.org/doi/pdf/10.1257/jep.24.4.85)]
+34. **On the size distribution of macroeconomic disasters**, Barro & Jin, Econometrica, 2011. [[paper](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA8827?globalMessage=0)]
+35. **Disaster risk and business cycles**, Gourio, American Economic Review, 2012. [[paper](https://www.aeaweb.org/articles?id=10.1257/aer.102.6.2734)]
+36. **Booms and banking crises**, Boissay et al, Journal of Political Economy, 2016, [[paper](https://www.journals.uchicago.edu/doi/abs/10.1086/685475)]
 
   
   
