@@ -21,7 +21,7 @@
 \setbeamertemplate{footline}[frame number]
 
 %--------------------------------------
-\title{Banking \& risk}
+\title{Banking and risk}
 \author{School of Economics, University College Dublin}
 \date{Spring 2018}
 \begin{document}
@@ -71,7 +71,7 @@ To understand consumer interest rates need to understand risk involved with cons
     R-Rp-p\\ \nonumber
     R-p
 \end{align}
- For same expecter return, interest $r$ needs to be 
+ For same expected return, interest $r$ needs to be 
 \begin{align}
   r &= R-p\\ \nonumber
   r+p &=R
@@ -130,10 +130,18 @@ Eq.3 becomes
   \item Value of assets fluctuate with state of economy
 \end{enumerate}
  \medskip
- \text{Financial accelerator}: mechanisms by which financial sector can propagate business cycle shocks 
+ \textbf{Financial accelerator}: mechanism by which financial sector can propagate business cycle shocks 
  \begin{itemize}
    \item Recession-causing shock will increase interest rate spreads which will worsen the recession
  \end{itemize}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=.3]{millenium_bridge.eps}
+  \end{figure}
 \end{frame}
 %--------------------------------------
 
@@ -165,7 +173,7 @@ Eq.3 becomes
 
 %--------------------------------------
 \begin{frame}
-  The evolution of the state variable 
+  The evolution of the state variables
 \begin{align}
   k_{t+1} &= \delta inv_t + (1-\delta)k_t\\
   n_t &= \frac{\theta RK}{N}[r_ t^k - r_t] + \theta R(r_t+n_{t-1})\\
@@ -236,28 +244,8 @@ Borrowers with higher risk pay higher interest rates.
 \begin{enumerate}
   \item All borrowers look to borrow $B$ and put up collateral $C$
   \item Projects deliver a sum of $R$  
-  \item Interest rate on bank loans $r$ is determined endogenously
+  \item Interest rate on bank loan $r$ is determined endogenously
 \end{enumerate}
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame} 
- Return $R$ is uncertain
- \begin{itemize}
-   \item Outcome distribution varies across borrowers 
- \end{itemize}
- \medskip
- Return distribution type $\theta$ borrowers 
- \begin{align}
-   f(R,\theta)
- \end{align}
- \medskip
- Distribution mean identical across borrowers, but greater $\theta$ values correspond to greater riskiness
- \begin{itemize}
-   \item High values of $\theta$ induce a mean-preserving spread in the distribution of projected payoffs
-   \item Borrowers are observably identical to banks: don't observe an individual's value of $\theta$
- \end{itemize}
 \end{frame}
 %--------------------------------------
 
@@ -270,11 +258,37 @@ Borrowers with higher risk pay higher interest rates.
 %--------------------------------------
 
 %--------------------------------------
+\begin{frame} 
+ Return $R$ is uncertain
+ \begin{itemize}
+   \item Outcome distribution varies across borrowers 
+ \end{itemize}
+ \medskip
+ Return distribution type $\theta$ borrowers 
+ \begin{align}
+   PDF: f(R,\theta)
+ \end{align}
+ \medskip
+ Distribution mean identical across borrowers, but greater $\theta$ values correspond to greater riskiness
+ \begin{itemize}
+   \item High values of $\theta$ induce a mean-preserving spread in the distribution of projected payoffs   
+ \end{itemize}
+ \begin{align}
+   PDF: g(\theta)\\
+   CDF: G(\theta)
+ \end{align}
+ \medskip
+ Borrowers are observably identical to banks: don't observe an individual's value of $\theta$
+ 
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
 \begin{frame}
  Mechanism: bank sets $r$ which might affect risk of loan through
 \begin{enumerate}
-  \item \textbf{Adverse selection}: Sorting potential borrowers
-  \item \textbf{Moral hazard}: Affecting the actions of the borrowers
+  \item \textbf{Adverse selection}: sorting potential borrowers
+  \item \textbf{Moral hazard}: affecting the actions of the borrowers
 \end{enumerate}
 \end{frame}
 %--------------------------------------
@@ -295,9 +309,9 @@ $C$, collateral
 \begin{frame}
  \textbf{Returns}\\
  \medskip
- For firm $\pi(R,r)$ 
+ For borrower 
 \begin{align}
-  \pi(R,r)=Max(R-(1+r)B;-C)
+  \pi(R,r)=max(R-(1+r)B;-C)
 \end{align}
 \medskip
 For bank
@@ -309,10 +323,21 @@ For bank
 
 %--------------------------------------
 \begin{frame}
+  \begin{figure}
+    \includegraphics{stiglitz_weiss2.eps}
+  \end{figure}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
 The worst a firm can do is default on the loan and lose the collateral when the project has a bad return
 \begin{itemize}
-  \item After that the return increases one for one with outcome $R$
-  \item Return depends negatively on borrowing rate $r$
+  \item After that the return increases one for one with outcome $R$  
+\end{itemize}
+\medskip
+Return $R$ depends negatively on borrowing rate $r$
+\begin{itemize}
   \item Not all firms decide to go ahead and borrow as not all firms have a positive expected value.
 \end{itemize}
 \end{frame}
@@ -320,53 +345,45 @@ The worst a firm can do is default on the loan and lose the collateral when the 
 
 %--------------------------------------
 \begin{frame}
-Firm borrows if
+Borrow if
 \begin{align}
   \mathbb{E}[\pi(R,r)]=\int_0^{\infty} \pi(R,r)f(R,\theta)dR>0
 \end{align}
 \medskip
-Main question is how 
-\begin{align}
-  \mathbb{E}[\pi(R,r)]
-\end{align}
-\medskip
-varies with type $\theta$
+Main question is how $\mathbb{E}[\pi(R,r)]$ varies with type $\theta$
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-\textbf{Borrower pool}: Decide to borrow if
+Types only borrow if 
 \begin{align}
   \theta > \hat{\theta}(r)
 \end{align}
 \medskip
 From utility theory;
 \begin{itemize}
-  \item If $U(C)$ is concave: mean-preserving spread in $C$ distribution reduces expected utility because people are risk averse
+  \item Concave utility function: mean-preserving spread in distribution reduces expected utility because people are risk averse
+  \item In this case outcome is a convex function of $R$, so more uncertainty increases the expected return
 \end{itemize}
 \medskip
-In this case outcome is a convex function of $R$, so more uncertainty increases the expected return. 
-\begin{itemize}
-  \item Bad case:outcome still $−C$ but increased risk raises the chance of a really good outcome.
-\end{itemize}
+Bad case: outcome still $-C$, but increased risk raises the chance of a really good outcome. 
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
- How does $r$ increase affect loan demand?  
-\begin{itemize}
-  \item Project returns depend negatively on $r$: increase in $r$ reduces everyone's expected project returns  
-  \item Expected project returns depend positively on $\theta$: some firms still have positive expected value for
-    going ahead with borrowing and doing the project
-  \item Increase in $r$ raises the cut-off $\hat{\theta}(r)$ for potential borrowers
-\end{itemize}
-\medskip
- Interest rate increases; borrowers pool changes consisting of more risky project (adverse selection)
- \begin{itemize}
+ Effect of increase in $r$ on loan demand
+ \begin{enumerate}
+   \item $R$ depends negatively on $r$: increase $r$ reduces expected project returns  
+   \item $R$ depends positively on $\theta$: some $\theta$ have $\mathbb{E}[\pi(R,r)]>0$     
+ \end{enumerate}
+ \medskip
+  Increase in $r$ raises the cut-off $\hat{\theta}(r)$ for potential borrowers
+ \begin{enumerate}
+   \item Adverse selection: borrower pool changes consisting of more risky projects 
    \item Moral hazard problem: risk-neutral investors prefer project with higher bankruptcy probability
- \end{itemize}
+ \end{enumerate}
 \end{frame}
 %--------------------------------------
 
@@ -381,7 +398,10 @@ In this case outcome is a convex function of $R$, so more uncertainty increases 
   \rho(\theta,r)=\int_0^{\infty}[Min(R+C;(1+r)B)]f(R,\theta)dR
 \end{align}
  \medskip
- Bank's pay off concave function of $R$: increases in $\theta$ reduces bank's expected return.
+ Increase in $\theta$ reduces bank's expected return. 
+ \begin{itemize}
+    \item Bank's pay off concave function of $R$
+  \end{itemize}  
 \end{frame}
 %--------------------------------------
 
@@ -404,14 +424,6 @@ In this case outcome is a convex function of $R$, so more uncertainty increases 
 
 %--------------------------------------
 \begin{frame}
-  \begin{figure}
-    \includegraphics{stiglitz_weiss2.eps}
-  \end{figure}
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame}
  $r$ increase has two effects on bank's pay off 
 \begin{enumerate}
   \item +ve: higher interest revenues from each project that pays off
@@ -428,21 +440,26 @@ At some point second effect dominates: bank profits rise as the interest rate go
    \item Low risk
    \item High risk
  \end{enumerate}
+ \medskip
  Profits drop at point where low-risk types drop out
  \begin{itemize}
    \item Continuous number of types: interest rate $r^*$, which is consistent with maximum profit level
-   \item Assume that loan supply depends positively on the expected pay off
+   \item Assuming that loan supply depends positively on the expected pay off
  \end{itemize} 
+ \medskip
+ Problem: banks cannot simply choose $r^*$
+ \begin{itemize}
+   \item No equilibrium if there is not sufficient demand
+   \item Banks would chase consumers offering them $r^*$ and lots of people would be turning them down
+ \end{itemize}
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-Problem: banks cannot simply choose $r^*$
- \begin{itemize}
-   \item No equilibrium if there is not sufficient demand
-   \item Banks would chase consumers offering them $r^*$ and lots of people would be turning them down
- \end{itemize}
+  \begin{figure}
+    \includegraphics{stiglitz_weiss3.eps}
+  \end{figure}
 \end{frame}
 %--------------------------------------
 
@@ -458,18 +475,17 @@ Problem: banks cannot simply choose $r^*$
 \medskip
   \item High loan demand
   \begin{itemize}
-    \item Loan demand and supply curves do not intersect: bank pick optimal interest rate $r^*$    
+    \item Loan demand and supply curves do not intersect: bank picks optimal interest rate $r^*$    
     \item Credit rationing: More demand than banks are willing to supply
   \end{itemize}
 \end{enumerate}
 \end{frame}
 %--------------------------------------
 
-
 %--------------------------------------
 \begin{frame}
   \begin{figure}
-    \includegraphics{stiglitz_weiss3.eps}
+    \includegraphics[scale=.9]{credit_rationing.eps}
   \end{figure}
 \end{frame}
 %--------------------------------------
@@ -578,10 +594,11 @@ Forerunner of today's central banks
 
 %--------------------------------------
 \begin{frame}
- Most of time only small small fraction of bank's total deposits will be demanded at any given time
+ Most of time only small fraction of bank's total deposits will be demanded at any given time
  \begin{itemize}
    \item "most" being important qualifier here
  \end{itemize}
+ \medskip
  i.e. not all cash has to be in the vault in order to back up the deposits
  \begin{itemize}
    \item Some of it can be used for loans while keeping some cash reserves to deal with day-today demand. 
@@ -618,6 +635,24 @@ This practice is called \textbf{fractional reserve banking }
   \item Liabilities: sources of the bank's funds
   \item Assets: uses of said funds
 \end{itemize}
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+\begin{table}[!h] \centering
+\caption{Stylised bank balance sheet}
+\scalebox{1}{
+\begin{tabular}{ll}
+\\[-1.8ex]\hline \hline \\[-1.8ex]
+    Assets (use of funds)  & Liabilities (source of funds)\\
+    \hline \\ 
+    Loans & Deposits\\
+    Securities & Other borrowings\\
+    Cash and reserves  & Equity capital\\
+    \\[-1.8ex]\hline \hline \\[-1.8ex]
+    \end{tabular}}
+\end{table}
 \end{frame}
 %--------------------------------------
 
@@ -663,24 +698,6 @@ This practice is called \textbf{fractional reserve banking }
    \item Banks and governments are always quick to declare that the banks are fully solvent
    \item Main concern of bank run is contagion risk
  \end{itemize}
-\end{frame}
-%--------------------------------------
-
-%--------------------------------------
-\begin{frame}
-\begin{table}[!h] \centering
-\caption{Stylised bank balance sheet}
-\scalebox{1}{
-\begin{tabular}{ll}
-\\[-1.8ex]\hline \hline \\[-1.8ex]
-    Assets (use of funds)  & Liabilities (source of funds)\\
-    \hline \\ 
-    Loans & Deposits\\
-    Securities & Other borrowings\\
-    Cash and reserves  & Equity capital\\
-    \\[-1.8ex]\hline \hline \\[-1.8ex]
-    \end{tabular}}
-\end{table}
 \end{frame}
 %--------------------------------------
 
@@ -1062,6 +1079,7 @@ Profits and RoE for aggressive approach
     \item Banks should deal with these by writing down part of their loans each year as loan loss provision
     \item i.e. valuing assets at less than their current book value in anticipation of future losses
   \end{itemize}
+  \medskip
   \item Stress loss (distribution extreme tail)
   \begin{itemize}
     \item 1\% tail is commonly used
@@ -1077,6 +1095,7 @@ Profits and RoE for aggressive approach
   \begin{itemize}
     \item 1M by firm A, 1M by firm B
   \end{itemize}
+  \medskip
   Both firms are credit worthy and pay back the loan with $Pr=0.995$
   \begin{itemize}
     \item When A defaults, bank can recover 0.5M

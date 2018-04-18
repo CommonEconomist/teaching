@@ -3,6 +3,7 @@
 # i) Eurozone, ii) Austria, Germany, the Netherlands, iii) Greece, Italy, Spain
 # Last update: 2018 02 20
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+par(mar=c(5,2,2,5),las=1,bty='n',cex.lab=2,cex.axis=2)
 library(plyr)
 d<-read.csv("data/eurostat_unemployment.csv",header=TRUE)
 d<-d[d$TIME>=2007,]
@@ -27,3 +28,4 @@ text(10,eur[10]-.85,"Eurozone")
 
 lines(n.eur,col="steelblue4",lwd=2); text(10,n.eur[10]+.5,"Rhine")
 lines(s.eur,col="steelblue4",lwd=2); text(9.8,s.eur[10]+.5,"Mediterranean")
+

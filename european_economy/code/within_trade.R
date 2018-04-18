@@ -1,6 +1,6 @@
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 # EU exports
-# Last update: 2018 02 20
+# Last update: 2018 04 18
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 library(plyr)
 d<-read.csv("data/eurostat_exports_eu.csv",stringsAsFactors=FALSE)
@@ -16,7 +16,7 @@ d$GEO[d$GEO=="Czech Republic"]<-"Czechia"
 # Plot data
 par(mar=c(5,10,2,2),pty="m",cex.axis=1.5,cex.lab=1.3)
 barplot(d$exports,xaxt="n",yaxt="n",ylab="",border=F,width=c(.35),space=1.8,
-        horiz=TRUE,col="black")
+        horiz=TRUE,col="black",main='Within EU trade')
 axis(2,at=(1:28)-.26,labels=d$GEO, tick=F)
 axis(1,tick=F)
 abline(v=seq(0,20,5),col="white",lwd=3)
