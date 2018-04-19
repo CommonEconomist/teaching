@@ -1,6 +1,6 @@
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 # PIGS exports
-# Last update: 2018 02 28
+# Last update: 2018 04 19
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 library(WDI)
 
@@ -22,9 +22,8 @@ gre<-d$ex.s[d$country=="Greece"]; gre=gre/gre[1]*100
 esp<-d$ex.s[d$country=="Spain"]; esp=esp/esp[1]*100
 
 # Plot data
-plot(por,type="l",ylim=c(60,170),axes=FALSE,
-     xlab="Ratio between export and export markets (1999=100)",
-     ylab="",lwd=2)
+plot(por,type="l",ylim=c(60,170),axes=FALSE,lwd=2,
+     xlab="",ylab="",main="Ratio between export and export markets (1999=100)")
 axis(1,tick=FALSE,at=1:17,label=1999:2015);axis(4,tick=FALSE)
 text(17,por[17]+3,"Portugal")
 

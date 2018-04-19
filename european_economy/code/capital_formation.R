@@ -17,8 +17,8 @@ gbr<-d$Value[d$GEO=="United Kingdom"]; gbr=gbr/gbr[1]*100
 
 # Plot data
 par(mar=c(5,2,2,5))
-plot(eur,type="l",ylim=c(60,120),axes=FALSE,xlab="Capital formation (2007=100)",
-     ylab="",lwd=2,lty=2)
+plot(eur,type="l",ylim=c(60,120),axes=FALSE,xlab="",
+     ylab="",lwd=2,lty=2,main="Capital formation (2007=100)")
 axis(1,tick=FALSE,at=1:10,label=2007:2016);axis(4,tick=FALSE)
 text(10,eur[10]-1.5,"Eurozone")
 

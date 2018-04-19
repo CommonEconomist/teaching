@@ -1,7 +1,7 @@
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 # Economic growth since 2007 
 # - Eurozone, Germany, France, Italy, Spain, UK,
-# Last update: 2018 02 20
+# Last update: 2018 04 19
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 d<-read.csv("data/eurostat_real_gdp.csv",header=TRUE)
 
@@ -16,8 +16,8 @@ gbr<-d$Value[d$GEO=="United Kingdom"]; gbr=gbr/gbr[1]*100
 
 # Plot data
 par(mar=c(5,2,2,5))
-plot(eur,type="l",ylim=c(90,110),axes=FALSE,xlab="Growth since 2007 (2007=100)",
-     ylab="",lwd=2,lty=2)
+plot(eur,type="l",ylim=c(90,110),axes=FALSE,xlab="",
+     ylab="",lwd=2,lty=2,main="Growth since 2007 (2007=100)")
 axis(1,tick=FALSE,at=1:10,label=2007:2016);axis(4,tick=FALSE)
 text(10,eur[10]-.85,"Eurozone")
 

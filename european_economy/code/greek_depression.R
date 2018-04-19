@@ -2,7 +2,7 @@
 # Greek depression
 # Last update: 2018 02 28
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
-par(mar=c(3,3,1,1),las=1,bty="n",cex.axis=2,cex.lab=2)
+par(mar=c(5,5,2,2),pty="m",cex.axis=2,cex.lab=2,cex.main=2,bty='n',las=1)
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 # 1) Greece GDP 
@@ -21,7 +21,7 @@ grc.adj<-ts(grc.adj,start=c(1995,1),frequency=4)
 # Plot data
 plot(grc.adj,ylim=c(60,120),xlab="",ylab="",axes=FALSE,lwd=2)
 lines(grc.un,col="grey50",type="b")
-text(1998,115,"Chain linked volumes \n index 2010=100",cex=1.7)
+text(1998,115,"Greek GDP \n chain linked volumes \n index 2010=100",cex=1.7)
 axis(1,tick=FALSE,line=-1)
 axis(2,tick=FALSE,line=-1)
 
@@ -33,7 +33,6 @@ cont<-window(grc.adj,start=c(2007,2),frequency=4)
 cont<-cont/cont[1]*100
 
 # Plot
-par(mar=c(4,5,3,1))
 plot(cont,axes=FALSE,xlab="",ylab="",lwd=2,main='Contraction Greek economy')
 axis(1,tick=FALSE);axis(2,tick=FALSE)
 
@@ -46,8 +45,8 @@ x<-ts(ps$Value[ps$GEO=="Greece"],start=c(1999,1),frequency=1)
 y<-ts(tr$Value[tr$GEO=="Greece"],start=c(1999,1),frequency=1)
 
 # Plot
-par(mar=c(4,5,1,5))
-plot(x,ylim=c(30,70),type="b",axes=FALSE,xlab="",ylab="Percentage of GDP",pch=0)
+plot(x,ylim=c(30,70),type="b",axes=FALSE,xlab="",ylab="Percentage of GDP",pch=0,
+     main="Greece")
 text(2015,x[17]+2,"Public \n spending")
 lines(y,lty=2,type="b")
 text(2015,y[17]+2,"Tax \n revenue")
@@ -80,7 +79,6 @@ gdptr<-ts(d$Value[d$VARIABLE=="GDPTR"]/(1*10^9),start=c(1995,1),frequency=1)
 
 
 # Plot
-par(mar=c(5,5,3,1))
 plot(gdp,ylim=c(90,250),lwd=2,axes=FALSE,ylab="",xlab="",
      main='Greece potential and realised GDP')
 lines(gdptr,lwd=2,lty=2)

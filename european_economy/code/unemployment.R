@@ -1,7 +1,7 @@
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 # Unemployment
 # i) Eurozone, ii) Austria, Germany, the Netherlands, iii) Greece, Italy, Spain
-# Last update: 2018 02 20
+# Last update: 2018 04 19
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 par(mar=c(5,2,2,5),las=1,bty='n',cex.lab=2,cex.axis=2)
 library(plyr)
@@ -21,7 +21,7 @@ n.eur<-d2$un.rate[d2$group==1]
 s.eur<-d2$un.rate[d2$group==0]
 
 # Plot data
-plot(eur,type="l",ylim=c(5,25),axes=FALSE,xlab="Unemployment rate",
+plot(eur,type="l",ylim=c(5,25),axes=FALSE,xlab="",main="Unemployment rate",
      ylab="",lwd=2,lty=2)
 axis(1,tick=FALSE,at=1:10,label=2007:2016);axis(4,tick=FALSE)
 text(10,eur[10]-.85,"Eurozone")
