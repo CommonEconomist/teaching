@@ -10,7 +10,7 @@ y<-debt[debt$GEO=="Spain",]$Value
 years<-1995:2015
 
 # Plot
-par(mar=c(5,5,1,1),bty="n",las=1,cex.axis=1.5,cex.lab=1.5,cex.main=1.7)
+par(mar=c(5,5,3,1),bty="n",las=1,cex.axis=1.5,cex.lab=1.5,cex.main=1.7)
 plot(x,y,type="b",cex=0,lty=3,lwd=.75,main='Spain',
      xlab="Budget surplus (% of GDP)",ylab="Public debt (% of GDP)",axes=FALSE)
 abline(h=60,lty=2);abline(v=-3,lty=2)
