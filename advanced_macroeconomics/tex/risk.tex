@@ -755,11 +755,11 @@ Banking crisis likely leads to credit squeeze
 %--------------------------------------
 \begin{frame}
  Modern banking system has number of features that make crisis difficult to deal with
-\begin{itemize}
-  \item Non-deposit funding
+\begin{enumerate}
   \item Interbank linkages
   \item Financial assets and negative feedbacks  
-\end{itemize}
+  \item Non-deposit funding  
+\end{enumerate}
 \end{frame}
 %--------------------------------------
 
@@ -882,7 +882,7 @@ Banking crisis likely leads to credit squeeze
     \item Means attracting more risky borrowers: increase in probability that people don't pay back loans
   \end{itemize}
   \medskip
-  Suppose that of the 21M in loans, 5M went to a real estate developer who went bankrupt
+  Suppose that of the 71M in loans, 5M went to a real estate developer who went bankrupt
 \end{frame}
 %--------------------------------------
 
@@ -910,12 +910,12 @@ Banking crisis likely leads to credit squeeze
 %--------------------------------------
 \begin{frame} 
 \begin{enumerate}
-  \item Equity capital is risky; one bad loan removes a fair chunk
-  \item Investors will get paid dividends when there is a profit, but they are the first to lose money when there is a bad loan
-  \item Depositors and debt-holders have first claim to getting their money back
+  \item \textbf{Equity capital} is risky; one bad loan removes a fair chunk
+  \item \textbf{Investors} will get paid dividends when there is a profit, but they are the first to lose money when there is a bad loan
+  \item \textbf{Depositors and debt-holders} have first claim to getting their money back
 \end{enumerate}
  \medskip
-  Bank needs to be cautious in assessing credit risk of loan
+  Bank needs to be cautious in assessing credit risk of loan.
 \end{frame}
 %--------------------------------------
 
@@ -943,7 +943,7 @@ Banking crisis likely leads to credit squeeze
  \item Aggressive 
   \begin{itemize}
     \item 90M raised in deposits
-    \item 1000M borrowed from international money markets (2\% interest rate)
+    \item 100M borrowed from international money markets (2\% interest rate)
   \end{itemize}
 \end{enumerate}
 \end{frame}
@@ -1050,8 +1050,9 @@ Profits and RoE for aggressive approach
 \begin{frame} 
   \textbf{Value at Risk}, measure for risk level of investments of a bank, motivated by question
   \begin{quote}
-    What is, realistically, the worst that could happen over one day, one week, ore one year?
+    What is, realistically, the worst that could happen over one day, one week, or one year?
   \end{quote}
+  VaR at confidence level $\alpha$ relative to base level $W_0$ is smallest non-negative number such that 
   \begin{align}
     Pr(W<W_0-VaR)\leq 1-\alpha
   \end{align}
@@ -1096,35 +1097,49 @@ Profits and RoE for aggressive approach
     \item 1M by firm A, 1M by firm B
   \end{itemize}
   \medskip
-  Both firms are credit worthy and pay back the loan with $Pr=0.995$
+  Both firms are credit worthy: pay back loan with $Pr=0.995$
   \begin{itemize}
     \item When A defaults, bank can recover 0.5M
     \item When B defaults, nothing can be recovered
-  \end{itemize}
-  \begin{align}
-    VaR=0
-  \end{align}
+  \end{itemize}  
+  \medskip
+  For $\alpha=0.99$, what is the bank's VaR for each firm?
 \end{frame}
 %--------------------------------------
 
+
 %--------------------------------------
 \begin{frame}
+In both cases $VaR=0$ at $\alpha=0.99$
  \begin{align}
    Pr(repayment < 1M-x)\leq 0.01
  \end{align}
+ \medskip
  Both firms repay with $Pr=0.995$; can set $x=0$
  \begin{align}
    Pr(repayment < 1M)=0.005 \leq 0.01
  \end{align}
- However, banks has more to lose when firm B defaults; need better measure.
+ However, banks has more to lose when firm B defaults: need better measure. 
  \begin{align}
     Tail\;loss = \mathbb{E}(W|W<q) = \frac{\int^q_{-\infty}Wf(W)dW}{\int^q_{-\infty}f(W)dW}
   \end{align}
+  \medskip
+  Or conditional expected loss
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
+  Suppose 
+  \begin{itemize}
+    \item $W$ is value of assets at some future data
+    \item $W_0$ is value of assets today
+  \end{itemize}
+  \medskip
+  Bank will remain solvent as long as
+  \begin{align}
+    W\geq W_0 - Capital
+  \end{align}
   \begin{figure}
     \includegraphics[scale=.3]{VaR2.eps}
   \end{figure}
@@ -1136,13 +1151,14 @@ Profits and RoE for aggressive approach
   Bank will go bankrupt with probability $p$
   \begin{itemize}
     \item Failure probability can be decreased by holding more capital
-    \item VaR indicates amount of capital required to stave off default with high probability
+    \item VaR indicates capital amount required to stave off default with high probability
   \end{itemize}
   \medskip
-  Tail loss no concern for equity holders
+  VaR of interest to creditors and tax payers
   \begin{itemize}
-    \item Is of interest to creditors and other actors in wider economy; these do not control the bank
-  \end{itemize}
+    \item However, these do not control the bank
+    \item Equity holders do: no concern for tail loss 
+  \end{itemize}  
 \end{frame}
 %--------------------------------------
 
@@ -1155,6 +1171,7 @@ Profits and RoE for aggressive approach
     \item Uncertainty level chosen to account for ease of recapitalisation
   \end{itemize}
 \end{frame}
+%--------------------------------------
 
 
 %--------------------------------------
@@ -1167,10 +1184,12 @@ Profits and RoE for aggressive approach
     \end{align*}
   \end{itemize}
    Basel regulations also require risk-weighted assets of $\geq$8\%
+   \begin{itemize}
+     \item Tier 1 and 2 capital (equity capital, subordinated bonds)
+   \end{itemize}
 \begin{align*} 
   RWA=\frac{3*VaR}{0.08} 
 \end{align*}
-
 \end{frame}
 %--------------------------------------
 
@@ -1180,11 +1199,11 @@ Profits and RoE for aggressive approach
   \begin{enumerate}
     \item Market risk
     \begin{quote}
-      pertaining to interest rate related instruments, equities, foreign exchange risk and commodities risk
+      ...pertaining to interest rate related instruments, equities, foreign exchange risk and commodities risk.
     \end{quote}
     \item Operational risk
     \begin{quote}
-      inadequate or failed internal processes, people and systems or from external events
+      ...inadequate or failed internal processes, people and systems or from external events.
     \end{quote}
   \end{enumerate}
 \end{frame}
@@ -1217,7 +1236,7 @@ Profits and RoE for aggressive approach
   \item Allowing banks with lots of deposits but without good loan opportunities to lend to banks with good loan opportunities but limited deposits
 \end{itemize}
 \medskip
-Despite advantage, interbank lending can make system unstable
+Interbank lending can make system unstable: \textbf{systemic risk}
 \end{frame}
 %--------------------------------------
 
@@ -1236,13 +1255,15 @@ Despite advantage, interbank lending can make system unstable
   \item B becomes insolvent $\rightarrow$ cannot pay C
   \item C becomes insolvent and has no equity capital left
 \end{enumerate}
-Insolvency of one bank can bring down whole system: \textbf{systemic risk}
+\medskip
+Insolvency of one bank can bring down whole system
 \end{frame}
 %--------------------------------------
 
 %--------------------------------------
 \begin{frame}
-  Single bank can pose risk for whole financial system through  
+  Main mechanisms of systemic risk
+  \medskip
 \begin{enumerate}
   \item Contagion (interbank lending)
   \item Spillovers (asset sales)
@@ -1291,6 +1312,9 @@ Insolvency of one bank can bring down whole system: \textbf{systemic risk}
   \medskip
   $\alpha$, scaling parameter\\
   $A$, constant
+  \begin{figure}
+    \includegraphics[scale=.4]{power_law.eps}
+  \end{figure}
 \end{frame}
 %--------------------------------------
 
@@ -1301,10 +1325,10 @@ Insolvency of one bank can bring down whole system: \textbf{systemic risk}
    log(Y_{t+1}) &= log(Y_t)+g+u_{t+1}+v_{t+1}\\ \nonumber
    Y_t&=C_t; g \geq 0 \\
  \end{align}
- $v_{t+1}$ accounts for low-probability disasters: output contracts by fraction $b$
- \begin{align}
+ Low-probability disasters $v_{t+1}$: output contracts by fraction $b$
+ \begin{align*}
    0 < b \leq 1
- \end{align}
+ \end{align*}
  \begin{align}
    Pr(1-p) &: v_{t+1}=0\\ \nonumber
    Pr(p) &: v_{t+1} =log(1-b)
@@ -1375,23 +1399,11 @@ Insolvency of one bank can bring down whole system: \textbf{systemic risk}
 %--------------------------------------
 \begin{frame}
  \textbf{Gourio} (2012) "Disaster risk and business cycles"\\
- \medskip
- Normal times
  \begin{align}
-   log\;z_{p,t}&= log\; z_{p,t-1} + \mu + \epsilon_t \\
-   log\; z_{r,t} &= \rho_z log\; z_{r,t-1}
- \end{align}
- \medskip
- Disasters
-  \begin{align}
-    K_{t+1} &= \left( (1-\delta)K_t + \phi \left(\frac{I_t}{K_t}\right)K_t e^{\zeta_{t+1}} \right)\\
-    log\;z_{p,t}&= log\; z_{p,t-1} + \mu + \epsilon_t + \theta_t \\
-    log\; z_{r,t} &= \rho_z log\; z_{r,t-1} +\varphi_t - \theta_t\\
-    log(p_t) &= \rho_p log(p_{t-1}) + (1-\rho_p)log\overline(p)+\epsilon_t^p
-  \end{align}
-  \begin{align}
-   Pr(x_{t+1}=1 | x_t=1) &= max(q,p_t)\\
-   Pr(x_{t+1}=1 | x_t=0) &= p_t
+   log\;z_{p,t}&= log\; z_{p,t-1} + \mu + \epsilon_t +x_t\theta_t, \\
+   log\; z_{r,t} &= \rho_z log\; z_{r,t-1} + (\varphi_t-\theta_t)x_t,\\
+   K_{t+1} &= \left( (1-\delta)K_t + \phi \left(\frac{I_t}{K_t}\right)K_t \right) e^{x_{t+1}\zeta_{t+1}}, \\
+   Pr(x_{t+1}=1 | x_t=1) &= max(q,p_t);\; Pr(x_{t+1}=1 | x_t=0) = p_t
  \end{align}
 \end{frame}
 %--------------------------------------

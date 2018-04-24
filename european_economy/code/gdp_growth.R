@@ -1,6 +1,6 @@
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 # GDP growth
-# Last update: 2018 02 28
+# Last update: 2018 04 23
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 source('code/lines.R')
 library(reshape2)
@@ -28,4 +28,4 @@ lines(startYear:endYear,m[9,],col="black",lwd=2)       # Euro area
 lines(startYear:endYear,m[13,],col="steelblue4",lwd=2) # Greece
 
 axis(1,tick=FALSE); axis(2,tick=FALSE)
-
+abline(h=0,lty=2)
