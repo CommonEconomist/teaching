@@ -1,13 +1,11 @@
 ## Teaching material
 This repository contains teaching material for a number of courses. 
 In most cases data and code for creating the figures is included. 
-For questions, feel free to contact me: weezel.van (at) gmail.com
+For questions, feel free to contact me: vanweezel (at) pm.me
 
-
-#### `advanced_macroeconomics`
+#### `advanced-macro`
 M.Sc. course focusing on empirical macroeconomics.
 Topics covered include
-
 *  Identification
 *  Growth accounting
 *  VAR models
@@ -15,9 +13,9 @@ Topics covered include
 *  DSGE models
 *  Banking crises
 
-Course taught at University College Dublin (2016-17, 2017-18).
+Course taught at University College Dublin (2016-18).
 
-#### `international_trade`
+#### `international-trade`
 Undergradaute course in international trade economics.
 Topics covered include
 
@@ -37,13 +35,12 @@ Topics covered include
 * Monetary and fiscal policy
 * Eurocrisis. 
 
-Course taught at University College Dublin (2016-17, 2017-18).
+Course taught at University College Dublin (2016-18).
 
 #### `statistics_economics`
 Computer classes - in R - part of undergradaute course in applied statistics. 
 Follow up course of 'Data analysis for economists'.
 Course taught at University College Dublin (2017-18)
-
 
 #### `data_analysis`
 Computer classes - in R - part of undergradaute course in applied statistics. 
