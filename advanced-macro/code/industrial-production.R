@@ -1,5 +1,4 @@
-## Industrial production
-setwd('~/Dropbox/github/teaching/advanced_macroeconomics')
+# Industrial production
 par(mar=c(5,5,2,2),bty='n',las=1,cex.axis=2,cex.lab=2,cex.main=2)
 
 # Data
@@ -15,3 +14,5 @@ rect(1936.583,75,1937.167,195,lwd=0,col='grey70',border=NA)
 
 lines(ip)
 axis(1,tick=FALSE);axis(2,tick=FALSE,line=-2)
+
+## FIN
