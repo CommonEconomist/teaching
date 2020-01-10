@@ -45,7 +45,7 @@ Topics include:
 
 Taught at University College Dublin (2017-18)
 
-#### `data_analysis`
+#### `data-analysis`
 R computer classes as part of undergraduate course in applied statistics. 
 Topics include;
 * Data processing;
@@ -54,5 +54,5 @@ Topics include;
 * Time-series data;
 * Linear regression.
 
-Course taught at University College Dublin (2017-18)
+Taught at University College Dublin (2017-18)
 
