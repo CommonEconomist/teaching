@@ -1,0 +1,238 @@
+# Code to answer the practice questions
+
+## Introduction to R
+
+```
+v<-c(16,2,3,13,5,11,10,8,9,7,6,12,4,14,15,1)
+M=matrix(v,4,4)
+```
+
+```
+df<-data.frame(country=rep(c("Australia","South Africa"),each=5),
+               year=rep(2005:2009,2),
+               iron=c(85,98,86,86,119,68,62,59,70,94),
+               wheat=c(46,64,66,58,39,19,24,21,28,9),
+               iron.p=rep(c(28,33,37,61,72),2),
+               wheat.p=rep(c(520,640,732,793,516),2))
+df$p.index=df$iron*df$iron.p+df$wheat*df$wheat.p
+```
+
+
+```
+Fh2C<-function(x){(x-32)*5/9}
+cel<-Fh2C(sf$TAVG)
+year<-1921:2015
+plot(year,cel,type="l")   # 'type' set the type of graph, line here. 
+abline(h=mean(cel),lty=2) # 'lty' specifies the line type. 
+```
+
+```
+tswing<-sf$TMAX-sf$TMIN
+plot(year,tswing,type="l",ylab="T range",xlab="")
+```
+
+## Data transformation
+
+```
+colnames(rain_long)[2:3]<-c("date","precipitation")
+```
+
+```
+par(mar=c(4.5,9.5,1,1),cex.axis=1.5,cex.lab=1.5)
+hist(rain_long$precipitation)
+boxplot(rain_long$precipitation~rain_long$province,
+     xlab="Precipitation (mm)",ylab="",horizontal=TRUE)
+```
+
+
+```
+westcap.ts.a<-(westcap.ts-mean(westcap.ts))/sd(westcap.ts)
+plot(westcap.ts.a)
+```
+
+
+```
+rain.ds$var<-rain.ds$rain.m/rain.ds$rain.sd
+```
+
+
+```
+rain.n<-merge(rain_long,rain.ds,all.x=TRUE)
+rain.n$rain.a<-(rain.n$precipitation-rain.n$rain.m)/rain.n$rain.sd
+boxplot(rain.n$rain.a~rain.n$province,
+     xlab="Anomaly",ylab="",horizontal=TRUE)
+```
+
+
+## Exploratory data analysis
+
+
+```
+wdi15$gdp.g=(wdi15$gdp_constant-wdi15$gdp_constant.l)/wdi15$gdp_constant.l
+plot(wdi15$urban_population,wdi15$gdp_constant,
+     log="xy",xlab="Urban population",ylab="GDP")
+```
+
+
+```
+plot(wdi15$urban_population,wdi15$gdp_pc_constant,
+     log="xy",xlab="Urban population",ylab="GDP per capita")
+```
+
+
+```
+plot(wdi15$urban_population,wdi15$gdp.g,xlab="Urban population",ylab="GDP")
+```
+
+
+```
+points(wdi15[wdi15$continent=="Americas",]$gdp_pc_constant,
+      wdi15[wdi15$continent=="Americas",]$under5_mortality_per1000,
+      col="red",pch=19)
+points(wdi15[wdi15$continent=="Asia",]$gdp_pc_constant,
+      wdi15[wdi15$continent=="Asia",]$under5_mortality_per1000,
+      col="yellow",pch=19)
+points(wdi15[wdi15$continent=="Oceania",]$gdp_pc_constant,
+      wdi15[wdi15$continent=="Oceania",]$under5_mortality_per1000,
+      col="green",pch=19)
+```
+
+
+
+```
+table(wdi[wdi$year>=1981 & wdi$under5_mortality_per1000>330,]
+      [,c("country","year")])
+
+lines(wdi[wdi$country=="Niger",]$under5_mortality_per1000,col="black")
+
+table(wdi[wdi$year>=2000 & wdi$under5_mortality_per1000>200,]
+      [,c("country","year")])
+
+lines(wdi[wdi$country=="Sierra Leone",]$under5_mortality_per1000,col="blue")
+lines(wdi[wdi$country=="Haiti",]$under5_mortality_per1000,col="green")
+```
+
+## Data visualisation
+
+```
+Normal<-rnorm(1000,2,1)  
+Uniform<-runif(1000,0,10) 
+Poisson<-rpois(1000,2)                
+Gamma<-rgamma(1000,2)         
+par(mfrow=c(2,2)) # Plot with 2 rows and 2 columns. 
+hist(Normal);hist(Uniform);hist(Poisson);hist(Gamma)
+```
+
+```
+set.seed(42);x<-rnorm(150000,182.5,6)
+hist(x)
+abline(v=mean(x),col="red")
+```
+
+```
+m<-182.5-169
+dev<-sqrt(6^2+2^2)
+pnorm(0,m,dev)*8500000
+```
+
+```
+pois<-rpois(nrow(prussia),mean(prussia$deaths))
+P<-as.vector(table(pois))
+perc2<-P/sum(P)*100
+lines(0:4,perc2,lty=2,type="b") 
+```
+
+```
+kicks.c<-aggregate(deaths~corps,prussia,sum)
+kicks.c[kicks.c$deaths<mean(kicks.c$deaths),]$corps
+```
+
+## Time-series data
+
+```
+abline(h=mean(arabica),lty=2,lwd=2)
+```
+
+```
+arabica.g=(arabica-lag(arabica,k=-1))/lag(arabica,k=-1)*100
+plot(arabica.g,xlab="",ylab="Growth rate",axes=FALSE)
+axis(1,tick=FALSE,at=seq(1980,2020,5),label=seq(1980,2020,5))
+axis(2,tick=FALSE)
+abline(h=mean(arabica.g),lty=2,lwd=2)
+```
+
+```
+arabica3<-ma(arabica,3)
+arabica6<-ma(arabica,6)
+arabica12<-ma(arabica,12)
+
+plot(arabica,ylim=c(20,320),axes=FALSE,xlab="",ylab="Price (US$/tonnes)",
+     lty=2,col="grey70",lwd=3)
+axis(1,tick=FALSE,at=seq(1980,2020,5),label=seq(1980,2020,5))
+axis(2,tick=FALSE)
+
+lines(arabica3,lty=1,col="steelblue4")
+lines(arabica6,lty=1,col="firebrick3")
+lines(arabica12,lty=1,col="black")
+```
+
+
+```
+arabica.random=arabica-arabica.season-arabica.trend
+```
+
+
+```
+arabica_recomposed=arabica.season+arabica.trend+arabica.random
+
+plot(arabica,ylim=c(20,320),axes=FALSE,xlab="",ylab="Price (US$/tonnes)")
+lines(arabica_recomposed,lty=2,col="red")
+axis(1,tick=FALSE,at=seq(1980,2020,5),label=seq(1980,2020,5))
+axis(2,tick=FALSE)
+```
+
+## Regression analysis
+```
+m2<-lm(y~x)
+summary(m2)
+```
+
+```
+b=cov(x,y)/var(x)
+a=mean(y)-b*mean(x)
+
+```
+
+```
+y.z<-y-mean(y)
+x.z<-x-mean(x)
+m2a<-lm(y.z~x.z)
+summary(m2a)
+```
+
+```
+plot(x.z,y.z,xlim=c(-11,13),ylim=c(-11,13))
+abline(lm(y.z~x.z),col="red")
+```
+
+```
+d1<-lm(price~carat,data=diamonds)
+summary(d1)
+```
+
+```
+d2<-lm(price~carat+cut+clarity+color,data=diamonds)
+summary(d2)
+```
+
+```
+ous2<-predict(d2,diamonds.ous)
+RMSE(ous2,diamonds.ous$price)
+```
+
+```
+ous3<-predict(d3,diamonds.ous)
+RMSE(ous3,diamonds.ous$price)
+```
+
+
