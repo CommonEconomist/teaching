@@ -1,0 +1,82 @@
+# Code computer tests
+
+## Computer test 1
+
+```
+str(X)
+
+# 1
+mean(X$temp.anomaly)
+sd(X$temp.anomaly)
+                                                                      
+# 2
+boxplot(X$temp.anomaly)
+
+# 3
+plot(X$temp.anomaly,type="l")
+
+# 4
+sum(X$elnino)
+sum(X$elnino)/nrow(X)
+
+# 5
+sum(X$elnino[X$elnino.strength=="strong" | X$elnino.strength=="very strong" ])
+
+# 6
+table(X$elnino.strength)
+sum(X$elnino[X$elnino.strength=="very strong"])/sum(X$elnino)
+
+# 7
+d<-table(X$elnino,X$elnino.l)
+prop.table(d,2)
+
+# 8
+boxplot(X$ond~X$elnino.strength)
+
+# 9
+d<-table(X$ond.above,X$elnino)
+prop.table(d,1)
+
+# 10
+d<-table(X$ond.abov,X$elnino.strength)
+prop.table(d,1)
+```
+
+## Computer test 2
+
+```
+str(d)
+
+# 1:
+hist(d$yield81to01,breaks=10)
+
+# 2: 
+mean(d$yield81to01[d$world.d==1]);sd(d$yield81to01[d$world.d==1])
+mean(d$yield81to01[d$world.d==0]);sd(d$yield81to01[d$world.d==0])
+
+# 3: 
+plot(d$yield61to80,d$yield81to01)
+
+# 4: 
+points(d$yield61to80[d$world.d==1],d$yield81to01[d$world.d==1],pch=19)
+
+# 5: 
+boxplot(d$yield81to01~d$world)
+
+# 6: 
+d$reduction<-d$yield81to01-d$yield61to80
+table(d$reduction<0)
+
+# 7: 
+t.test(d$yield61to80[d$world.d==0],
+       d$yield81to01[d$world.d==0],paired=TRUE)
+
+# 8: 
+t.test(d$yield81to01[d$world.d==1],
+       d$yield61to80[d$world.d==1],paired=TRUE,
+       alternative="greater")
+
+# 9: 
+m1<-lm(yield81to01~yield61to80+world.d,d)
+summary(m1)
+```

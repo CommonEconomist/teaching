@@ -1,9 +1,8 @@
 # Clean eurostat data on mortality
-setwd("~/Dropbox/github/Teaching/statistics_economics")
 
 #------------------------------------------------------------------------------
 #### 1) Population ####
-pop<-read.csv("data_raw/demo_r_pjangroup_1_Data.csv");str(pop)
+pop<-read.csv("rawdata/demo_r_pjangroup_1_Data.csv");str(pop)
 
 population<-data.frame(GEO=unique(pop$GEO),
                     pop=pop[pop$AGE=="Total" & pop$SEX=="Total" & 
@@ -22,7 +21,7 @@ population<-data.frame(GEO=unique(pop$GEO),
 
 #------------------------------------------------------------------------------
 #### 2) Mortality ####
-mort<-read.csv("data_raw/demo_r_magec3_1_Data.csv");str(mort)
+mort<-read.csv("rawdata/demo_r_magec3_1_Data.csv");str(mort)
 
 mortality<-data.frame(GEO=unique(mort$GEO),
                      deaths=mort[mort$AGE=="Total" & mort$SEX=="Total" &
@@ -43,7 +42,7 @@ mortality<-data.frame(GEO=unique(mort$GEO),
 
 #------------------------------------------------------------------------------
 #### 3) GDP ####
-gdp<-read.csv("data_raw/nama_10r_2gdp_1_Data.csv");str(gdp)
+gdp<-read.csv("rawdata/nama_10r_2gdp_1_Data.csv");str(gdp)
 
 unit<-as.vector(unique(gdp$UNIT))
 income<-data.frame(GEO=unique(gdp$GEO),
@@ -55,7 +54,7 @@ income<-data.frame(GEO=unique(gdp$GEO),
                        eur.pps.mil=gdp[gdp$UNIT==unit[6]& gdp$TIME==2014,]$Value)
 
 #------------------------------------------------------------------------------  #### 4) Doctors ####                  
-doc<-read.csv("data_raw/hlth_rs_prsrg_1_Data.csv");str(doc)
+doc<-read.csv("rawdata/hlth_rs_prsrg_1_Data.csv");str(doc)
 doctors<-data.frame(GEO=unique(doc$GEO),inh.per.doc=doc[doc$TIME==2014,]$Value)
 
 #------------------------------------------------------------------------------
