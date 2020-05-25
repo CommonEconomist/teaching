@@ -4,4 +4,4 @@ Specifically a number of diagrams on the theoretical side of things were taken f
 * The excellent lecture material from [Deardorff](http://www-personal.umich.edu/~alandear/courses/441/441.html)
 * Some diagrams (specific factors) are produced by Marc Melitz
 
-There are also likely some typos in the RHUL course.
+
