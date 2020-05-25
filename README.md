@@ -3,7 +3,7 @@ This repository contains teaching material - both lectures and tutorials - for a
 In most cases data and code for creating the figures is included. 
 For questions, feel free to contact me: vanweezel (at) pm.me
 
-#### `advanced-macro`
+#### `advanced-macro`  (University College Dublin 2016-18)
 Graduate course focusing on empirical macroeconomics.
 Topics covered include: 
 *  Identification;
@@ -13,9 +13,8 @@ Topics covered include:
 *  DSGE models;
 *  Banking crises.
 
-Taught at University College Dublin (2016-18).
 
-#### `international-trade`
+#### `international-trade` (Royal Holloway 2013-14; University College Dublin 2017-18)
 Undergraduate course in international trade economics.
 Topics covered include:
 *  Gravity model;
@@ -24,18 +23,16 @@ Topics covered include:
 *  Heckscher-Ohlin model;
 *  Trade policy (tariffs etc.).
 
-Taught at University College Dublin (2017-18) and Royal Holloway (2013-14).
 
-#### `european-economy`
+#### `european-economy` (University College Dublin 2016-18)
 Part of undergraduate course focusing on macroeconomic aspects of European integration. 
 Topics covered include:
 * Optimum Currency Area Theory;
 * Monetary and fiscal policy;
 * the Eurocrisis. 
 
-Taught at University College Dublin (2016-18).
 
-#### `statistics-economics`
+#### `statistics-economics` (University College Dublin 2017-18)
 R computer classes as part of undergraduate course in applied statistics. 
 Follow up course of 'Data analysis for economists'.
 Topics include:
@@ -43,9 +40,8 @@ Topics include:
 * Statistical test;
 * Linear regression.
 
-Taught at University College Dublin (2017-18)
 
-#### `data-analysis`
+#### `data-analysis` (University College Dublin 2017-18)
 R computer classes as part of undergraduate course in applied statistics. 
 Topics include;
 * Data processing;
@@ -54,5 +50,5 @@ Topics include;
 * Time-series data;
 * Linear regression.
 
-Taught at University College Dublin (2017-18)
+
 
