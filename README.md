@@ -1,6 +1,6 @@
 # Teaching material
 
-*For questions feel free to contact me:* vanweezel (at) pm.me
+For questions feel free to contact me: vanweezel (at) pm.me
 
 
 | Subject | Topics | Type | Level | Where | When | Folder |
