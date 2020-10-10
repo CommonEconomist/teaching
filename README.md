@@ -1,54 +1,13 @@
-## Teaching material
-This repository contains teaching material - both lectures and tutorials - for a number of courses. 
-In most cases data and code for creating the figures is included. 
-For questions, feel free to contact me: vanweezel (at) pm.me
+# Teaching material
 
-#### `advanced-macro`  (University College Dublin 2016-18)
-Graduate course focusing on empirical macroeconomics.
-Topics covered include: 
-*  Identification;
-*  Growth accounting;
-*  VAR models;
-*  Real business cycle model and New Keynesian model;
-*  DSGE models;
-*  Banking crises.
+*For questions feel free to contact me:* vanweezel (at) pm.me
 
 
-#### `international-trade` (Royal Holloway 2013-14; University College Dublin 2017-18)
-Undergraduate course in international trade economics.
-Topics covered include:
-*  Gravity model;
-*  Comparative advantage/Ricardian model;
-*  Specific factors model;
-*  Heckscher-Ohlin model;
-*  Trade policy (tariffs etc.).
-
-
-#### `european-economy` (University College Dublin 2016-18)
-Part of undergraduate course focusing on macroeconomic aspects of European integration. 
-Topics covered include:
-* Optimum Currency Area Theory;
-* Monetary and fiscal policy;
-* the Eurocrisis. 
-
-
-#### `statistics-economics` (University College Dublin 2017-18)
-R computer classes as part of undergraduate course in applied statistics. 
-Follow up course of 'Data analysis for economists'.
-Topics include:
-* Exploratory data analysis;
-* Statistical test;
-* Linear regression.
-
-
-#### `data-analysis` (University College Dublin 2017-18)
-R computer classes as part of undergraduate course in applied statistics. 
-Topics include;
-* Data processing;
-* Data visualisation;
-* Exploratory data analysis;
-* Time-series data;
-* Linear regression.
-
-
+| Subject | Topics | Type | Level | Where | When | Folder |
+| :------ | :----- | :--- | :---- | :---- | :--- | :----- |
+| Advanced macroeconomics | Identification; growth accounting; vector autoregression; real business cycle; new Keynesian model; DSGE; banking crises | Lectures | Graduate | University College Dublin | 2016-18 | [`advanced-macro`](https://github.com/CommonEconomist/teaching/tree/master/advanced-macro)|
+| International trade | trade gravity; comparative advantage; specific factors; Heckscher-Ohlin; policy | Lectures, problem sets | Undergraduate | Royal Holloway, University College Dublin | 2013-14, 2017-18 | [`international-trade`](https://github.com/CommonEconomist/teaching/tree/master/international-trade) |
+| European economy | Optimum Currency Area theory; monetary and fiscal policy; Eurocrisis | Lectures | Undergraduate | University College Dublin | 2016-18 | [`european-economy`](https://github.com/CommonEconomist/teaching/tree/master/european-economy)]
+| Statistics | Exploratory data analysis; statistical tests; linear regression | Tutorials | Undergraduate | University College Dublin | 2017-18 | [`statistics-economics`](https://github.com/CommonEconomist/teaching/tree/master/statistics-economics) |
+| Data analysis | Data processing; visualisation; exploratory data analysis; time-series; linear regression | Tutorials | Undergraduate | University College Dublin | 2017-18 | [`data-analysis`](https://github.com/CommonEconomist/teaching/tree/master/data-analysis) |
 
